@@ -1,9 +1,9 @@
 # blog.jokerx04.com
 <br /><br />
 
-## 블로그 스킨 편집
+## 스킨 편집
 
-블로그 스킨 편집에서 head 태그에 blog.html 코드 추가 수정
+스킨 편집에서 head 태그에 blog.html 코드 추가 수정
 <br /><br />
 
 ## blog.css, blog.js 수정 시 CDN 갱신
