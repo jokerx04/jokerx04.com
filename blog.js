@@ -208,6 +208,40 @@ function prismHighlight(selector, data, language) {
 	
 }
 
+function addTableTr(selector, appendTrIndex, appendTrHtml) {
+		
+	if (appendTrIndex === undefined) {
+		appendTrIndex = $(selector).closest('table').find('tr').index($(selector).closest('tr'));
+	}
+	
+	if (appendTrIndex >= $(selector).closest('table').find('tr').length) {
+		appendTrIndex = $(selector).closest('table').find('tr').index($(selector).closest('tr'));
+	}
+	
+	if (appendTrHtml === undefined) {
+		appendTrHtml = getStringHtml($(selector).closest('tr'));
+	}
+	
+	$(selector).closest('table').find('tr:nth-child(' + (appendTrIndex + 1) + ')').after(appendTrHtml);
+		
+}
+	
+function removeTableTr(selector) {
+	
+	if ($(selector).closest('table').find('.' + $(selector).attr('class').replace(/\s/gi, '.')).length === 1) {
+		$(selector).closest('tr').find('input[type="text"]').val('');
+		
+		$(selector).closest('tr').find('input[type="checkbox"]').prop('checked', false);
+		
+		$(selector).closest('tr').find('textarea').val('');
+		
+		$(selector).closest('tr').find('select option:eq(0)').prop('selected', true);
+	} else {
+		$(selector).closest('tr').remove();
+	}
+	
+}
+
 function getJQueryVersion() {
 		
 	return $().jquery;
@@ -218,6 +252,12 @@ function getJQueryUIVersion() {
 
 	return $.ui.version;
 
+}
+
+function getStringHtml(selector) {
+	
+	return $(selector).clone().wrapAll('<div/>').parent().html();
+		
 }
 
 function getJsonStringify(json) {
