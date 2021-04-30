@@ -219,6 +219,8 @@ function addTableTr(selector, appendTrIndex, appendTrHtml) {
 	}
 	
 	if (appendTrHtml === undefined) {
+		disableTableTr(selector, false);
+		
 		appendTrHtml = getStringHtml($(selector).closest('tr'));
 	}
 	
