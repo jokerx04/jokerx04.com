@@ -224,7 +224,7 @@ function addTableTr(selector, appendTrIndex, appendTrHtml) {
 	
 	$(selector).closest('table').find('tr:nth-child(' + (appendTrIndex + 1) + ')').after(appendTrHtml);
 	
-	disableTableTr($(selector).closest('table').find('tr:nth-child(' + (appendTrIndex + 1) + ')'), false);
+	disableTableTr($(selector).closest('table').find('tr:nth-child(' + (appendTrIndex + 2) + ')'), false);
 		
 }
 	
