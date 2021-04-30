@@ -219,12 +219,12 @@ function addTableTr(selector, appendTrIndex, appendTrHtml) {
 	}
 	
 	if (appendTrHtml === undefined) {
-		disableTableTr(selector, false);
-		
 		appendTrHtml = getStringHtml($(selector).closest('tr'));
 	}
 	
 	$(selector).closest('table').find('tr:nth-child(' + (appendTrIndex + 1) + ')').after(appendTrHtml);
+	
+	disableTableTr($(selector).closest('table').find('tr:nth-child(' + (appendTrIndex + 1) + ')'), false);
 		
 }
 	
