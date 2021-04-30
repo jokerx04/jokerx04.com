@@ -246,11 +246,11 @@ function removeTableTr(selector) {
 
 function disableTableTr(selector, isDisabled) {
 	
-	$(this).closest('tr').find('input').attr('disabled', isDisabled);
+	$(selector).closest('tr').find('input').prop('disabled', isDisabled);
 	
-	$(this).closest('tr').find('textarea').attr('disabled', isDisabled);
+	$(selector).closest('tr').find('textarea').prop('disabled', isDisabled);
 	
-	$(this).closest('tr').find('select').attr('disabled', isDisabled);
+	$(selector).closest('tr').find('select').prop('disabled', isDisabled);
 	
 }
 
