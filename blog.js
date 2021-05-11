@@ -196,6 +196,21 @@ function stopBlockUI(selector) {
 
 }
 
+function htmlBeautify(data, options) {
+
+	let defaults = {
+
+		indent_size: '1',
+		indent_char: '\t'
+
+	};
+
+	$.extend(defaults, options);
+	
+	return html_beautify(data, defaults);
+	
+}
+
 function prismHighlight(selector, data, language) {
 	
 	if ($.trim(language) === '') {
