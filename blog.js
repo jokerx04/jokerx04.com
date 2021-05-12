@@ -41,6 +41,8 @@ $(function() {
 	});
 	
 	if ($.trim($('#toc').html()) !== '') {
+		$('#toc').prepend('<ul class="tocify-header"><li class="tocify-item ui-widget-content ui-state-default" style="cursor: pointer;" onclick="$(\'html, body\').animate({ scrollTop: 0 }, 500);"><a>TOP</a></li></ul>');
+		
 		$('#toc').append('<ins class="adsbygoogle" style="padding: 10px 0 0 0; display: block" data-ad-client="ca-pub-1437145358254272" data-ad-slot="9614406965" data-ad-format="auto" data-full-width-responsive="true"></ins>');
 		
 		(adsbygoogle = window.adsbygoogle || []).push({});
