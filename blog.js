@@ -29,6 +29,7 @@ $(function() {
 	});
 	
 	// kakaoAdFit
+	console.log($('div[data-ad-creative-wrap="inner"]').height());
 	$('div[data-ad-creative-wrap="inner"]').height($('div[data-ad-creative-wrap="inner"]').height() + 2);
 	
 	// jQuery Tocify
