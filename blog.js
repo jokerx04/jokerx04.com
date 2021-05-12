@@ -40,9 +40,12 @@ $(function() {
 
 	});
 	
-	//$('#toc').append('<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1437145358254272" data-ad-slot="9614406965" data-ad-format="auto" data-full-width-responsive="true"></ins>');
-	//(adsbygoogle = window.adsbygoogle || []).push({});
-
+	if ($.trim($('#toc').html()) !== '') {
+		$('#toc').append('<ins class="adsbygoogle" style="display:block" data-ad-client="ca-pub-1437145358254272" data-ad-slot="9614406965" data-ad-format="auto" data-full-width-responsive="true"></ins>');
+		
+		(adsbygoogle = window.adsbygoogle || []).push({});
+	}
+	
 	if ($(window).width() >= 1200) {
 		$('#toc').show();
 	} else {
