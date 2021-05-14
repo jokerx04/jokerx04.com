@@ -392,15 +392,15 @@ function getCorsUrl(data) {
 	
 	if (port === '') {
 		if (url.protocol === 'http:') {
-			port = '80'
+			returnValue = url.hostname + url.pathname + url.search;
 		}
 		
 		if (url.protocol === 'https:') {
-			port = '443'
+			returnValue = url.hostname + ':443' + url.pathname + url.search;
 		}
+	} else {
+		returnValue = url.hostname + ':' + port + url.pathname + url.search;
 	}
-	
-	returnValue = url.hostname + ':' + port + url.pathname + url.search;
 	
 	return returnValue;
 	
