@@ -37,7 +37,7 @@ $(function() {
 			clearInterval(kakaoAdFit);
 		}
 		
-	}, 1000);console.log($('div[data-ad-creative-wrap="inner"]').height());
+	}, 1000);
 	
 	// jQuery Tocify
 	$('body').prepend('<div id="toc" style="z-index: 10; top: 252px; right: 10px; max-height: 50%; padding: 10px; background-color: #ffffff;"></div>');
