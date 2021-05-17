@@ -28,17 +28,6 @@ $(function() {
 		
 	});
 	
-	// kakaoAdFit
-	let kakaoAdFit = setInterval(function () {
-		
-		if ($('div[data-ad-creative-wrap="inner"]').height() !== null) {
-			$('div[data-ad-creative-wrap="inner"]').height($('div[data-ad-creative-wrap="inner"]').height() + 2);
-			
-			clearInterval(kakaoAdFit);
-		}
-		
-	}, 1000);
-	
 	// jQuery Tocify
 	$('body').prepend('<div id="toc" style="z-index: 10; top: 252px; right: 10px; max-height: 50%; padding: 10px; background-color: #ffffff;"></div>');
 	
