@@ -235,7 +235,7 @@ function prismHighlight(selector, data, language) {
 	
 	$(selector).html('<pre class="line-numbers"><code class="language-' + language + '">' + data + '</code></pre>');
 	
-	Prism.highlightAll(true);
+	Prism.highlightAll();
 	
 }
 
