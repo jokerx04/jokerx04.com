@@ -33,7 +33,7 @@ $(function() {
 	
 	$('#toc').tocify({
 
-		context: '.entry-content',
+		context: '.contents_style',
 		selectors: 'h2,h3,h4',
 		ignoreSelector: '.another_category h4',
 		theme: 'jqueryui'
