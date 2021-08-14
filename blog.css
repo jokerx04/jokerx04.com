@@ -8,32 +8,32 @@
 }
 
 /* blog.jokerx04.com */
-#content input[type="text"] {
+.contents_style input[type="text"] {
 
 	width: 100% !important;
 
 }
 
 
-#content input[type="password"] {
+.contents_style input[type="password"] {
 
 	width: 100% !important;
 
 }
 
-#content input[type="radio"] {
+.contents_style input[type="radio"] {
 
 	width: auto !important;
 
 }
 
-#content input[type="checkbox"] {
+.contents_style input[type="checkbox"] {
 
 	width: auto !important;
 
 }
 
-#content textarea {
+.contents_style textarea {
 
 	width: 100% !important;
 	padding: 10px !important;
@@ -46,7 +46,7 @@
 
 }
 
-#content select {
+.contents_style select {
 
 	width: 100% !important;
 	height: 36px !important;
@@ -58,7 +58,7 @@
 
 }
 
-#content iframe {
+.contents_style iframe {
 
 	width: 100% !important;
 	border: 1px solid #e6e6e6 !important;
