@@ -1,4 +1,4 @@
-# blog.jokerx04.com
+# jokerx04.com
 <br /><br />
 
 ## CDN 갱신
