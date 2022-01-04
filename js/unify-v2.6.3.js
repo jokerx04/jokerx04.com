@@ -111,7 +111,7 @@ function startBlockUI(selector, options) {
 
 	let defaults = {
 
-		message: '<img src="./images/loading.gif" />',
+		message: '<img src="https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com/images/loading.gif" />',
 		css: {
 
 			width: '100px',
