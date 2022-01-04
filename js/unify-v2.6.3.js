@@ -350,3 +350,25 @@ function getEscapeHtml(data) {
 	return returnValue;
 	
 }
+
+function googleTranslateElementInit() {
+
+	new google.translate.TranslateElement({
+
+		pageLanguage: 'ko',
+		layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+		autoDisplay: true
+
+	}, 'googleTranslate');
+
+	var checkExist = setInterval(function() {
+
+		if ($('#googleTranslate select').length > 0) {
+			$('#googleTranslate select').addClass('custom-select w-50');
+
+			clearInterval(checkExist);
+		}
+
+	}, 100);
+
+}
