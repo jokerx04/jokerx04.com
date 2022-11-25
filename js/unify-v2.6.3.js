@@ -16,6 +16,147 @@ $(function() {
 
 	});
 	
+	// GNB Navigation
+	jQueryAjax({
+
+		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+		url: 'https://www.tistory.com/apis/category/list?&output=json&blogName=jokerx04-lab&access_token=bc4a6ac229fa008885b1f99cb57153a2_65227d4e733f4974e0bcad4da6e418e7',
+		method: 'GET',
+		type: 'GET',
+		success: function (data, textStatus, jqXHR) {
+
+			if ((data.tistory.status === '200') && (data.tistory.item.categories !== undefined)) {
+				console.log(JSON.stringify(data, null, '\t'));
+			}
+
+		}
+
+	}).then(function () {
+
+			return jQueryAjax({
+
+					contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+					url: 'https://www.tistory.com/apis/category/list?output=json&blogName=jokerx04&access_token=d697f5d5e99459276b03685445473e81_c5ae69e972d51dd9540c661c3ecacc2a',
+					method: 'GET',
+					type: 'GET',
+					success: function (data, textStatus, jqXHR) {
+
+						if ((data.tistory.status === '200') && (data.tistory.item.categories !== undefined)) {
+							var secondaryUrl = 'https://' + data.tistory.item.secondaryUrl;
+							var categories = data.tistory.item.categories;
+
+							var categoriesId = '';
+							var categoriesName = '';
+							var categoriesParent = '';
+							var categoriesLabel = '';
+							var categoriesEntries = '';
+							var categoriesEntriesInLogin = '';
+
+							var tempClass = '';
+							var isSubMenuTag = true;
+
+							var categoriesTag = '';
+
+							for (var i = 0; i < categories.length; i++) {
+								categoriesId = categories[i].id;
+								categoriesName = categories[i].name;
+								categoriesParent = categories[i].parent;
+								categoriesLabel = categories[i].label;
+								categoriesEntries = categories[i].entries;
+								categoriesEntriesInLogin = categories[i].entriesInLogin;
+
+								if (categoriesParent !== '') {
+									continue;
+								}
+
+								tempClass = '';
+								isSubMenuTag = true;
+
+								categoriesTag += '<li class="dropdown-item tempClass">';
+								categoriesTag += '	<a id="nav-link--blog' + categoriesId + '" class="nav-link g-color-primary--hover" href="' + secondaryUrl + '/category/' + categoriesLabel + '" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--blog' + categoriesId + '">' + categoriesName + '(' + categoriesEntries + ')</a>';
+
+								for (var k = 0; k < categories.length; k++) {
+									if (categoriesId !== categories[k].parent) {
+										continue;
+									}
+
+									if (isSubMenuTag) {
+										categoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--blog' + categoriesId + '" aria-labelledby="nav-link--blog' + categoriesId + '">';
+									}
+
+									categoriesTag += '		<li class="dropdown-item">';
+									categoriesTag += '			<a class="nav-link g-color-primary--hover" href="' + secondaryUrl + '/category/' + categories[k].label + '">' + categories[k].name + '(' + categories[k].entries + ')</a>';
+									categoriesTag += '		</li>';
+
+									isSubMenuTag = false;
+								}
+
+								if (!isSubMenuTag) {
+									tempClass = 'hs-has-sub-menu';
+
+									categoriesTag += '	</ul>';
+								}
+
+								categoriesTag += '</li>';
+
+								if (categoriesTag.lastIndexOf('tempClass') !== -1) {
+									categoriesTag = categoriesTag.substring(0, categoriesTag.lastIndexOf('tempClass')) + tempClass + categoriesTag.substring(categoriesTag.lastIndexOf('tempClass') + 'tempClass'.length);
+								}
+							}
+
+							$('#nav-submenu-blog').append(categoriesTag);
+						}
+
+					},
+					complete: function (jqXHR, textStatus) {
+
+						// GNB Active
+						var breadcrumbsTitle = $('.breadcrumbsTitle').eq(0).text();
+
+						if (breadcrumbsTitle.lastIndexOf('(') !== -1) {
+							breadcrumbsTitle = breadcrumbsTitle.substring(0, breadcrumbsTitle.lastIndexOf('('));
+						}
+
+						$('#navBar').find('a').each(function (index, element) {
+
+							if ($(this).text() === breadcrumbsTitle) {
+								if (breadcrumbsTitle.lastIndexOf('/') === -1) {
+									breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
+								}
+
+								return false;
+							}
+
+						});
+
+						breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
+
+						var breadcrumbsTitleSplitIndex = 0;
+
+						var navBarAText = '';
+
+						$('#navBar').find('a').each(function (index, element) {
+
+							navBarAText = $(this).text();
+
+							if (navBarAText.lastIndexOf('(') !== -1) {
+								navBarAText = navBarAText.substring(0, navBarAText.lastIndexOf('('));
+							}
+
+							if (navBarAText === breadcrumbsTitle.split('/')[breadcrumbsTitleSplitIndex]) {
+								$(this).addClass('active');
+
+								breadcrumbsTitleSplitIndex++;
+							}
+
+						});
+
+					}
+
+				});
+
+		}, function () {});
+	
 });
 
 function jQueryAjaxErrorConsole(jQueryAjaxErrorArray) {
