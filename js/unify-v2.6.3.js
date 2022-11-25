@@ -120,6 +120,10 @@ $(function() {
 			if (window.location.host === 'jokerx04.com') {
 				$('#navBar').find('a[href="' + window.location.protocol + '//' + window.location.host + '"]').addClass('active');
 			}
+			
+			if (window.location.host === 'lab.jokerx04.com') {
+				$('#navBar').find('a[href="' + window.location.protocol + '//' + window.location.host + '"]').addClass('active');
+			}
 		 	
 			if (window.location.host === 'blog.jokerx04.com') {
 				var breadcrumbsTitle = $('.breadcrumbsTitle').eq(0).text();
