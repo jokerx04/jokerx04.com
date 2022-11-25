@@ -17,6 +17,37 @@ $(function() {
 	});
 	
 	// GNB Navigation
+	var blogCategoriesTag = '';
+	
+	blogCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
+	blogCategoriesTag += '	<a id="nav-link--blog1" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--blog1">블로그</a>';
+	blogCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--blog1" aria-labelledby="nav-link--blog1">';
+	blogCategoriesTag += '		<li class="dropdown-item">';
+	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com">전체 글</a>';
+	blogCategoriesTag += '		</li>';
+	blogCategoriesTag += '		<li class="dropdown-item">';
+	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/category">분류 전체보기</a>';
+	blogCategoriesTag += '		</li>';
+	blogCategoriesTag += '		<li class="dropdown-item">';
+	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/notice">공지사항</a>';
+	blogCategoriesTag += '		</li>';
+	blogCategoriesTag += '		<li class="dropdown-item">';
+	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/guestbook">방명록</a>';
+	blogCategoriesTag += '		</li>';
+	blogCategoriesTag += '		<li class="dropdown-item">';
+	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/tag">태그</a>';
+	blogCategoriesTag += '		</li>';
+	blogCategoriesTag += '		<li class="dropdown-item">';
+	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/manage" target="_blank">블로그 관리</a>';
+	blogCategoriesTag += '		</li>';
+	blogCategoriesTag += '		<li class="dropdown-item">';
+	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://tistory.github.io/document-tistory-skin" target="_blank">티스토리 스킨 가이드</a>';
+	blogCategoriesTag += '		</li>';
+	blogCategoriesTag += '	</ul>';
+	blogCategoriesTag += '</li>';
+	
+	$('#nav-submenu-blog').append(blogCategoriesTag);
+	
 	jQueryAjax({
 		
 		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
