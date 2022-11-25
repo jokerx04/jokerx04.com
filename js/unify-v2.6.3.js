@@ -57,7 +57,7 @@ $(function() {
 		type: 'GET',
 		beforeSend: function (jqXHR, settings) {
 
-			startBlockUI();
+			//startBlockUI();
 
 		},
 		success: function (data, textStatus, jqXHR) {
@@ -208,7 +208,7 @@ $(function() {
 				});
 			}
 
-			stopBlockUI();
+			//stopBlockUI();
 
 		}
 	);
