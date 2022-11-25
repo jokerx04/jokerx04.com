@@ -107,55 +107,59 @@ $(function() {
 							$('#nav-submenu-blog').append(categoriesTag);
 						}
 
-					},
-					complete: function (jqXHR, textStatus) {
+					}
+					
+				});
 
-						// GNB Active
-						var breadcrumbsTitle = $('.breadcrumbsTitle').eq(0).text();
+		}, function () {
+			
+		}
+	).always(function () {
+			
+			// GNB Active
+			if (window.location.host === 'blog.jokerx04.com') {
+				var breadcrumbsTitle = $('.breadcrumbsTitle').eq(0).text();
 
-						if (breadcrumbsTitle.lastIndexOf('(') !== -1) {
-							breadcrumbsTitle = breadcrumbsTitle.substring(0, breadcrumbsTitle.lastIndexOf('('));
+				if (breadcrumbsTitle.lastIndexOf('(') !== -1) {
+					breadcrumbsTitle = breadcrumbsTitle.substring(0, breadcrumbsTitle.lastIndexOf('('));
+				}
+
+				$('#navBar').find('a').each(function (index, element) {
+
+					if ($(this).text() === breadcrumbsTitle) {
+						if (breadcrumbsTitle.lastIndexOf('/') === -1) {
+							breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
 						}
 
-						$('#navBar').find('a').each(function (index, element) {
-
-							if ($(this).text() === breadcrumbsTitle) {
-								if (breadcrumbsTitle.lastIndexOf('/') === -1) {
-									breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
-								}
-
-								return false;
-							}
-
-						});
-
-						breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
-
-						var breadcrumbsTitleSplitIndex = 0;
-
-						var navBarAText = '';
-
-						$('#navBar').find('a').each(function (index, element) {
-
-							navBarAText = $(this).text();
-
-							if (navBarAText.lastIndexOf('(') !== -1) {
-								navBarAText = navBarAText.substring(0, navBarAText.lastIndexOf('('));
-							}
-
-							if (navBarAText === breadcrumbsTitle.split('/')[breadcrumbsTitleSplitIndex]) {
-								$(this).addClass('active');
-
-								breadcrumbsTitleSplitIndex++;
-							}
-
-						});
-
+						return false;
 					}
 
 				});
 
-		}, function () {});
+				breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
+
+				var breadcrumbsTitleSplitIndex = 0;
+
+				var navBarAText = '';
+
+				$('#navBar').find('a').each(function (index, element) {
+
+					navBarAText = $(this).text();
+
+					if (navBarAText.lastIndexOf('(') !== -1) {
+						navBarAText = navBarAText.substring(0, navBarAText.lastIndexOf('('));
+					}
+
+					if (navBarAText === breadcrumbsTitle.split('/')[breadcrumbsTitleSplitIndex]) {
+						$(this).addClass('active');
+
+						breadcrumbsTitleSplitIndex++;
+					}
+
+				});
+			}
+			
+		});
 	
 });
 
