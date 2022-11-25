@@ -379,6 +379,7 @@ $(function() {
 	jQueryAjax({
 
 		global: false,
+		isCorsUrl: false,
 		contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 		url: 'https://www.tistory.com/apis/category/list?&output=json&blogName=jokerx04-lab&access_token=bc4a6ac229fa008885b1f99cb57153a2_65227d4e733f4974e0bcad4da6e418e7',
 		method: 'GET',
@@ -397,6 +398,7 @@ $(function() {
 			return jQueryAjax({
 
 					global: false,
+					isCorsUrl: false,
 					contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
 					url: 'https://www.tistory.com/apis/category/list?output=json&blogName=jokerx04&access_token=d697f5d5e99459276b03685445473e81_c5ae69e972d51dd9540c661c3ecacc2a',
 					method: 'GET',
@@ -606,13 +608,14 @@ function jQueryAjax(options) {
 
 
 
-		}
+		},
+		isCorsUrl: true
 
 	};
 
 	$.extend(defaults, options);
 
-	if (defaults.crossDomain && jQuery.support.cors) {
+	if (defaults.crossDomain && defaults.isCorsUrl && jQuery.support.cors) {
 		defaults.url = 'https://cors.jokerx04.com/' + getCorsUrl(defaults.url);
 	}
 
