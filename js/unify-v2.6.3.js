@@ -21,7 +21,7 @@ $(function() {
 	var bookmarkCategoriesTag = '';
 
 	blogCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	blogCategoriesTag += '	<a id="nav-link--blog1" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--blog1">블로그</a>';
+	blogCategoriesTag += '	<a id="nav-link--blog1" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--blog1">블로그(7)</a>';
 	blogCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--blog1" aria-labelledby="nav-link--blog1">';
 	blogCategoriesTag += '		<li class="dropdown-item">';
 	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com">전체 글</a>';
@@ -375,6 +375,16 @@ $(function() {
 
 	$('#nav-submenu-blog').append(blogCategoriesTag);
 	$('#nav-submenu-bookmark').append(bookmarkCategoriesTag);
+	
+	var bookmarkATagLength = 0;
+	
+	$('#nav-submenu-bookmark').find('li.hs-has-sub-menu').each(function (index, element) {
+		
+		bookmarkATagLength = $(this).find('a').length - 1;
+		
+		$(this).find('a:eq(0)').text($(this).find('a:eq(0)').text() + '(' + bookmarkATagLength + ')');
+		
+	});
 
 	jQueryAjax({
 
