@@ -17,373 +17,145 @@ $(function() {
 	});
 
 	// GNB Navigation
-	/*var blogCategoriesTag = '';
-	var bookmarkCategoriesTag = '';
+	getNavigationHtml('#nav-submenu-blog', 'id', {
 
-	blogCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	blogCategoriesTag += '	<a id="nav-link--blog1" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--blog1">블로그(7)</a>';
-	blogCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--blog1" aria-labelledby="nav-link--blog1">';
-	blogCategoriesTag += '		<li class="dropdown-item">';
-	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com">전체 글</a>';
-	blogCategoriesTag += '		</li>';
-	blogCategoriesTag += '		<li class="dropdown-item">';
-	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/category">분류 전체보기</a>';
-	blogCategoriesTag += '		</li>';
-	blogCategoriesTag += '		<li class="dropdown-item">';
-	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/notice">공지사항</a>';
-	blogCategoriesTag += '		</li>';
-	blogCategoriesTag += '		<li class="dropdown-item">';
-	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/guestbook">방명록</a>';
-	blogCategoriesTag += '		</li>';
-	blogCategoriesTag += '		<li class="dropdown-item">';
-	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/tag">태그</a>';
-	blogCategoriesTag += '		</li>';
-	blogCategoriesTag += '		<li class="dropdown-item">';
-	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://blog.jokerx04.com/manage" target="_blank">블로그 관리</a>';
-	blogCategoriesTag += '		</li>';
-	blogCategoriesTag += '		<li class="dropdown-item">';
-	blogCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://tistory.github.io/document-tistory-skin" target="_blank">티스토리 스킨 가이드</a>';
-	blogCategoriesTag += '		</li>';
-	blogCategoriesTag += '	</ul>';
-	blogCategoriesTag += '</li>';
+		"key": "depth,type,title,href,target",
+		"value": [
 
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark1" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark1">프레젠테이션</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark1" aria-labelledby="nav-link--bookmark1">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://speller.cs.pusan.ac.kr" target="_blank">한국어 맞춤법/문법 검사기</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.presentationmagazine.com" target="_blank">Presentation Magazine</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://pixlr.com/kr/editor" target="_blank">PIXLR</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.flaticon.com" target="_blank">FLATICON</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.iconfinder.com" target="_blank">ICONFINDER</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.iconarchive.com" target="_blank">IconArchive</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://thenounproject.com" target="_blank">Icons for everything</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://iconmonstr.com" target="_blank">iconmonstr</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://unsplash.com" target="_blank">Unsplash</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark2" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark2">교육</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark2" aria-labelledby="nav-link--bookmark2">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.kmooc.kr" target="_blank">K-MOOC</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.inflearn.com" target="_blank">인프런</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://tacademy.skplanet.com" target="_blank">T아카데미</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://nomadcoders.co" target="_blank">노마드 코더</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://sll.seoul.go.kr" target="_blank">서울특별시 평생학습포털</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.gseek.kr" target="_blank">경기도 무료 온라인 평생학습</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://db.history.go.kr" target="_blank">한국사데이터베이스</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://koreanhistory.or.kr" target="_blank">한국역사정보통합시스템</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://z-lib.org" target="_blank">Z-Library</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://libgen.is" target="_blank">Library Genesis</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark3" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark3">부동산</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark3" aria-labelledby="nav-link--bookmark3">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://seereal.lh.or.kr" target="_blank">씨:리얼</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://land.naver.com" target="_blank">네이버 부동산</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://realestate.daum.net" target="_blank">다음 부동산</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.r114.com" target="_blank">부동산114</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://estate.mk.co.kr" target="_blank">MK부동산</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://kbland.kr" target="_blank">리브부동산</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.zigbang.com" target="_blank">직방</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.dabangapp.com" target="_blank">다방</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.valueupmap.com" target="_blank">밸류맵</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.disco.re" target="_blank">디스코</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.realtyprice.kr" target="_blank">국토교통부 부동산공시가격 알리미</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://rt.molit.go.kr" target="_blank">국토교통부 실거래가 공개시스템</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.howsmuch.com" target="_blank">하우스머치</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://villasise.com" target="_blank">주소 기반 연립·다세대 시세 조회</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://cloud.eais.go.kr" target="_blank">건축행정시스템 세움터</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.barobaro.info" target="_blank">바로바로</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.myhome.go.kr" target="_blank">마이홈포털</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://신혼희망타운.com" target="_blank">신혼희망타운</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.applyhome.co.kr" target="_blank">한국부동산원 청약홈</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://apply.lh.or.kr" target="_blank">LH 청약센터</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark4" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark4">쇼핑</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark4" aria-labelledby="nav-link--bookmark4">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.lanmart.co.kr" target="_blank">랜스타</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.kwshop.co.kr" target="_blank">강원전자</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://deck.plus-web.co.kr" target="_blank">(주)이온크루</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://tv.ssg.com" target="_blank">신세계 TV쇼핑</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://eshop.parkland.co.kr" target="_blank">파크랜드</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.stco.co.kr" target="_blank">STCO</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.nepamall.com" target="_blank">네파 통합 쇼핑몰</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://emart.ssg.com" target="_blank">이마트몰</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.kalesma.com" target="_blank">칼이쓰마</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.kajawine.kr" target="_blank">가나주류백화점 광진점</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://designagit.com" target="_blank">디자인아지트</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark5" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark5">웹 마스터 도구</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark5" aria-labelledby="nav-link--bookmark5">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://analytics.google.com" target="_blank">Google Analytics</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.google.co.kr/adsense" target="_blank">Google Adsense</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://search.google.com/search-console" target="_blank">Google Search Console</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://searchadvisor.naver.com" target="_blank">네이버 서치어드바이저</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.bing.com/toolbox/webmaster" target="_blank">Bing 웹 마스터 도구</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.check-domains.com/sitemap/index.php" target="_blank">XML Sitemap Generator</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.gabia.com" target="_blank">가비아</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.iwinv.kr" target="_blank">IwinV CLOUD</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.macincloud.com" target="_blank">MacinCloud</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.macstadium.com" target="_blank">MacStadium</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.modoo.at" target="_blank">네이버 모두</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://ko.wix.com" target="_blank">WIX</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark6" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark6">프레임워크</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark6" aria-labelledby="nav-link--bookmark6">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.apache.org" target="_blank">Apache Software Foundation</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://spring.io" target="_blank">Spring</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://www.egovframe.go.kr" target="_blank">표준프레임워크 포털</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.thymeleaf.org" target="_blank">Thymeleaf</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://ko.reactjs.org" target="_blank">React</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://jquery.com" target="_blank">jQuery</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://getbootstrap.com" target="_blank">Bootstrap</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark7" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark7">솔루션</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark7" aria-labelledby="nav-link--bookmark7">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.highcharts.com" target="_blank">Highcharts</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://d3js.org" target="_blank">D3.js</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://dc-js.github.io/dc.js" target="_blank">dc.js</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://github.com/omnisci/mapd-charting" target="_blank">MapD Charting</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://openlayers.org" target="_blank">OpenLayers</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.mapbox.com" target="_blank">Mapbox</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://kepler.gl" target="_blank">kepler.gl</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://deck.gl" target="_blank">deck.gl</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://flowmap.blue" target="_blank">flowmap.blue</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://wrapbootstrap.com" target="_blank">WrapBootstrap</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://themes.getbootstrap.com" target="_blank">Bootstrap Themes</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark8" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark8">데이터</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark8" aria-labelledby="nav-link--bookmark8">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.open.go.kr" target="_blank">정보공개포털</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.data.go.kr" target="_blank">공공데이터포털</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="http://kosis.kr" target="_blank">KOSIS 국가통계포털</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://aihub.or.kr" target="_blank">AI 허브</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://developers.naver.com" target="_blank">NAVER Developers</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://developers.kakao.com" target="_blank">Kakao Developers</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-divider"></li>';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://www.sample-videos.com" target="_blank">Download Sample Videos</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
-	bookmarkCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
-	bookmarkCategoriesTag += '	<a id="nav-link--bookmark9" class="nav-link g-color-primary--hover" href="#" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--bookmark9">기타</a>';
-	bookmarkCategoriesTag += '	<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--bookmark9" aria-labelledby="nav-link--bookmark9">';
-	bookmarkCategoriesTag += '		<li class="dropdown-item">';
-	bookmarkCategoriesTag += '			<a class="nav-link g-color-primary--hover" href="https://career.sw.or.kr" target="_blank">소프트웨어기술자 경력관리시스템</a>';
-	bookmarkCategoriesTag += '		</li>';
-	bookmarkCategoriesTag += '	</ul>';
-	bookmarkCategoriesTag += '</li>';
+			"1,link,블로그,#,self",
+			"2,link,전체 글,https://blog.jokerx04.com,self",
+			"2,link,분류 전체보기,https://blog.jokerx04.com/category,self",
+			"2,link,공지사항,https://blog.jokerx04.com/notice,self",
+			"2,link,방명록,https://blog.jokerx04.com/guestbook,self",
+			"2,link,태그,https://blog.jokerx04.com/tag,self",
+			"2,link,블로그 관리,https://blog.jokerx04.com/manage,blank",
+			"2,link,티스토리 스킨 가이드,https://tistory.github.io/document-tistory-skin,blank",
+			"2,link,티스토리 Open API,https://tistory.github.io/document-tistory-apis,blank"
 
-	$('#nav-submenu-blog').append(blogCategoriesTag);
-	$('#nav-submenu-bookmark').append(bookmarkCategoriesTag);
-	
-	var bookmarkATagLength = 0;
-	
-	$('#nav-submenu-bookmark').find('li.hs-has-sub-menu').each(function (index, element) {
-		
-		bookmarkATagLength = $(this).find('a').length - 1;
-		
-		$(this).find('a:eq(0)').text($(this).find('a:eq(0)').text() + '(' + bookmarkATagLength + ')');
-		
+		]
+
+	});
+
+	getNavigationHtml('#nav-submenu-bookmark', 'bookmark', {
+
+		"key": "depth,type,title,href,target",
+		"value": [
+
+			"1,link,프레젠테이션,#,self",
+			"2,link,한국어 맞춤법/문법 검사기,http://speller.cs.pusan.ac.kr,blank",
+			"2,div,,,",
+			"2,link,Presentation Magazine,https://www.presentationmagazine.com,blank",
+			"2,div,,,",
+			"2,link,PIXLR,https://pixlr.com/kr/editor,blank",
+			"2,link,FLATICON,https://www.flaticon.com,blank",
+			"2,link,ICONFINDER,https://www.iconfinder.com,blank",
+			"2,link,IconArchive,http://www.iconarchive.com,blank",
+			"2,link,Icons for everything,https://thenounproject.com,blank",
+			"2,link,iconmonstr,https://iconmonstr.com,blank",
+			"2,link,Unsplash,https://unsplash.com,blank",
+			"1,link,교육,#,self",
+			"2,link,K-MOOC,http://www.kmooc.kr,blank",
+			"2,link,인프런,https://www.inflearn.com,blank",
+			"2,link,T아카데미,https://tacademy.skplanet.com,blank",
+			"2,link,노마드 코더,https://nomadcoders.co,blank",
+			"2,link,서울특별시 평생학습포털,http://sll.seoul.go.kr,blank",
+			"2,link,경기도 무료 온라인 평생학습,https://www.gseek.kr,blank",
+			"2,div,,,",
+			"2,link,한국사데이터베이스,http://db.history.go.kr,blank",
+			"2,link,한국역사정보통합시스템,http://koreanhistory.or.kr,blank",
+			"2,div,,,",
+			"2,link,Z-Library,https://z-lib.org,blank",
+			"2,link,Library Genesis,https://libgen.is,blank",
+			"1,link,부동산,#,self",
+			"2,link,씨:리얼,http://seereal.lh.or.kr,blank",
+			"2,link,네이버 부동산,http://land.naver.com,blank",
+			"2,link,다음 부동산,http://realestate.daum.net,blank",
+			"2,link,부동산114,http://www.r114.com,blank",
+			"2,link,MK부동산,http://estate.mk.co.kr,blank",
+			"2,link,리브부동산,https://kbland.kr,blank",
+			"2,link,직방,https://www.zigbang.com,blank",
+			"2,link,다방,https://www.dabangapp.com,blank",
+			"2,link,밸류맵,https://www.valueupmap.com,blank",
+			"2,link,디스코,https://www.disco.re,blank",
+			"2,div,,,",
+			"2,link,국토교통부 부동산공시가격 알리미,http://www.realtyprice.kr,blank",
+			"2,link,국토교통부 실거래가 공개시스템,http://rt.molit.go.kr,blank",
+			"2,link,하우스머치,https://www.howsmuch.com,blank",
+			"2,link,주소 기반 연립·다세대 시세 조회,http://villasise.com,blank",
+			"2,link,건축행정시스템 세움터,https://cloud.eais.go.kr,blank",
+			"2,link,바로바로,https://www.barobaro.info,blank",
+			"2,div,,,",
+			"2,link,마이홈포털,https://www.myhome.go.kr,blank",
+			"2,link,신혼희망타운,http://신혼희망타운.com,blank",
+			"2,link,한국부동산원 청약홈,https://www.applyhome.co.kr,blank",
+			"2,link,LH 청약센터,https://apply.lh.or.kr,blank",
+			"1,link,쇼핑,#,self",
+			"2,link,랜스타,http://www.lanmart.co.kr,blank",
+			"2,link,강원전자,http://www.kwshop.co.kr,blank",
+			"2,link,(주)이온크루,http://deck.plus-web.co.kr,blank",
+			"2,div,,,",
+			"2,link,신세계 TV쇼핑,http://tv.ssg.com,blank",
+			"2,link,파크랜드,http://eshop.parkland.co.kr,blank",
+			"2,link,STCO,http://www.stco.co.kr,blank",
+			"2,link,네파 통합 쇼핑몰,http://www.nepamall.com,blank",
+			"2,div,,,",
+			"2,link,이마트몰,http://emart.ssg.com,blank",
+			"2,link,칼이쓰마,http://www.kalesma.com,blank",
+			"2,link,가나주류백화점 광진점,http://www.kajawine.kr,blank",
+			"2,link,디자인아지트,https://designagit.com,blank",
+			"1,link,웹 마스터 도구,#,self",
+			"2,link,Google Analytics,https://analytics.google.com,blank",
+			"2,link,Google Adsense,https://www.google.co.kr/adsense,blank",
+			"2,link,Google Search Console,https://search.google.com/search-console,blank",
+			"2,link,네이버 서치어드바이저,https://searchadvisor.naver.com,blank",
+			"2,link,Bing 웹 마스터 도구,http://www.bing.com/toolbox/webmaster,blank",
+			"2,link,XML Sitemap Generator,http://www.check-domains.com/sitemap/index.php,blank",
+			"2,div,,,",
+			"2,link,가비아,https://www.gabia.com,blank",
+			"2,link,IwinV CLOUD,https://www.iwinv.kr,blank",
+			"2,link,MacinCloud,https://www.macincloud.com,blank",
+			"2,link,MacStadium,https://www.macstadium.com,blank",
+			"2,div,,,",
+			"2,link,네이버 모두,http://www.modoo.at,blank",
+			"2,link,WIX,http://ko.wix.com,blank",
+			"1,link,프레임워크,#,self",
+			"2,link,Apache Software Foundation,http://www.apache.org,blank",
+			"2,div,,,",
+			"2,link,Spring,http://spring.io,blank",
+			"2,link,표준프레임워크 포털,http://www.egovframe.go.kr,blank",
+			"2,link,Thymeleaf,https://www.thymeleaf.org,blank",
+			"2,link,React,https://ko.reactjs.org,blank",
+			"2,link,jQuery,https://jquery.com,blank",
+			"2,link,Bootstrap,https://getbootstrap.com,blank",
+			"1,link,솔루션,#,self",
+			"2,link,Highcharts,https://www.highcharts.com,blank",
+			"2,link,D3.js,https://d3js.org,blank",
+			"2,link,dc.js,https://dc-js.github.io/dc.js,blank",
+			"2,link,MapD Charting,https://github.com/omnisci/mapd-charting,blank",
+			"2,div,,,",
+			"2,link,OpenLayers,https://openlayers.org,blank",
+			"2,link,Mapbox,https://www.mapbox.com,blank",
+			"2,link,kepler.gl,https://kepler.gl,blank",
+			"2,link,deck.gl,https://deck.gl,blank",
+			"2,link,flowmap.blue,https://flowmap.blue,blank",
+			"2,div,,,",
+			"2,link,WrapBootstrap,https://wrapbootstrap.com,blank",
+			"2,link,Bootstrap Themes,https://themes.getbootstrap.com,blank",
+			"1,link,데이터,#,self",
+			"2,link,정보공개포털,https://www.open.go.kr,blank",
+			"2,link,공공데이터포털,https://www.data.go.kr,blank",
+			"2,link,KOSIS 국가통계포털,http://kosis.kr,blank",
+			"2,link,AI 허브,https://aihub.or.kr,blank",
+			"2,div,,,",
+			"2,link,NAVER Developers,https://developers.naver.com,blank",
+			"2,link,Kakao Developers,https://developers.kakao.com,blank",
+			"2,div,,,",
+			"2,link,Download Sample Videos,https://www.sample-videos.com,blank",
+			"1,link,기타,#,self",
+			"2,link,소프트웨어기술자 경력관리시스템,https://career.sw.or.kr,blank"
+
+		]
+
 	});
 
 	jQueryAjax({
@@ -719,6 +491,90 @@ function prismHighlight(selector, data, language) {
 
 	Prism.highlightAll();
 
+}
+
+function getNavigationHtml(selector, id, categories) {
+
+	let categoriesKey = categories.key;
+	let categoriesValue = categories.value;
+	
+	let categoriesId = 0;
+	let categoriesDepth = '';
+	let categoriesType = '';
+	let categoriesTitle = '';
+	let categoriesHref = '';
+	let categoriesTarget = '';
+	
+	let preCategoriesDepth = '-1';
+	let nextCategoriesDepth = '-1';
+	
+	let categoriesTag = '';
+
+	for (let i = 0; i < categoriesValue.length; i++) {
+		categoriesDepth = categoriesValue[i].split(',')[0];
+		categoriesType = categoriesValue[i].split(',')[1];
+		categoriesTitle = categoriesValue[i].split(',')[2];
+		categoriesHref = categoriesValue[i].split(',')[3];
+		categoriesTarget = categoriesValue[i].split(',')[4];
+		
+		if (i !== 0) {
+			preCategoriesDepth = categoriesValue[i - 1].split(',')[0];
+		}
+		
+		if ((i + 1) !== categoriesValue.length) {
+			nextCategoriesDepth = categoriesValue[i + 1].split(',')[0];
+		}
+		
+		if (categoriesDepth === '1') {
+			categoriesId++;
+			
+			categoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
+			categoriesTag += '		<a id="nav-link--' + (id + categoriesId) + '" class="nav-link g-color-primary--hover" href="' + categoriesHref + '" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--' + (id + categoriesId) + '">' + categoriesTitle + '</a>';
+		}
+		
+		if (categoriesDepth === '2') {
+			if (preCategoriesDepth !== categoriesDepth) {
+				categoriesTag += '		<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--' + (id + categoriesId) + '" aria-labelledby="nav-link--' + (id + categoriesId) + '">';
+			}
+		
+			if (categoriesType === 'link') {
+				categoriesTag += '			<li class="dropdown-item">';
+				categoriesTag += '				<a class="nav-link g-color-primary--hover" href="' + categoriesHref + '" ' + ((categoriesTarget === 'blank') ? 'target="_blank"' : '') + '>' + categoriesTitle + '</a>';
+				categoriesTag += '			</li>';
+			}
+			
+			if (categoriesType === 'div') {
+				categoriesTag += '			<li class="dropdown-divider"></li>';
+			}
+			
+			if (nextCategoriesDepth !== categoriesDepth) {
+				categoriesTag += '		</ul>';
+			}
+			
+			if ((i + 1) === categoriesValue.length) {
+				categoriesTag += '		</ul>';
+			}
+		}
+		
+		if (categoriesDepth === '1') {
+			if (nextCategoriesDepth === categoriesDepth) {
+				categoriesTag += '</li>';
+			}
+		}
+	}
+	
+	categoriesTag += '</li>';
+	
+	$(selector).append(categoriesTag);
+	
+	$(selector).find('li.hs-has-sub-menu').each(function (index, element) {
+		
+		if ($(this).find('a:eq(0)').text().indexOf($(this).find('a:eq(0)').text() + '(') === -1) {
+			$(this).find('a:eq(0)').text($(this).find('a:eq(0)').text() + '(' + ($(this).find('a').length - 1) + ')');
+		}
+		
+	});
+	
 }
 
 function addTableTr(selector, appendTrIndex, appendTrHtml) {
