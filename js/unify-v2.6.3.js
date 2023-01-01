@@ -17,7 +17,7 @@ $(function() {
 	});
 
 	// GNB Navigation
-	var blogCategoriesTag = '';
+	/*var blogCategoriesTag = '';
 	var bookmarkCategoriesTag = '';
 
 	blogCategoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
@@ -544,7 +544,7 @@ $(function() {
 			}
 
 		}
-	);
+	);*/
 
 });
 
