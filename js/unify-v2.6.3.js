@@ -151,6 +151,11 @@ $(function() {
 			"2,link,Kakao Developers,https://developers.kakao.com,blank",
 			"2,div,,,",
 			"2,link,Download Sample Videos,https://www.sample-videos.com,blank",
+			"1,link,게임,#,self",
+			"2,link,두기의 고전게임,https://nemo838.tistory.com,blank",
+			"2,link,두기의 무설치,https://doogie838.tistory.com,blank",
+			"2,link,툴리의 고전게임,https://www.tooli.co.kr,blank",
+			"2,link,My Abandonware,https://www.myabandonware.com,blank",
 			"1,link,기타,#,self",
 			"2,link,소프트웨어기술자 경력관리시스템,https://career.sw.or.kr,blank"
 
