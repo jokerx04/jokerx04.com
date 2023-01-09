@@ -4,15 +4,45 @@
 $(function() {
 
 	// Global Ajax Event
+	let ajaxSendCount = 0;
+	let ajaxCompleteCount = 0;
+	
 	$(document).ajaxStart(function () {
 
-		startBlockUI();
+		
 
 	});
+	
+	$(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
+		
+		ajaxSendCount++;
+		
+		if (ajaxOptions.global && ajaxOptions.async) {
+			jqXHR.timeoutId = setTimeout(function () {
+				if ($('.blockUI').length === 0) {
+					startBlockUI();
+				}
+				
+			}, 500);
+		}
 
+	});
+	
+	$(document).ajaxComplete(function (event, jqXHR, ajaxOptions) {
+		
+		ajaxCompleteCount++;
+		
+		if (jqXHR.timeoutId) {
+			clearTimeout(jqXHR.timeoutId);
+		}
+
+	});
+	
 	$(document).ajaxStop(function () {
-
-		stopBlockUI();
+		
+		if (ajaxSendCount === ajaxCompleteCount) {
+			stopBlockUI();
+		}
 
 	});
 
