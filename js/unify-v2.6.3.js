@@ -5,7 +5,7 @@ $(function() {
 
 	// Global Ajax Event
 	let ajaxSendCount = 0;
-	let ajaxCompleteCount = 0;
+	let ajaxStopCount = 0;
 	
 	$(document).ajaxStart(function () {
 
@@ -15,10 +15,11 @@ $(function() {
 	
 	$(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
 		
-		ajaxSendCount++;
-		
 		if (ajaxOptions.global && ajaxOptions.async) {
 			jqXHR.timeoutId = setTimeout(function () {
+				
+				ajaxSendCount++;
+				
 				if ($('.blockUI').length === 0) {
 					startBlockUI();
 				}
@@ -30,8 +31,6 @@ $(function() {
 	
 	$(document).ajaxComplete(function (event, jqXHR, ajaxOptions) {
 		
-		ajaxCompleteCount++;
-		
 		if (jqXHR.timeoutId) {
 			clearTimeout(jqXHR.timeoutId);
 		}
@@ -40,7 +39,14 @@ $(function() {
 	
 	$(document).ajaxStop(function () {
 		
-		if (ajaxSendCount === ajaxCompleteCount) {
+		if (ajaxSendCount !== 0) {
+			ajaxStopCount++;
+		}
+		
+		if (ajaxSendCount === ajaxStopCount) {
+			ajaxSendCount = 0;
+			ajaxStopCount = 0;
+			
 			stopBlockUI();
 		}
 
