@@ -4,51 +4,38 @@
 $(function() {
 
 	// Global Ajax Event
-	let ajaxSendCount = 0;
-	let ajaxStopCount = 0;
-	
+
 	$(document).ajaxStart(function () {
 
-		
+
 
 	});
-	
+
 	$(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
-		
+
 		if (ajaxOptions.global && ajaxOptions.async) {
 			jqXHR.timeoutId = setTimeout(function () {
-				
-				ajaxSendCount++;
-				
+
 				if ($('.blockUI').length === 0) {
 					startBlockUI();
 				}
-				
+
 			}, 500);
 		}
 
 	});
-	
+
 	$(document).ajaxComplete(function (event, jqXHR, ajaxOptions) {
-		
+
 		if (jqXHR.timeoutId) {
 			clearTimeout(jqXHR.timeoutId);
 		}
 
 	});
-	
+
 	$(document).ajaxStop(function () {
-		
-		if (ajaxSendCount !== 0) {
-			ajaxStopCount++;
-		}
-		
-		if (ajaxSendCount === ajaxStopCount) {
-			ajaxSendCount = 0;
-			ajaxStopCount = 0;
-			
-			stopBlockUI();
-		}
+
+		stopBlockUI();
 
 	});
 
@@ -531,17 +518,17 @@ function getNavigationHtml(selector, id, categories) {
 
 	let categoriesKey = categories.key;
 	let categoriesValue = categories.value;
-	
+
 	let categoriesId = 0;
 	let categoriesDepth = '';
 	let categoriesType = '';
 	let categoriesTitle = '';
 	let categoriesHref = '';
 	let categoriesTarget = '';
-	
+
 	let preCategoriesDepth = '-1';
 	let nextCategoriesDepth = '-1';
-	
+
 	let categoriesTag = '';
 
 	for (let i = 0; i < categoriesValue.length; i++) {
@@ -550,65 +537,65 @@ function getNavigationHtml(selector, id, categories) {
 		categoriesTitle = categoriesValue[i].split(',')[2];
 		categoriesHref = categoriesValue[i].split(',')[3];
 		categoriesTarget = categoriesValue[i].split(',')[4];
-		
+
 		if (i !== 0) {
 			preCategoriesDepth = categoriesValue[i - 1].split(',')[0];
 		}
-		
+
 		if ((i + 1) !== categoriesValue.length) {
 			nextCategoriesDepth = categoriesValue[i + 1].split(',')[0];
 		}
-		
+
 		if (categoriesDepth === '1') {
 			categoriesId++;
-			
+
 			categoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
 			categoriesTag += '		<a id="nav-link--' + (id + categoriesId) + '" class="nav-link g-color-primary--hover" href="' + categoriesHref + '" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--' + (id + categoriesId) + '">' + categoriesTitle + '</a>';
 		}
-		
+
 		if (categoriesDepth === '2') {
 			if (preCategoriesDepth !== categoriesDepth) {
 				categoriesTag += '		<ul class="hs-sub-menu list-unstyled u-shadow-v11 g-brd-top g-brd-primary g-brd-top-2 g-min-width-220 g-mt-minus-2" id="nav-submenu--' + (id + categoriesId) + '" aria-labelledby="nav-link--' + (id + categoriesId) + '">';
 			}
-		
+
 			if (categoriesType === 'link') {
 				categoriesTag += '			<li class="dropdown-item">';
 				categoriesTag += '				<a class="nav-link g-color-primary--hover" href="' + categoriesHref + '" ' + ((categoriesTarget === 'blank') ? 'target="_blank"' : '') + '>' + categoriesTitle + '</a>';
 				categoriesTag += '			</li>';
 			}
-			
+
 			if (categoriesType === 'div') {
 				categoriesTag += '			<li class="dropdown-divider"></li>';
 			}
-			
+
 			if (nextCategoriesDepth !== categoriesDepth) {
 				categoriesTag += '		</ul>';
 			}
-			
+
 			if ((i + 1) === categoriesValue.length) {
 				categoriesTag += '		</ul>';
 			}
 		}
-		
+
 		if (categoriesDepth === '1') {
 			if (nextCategoriesDepth === categoriesDepth) {
 				categoriesTag += '</li>';
 			}
 		}
 	}
-	
+
 	categoriesTag += '</li>';
-	
+
 	$(selector).append(categoriesTag);
-	
+
 	$(selector).find('li.hs-has-sub-menu').each(function (index, element) {
-		
+
 		if ($(this).find('a:eq(0)').text().indexOf($(this).find('a:eq(0)').text() + '(') === -1) {
 			$(this).find('a:eq(0)').text($(this).find('a:eq(0)').text() + '(' + ($(this).find('a').length - 1) + ')');
 		}
-		
+
 	});
-	
+
 }
 
 function addTableTr(selector, appendTrIndex, appendTrHtml) {
