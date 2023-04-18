@@ -2337,12 +2337,6 @@ $(function() {
 
 	});
 	
-	jokerx04({
-
-		'isPrintConsole': true
-
-	});
-	
 	// GNB
 	jokerx04.jQuery.ajax({
 
