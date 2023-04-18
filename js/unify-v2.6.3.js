@@ -2284,14 +2284,88 @@
 
 }));
 
-$(function() {
+function googleTranslateElementInit() {
 
+	new google.translate.TranslateElement({
+
+		pageLanguage: 'ko',
+		layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
+		autoDisplay: true
+
+	}, 'googleTranslate');
+
+	var checkExist = setInterval(function() {
+
+		if ($('#googleTranslate select').length > 0) {
+			$('#googleTranslate select').addClass('custom-select w-50');
+
+			clearInterval(checkExist);
+		}
+
+	}, 100);
+
+}
+
+$(function() {
+	
+	// Unify-v2.6.3 Initialization
+	$.HSCore.components.HSTabs.init('[role="tablist"]');
+	$.HSCore.components.HSTabs.init('[data-tabs-mobile-type]');
+
+	$.HSCore.components.HSGoTo.init('.js-go-to');
+
+	$.HSCore.components.HSCarousel.init('.js-carousel');
+
+	$.HSCore.components.HSPopup.init('.js-fancybox');
+
+	$('.js-mega-menu').HSMegaMenu({
+
+		event: 'hover',
+		pageContainer: $('.container'),
+		breakpoint: 991
+
+	});
+
+	$('[class*="js-counter"]').each(function (index, element) {
+
+		$(this).text($(this).text().replace( /[,]/gi, ''));
+
+	});
+
+	var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
+
+	$(window).on('load', function (eventObject) {
+
+		$.HSCore.components.HSHeader.init($('#js-header'));
+
+		$.HSCore.helpers.HSHamburgers.init('.hamburger');
+
+		setTimeout(function() {
+
+			$.HSCore.components.HSStickyBlock.init('.js-sticky-block');
+
+		}, 300);
+
+	});
+
+	$(window).on('resize', function (eventObject) {
+
+		setTimeout(function () {
+
+			$.HSCore.components.HSTabs.init('[role="tablist"]');
+			$.HSCore.components.HSTabs.init('[data-tabs-mobile-type]');
+
+		}, 200);
+
+	});
+	
 	jokerx04({
 
 		'isPrintConsole': true
 
 	});
-
+	
+	// GNB
 	jokerx04.jQuery.ajax({
 
 		global: false,
@@ -2356,7 +2430,12 @@ $(function() {
 					if (jokerx04.boolean.isEquals(categoriesDepth, 1)) {
 						idCount++;
 						
-						categoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
+						if (jokerx04.boolean.isNotEquals(nextCategoriesDepth, categoriesDepth)) {
+							categoriesTag += '<li class="dropdown-item">';
+						} else {
+							categoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
+						}
+
 						categoriesTag += '		<a id="nav-link--' + id + idCount + '" class="nav-link g-color-primary--hover" href="' + categoriesHref + '" aria-haspopup="true" aria-expanded="false" aria-controls="nav-submenu--' + id + idCount + '">' + categoriesTitle + '</a>';
 					}
 					
@@ -2378,10 +2457,6 @@ $(function() {
 						if (jokerx04.boolean.isNotEquals(nextCategoriesDepth, categoriesDepth)) {
 							categoriesTag += '		</ul>';
 						}
-						
-						if (jokerx04.boolean.isEquals(k + 1, categories.length)) {
-							//categoriesTag += '		</ul>';
-						}
 					}
 					
 					if (jokerx04.boolean.isEquals(categoriesDepth, 1)) {
@@ -2397,9 +2472,9 @@ $(function() {
 				
 				$(selector).find('li.hs-has-sub-menu').each(function (index, element) {
 					
-					//if (!jokerx04.string.isContains($(this).find('a:eq(0)').text(), $(this).find('a:eq(0)').text() + '(')) {
+					if (!jokerx04.boolean.isNotEquals($(this).find('a').length - 1, 0)) {
 						$(this).find('a:eq(0)').text($(this).find('a:eq(0)').text() + '(' + ($(this).find('a').length - 1) + ')');
-					//}
+					}
 					
 				});
 			}
