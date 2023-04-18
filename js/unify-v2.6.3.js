@@ -2379,8 +2379,6 @@ $(function() {
 				return;
 			}
 
-			console.log(JSON.stringify(data, null, '\t'));
-
 			var selector;
 			var id;
 			var categories;
