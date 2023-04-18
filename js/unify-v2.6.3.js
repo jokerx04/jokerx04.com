@@ -2284,28 +2284,6 @@
 
 }));
 
-function googleTranslateElementInit() {
-
-	new google.translate.TranslateElement({
-
-		pageLanguage: 'ko',
-		layout: google.translate.TranslateElement.InlineLayout.HORIZONTAL,
-		autoDisplay: true
-
-	}, 'googleTranslate');
-
-	var checkExist = setInterval(function() {
-
-		if ($('#googleTranslate select').length > 0) {
-			$('#googleTranslate select').addClass('custom-select w-50');
-
-			clearInterval(checkExist);
-		}
-
-	}, 100);
-
-}
-
 $(function() {
 	
 	// Unify-v2.6.3 Initialization
@@ -2428,7 +2406,7 @@ $(function() {
 					if (jokerx04.boolean.isEquals(categoriesDepth, 1)) {
 						idCount++;
 						
-						if (jokerx04.boolean.isEquals(nextCategoriesDepth, categoriesDepth)) {
+						if (jokerx04.boolean.isEquals(nextCategoriesDepth, categoriesDepth) || jokerx04.boolean.isEquals(nextCategoriesDepth, -1)) {
 							categoriesTag += '<li class="dropdown-item">';
 						} else {
 							categoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
