@@ -2428,7 +2428,7 @@ $(function() {
 					if (jokerx04.boolean.isEquals(categoriesDepth, 1)) {
 						idCount++;
 						
-						if (jokerx04.boolean.isNotEquals(nextCategoriesDepth, categoriesDepth)) {
+						if (jokerx04.boolean.isEquals(nextCategoriesDepth, categoriesDepth)) {
 							categoriesTag += '<li class="dropdown-item">';
 						} else {
 							categoriesTag += '<li class="dropdown-item hs-has-sub-menu">';
@@ -2470,7 +2470,7 @@ $(function() {
 				
 				$(selector).find('li.hs-has-sub-menu').each(function (index, element) {
 					
-					if (!jokerx04.boolean.isNotEquals($(this).find('a').length - 1, 0)) {
+					if (jokerx04.boolean.isNotEquals($(this).find('a').length - 1, 0)) {
 						$(this).find('a:eq(0)').text($(this).find('a:eq(0)').text() + '(' + ($(this).find('a').length - 1) + ')');
 					}
 					
