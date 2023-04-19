@@ -24,7 +24,6 @@
 			{ "depth": 2, "type": "link", "title": "키보드&amp;마우스", "href": "https://blog.jokerx04.com/category/%EC%A0%9C%ED%92%88/%ED%82%A4%EB%B3%B4%EB%93%9C%26%EB%A7%88%EC%9A%B0%EC%8A%A4", "target": "self" },
 			{ "depth": 1, "type": "link", "title": "게임", "href": "https://blog.jokerx04.com/category/%EA%B2%8C%EC%9E%84", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "기술표", "href": "https://blog.jokerx04.com/category/%EA%B2%8C%EC%9E%84/%EA%B8%B0%EC%88%A0%ED%91%9C", "target": "self" },
-			{ "depth": 2, "type": "link", "title": "치트", "href": "https://blog.jokerx04.com/category/%EA%B2%8C%EC%9E%84/%EC%B9%98%ED%8A%B8", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "PPSSPP 치트", "href": "https://blog.jokerx04.com/category/%EA%B2%8C%EC%9E%84/PPSSPP%20%EC%B9%98%ED%8A%B8", "target": "self" },
 			{ "depth": 1, "type": "link", "title": "요리", "href": "/category/%EC%9A%94%EB%A6%AC", "target": "self" }
 
