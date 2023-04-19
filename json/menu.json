@@ -54,6 +54,7 @@
 			{ "depth": 2, "type": "link", "title": "K-MOOC", "href": "http://www.kmooc.kr", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "인프런", "href": "https://www.inflearn.com", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "T아카데미", "href": "https://tacademy.skplanet.com", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "패스트 캠퍼스", "href": "https://fastcampus.co.kr", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "노마드 코더", "href": "https://nomadcoders.co", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "서울특별시 평생학습포털", "href": "http://sll.seoul.go.kr", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "경기도 무료 온라인 평생학습", "href": "https://www.gseek.kr", "target": "blank" },
@@ -148,6 +149,12 @@
 			{ "depth": 2, "type": "link", "title": "Kakao Developers", "href": "https://developers.kakao.com", "target": "blank" },
 			{ "depth": 2, "type": "div", "title": "", "href": "", "target": "" },
 			{ "depth": 2, "type": "link", "title": "Download Sample Videos", "href": "https://www.sample-videos.com", "target": "blank" },
+			{ "depth": 1, "type": "link", "title": "게임", "href": "#", "target": "self" },
+			{ "depth": 2, "type": "link", "title": "두기의 고전게임", "href": "https://nemo838.tistory.com", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "두기의 무설치", "href": "https://doogie838.tistory.com", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "툴리의 고전게임", "href": "https://www.tooli.co.kr", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "Emulator Games", "href": "https://www.emulatorgames.net", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "My Abandonware", "href": "https://www.myabandonware.com", "target": "blank" },
 			{ "depth": 1, "type": "link", "title": "기타", "href": "#", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "소프트웨어기술자 경력관리시스템", "href": "https://career.sw.or.kr,blank" }
 
