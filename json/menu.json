@@ -6,7 +6,7 @@
 		"id": "blog",
 		"categories": [
 
-			{ "depth": 1, "type": "link", "title": "블로그", "href": "#", "target": "self" },
+			{ "depth": 1, "type": "link", "title": "블로그", "href": "https://blog.jokerx04.com", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "전체 글", "href": "https://blog.jokerx04.com", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "분류 전체보기", "href": "https://blog.jokerx04.com/category", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "공지사항", "href": "https://blog.jokerx04.com/notice", "target": "self" },
