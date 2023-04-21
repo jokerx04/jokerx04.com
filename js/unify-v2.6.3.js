@@ -2439,14 +2439,6 @@ $(function() {
 				categoriesTag += '</li>';
 				
 				$(selector).append(categoriesTag);
-				
-				$(selector).find('li.hs-has-sub-menu').each(function (index, element) {
-					
-					if (jokerx04.boolean.isNotEquals($(this).find('a').length - 1, 0)) {
-						$(this).find('a:eq(0)').text($(this).find('a:eq(0)').text() + '(' + ($(this).find('a').length - 1) + ')');
-					}
-					
-				});
 			}
 
 		},
@@ -2466,16 +2458,25 @@ $(function() {
 				if (jokerx04.string.isContains(breadcrumbsTitle, '(')) {
 					breadcrumbsTitle = breadcrumbsTitle.substring(0, breadcrumbsTitle.lastIndexOf('('));
 				}
+				
+				if (jokerx04.string.isContains(window.location.pathname, '/tag/')) {
+					breadcrumbsTitle = '#' + breadcrumbsTitle;
+				}
 
 				$('#navBar').find('a').each(function (index, element) {
 
+					console.log($(this).text());
+					console.log('-> ' + $(this).closest('a', $('#nav-submenu-blog')).text());
+					/*
 					if (jokerx04.boolean.isEquals($(this).text(), breadcrumbsTitle)) {
+						
 						if (!jokerx04.string.isContains(breadcrumbsTitle, '/')) {
 							breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
 						}
 
 						return false;
 					}
+					*/
 
 				});
 
