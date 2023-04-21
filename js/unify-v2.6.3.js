@@ -2462,25 +2462,21 @@ $(function() {
 				if (jokerx04.string.isContains(window.location.pathname, '/tag/')) {
 					breadcrumbsTitle = '#' + breadcrumbsTitle;
 				}
-
+				
+				console.log(breadcrumbsTitle);
+				
 				$('#navBar').find('a').each(function (index, element) {
 
-					console.log($(this).text());
-					console.log('-> ' + $(this).closest('a', $('#nav-submenu-blog')).text());
-					/*
 					if (jokerx04.boolean.isEquals($(this).text(), breadcrumbsTitle)) {
-						
-						if (!jokerx04.string.isContains(breadcrumbsTitle, '/')) {
-							breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
-						}
+						breadcrumbsTitle = $(this).closest('ul').closest('li').find('a:nth(0)').text() + '/' + breadcrumbsTitle;
 
 						return false;
 					}
-					*/
 
 				});
 
 				breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
+				console.log(breadcrumbsTitle);
 
 				var breadcrumbsTitleSplitIndex = 0;
 
