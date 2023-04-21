@@ -2477,7 +2477,6 @@ $(function() {
 				});
 
 				breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
-				console.log(breadcrumbsTitle);
 
 				var breadcrumbsTitleSplitIndex = 0;
 
