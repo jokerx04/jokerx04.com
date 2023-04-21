@@ -2463,8 +2463,6 @@ $(function() {
 					breadcrumbsTitle = '#' + breadcrumbsTitle;
 				}
 				
-				console.log(breadcrumbsTitle);
-				
 				$('#navBar').find('a').each(function (index, element) {
 
 					if (jokerx04.boolean.isEquals($(this).text(), breadcrumbsTitle)) {
@@ -2476,7 +2474,6 @@ $(function() {
 				});
 
 				breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
-				console.log(breadcrumbsTitle);
 
 				var breadcrumbsTitleSplitIndex = 0;
 
