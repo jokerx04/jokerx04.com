@@ -2463,7 +2463,7 @@ $(function() {
 					breadcrumbsTitle = '#' + breadcrumbsTitle;
 				}
 				
-				$('#navBar').find('a').each(function (index, element) {
+				$('#navBar #nav-link-blog').parent().find('a').each(function (index, element) {
 
 					if (jokerx04.boolean.isEquals($(this).text(), breadcrumbsTitle) &&
 							jokerx04.boolean.isNotEquals($(this).closest('ul').closest('li').find('a:nth(0)').text(), '') &&
@@ -2483,7 +2483,7 @@ $(function() {
 
 				var navBarAText = '';
 
-				$('#navBar').find('a').each(function (index, element) {
+				$('#navBar #nav-link-blog').parent().find('a').each(function (index, element) {
 
 					navBarAText = $(this).text();
 
