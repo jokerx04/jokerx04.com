@@ -2473,7 +2473,7 @@ $(function() {
 
 				});
 
-				breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
+				//breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
 
 				var breadcrumbsTitleSplitIndex = 0;
 
