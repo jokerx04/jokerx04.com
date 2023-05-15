@@ -2498,7 +2498,17 @@ $(function() {
 
 				});
 			}
-
+			
+			$('#navBar ul li ul li').each(function (index, element) {
+				
+				if ($(this).find('li').length >= 10) {
+					if (!$(this).find('ul').hasClass('u-dropdown-col-2')) {
+						$(this).find('ul').addClass('u-dropdown-col-2');
+					}
+				}
+				
+			}
+			
 		}
 
 	});
