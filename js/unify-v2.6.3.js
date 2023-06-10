@@ -2342,7 +2342,7 @@ $(function() {
 
 		global: false,
 		isCorsUrl: false,
-		url: 'https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@b78e08a/json/menu.json',
+		url: 'https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@53f885e/json/menu.json',
 		method: 'GET',
 		type: 'GET',
 		success: function (data, textStatus, jqXHR) {
