@@ -146,6 +146,7 @@
 			{ "depth": 2, "type": "link", "title": "공공데이터포털", "href": "https://www.data.go.kr", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "KOSIS 국가통계포털", "href": "http://kosis.kr", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "AI 허브", "href": "https://aihub.or.kr", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "금융감독원 금융상품통합비교공시", "href": "https://finlife.fss.or.kr", "target": "blank" },
 			{ "depth": 2, "type": "div", "title": "", "href": "", "target": "" },
 			{ "depth": 2, "type": "link", "title": "NAVER Developers", "href": "https://developers.naver.com", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "Kakao Developers", "href": "https://developers.kakao.com", "target": "blank" },
