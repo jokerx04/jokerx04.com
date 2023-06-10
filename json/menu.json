@@ -126,6 +126,7 @@
 			{ "depth": 2, "type": "link", "title": "React", "href": "https://ko.reactjs.org", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "jQuery", "href": "https://jquery.com", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "Bootstrap", "href": "https://getbootstrap.com", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "Knockout", "href": "https://knockoutjs.com", "target": "blank" },
 			{ "depth": 1, "type": "link", "title": "솔루션", "href": "#", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "Highcharts", "href": "https://www.highcharts.com", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "D3.js", "href": "https://d3js.org", "target": "blank" },
