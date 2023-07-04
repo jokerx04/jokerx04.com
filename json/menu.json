@@ -20,11 +20,9 @@
 			{ "depth": 2, "type": "link", "title": "보육반장 육아정보 문자", "href": "https://blog.jokerx04.com/category/%EA%B5%90%EC%9C%A1/%EB%B3%B4%EC%9C%A1%EB%B0%98%EC%9E%A5%20%EC%9C%A1%EC%95%84%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9E%90", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "유아 부모 교육자료", "href": "https://blog.jokerx04.com/category/%EA%B5%90%EC%9C%A1/%EC%9C%A0%EC%95%84%20%EB%B6%80%EB%AA%A8%20%EA%B5%90%EC%9C%A1%EC%9E%90%EB%A3%8C", "target": "self" },
 			{ "depth": 1, "type": "link", "title": "제품", "href": "https://blog.jokerx04.com/category/%EC%A0%9C%ED%92%88", "target": "self" },
-			{ "depth": 2, "type": "link", "title": "매뉴얼", "href": "https://blog.jokerx04.com/category/%EC%A0%9C%ED%92%88/%EB%A7%A4%EB%89%B4%EC%96%BC", "target": "self" },
-			{ "depth": 2, "type": "link", "title": "키보드&amp;마우스", "href": "https://blog.jokerx04.com/category/%EC%A0%9C%ED%92%88/%ED%82%A4%EB%B3%B4%EB%93%9C%26%EB%A7%88%EC%9A%B0%EC%8A%A4", "target": "self" },
+			{ "depth": 2, "type": "link", "title": "#덱", "href": "https://blog.jokerx04.com/tag/%EB%8D%B1", "target": "self" },
+			{ "depth": 2, "type": "link", "title": "#로지텍", "href": "https://blog.jokerx04.com/tag/%EB%A1%9C%EC%A7%80%ED%85%8D", "target": "self" },
 			{ "depth": 1, "type": "link", "title": "게임", "href": "https://blog.jokerx04.com/category/%EA%B2%8C%EC%9E%84", "target": "self" },
-			{ "depth": 2, "type": "link", "title": "기술표", "href": "https://blog.jokerx04.com/category/%EA%B2%8C%EC%9E%84/%EA%B8%B0%EC%88%A0%ED%91%9C", "target": "self" },
-			{ "depth": 2, "type": "link", "title": "PPSSPP 치트", "href": "https://blog.jokerx04.com/category/%EA%B2%8C%EC%9E%84/PPSSPP%20%EC%B9%98%ED%8A%B8", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "#철권", "href": "https://blog.jokerx04.com/tag/%EC%B2%A0%EA%B6%8C", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "#스트리트 파이터", "href": "https://blog.jokerx04.com/tag/%EC%8A%A4%ED%8A%B8%EB%A6%AC%ED%8A%B8%20%ED%8C%8C%EC%9D%B4%ED%84%B0", "target": "self" },
 			{ "depth": 1, "type": "link", "title": "요리", "href": "/category/%EC%9A%94%EB%A6%AC", "target": "self" }
