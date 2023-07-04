@@ -28,7 +28,7 @@
 			{ "depth": 1, "type": "link", "title": "요리", "href": "/category/%EC%9A%94%EB%A6%AC", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "#밥", "href": "https://blog.jokerx04.com/tag/%EB%B0%A5", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "#국찌개", "href": "https://blog.jokerx04.com/tag/%EA%B5%AD%EC%B0%8C%EA%B0%9C", "target": "self" },
-			{ "depth": 2, "type": "link", "title": "#반찬", "href": "https://blog.jokerx04.com/tag/%EC%B2%A0%EA%B6%8C", "target": "self" }
+			{ "depth": 2, "type": "link", "title": "#반찬", "href": "https://blog.jokerx04.com/tag/%EB%B0%98%EC%B0%AC", "target": "self" }
 
 		]
 
