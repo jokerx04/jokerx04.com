@@ -171,7 +171,8 @@
 			{ "depth": 2, "type": "link", "title": "Emulator Games", "href": "https://www.emulatorgames.net", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "My Abandonware", "href": "https://www.myabandonware.com", "target": "blank" },
 			{ "depth": 1, "type": "link", "title": "기타", "href": "#", "target": "self" },
-			{ "depth": 2, "type": "link", "title": "소프트웨어기술자 경력관리시스템", "href": "https://career.sw.or.kr", "target": "blank" }
+			{ "depth": 2, "type": "link", "title": "소프트웨어기술자 경력관리시스템", "href": "https://career.sw.or.kr", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "XLWorks 엑셀웍스", "href": "https://xlworks.net", "target": "blank" }
 
 		]
 
