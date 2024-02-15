@@ -2342,7 +2342,7 @@ $(function() {
 
 		global: false,
 		isCorsUrl: false,
-		url: 'https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@latest/json/menu.json',
+		url: 'https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@latest/json/unify-v2.6.3-menu.json',
 		method: 'GET',
 		type: 'GET',
 		success: function (data, textStatus, jqXHR) {
