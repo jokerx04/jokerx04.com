@@ -22,7 +22,6 @@
 
 	/**
 	 * 라이브러리 디폴트 설정 정보이다.
-	 * jokerx04.common.getOptions(); 통해 라이브러리 설정 정보를 조회할 수 있다.
 	 */
 	var defaults = {
 
@@ -76,17 +75,16 @@
 %c ╚════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝      ╚═╝    ╚═╝  ╚═╝╚═╝     ╚═╝
 					`, 'color: #084081', 'color: #0868AC', 'color: #2B8CBE', 'color: #4EB3D3', 'color: #7BCCC4', 'color: #A8DDB5');
 			
-			jokerx04.common.console('table', jokerx04.common.getOptions());
+			jokerx04.common.console('table', defaults);
 			
 			jokerx04.common.getFunctionStringArray(jokerx04);
 		} catch(e) {
 			if (e.message === '_ is not defined') {
-				console.error(jokerx04.name + '()는 Lodash(https://lodash.com/) 라이브러리가 필요합니다.');
+				jokerx04.common.console('error', jokerx04.name + '()는 Lodash(https://lodash.com) 라이브러리가 필요합니다.');
+				console.error(jokerx04.name + '()는 Lodash(https://lodash.com) 라이브러리가 필요합니다.');
 			} else {
 				console.error(e);
 			}
-			
-			return null;
 		}
 		
 	};
@@ -95,31 +93,7 @@
 	 * 공통 관련 함수 패키지이다.
 	 */
 	jokerx04.common = {
-
-		/**
-		 * 라이브러리 설정 정보를 반환한다.
-		 * 
-		 * jokerx04.common.getOptions(); // { isPrintConsole: false, isPrintLog: true, … }
-		 */
-		getOptions: function () {
-
-			return defaults;
-
-		},
-
-		/**
-		 * 라이브러리 설정 정보를 변경 또는 추가한다.
-		 * 
-		 * jokerx04.common.setOptions({ 'isPrintConsole': false });
-		 */
-		setOptions: function (options) {
-
-			if (jokerx04.common.isJSONObject(options)) {
-				Object.assign(defaults, options);
-			}
-
-		},
-
+		
 		/**
 		 * Console 에 문자열을 출력한다.
 		 * Console 의 출력 여부는 아래와 같이 jokerx04(options); 의 options 에서 설정할 수 있다.
