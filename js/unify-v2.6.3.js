@@ -24,28 +24,7 @@
 	 * 라이브러리 디폴트 설정 정보이다.
 	 */
 	var defaults = {
-
-		// Console 전체 출력 여부
-		'isPrintConsole': false,
-
-		// console.log() 출력 여부
-		'isPrintLog': true,
-
-		// console.trace() 출력 여부
-		'isPrintTrace': false,
-
-		// console.debug() 출력 여부
-		'isPrintDebug': false,
-
-		// console.info() 출력 여부
-		'isPrintInfo': true,
-
-		// console.warn() 출력 여부
-		'isPrintWarn': true,
-
-		// console.error() 출력 여부
-		'isPrintError': true,
-
+		
 		// Date 출력 패턴
 		'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS',
 
@@ -59,14 +38,14 @@
 	 * Console 출력 여부에 따라 디폴트 설정 정보 및 함수 목록을 출력한다.
 	 * jokerx04(options); 형태로 선언하며 options 값으로 디폴트 설정 정보를 변경 또는 추가한다.
 	 * 
-	 * jokerx04({ 'isPrintConsole': true });
+	 * jokerx04({ 'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS' });
 	 */
 	var jokerx04 = function (options) {
 		
 		try {
 			_.assign(defaults, options);
 			
-			defaults.isPrintConsole && defaults.isPrintInfo && console.info(`
+			console.info(`
 %c     ██╗ ██████╗ ██╗  ██╗███████╗██████╗ ██╗  ██╗ ██████╗ ██╗  ██╗     █████╗ ██████╗ ██╗
 %c     ██║██╔═══██╗██║ ██╔╝██╔════╝██╔══██╗╚██╗██╔╝██╔═████╗██║  ██║    ██╔══██╗██╔══██╗██║
 %c     ██║██║   ██║█████╔╝ █████╗  ██████╔╝ ╚███╔╝ ██║██╔██║███████║    ███████║██████╔╝██║
@@ -96,19 +75,6 @@
 		
 		/**
 		 * Console 에 문자열을 출력한다.
-		 * Console 의 출력 여부는 아래와 같이 jokerx04(options); 의 options 에서 설정할 수 있다.
-		 * 
-		 * jokerx04({
-		 * 
-		 * 	isPrintConsole: Console 전체 출력 여부,
-		 * 	isPrintLog: console.log() 출력 여부,
-		 * 	isPrintTrace: console.trace() 출력 여부,
-		 * 	isPrintDebug: console.debug() 출력 여부,
-		 * 	isPrintInfo: console.info() 출력 여부,
-		 * 	isPrintWarn: console.warn() 출력 여부,
-		 * 	isPrintError: console.error() 출력 여부
-		 * 
-		 * });
 		 * 
 		 * jokerx04.common.console('default', 'log'); // log
 		 * jokerx04.common.console('log', null); // [2023-02-24 금요일 12:44:34.229][]
@@ -143,12 +109,8 @@
 		 */
 		console: function (type, object) {
 			
-			if (!defaults.isPrintConsole) {
-				return;
-			}
-
 			if (jokerx04.boolean.isEquals(type, 'default')) {
-				defaults.isPrintLog && console.log(object);
+				console.log(object);
 			} else if ([ 'clear', 'groupEnd' ].includes(type)) {
 				console[type]();
 			} else if ([ 'dir', 'dirxml' ].includes(type)) {
@@ -158,17 +120,17 @@
 			} else if ([ 'count', 'countReset', 'group', 'groupCollapsed', 'time', 'timeEnd', 'timeLog' ].includes(type)) {
 				console[type](jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'log')) {
-				defaults.isPrintLog && console.log('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.log('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'trace')) {
-				defaults.isPrintTrace && console.trace('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.trace('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'debug')) {
-				defaults.isPrintDebug && console.debug('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.debug('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'info')) {
-				defaults.isPrintInfo && console.info('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.info('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'warn')) {
-				defaults.isPrintWarn && console.warn('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.warn('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'error')) {
-				defaults.isPrintError && console.error('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.error('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			}
 
 		},
@@ -480,7 +442,6 @@
 
 		/**
 		 * 객체의 속성 Function 들의 파라미터 포함 함수명을 배열로 반환한다.
-		 * Console 의 출력 여부 isPrintConsole, isPrintLog 가 true 일 경우 Console 로 함수명을 출력한다.
 		 * isCollapsed 파라미터가 true 일 경우 console.groupCollapsed(), false 일 경우 console.group() 형태로 함수명을 출력한다.
 		 * 
 		 * jokerx04.common.getFunctionStringArray(null); // []
