@@ -85,6 +85,8 @@
 			} else {
 				console.error(e);
 			}
+			
+			return null;
 		}
 		
 	};
