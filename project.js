@@ -1,6 +1,7 @@
 $(function () {
 	
 	// 네이버 통합검색
+	// 네이버 통합검색
 	var naverUnifiedSearchFunctionObject = {};
 	
 	naverUnifiedSearchFunctionObject.naverUnifiedSearchErrataRequest = function () {
