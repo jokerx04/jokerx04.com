@@ -60,9 +60,8 @@
 		} catch(e) {
 			if (e.message === '_ is not defined') {
 				jokerx04.common.console('error', jokerx04.name + '()는 Lodash(https://lodash.com) 라이브러리가 필요합니다.');
-				console.error(jokerx04.name + '()는 Lodash(https://lodash.com) 라이브러리가 필요합니다.');
 			} else {
-				console.error(e);
+				jokerx04.common.console('error', e);
 			}
 		}
 		
@@ -120,17 +119,17 @@
 			} else if ([ 'count', 'countReset', 'group', 'groupCollapsed', 'time', 'timeEnd', 'timeLog' ].includes(type)) {
 				console[type](jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'log')) {
-				console.log('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.log('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'trace')) {
-				console.trace('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.trace('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'debug')) {
-				console.debug('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.debug('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'info')) {
-				console.info('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.info('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'warn')) {
-				console.warn('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.warn('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'error')) {
-				console.error('[%s][%s]', jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.error('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			}
 
 		},
