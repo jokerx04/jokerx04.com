@@ -64,9 +64,10 @@
 	 */
 	var jokerx04 = function (options) {
 		
-		jokerx04.common.setOptions(options);
-
-		defaults.isPrintConsole && defaults.isPrintInfo && console.info(`
+		if (_) {
+			jokerx04.common.setOptions(options);
+			
+			defaults.isPrintConsole && defaults.isPrintInfo && console.info(`
 %c     ██╗ ██████╗ ██╗  ██╗███████╗██████╗ ██╗  ██╗ ██████╗ ██╗  ██╗     █████╗ ██████╗ ██╗
 %c     ██║██╔═══██╗██║ ██╔╝██╔════╝██╔══██╗╚██╗██╔╝██╔═████╗██║  ██║    ██╔══██╗██╔══██╗██║
 %c     ██║██║   ██║█████╔╝ █████╗  ██████╔╝ ╚███╔╝ ██║██╔██║███████║    ███████║██████╔╝██║
@@ -74,10 +75,13 @@
 %c╚█████╔╝╚██████╔╝██║  ██╗███████╗██║  ██║██╔╝ ██╗╚██████╔╝     ██║    ██║  ██║██║     ██║
 %c ╚════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝      ╚═╝    ╚═╝  ╚═╝╚═╝     ╚═╝
 				`, 'color: #084081', 'color: #0868AC', 'color: #2B8CBE', 'color: #4EB3D3', 'color: #7BCCC4', 'color: #A8DDB5');
-
-		jokerx04.common.console('table', jokerx04.common.getOptions());
-		
-		jokerx04.common.getFunctionStringArray(jokerx04);
+			
+			jokerx04.common.console('table', jokerx04.common.getOptions());
+			
+			jokerx04.common.getFunctionStringArray(jokerx04);
+		} else {
+			console.warn(jokerx04.name + '()는 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요합니다.');
+		}
 		
 	};
 	
