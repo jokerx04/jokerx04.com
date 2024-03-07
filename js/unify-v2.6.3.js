@@ -74,15 +74,14 @@
 %c██   ██║██║   ██║██╔═██╗ ██╔══╝  ██╔══██╗ ██╔██╗ ████╔╝██║╚════██║    ██╔══██║██╔═══╝ ██║
 %c╚█████╔╝╚██████╔╝██║  ██╗███████╗██║  ██║██╔╝ ██╗╚██████╔╝     ██║    ██║  ██║██║     ██║
 %c ╚════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝      ╚═╝    ╚═╝  ╚═╝╚═╝     ╚═╝
-				`, 'color: #084081', 'color: #0868AC', 'color: #2B8CBE', 'color: #4EB3D3', 'color: #7BCCC4', 'color: #A8DDB5');
+					`, 'color: #084081', 'color: #0868AC', 'color: #2B8CBE', 'color: #4EB3D3', 'color: #7BCCC4', 'color: #A8DDB5');
 			
 			jokerx04.common.console('table', jokerx04.common.getOptions());
 			
 			jokerx04.common.getFunctionStringArray(jokerx04);
-		} catch (e) {
+		} catch(e) {
 			if (e.message === '_ is not defined') {
-				//console.warn(jokerx04.name + '()는 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요합니다.');
-				jokerx04.common.console('warn', jokerx04.name + '()는 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요합니다.');
+				console.error(jokerx04.name + '()는 Lodash(https://lodash.com/) 라이브러리가 필요합니다.');
 			} else {
 				console.error(e);
 			}
