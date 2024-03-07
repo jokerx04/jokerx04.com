@@ -119,17 +119,17 @@
 			} else if ([ 'count', 'countReset', 'group', 'groupCollapsed', 'time', 'timeEnd', 'timeLog' ].includes(type)) {
 				console[type](jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'log')) {
-				console.log('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
-			} else if (jokerx04.boolean.isEquals(type, 'trace')) {
-				console.trace('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
-			} else if (jokerx04.boolean.isEquals(type, 'debug')) {
-				console.debug('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
-			} else if (jokerx04.boolean.isEquals(type, 'info')) {
-				console.info('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.log('[%s][%s][%s]', type.toUpperCase(), jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+			} else if (jokerx04.boolean.isEquals(type.toUpperCase(), 'trace')) {
+				console.trace('[%s][%s][%s]', type.toUpperCase(), jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+			} else if (jokerx04.boolean.isEquals(type.toUpperCase(), 'debug')) {
+				console.debug('[%s][%s][%s]', type.toUpperCase(), jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+			} else if (jokerx04.boolean.isEquals(type.toUpperCase(), 'info')) {
+				console.info('[%s][%s][%s]', type.toUpperCase(), jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'warn')) {
-				console.warn('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.warn('[%s][%s][%s]', type.toUpperCase(), jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			} else if (jokerx04.boolean.isEquals(type, 'error')) {
-				console.error('[%s][%s][%s]', type, jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
+				console.error('[%s][%s][%s]', type.toUpperCase(), jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			}
 
 		},
