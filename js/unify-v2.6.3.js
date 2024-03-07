@@ -64,8 +64,8 @@
 	 */
 	var jokerx04 = function (options) {
 		
-		if (_) {
-			jokerx04.common.setOptions(options);
+		try {
+			_.assign(defaults, options);
 			
 			defaults.isPrintConsole && defaults.isPrintInfo && console.info(`
 %c     ██╗ ██████╗ ██╗  ██╗███████╗██████╗ ██╗  ██╗ ██████╗ ██╗  ██╗     █████╗ ██████╗ ██╗
@@ -79,10 +79,13 @@
 			jokerx04.common.console('table', jokerx04.common.getOptions());
 			
 			jokerx04.common.getFunctionStringArray(jokerx04);
-		} else {
-			console.log('1111111111111111111111111111111111111');
-			console.warn(jokerx04.name + '()는 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요합니다.');
-			console.log('222222222222222222222222222222222');
+		} catch (e) {
+			if (e.message === '_ is not defined') {
+				//console.warn(jokerx04.name + '()는 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요합니다.');
+				jokerx04.common.console('warn', jokerx04.name + '()는 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요합니다.');
+			} else {
+				console.error(e);
+			}
 		}
 		
 	};
