@@ -59,7 +59,7 @@
 			jokerx04.common.getFunctionStringArray(jokerx04);
 		} catch(e) {
 			if (e.message === '_ is not defined') {
-				jokerx04.common.console('error', jokerx04.name + '()는 Lodash(https://lodash.com) 라이브러리가 필요합니다.');
+				jokerx04.common.console('error', jokerx04.name + '는 Lodash(https://lodash.com) 라이브러리가 필요합니다.');
 			} else {
 				jokerx04.common.console('error', e);
 			}
