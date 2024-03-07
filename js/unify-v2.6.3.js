@@ -80,7 +80,9 @@
 			
 			jokerx04.common.getFunctionStringArray(jokerx04);
 		} else {
+			console.log('1111111111111111111111111111111111111');
 			console.warn(jokerx04.name + '()는 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요합니다.');
+			console.log('222222222222222222222222222222222');
 		}
 		
 	};
