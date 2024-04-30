@@ -10,8 +10,6 @@
 			{ "depth": 2, "type": "link", "title": "방명록", "href": "https://blog.jokerx04.com/guestbook", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "태그", "href": "https://blog.jokerx04.com/tag", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "블로그 관리", "href": "https://blog.jokerx04.com/manage", "target": "blank" },
-			{ "depth": 2, "type": "link", "title": "티스토리 스킨 가이드", "href": "https://tistory.github.io/document-tistory-skin", "target": "blank" },
-			{ "depth": 2, "type": "link", "title": "티스토리 Open API", "href": "https://tistory.github.io/document-tistory-apis", "target": "blank" },
 			{ "depth": 1, "type": "link", "title": "잡학", "href": "https://blog.jokerx04.com/category/%EC%9E%A1%ED%95%99", "target": "self" },
 			{ "depth": 1, "type": "link", "title": "교육", "href": "https://blog.jokerx04.com/category/%EA%B5%90%EC%9C%A1", "target": "self" },
 			{ "depth": 2, "type": "link", "title": "#보육반장 육아정보 문자", "href": "https://blog.jokerx04.com/tag/%EB%B3%B4%EC%9C%A1%EB%B0%98%EC%9E%A5%20%EC%9C%A1%EC%95%84%EC%A0%95%EB%B3%B4%20%EB%AC%B8%EC%9E%90", "target": "self" },
