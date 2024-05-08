@@ -126,6 +126,7 @@
 			{ "depth": 2, "type": "link", "title": "Google Analytics", "href": "https://analytics.google.com", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "Google Adsense", "href": "https://www.google.co.kr/adsense", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "Google Search Console", "href": "https://search.google.com/search-console", "target": "blank" },
+			{ "depth": 2, "type": "link", "title": "Google Fonts", "href": "https://fonts.google.com", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "네이버 서치어드바이저", "href": "https://searchadvisor.naver.com", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "Bing 웹 마스터 도구", "href": "http://www.bing.com/toolbox/webmaster", "target": "blank" },
 			{ "depth": 2, "type": "link", "title": "XML Sitemap Generator", "href": "http://www.check-domains.com/sitemap/index.php", "target": "blank" },
