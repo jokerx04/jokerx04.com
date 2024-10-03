@@ -1,5 +1,4 @@
 (function (global, factory) {
-
 	'use strict';
 
 	if ((typeof exports === 'object') && (typeof module !== 'undefined')) {
@@ -15,22 +14,18 @@
 		
 		global.jokerx04 = factory();
 	}
-	
 })(this, (function () {
-	
 	'use strict';
 
 	/**
 	 * 라이브러리 디폴트 설정 정보이다.
 	 */
 	var defaults = {
-		
 		// Date 출력 패턴
 		'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS',
 
 		// CORS Anywhere 서버 URL
 		'corsAnywhereServerUrl': 'https://cors.jokerx04.com/'
-
 	}
 
 	/**
@@ -41,7 +36,6 @@
 	 * jokerx04({ 'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS' });
 	 */
 	var jokerx04 = function (options) {
-		
 		try {
 			_.assign(defaults, options);
 			
@@ -64,14 +58,12 @@
 				jokerx04.common.console('error', e);
 			}
 		}
-		
 	};
 	
 	/**
 	 * 공통 관련 함수 패키지이다.
 	 */
 	jokerx04.common = {
-		
 		/**
 		 * Console 에 문자열을 출력한다.
 		 * 
@@ -107,7 +99,6 @@
 		 * 		jokerx04.common.console('timeEnd', 'time'); // time: 0.112060546875 ms
 		 */
 		console: function (type, object) {
-			
 			if (jokerx04.boolean.isEquals(type, 'default')) {
 				console.log(object);
 			} else if ([ 'clear', 'groupEnd' ].includes(type)) {
@@ -131,7 +122,6 @@
 			} else if (jokerx04.boolean.isEquals(type, 'error')) {
 				console.error('[%s][%s][%s]', type.toUpperCase(), jokerx04.date.getCurrentDate(), jokerx04.string.toString(object));
 			}
-
 		},
 
 		/**
@@ -152,12 +142,10 @@
 		 * jokerx04.common.isPrimitive(document.querySelector('body')); // false
 		 */
 		isPrimitive: function (object) {
-
 			return (jokerx04.boolean.isEquals(typeof object, 'number') ||
 					jokerx04.boolean.isEquals(typeof object, 'string') ||
 					jokerx04.boolean.isEquals(typeof object, 'boolean') ||
 					jokerx04.boolean.isEquals(typeof object, 'symbol'));
-
 		},
 
 		/**
@@ -178,10 +166,8 @@
 		 * jokerx04.common.isWindow(document.querySelector('body')); // false
 		 */
 		isWindow: function (object) {
-
 			return (jokerx04.common.isDefined(object) &&
 					jokerx04.boolean.isEquals(object, object.window));
-
 		},
 
 		/**
@@ -202,9 +188,7 @@
 		 * jokerx04.common.isFunction(document.querySelector('body')); // false
 		 */
 		isFunction: function (object) {
-
 			return jokerx04.boolean.isEquals(typeof object, 'function');
-
 		},
 
 		/**
@@ -225,9 +209,7 @@
 		 * jokerx04.common.isObject(document.querySelector('body')); // true
 		 */
 		isObject: function (object) {
-
 			return jokerx04.boolean.isEquals(typeof object, 'object');
-
 		},
 
 		/**
@@ -248,9 +230,7 @@
 		 * jokerx04.common.isPlainObject(document.querySelector('body')); // false
 		 */
 		isPlainObject: function (object) {
-
 			return jokerx04.boolean.isEquals(Object.prototype.toString.call(object), '[object Object]');
-
 		},
 
 		/**
@@ -271,10 +251,8 @@
 		 * jokerx04.common.isJSONObject(document.querySelector('body')); // false
 		 */
 		isJSONObject: function (object) {
-
 			return (jokerx04.common.isPlainObject(object) &&
 					jokerx04.boolean.isEquals(object.toString, Object.prototype.toString));
-
 		},
 
 		/**
@@ -298,13 +276,11 @@
 		 * jokerx04.common.isEmptyObject(document.querySelector('body')); // true
 		 */
 		isEmptyObject: function (object) {
-
 			for (var key in object) {
 				return false;
 			}
 
 			return true;
-
 		},
 
 		/**
@@ -327,10 +303,8 @@
 		 * jokerx04.common.isDefined(document.querySelector('body')); // true
 		 */
 		isDefined: function (object) {
-
 			return (jokerx04.boolean.isNotEquals(object, undefined) &&
 					jokerx04.boolean.isNotEquals(object, null));
-
 		},
 
 		/**
@@ -353,9 +327,7 @@
 		 * jokerx04.common.isUndefined(document.querySelector('body')); // false
 		 */
 		isUndefined: function (object) {
-
 			return !jokerx04.common.isDefined(object);
-
 		},
 
 		/**
@@ -370,7 +342,6 @@
 		 * jokerx04.common.isAllDefined(document.querySelector('body')); // true
 		 */
 		isAllDefined: function (...object) {
-			
 			for (var i = 0; i < object.length; i++) {
 				if (jokerx04.common.isUndefined(object[i])) {
 					return false;
@@ -378,7 +349,6 @@
 			}
 
 			return true;
-
 		},
 		
 		/**
@@ -393,7 +363,6 @@
 		 * jokerx04.common.isAllUndefined(document.querySelector('body')); // false
 		 */
 		isAllUndefined: function (...object) {
-			
 			for (var i = 0; i < object.length; i++) {
 				if (jokerx04.common.isDefined(object[i])) {
 					return false;
@@ -401,7 +370,6 @@
 			}
 
 			return true;
-
 		},
 
 		/**
@@ -422,7 +390,6 @@
 		 * jokerx04.common.parseJson(document.querySelector('body')); // null
 		 */
 		parseJson: function (object) {
-
 			try {
 				if (jokerx04.common.isUndefined(object)) {
 					return null;
@@ -436,7 +403,6 @@
 			} catch (e) {
 				return null;
 			}
-			
 		},
 
 		/**
@@ -449,13 +415,11 @@
 		 * jokerx04.common.getFunctionStringArray(jokerx04); // jokerx04 객체의 속성 내 Function 들의 파라미터 포함 함수명의 배열
 		 */
 		getFunctionStringArray: function (object, isCollapsed) {
-
 			if (jokerx04.common.isUndefined(object)) {
 				return [];
 			}
 
 			var functionStringArray = function (object, objectName, returnValue) {
-
 				var key;
 
 				var parameterText;
@@ -497,7 +461,6 @@
 				}
 
 				return returnValue;
-
 			};
 
 			var returnValue;
@@ -529,7 +492,6 @@
 			}
 
 			return returnValue;
-
 		}
 
 	};
@@ -538,7 +500,6 @@
 	 * 논리 관련 함수 패키지이다.
 	 */
 	jokerx04.boolean = {
-		
 		/**
 		 * 객체 유형이 Boolean 인지 여부를 반환한다.
 		 * 
@@ -557,9 +518,7 @@
 		 * jokerx04.boolean.isBooleanObject(document.querySelector('body')); // false
 		 */
 		isBooleanObject: function (object) {
-
 			return (Object.prototype.toString.call(object) === '[object Boolean]');
-
 		},
 
 		/**
@@ -583,7 +542,6 @@
 		 * jokerx04.boolean.isEquals(document.querySelector('body'), document.querySelector('body')); // true
 		 */
 		isEquals: function (object1, object2, isExactly) {
-
 			if ((isExactly === undefined) ||
 					(isExactly === null) ||
 					(Object.prototype.toString.call(isExactly) !== '[object Boolean]')) {
@@ -592,7 +550,6 @@
 			}
 
 			var equals = function (object1, object2) {
-
 				if ((Object.prototype.toString.call(object1) === '[object Array]') && (Object.prototype.toString.call(object2) === '[object Array]')) {
 					if (isExactly) {
 						if (JSON.stringify(object1) !== JSON.stringify(object2)) {
@@ -632,7 +589,6 @@
 						return false;
 					}
 				}
-
 			};
 
 			if (equals(object1, object2) === false) {
@@ -640,7 +596,6 @@
 			}
 
 			return true;
-			
 		},
 
 		/**
@@ -664,9 +619,7 @@
 		 * jokerx04.boolean.isNotEquals(document.querySelector('body'), document.querySelector('body')); // false
 		 */
 		isNotEquals: function (object1, object2, isExactly) {
-
 			return !jokerx04.boolean.isEquals(object1, object2, isExactly);
-			
 		}
 		
 	};
@@ -675,7 +628,6 @@
 	 * 숫자 관련 함수 패키지이다.
 	 */
 	jokerx04.number = {
-		
 		/**
 		 * 객체 유형이 Number 인지 여부를 반환한다.
 		 * 
@@ -694,9 +646,7 @@
 		 * jokerx04.number.isNumberObject(document.querySelector('body')); // false
 		 */
 		isNumberObject: function (object) {
-
 			return jokerx04.boolean.isEquals(Object.prototype.toString.call(object), '[object Number]');
-
 		},
 
 		/**
@@ -720,10 +670,8 @@
 		 * jokerx04.number.isNumeric(document.querySelector('body')); // false
 		 */
 		isNumeric: function (object) {
-
 			return ((jokerx04.number.isNumberObject(object) || jokerx04.string.isStringObject(object)) &&
 					!isNaN(object - parseFloat(jokerx04.string.toString(object))));
-
 		},
 
 		/**
@@ -748,7 +696,6 @@
 		 * jokerx04.number.toNumber(document.querySelector('body')); // NaN
 		 */
 		toNumber: function (object) {
-			
 			if (!jokerx04.number.isNumberObject(object) && !jokerx04.string.isStringObject(object)) {
 				return NaN;
 			}
@@ -760,7 +707,6 @@
 			}
 
 			return returnValue;
-
 		}
 		
 	};
@@ -769,7 +715,6 @@
 	 * 배열 관련 함수 패키지이다.
 	 */
 	jokerx04.array = {
-
 		/**
 		 * 객체 유형이 Array 인지 여부를 반환한다.
 		 * 
@@ -788,13 +733,11 @@
 		 * jokerx04.array.isArrayObject(document.querySelector('body')); // false
 		 */
 		isArrayObject: function (object) {
-
 			if (!Array.isArray) {
 				return jokerx04.boolean.isEquals(Object.prototype.toString.call(object), '[object Array]');
 			}
 
 			return Array.isArray(object);
-
 		},
 
 	},
@@ -803,7 +746,6 @@
 	 * 문자열 관련 함수 패키지이다.
 	 */
 	jokerx04.string = {
-		
 		/**
 		 * 객체 유형이 String 인지 여부를 반환한다.
 		 * 
@@ -822,9 +764,7 @@
 		 * jokerx04.string.isStringObject(document.querySelector('body')); // false
 		 */
 		isStringObject: function (object) {
-
 			return jokerx04.boolean.isEquals(Object.prototype.toString.call(object), '[object String]');
-
 		},
 
 		/**
@@ -845,7 +785,6 @@
 		 * jokerx04.string.toString(document.querySelector('body')); // [object HTMLBodyElement]
 		 */
 		toString: function (object) {
-
 			if (jokerx04.common.isUndefined(object)) {
 				return '';
 			}
@@ -855,7 +794,6 @@
 			}
 
 			return String(object);
-			
 		},
 
 		/**
@@ -878,9 +816,7 @@
 		 * jokerx04.string.isEmpty(document.querySelector('body')); // true
 		 */
 		isEmpty: function (object) {
-
 			return (jokerx04.common.isUndefined(object) || (jokerx04.boolean.isEquals(jokerx04.string.toString(object).length, 0)));
-			
 		},
 
 		/**
@@ -903,9 +839,7 @@
 		 * jokerx04.string.isBlank(document.querySelector('body')); // true
 		 */
 		isBlank: function (object) {
-
 			return (jokerx04.common.isUndefined(object) || (jokerx04.boolean.isEquals(jokerx04.string.getTrim(object).length, 0)));
-			
 		},
 
 		/**
@@ -926,9 +860,7 @@
 		 * jokerx04.string.isContains(document.querySelector('body'), '<'); // false
 		 */
 		isContains: function (object, search) {
-
 			return (jokerx04.common.isDefined(object) && (jokerx04.boolean.isNotEquals(jokerx04.string.toString(object).indexOf(jokerx04.string.toString(search)), -1)));
-			
 		},
 		
 		/**
@@ -949,7 +881,6 @@
 		 * jokerx04.string.isContainsAny(document.querySelector('body'), '<'); // false
 		 */
 		isContainsAny: function (object, ...search) {
-			
 			for (var i = 0; i < search.length; i++) {
 				if (jokerx04.common.isDefined(object) && (jokerx04.boolean.isNotEquals(jokerx04.string.toString(object).indexOf(jokerx04.string.toString(search[i])), -1))) {
 					return true;
@@ -957,7 +888,6 @@
 			}
 
 			return false;
-			
 		},
 
 		/**
@@ -980,9 +910,7 @@
 		 * jokerx04.string.getDefaultIfEmpty(document.querySelector('body'), 'Object'); // '[object HTMLBodyElement]'
 		 */
 		getDefaultIfEmpty: function (object, defaultString) {
-
 			return (jokerx04.string.isEmpty(object) ? jokerx04.string.toString(defaultString) : jokerx04.string.toString(object));
-
 		},
 
 		/**
@@ -1006,9 +934,7 @@
 		 * jokerx04.string.getDefaultIfBlank(document.querySelector('body'), 'Object'); // '[object HTMLBodyElement]'
 		 */
 		getDefaultIfBlank: function (object, defaultString) {
-
 			return (jokerx04.string.isBlank(object) ? jokerx04.string.toString(defaultString) : jokerx04.string.toString(object));
-
 		},
 
 		/**
@@ -1031,9 +957,7 @@
 		 * jokerx04.string.getTrim(document.querySelector('body')); // [object HTMLBodyElement]
 		 */
 		getTrim: function (object) {
-			
 			return jokerx04.string.toString(object).replace(/^[\x20\t\r\n\f]+|((?:^|[^\\])(?:\\.)*)[\x20\t\r\n\f]+$/g, '$1');
-			
 		},
 
 		/**
@@ -1054,7 +978,6 @@
 		 * jokerx04.string.getSubstringBetween(document.querySelector('body'), '[', ']'); // object HTMLBodyElement
 		 */
 		getSubstringBetween(object, open, close) {
-
 			var stringObject = jokerx04.string.toString(object);
 			var stringOpen = jokerx04.string.toString(open);
 			var stringClose = jokerx04.string.toString(close);
@@ -1074,7 +997,6 @@
 			}
 
 			return stringObject.substring(startIndex, endIndex);
-
 		},
 
 		/**
@@ -1096,7 +1018,6 @@
 		 * jokerx04.string.getEscapeHtml('<html><body onload="alert(\'jokerx04\');"></body></html>'); // '&lt;html&gt;&lt;body onload=&quot;alert(&#39;jokerx04&#39;);&quot;&gt;&lt;/body&gt;&lt;/html&gt;'
 		 */
 		getEscapeHtml: function (object) {
-			
 			return jokerx04.string.toString(object).replace(/(<|>|&|"|'|\n|\t|)/g, function ($1) {
 
 						switch ($1) {
@@ -1111,16 +1032,13 @@
 						}
 
 					});
-			
 		}
-		
 	};
 
 	/**
 	 * 일자 관련 함수 패키지이다.
 	 */
 	jokerx04.date = {
-		
 		/**
 		 * 객체 유형이 Date 인지 여부를 반환한다.
 		 * 
@@ -1139,9 +1057,7 @@
 		 * jokerx04.date.isDateObject(document.querySelector('body')); // false
 		 */
 		isDateObject: function (object) {
-
 			return jokerx04.boolean.isEquals(Object.prototype.toString.call(object), '[object Date]');
-
 		},
 
 		/**
@@ -1165,7 +1081,6 @@
 		 * jokerx04.date.getFormatDate(new Date(), 'yyyy-MM-dd E HH:mm:ss.SSS'); // '2023-02-24 금요일 18:32:08.263'
 		 */
 		getFormatDate: function (date, dateFormat) {
-
 			if (!jokerx04.date.isDateObject(date)) {
 				return '';
 			}
@@ -1173,7 +1088,6 @@
 			dateFormat = jokerx04.string.getDefaultIfBlank(jokerx04.string.toString(dateFormat), defaults.dateFormat);
 
 			return dateFormat.replace(/(yyyy|MM|dd|E|HH|mm|ss|SSS)/g, function ($1) {
-
 						switch ($1) {
 							case 'yyyy': return date.getFullYear();
 							case 'MM': return ('0' + (date.getMonth() + 1)).slice(-2);
@@ -1187,7 +1101,6 @@
 						}
 
 					});
-
 		},
 
 		/**
@@ -1211,18 +1124,14 @@
 		 * jokerx04.date.getCurrentDate('yyyy-MM-dd E HH:mm:ss.SSS'); // '2023-02-24 금요일 18:32:08.263'
 		 */
 		getCurrentDate: function (dateFormat) {
-
 			return jokerx04.date.getFormatDate(new Date(), dateFormat);
-
 		}
-		
 	};
 
 	/**
 	 * 정규식 관련 함수 패키지이다.
 	 */
 	jokerx04.regexp = {
-		
 		/**
 		 * 객체 유형이 RegExp 인지 여부를 반환한다.
 		 * 
@@ -1241,18 +1150,14 @@
 		 * jokerx04.regexp.isRegExpObject(document.querySelector('body')); // false
 		 */
 		isRegExpObject: function (object) {
-
 			return jokerx04.boolean.isEquals(Object.prototype.toString.call(object), '[object RegExp]');
-
 		},
-
 	};
 
 	/**
 	 * AJAX(Asynchronous JavaScript And XML) 관련 함수 패키지이다.
 	 */
 	jokerx04.ajax = {
-		
 		/**
 		 * Promise 객체인지 여부를 반환한다.
 		 * 
@@ -1272,11 +1177,9 @@
 		 * jokerx04.ajax.isPromise(document.querySelector('body')); // false
 		 */
 		isPromise: function (object) {
-
 			return (jokerx04.common.isDefined(object) &&
 					jokerx04.boolean.isEquals(typeof object.then, 'function') &&
 					jokerx04.boolean.isEquals(typeof object.catch, 'function'));
-
 		},
 
 		/**
@@ -1301,7 +1204,6 @@
 		 * jokerx04.ajax.getCorsAnywhereUrl(document.querySelector('body')); // 'https://cors.jokerx04.com/'
 		 */
 		getCorsAnywhereUrl: function (object) {
-
 			try {
 				var url;
 				
@@ -1319,16 +1221,13 @@
 			} catch (e) {
 				return defaults.corsAnywhereServerUrl;
 			}
-
 		}
-
 	};
 
 	/**
 	 * UI(User interface) 관련 함수 패키지이다.
 	 */
 	jokerx04.ui = {
-		
 		/**
 		 * Element 객체를 생성하여 반환한다.
 		 * 
@@ -1336,7 +1235,6 @@
 		 * jokerx04.ui.createDom('div', { 'id': 'divId', 'class': 'divClass' }); // <div id="divId" class="divClass"></div>
 		 */
 		 createDom: function (element, object) {
-
 			var returnValue = document.createElement(jokerx04.string.toString(element));
 
 			for (var key in object) {
@@ -1344,7 +1242,6 @@
 			}
 
 			return returnValue;
-
 		},
 
 		/**
@@ -1362,13 +1259,11 @@
 		 * 		jokerx04.ui.getDom('#bodyId'); // body Element 객체
 		 */
 		getDom: function (selector) {
-
 			try {
 				return document.querySelector(jokerx04.string.toString(selector));
 			} catch (e) {
 				return null;
 			}
-
 		},
 
 		/**
@@ -1386,13 +1281,11 @@
 		 * 		jokerx04.ui.getDomList('div'); // NodeList [div, div, div] 객체
 		 */
 		getDomList: function (selector) {
-
 			try {
 				return document.querySelectorAll(jokerx04.string.toString(selector));
 			} catch (e) {
 				return document.querySelectorAll(null);
 			}
-
 		},
 
 		/**
@@ -1408,7 +1301,6 @@
 		 * jokerx04.ui.getDomStyleList('div', 'propertyKey'); // ['', '', '', '', ''] 객체
 		 */
 		getDomStyleList: function (selector, propertyKey) {
-
 			var returnValue = new Array();
 
 			try {
@@ -1426,7 +1318,6 @@
 			}
 
 			return returnValue;
-
 		},
 
 		/**
@@ -1439,20 +1330,15 @@
 		 * jokerx04.ui.blockUI('#divId', { 'data-text': '조회중입니다.' });
 		 */
 		blockUI: function (selector, options) {
-
 			var defaultOptions = {
-				
 				'data-text': 'Loading...'
-
 			};
 
 			Object.assign(defaultOptions, options);
 
 			if (!jokerx04.ui.getDom('style[title="blockUI"]')) {
 				var styleDom = jokerx04.ui.createDom('style', {
-					
 					'title': 'blockUI'
-				
 				});
 	
 				styleDom.appendChild(document.createTextNode(`
@@ -1523,11 +1409,9 @@
 			}
 			
 			parentDom.appendChild(jokerx04.ui.createDom('div', {
-				
 				'class': 'blockUI',
 				'style': (jokerx04.boolean.isEquals(parentDom.tagName, 'BODY')) ? 'position: fixed' : 'position: absolute',
 				'data-text': defaultOptions['data-text']
-			
 			}));
 
 		},
@@ -1541,7 +1425,6 @@
 		 * jokerx04.ui.unblockUI('#divId');
 		 */
 		unblockUI: function (selector) {
-			
 			try {
 				if (jokerx04.string.isBlank(selector)) {
 					throw new Error();
@@ -1555,9 +1438,7 @@
 					domList[i].remove();
 				}
 			}
-
 		}
-
 	};
 
 	/**
@@ -1567,7 +1448,6 @@
 	 * jokerx04.jQuery.ui 패키지 사용 시 jQuery(https://jquery.com), jQuery UI(https://jqueryui.com) 라이브러리가 필요하다.
 	 */
 	(function ($) {
-		
 		if ($) {
 			$(document).ajaxStart(function () {
 
@@ -1576,53 +1456,42 @@
 			});
 			
 			$(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
-				
 				if (ajaxOptions.global && ajaxOptions.async) {
 					if (Pace) {
 						jokerx04.Pace.restart();
 					} else {
 						jqXHR.timeoutId = setTimeout(function () {
-							
 							if (jokerx04.boolean.isEquals($('.blockUI').length, 0)) {
 								jokerx04.ui.blockUI();
 							}
-							
 						}, 500);
 					}
 				}
-
 			});
 			
 			$(document).ajaxComplete(function (event, jqXHR, ajaxOptions) {
-				
 				if (jqXHR.timeoutId) {
 					clearTimeout(jqXHR.timeoutId);
 				}
-
 			});
 			
 			$(document).ajaxStop(function () {
-				
 				if (!Pace) {
 					jokerx04.ui.unblockUI();
 				}
-
 			});
 		} else {
 			console.warn(jokerx04.name + '.jQuery 패키지는 jQuery(https://jquery.com) 라이브러리가 필요합니다.');
 		}
 		
 		jokerx04.jQuery = {
-			
 			/**
 			 * jQuery 버전을 반환한다.
 			 * 
 			 * jokerx04.jQuery.getVersion(); // '3.6.3'
 			 */
 			getVersion: function () {
-				
 				return $().jquery;
-				
 			},
 
 			/**
@@ -1637,9 +1506,7 @@
 			 * }); // menu.json 비동기 요청 후 결과 JSON 을 Console 출력
 			 */
 			ajax: function (options) {
-
 				var defaults = {
-
 					global: true,
 					crossDomain: true,
 					context: this,
@@ -1655,18 +1522,13 @@
 					headers: {  },
 					beforeSend: function (jqXHR, settings) {
 
-
-
 					},
 					success: function (data, textStatus, jqXHR) {
-
 						jokerx04.common.console('log', data);
 						jokerx04.common.console('log', textStatus);
 						jokerx04.common.console('log', jqXHR);
-
 					},
 					error: function (jqXHR, textStatus, errorThrown) {
-
 						switch (jqXHR.readyState) {
 							case 0:
 								jokerx04.common.console('error', 'readyState : ' + jqXHR.readyState + '(UNSENT)');
@@ -1702,11 +1564,8 @@
 						jokerx04.common.console('error', 'textStatus : ' + textStatus);
 						jokerx04.common.console('error', 'errorThrown : ' + errorThrown);
 						jokerx04.common.console('error', 'responseText : ' + jqXHR.responseText);
-
 					},
 					complete: function (jqXHR, textStatus) {
-
-
 
 					},
 					isCorsUrl: true
@@ -1720,7 +1579,6 @@
 				}
 
 				return $.ajax({
-
 					global: defaults.global,
 					crossDomain: defaults.crossDomain,
 					context: defaults.context,
@@ -1740,11 +1598,8 @@
 					success: defaults.success,
 					error: defaults.error,
 					complete: defaults.complete
-
 				});
-
 			}
-			
 		}
 
 		if ($ && !$.ui) {
@@ -1752,20 +1607,15 @@
 		}
 
 		jokerx04.jQuery.ui = {
-			
 			/**
 			 * jQuery UI 버전을 반환한다.
 			 * 
 			 * jokerx04.jQuery.ui.getVersion(); // '1.12.1'
 			 */
 			getVersion: function () {
-				
 				return $.ui.version;
-				
 			}
-			
 		}
-
 	})(window.jQuery);
 
 	/**
@@ -1774,7 +1624,6 @@
 	 * jokerx04.UAParser 패키지 사용 시 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요하다.
 	 */
 	(function (UAParser) {
-		
 		var uaParser;
 
 		if (UAParser) {
@@ -1784,16 +1633,13 @@
 		}
 		
 		jokerx04.UAParser = {
-			
 			/**
 			 * 사용자 브라우저명을 반환한다.
 			 * 
 			 * jokerx04.UAParser.getBrowserName(); // 'Chrome'
 			 */
 			 getBrowserName: function () {
-				
 				return uaParser.getBrowser().name;
-				
 			},
 
 			/**
@@ -1802,9 +1648,7 @@
 			 * jokerx04.UAParser.getBrowserVersion(); // '110.0.0.0'
 			 */
 			 getBrowserVersion: function () {
-				
 				return uaParser.getBrowser().version;
-				
 			},
 
 			/**
@@ -1813,9 +1657,7 @@
 			 * jokerx04.UAParser.getBrowserMajorVersion(); // '110'
 			 */
 			 getBrowserMajorVersion: function () {
-				
 				return uaParser.getBrowser().version;
-				
 			},
 
 			/**
@@ -1824,9 +1666,7 @@
 			 * jokerx04.UAParser.getDeviceType(); // 'mobile'
 			 */
 			 getDeviceType: function () {
-				
 				return uaParser.getDevice().type;
-				
 			},
 
 			/**
@@ -1835,9 +1675,7 @@
 			 * jokerx04.UAParser.getDeviceVendor(); // 'LG'
 			 */
 			 getDeviceVendor: function () {
-				
 				return uaParser.getDevice().vendor;
-				
 			},
 
 			/**
@@ -1846,9 +1684,7 @@
 			 * jokerx04.UAParser.getDeviceModel(); // 'Nexus 5'
 			 */
 			 getDeviceModel: function () {
-				
 				return uaParser.getDevice().model;
-				
 			},
 
 			/**
@@ -1857,9 +1693,7 @@
 			 * jokerx04.UAParser.getEngineName(); // 'Blink'
 			 */
 			 getEngineName: function () {
-				
 				return uaParser.getEngine().name;
-				
 			},
 
 			/**
@@ -1868,9 +1702,7 @@
 			 * jokerx04.UAParser.getEngineVersion(); // '110.0.0.0'
 			 */
 			 getEngineVersion: function () {
-				
 				return uaParser.getEngine().version;
-				
 			},
 
 			/**
@@ -1879,9 +1711,7 @@
 			 * jokerx04.UAParser.getOSName(); // 'Linux'
 			 */
 			 getOSName: function () {
-				
 				return uaParser.getOS().name;
-				
 			},
 
 			/**
@@ -1890,9 +1720,7 @@
 			 * jokerx04.UAParser.getOSVersion(); // 'x86_64'
 			 */
 			 getOSVersion: function () {
-				
 				return uaParser.getOS().version;
-				
 			},
 
 			/**
@@ -1901,9 +1729,7 @@
 			 * jokerx04.UAParser.getCPUArchitecture(); // 'amd64'
 			 */
 			 getCPUArchitecture: function () {
-				
 				return uaParser.getCPU().architecture;
-				
 			},
 
 			/**
@@ -1912,9 +1738,7 @@
 			 * jokerx04.UAParser.getUserAgent(); // 'Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36'
 			 */
 			 getUserAgent: function () {
-				
 				return uaParser.getUA();
-				
 			},
 
 			/**
@@ -1927,13 +1751,9 @@
 			 * 		jokerx04.UAParser.getBrowserName(); // 'IEMobile'
 			 */
 			 setUserAgent: function (object) {
-				
 				return uaParser.setUA(jokerx04.string.toString(object));
-				
 			}
-			
 		}
-		
 	})(window.UAParser);
 
 	/**
@@ -1941,14 +1761,10 @@
 	 * 
 	 * jokerx04.Pace 패키지 사용 시 PACE(https://codebyzach.github.io/pace) 라이브러리가 필요하다.
 	 */
-	 (function (Pace) {
-		
+	(function (Pace) {
 		var defaultOptions = {
-
 			ajax: {
-
 				trackMethods: [
-
 					'GET',
 					'HEAD',
 					'POST',
@@ -1958,12 +1774,10 @@
 					'OPTIONS',
 					'TRACE',
 					'PATCH'
-
 				],
 				trackWebSockets: true,
 				ignoreURLs: []
 			}
-
 		};
 
 		if (Pace) {
@@ -2200,14 +2014,12 @@
 		}
 		
 		jokerx04.Pace = {
-			
 			/**
 			 * Pace 를 재시작한다.
 			 * 
 			 * jokerx04.Pace.restart();
 			 */
 			 restart: function (options) {
-
 				if (jokerx04.common.isJSONObject(options)) {
 					Object.assign(defaultOptions, options);
 				}
@@ -2217,19 +2029,14 @@
 				Pace.stop();
 
 				return Pace.start(defaultOptions);
-				
 			}
-
 		}
-		
 	})(window.Pace);
 	
 	return jokerx04;
-
 }));
 
-$(function() {
-	
+$(function () {
 	// Unify-v2.6.3 Initialization
 	$.HSCore.components.HSTabs.init('[role="tablist"]');
 	$.HSCore.components.HSTabs.init('[data-tabs-mobile-type]');
@@ -2257,40 +2064,30 @@ $(function() {
 	var counters = $.HSCore.components.HSCounter.init('[class*="js-counter"]');
 
 	$(window).on('load', function (eventObject) {
-
 		$.HSCore.components.HSHeader.init($('#js-header'));
 
 		$.HSCore.helpers.HSHamburgers.init('.hamburger');
 
-		setTimeout(function() {
-
+		setTimeout(function () {
 			$.HSCore.components.HSStickyBlock.init('.js-sticky-block');
-
 		}, 300);
-
 	});
 
 	$(window).on('resize', function (eventObject) {
-
 		setTimeout(function () {
-
 			$.HSCore.components.HSTabs.init('[role="tablist"]');
 			$.HSCore.components.HSTabs.init('[data-tabs-mobile-type]');
-
 		}, 200);
-
 	});
 	
 	// GNB
 	jokerx04.jQuery.ajax({
-
 		global: false,
 		isCorsUrl: false,
 		url: 'https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@latest/json/unify-v2.6.3-menu.json',
 		method: 'GET',
 		type: 'GET',
 		success: function (data, textStatus, jqXHR) {
-
 			if (jokerx04.boolean.isNotEquals(jqXHR.status, 200)) {
 				return;
 			}
@@ -2387,7 +2184,6 @@ $(function() {
 
 		},
 		complete: function (jqXHR, textStatus) {
-
 			if (jokerx04.boolean.isEquals(window.location.host, 'jokerx04.com')) {
 				$('#navBar').find('a[href="' + window.location.protocol + '//' + window.location.host + '"]').addClass('active');
 			}
@@ -2408,7 +2204,6 @@ $(function() {
 				}
 				
 				$('#navBar #nav-link-blog').parent().find('a').each(function (index, element) {
-
 					if (jokerx04.boolean.isEquals($(this).text(), breadcrumbsTitle) &&
 							jokerx04.boolean.isNotEquals($(this).closest('ul').closest('li').find('a:nth(0)').text(), '') &&
 							jokerx04.boolean.isNotEquals($(this).closest('ul').closest('li').find('a:nth(0)').attr('id'), 'nav-link-blog')) {
@@ -2417,7 +2212,6 @@ $(function() {
 
 						return false;
 					}
-
 				});
 
 				breadcrumbsTitle = '블로그/' + breadcrumbsTitle;
@@ -2427,7 +2221,6 @@ $(function() {
 				var navBarAText = '';
 
 				$('#navBar #nav-link-blog').parent().find('a').each(function (index, element) {
-
 					navBarAText = $(this).text();
 
 					if (jokerx04.string.isContains(navBarAText, '(')) {
@@ -2439,22 +2232,16 @@ $(function() {
 
 						breadcrumbsTitleSplitIndex++;
 					}
-
 				});
 			}
 			
 			$('#navBar ul li ul li').each(function (index, element) {
-				
 				if ($(this).find('li').length >= 10) {
 					if (!$(this).find('ul').hasClass('u-dropdown-col-2')) {
 						$(this).find('ul').addClass('u-dropdown-col-2');
 					}
 				}
-				
 			});
-			
 		}
-
 	});
-	
 });
