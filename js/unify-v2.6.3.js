@@ -2311,6 +2311,8 @@ $(function () {
 				
 				$('#footerContact').append(footerContactTag);
 			}
+			
+			$('#footerCopyright').html(data.footerCopyright);
 		},
 		complete: function (jqXHR, textStatus) {
 			

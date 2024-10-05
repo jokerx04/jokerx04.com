@@ -9,5 +9,6 @@
 	"footerContact": [
 		{ "title": "jokerx04@naver.com", "href": "mailto:jokerx04@naver.com", "target": "self" },
 		{ "title": "https://blog.jokerx04.com/guestbook", "href": "https://blog.jokerx04.com/guestbook", "target": "blank" }
-	]
+	],
+	"footerCopyright": "야근의 요정. All rights reserved."
 }
