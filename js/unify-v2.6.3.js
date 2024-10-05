@@ -2244,4 +2244,76 @@ $(function () {
 			});
 		}
 	});
+	
+	// Footer
+	jokerx04.jQuery.ajax({
+		global: false,
+		isCorsUrl: false,
+		url: 'https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@latest/json/unify-v2.6.3-footer.json',
+		method: 'GET',
+		type: 'GET',
+		success: function (data, textStatus, jqXHR) {
+			if (jokerx04.boolean.isNotEquals(jqXHR.status, 200)) {
+				return;
+			}
+			
+			var footerLink = data.footerLink;
+			var footerContact = data.footerContact;
+			
+			var footerLinkTitle;
+			var footerLinkHref;
+			var footerLinkTarget;
+			
+			var footerContactTitle;
+			var footerContactHref;
+			var footerContactTarget;
+			
+			var footerLinkTag;
+			var footerContactTag;
+			
+			$('#footerTitle').html(data.footerTitle);
+			$('#footerDesc').html(data.footerDesc);
+			
+			for (var i = 0; i < footerLink.length; i++) {
+				footerLinkTitle = footerLink[i].title;
+				footerLinkHref = footerLink[i].href;
+				footerLinkTarget = footerLink[i].target;
+
+				footerLinkTag = '';
+				
+				if (jokerx04.boolean.isEquals(i + 1, footerLink.length)) {
+					footerLinkTag += '<li class="g-pos-rel g-py-10">';
+				} else {
+					footerLinkTag += '<li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">';
+				}
+				
+				footerLinkTag += '	<h4 class="h6 g-pr-20 mb-0">';
+				footerLinkTag += '		<a class="g-color-white-opacity-0_8 g-color-white--hover" href="' + footerLinkHref + '" ' + (jokerx04.boolean.isEquals(footerLinkTarget, 'blank') ? 'target="_blank"' : '') + '>' + footerLinkTitle + '</a>';
+				footerLinkTag += '		<i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>';
+				footerLinkTag += '	</h4>';
+				footerLinkTag += '</li>';
+				
+				$('#footerLink').append(footerLinkTag);
+			}
+			
+			for (var i = 0; i < footerContact.length; i++) {
+				footerContactTitle = footerContact[i].title;
+				footerContactHref = footerContact[i].href;
+				footerContactTarget = footerContact[i].target;
+
+				footerContactTag = '';
+				
+				footerContactTag += '<a class="g-color-white-opacity-0_8 g-color-white--hover" href="' + footerContactHref + '" ' + (jokerx04.boolean.isEquals(footerContactTarget, 'blank') ? 'target="_blank"' : '') + '>' + footerContactTitle + '</a>';
+				
+				if (jokerx04.boolean.isNotEquals(i + 1, footerContact.length)) {
+					footerContactTag += '<br />';
+				}
+				
+				$('#footerContact').append(footerContactTag);
+			}
+		},
+		complete: function (jqXHR, textStatus) {
+			
+		}
+	});
 });
