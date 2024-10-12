@@ -2257,6 +2257,8 @@ $(function () {
 				return;
 			}
 			
+			$('#footerDesc').html(data.footerDesc);
+			
 			var footerBlogLink = data.footerBlogLink;
 			var footerSkinLink = data.footerSkinLink;
 			var footerContact = data.footerContact;
@@ -2276,11 +2278,6 @@ $(function () {
 			var footerBlogLinkTag;
 			var footerSkinLinkTag;
 			var footerContactTag;
-			
-			$('#footerTitle').html(data.footerTitle);
-			$('#footerDesc').html(data.footerDesc);
-			$('#footerBlogTitle').html(data.footerBlogTitle);
-			$('#footerSkinTitle').html(data.footerSkinTitle);
 			
 			for (var i = 0; i < footerBlogLink.length; i++) {
 				footerBlogLinkTitle = footerBlogLink[i].title;
