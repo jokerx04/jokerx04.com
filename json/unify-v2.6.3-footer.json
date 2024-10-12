@@ -1,7 +1,14 @@
 {
 	"footerTitle": "야근의 요정을 대하는 자세",
 	"footerDesc": "\"이 또한 지나 가리라\" - 『미드라시(Midrash)』 의 ‘다윗 왕의 반지’<br /><br />기쁜 상황도 지나가니 함부로 교만하지 말아야 한다.<br />슬픈 상황도 지나가니 낙심하지 말아야 한다.<br />어떠한 상황에도 항상 의연한 태도를 보여야 한다.",
-	"footerLink": [
+	"footerBlogTitle": "블로그 링크",
+	"footerBlogLink": [
+		{ "title": "블로그 관리", "href": "/manage", "target": "blank" },
+		{ "title": "Google Analytics", "href": "https://analytics.google.com", "target": "blank" },
+		{ "title": "가비아", "href": "https://www.gabia.com", "target": "blank" }
+	],
+	"footerSkinTitle": "스킨 링크",
+	"footerSkinLink": [
 		{ "title": "GitHub", "href": "https://github.com/jokerx04", "target": "blank" },
 		{ "title": "Unify v2.6.3 - Multipurpose Responsive Template", "href": "https://htmlstream.com/preview/unify-v2.6.3", "target": "blank" },
 		{ "title": "티스토리 스킨 가이드", "href": "https://tistory.github.io/document-tistory-skin", "target": "blank" }

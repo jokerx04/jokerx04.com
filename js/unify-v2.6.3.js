@@ -2257,43 +2257,82 @@ $(function () {
 				return;
 			}
 			
-			var footerLink = data.footerLink;
+			var footerBlogLink = data.footerBlogLink;
+			var footerSkinLink = data.footerSkinLink;
 			var footerContact = data.footerContact;
 			
-			var footerLinkTitle;
-			var footerLinkHref;
-			var footerLinkTarget;
+			var footerBlogLinkTitle;
+			var footerBlogLinkHref;
+			var footerBlogLinkTarget;
+			
+			var footerSkinLinkTitle;
+			var footerSkinLinkHref;
+			var footerSkinLinkTarget;
 			
 			var footerContactTitle;
 			var footerContactHref;
 			var footerContactTarget;
 			
-			var footerLinkTag;
+			var footerBlogLinkTag;
+			var footerSkinLinkTag;
 			var footerContactTag;
 			
 			$('#footerTitle').html(data.footerTitle);
 			$('#footerDesc').html(data.footerDesc);
+			$('#footerBlogTitle').html(data.footerBlogTitle);
+			$('#footerSkinTitle').html(data.footerSkinTitle);
 			
-			for (var i = 0; i < footerLink.length; i++) {
-				footerLinkTitle = footerLink[i].title;
-				footerLinkHref = footerLink[i].href;
-				footerLinkTarget = footerLink[i].target;
+			for (var i = 0; i < footerBlogLink.length; i++) {
+				footerBlogLinkTitle = footerBlogLink[i].title;
+				footerBlogLinkHref = footerBlogLink[i].href;
+				footerBlogLinkTarget = footerBlogLink[i].target;
 
-				footerLinkTag = '';
+				footerBlogLinkTag = '';
 				
-				if (jokerx04.boolean.isEquals(i + 1, footerLink.length)) {
-					footerLinkTag += '<li class="g-pos-rel g-py-10">';
+				if (jokerx04.boolean.isEquals(i + 1, footerBlogLink.length)) {
+					footerBlogLinkTag += '<li class="g-pos-rel g-py-10">';
 				} else {
-					footerLinkTag += '<li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">';
+					footerBlogLinkTag += '<li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">';
 				}
 				
-				footerLinkTag += '	<h4 class="h6 g-pr-20 mb-0">';
-				footerLinkTag += '		<a class="g-color-white-opacity-0_8 g-color-white--hover" href="' + footerLinkHref + '" ' + (jokerx04.boolean.isEquals(footerLinkTarget, 'blank') ? 'target="_blank"' : '') + '>' + footerLinkTitle + '</a>';
-				footerLinkTag += '		<i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>';
-				footerLinkTag += '	</h4>';
-				footerLinkTag += '</li>';
+				footerBlogLinkTag += '	<h4 class="h6 g-pr-20 mb-0">';
+				footerBlogLinkTag += '		<a class="g-color-white-opacity-0_8 g-color-white--hover" href="' + footerBlogLinkHref + '" ' + (jokerx04.boolean.isEquals(footerBlogLinkTarget, 'blank') ? 'target="_blank"' : '') + '>' + footerBlogLinkTitle + '</a>';
 				
-				$('#footerLink').append(footerLinkTag);
+				if (jokerx04.boolean.isEquals(footerBlogLinkTarget, 'blank')) {
+					footerBlogLinkTag += '		<i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>';
+				}
+				
+				footerBlogLinkTag += '	</h4>';
+				footerBlogLinkTag += '</li>';
+				
+				$('#footerBlogLink').append(footerBlogLinkTag);
+			}
+			
+			
+			for (var i = 0; i < footerSkinLink.length; i++) {
+				footerSkinLinkTitle = footerSkinLink[i].title;
+				footerSkinLinkHref = footerSkinLink[i].href;
+				footerSkinLinkTarget = footerSkinLink[i].target;
+
+				footerSkinLinkTag = '';
+				
+				if (jokerx04.boolean.isEquals(i + 1, footerSkinLink.length)) {
+					footerSkinLinkTag += '<li class="g-pos-rel g-py-10">';
+				} else {
+					footerSkinLinkTag += '<li class="g-pos-rel g-brd-bottom g-brd-white-opacity-0_1 g-py-10">';
+				}
+				
+				footerSkinLinkTag += '	<h4 class="h6 g-pr-20 mb-0">';
+				footerSkinLinkTag += '		<a class="g-color-white-opacity-0_8 g-color-white--hover" href="' + footerSkinLinkHref + '" ' + (jokerx04.boolean.isEquals(footerSkinLinkTarget, 'blank') ? 'target="_blank"' : '') + '>' + footerSkinLinkTitle + '</a>';
+				
+				if (jokerx04.boolean.isEquals(footerSkinLinkTarget, 'blank')) {
+					footerSkinLinkTag += '		<i class="fa fa-angle-right g-absolute-centered--y g-right-0"></i>';
+				}
+				
+				footerSkinLinkTag += '	</h4>';
+				footerSkinLinkTag += '</li>';
+				
+				$('#footerSkinLink').append(footerSkinLinkTag);
 			}
 			
 			for (var i = 0; i < footerContact.length; i++) {
