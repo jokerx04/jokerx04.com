@@ -1,5 +1,11 @@
 [
 	{
+		"selector": "#nav-submenu-lab",
+		"id": "lab",
+		"categories": [
+		]
+	},
+	{
 		"selector": "#nav-submenu-blog",
 		"id": "blog",
 		"categories": [
