@@ -1335,7 +1335,8 @@
 			 */
 			create: function (selectors, options) {
 				let defaultOptions = {
-					locale: 'KO'
+					locale: 'KO',
+					isBlockUI: false
 				};
 				
 				if (_.isPlainObject(options)) {
@@ -1344,10 +1345,14 @@
 				
 				let echart = echarts.init(document.querySelector(selectors), 'macarons', defaultOptions);
 				
-				jokerx04.ui.blockUI(selectors, { 'data-text': '조회중입니다.' });
+				if (defaultOptions.isBlockUI) {
+					jokerx04.ui.blockUI(selectors, { 'data-text': '조회중입니다.' });
+				}
 				
 				echart.on('finished', function () {
-					jokerx04.ui.unblockUI(selectors);
+					if (defaultOptions.isBlockUI) {
+						jokerx04.ui.unblockUI(selectors);
+					}
 				});
 				
 				window.addEventListener('resize', function (eventObject) {
