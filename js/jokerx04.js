@@ -464,7 +464,7 @@
 		 * jokerx04.ui.getDom(undefined); // null
 		 * jokerx04.ui.getDom(''); // null
 		 * jokerx04.ui.getDom('html'); // html Element 객체
-		 * jokerx04.ui.getDom('body'); // body Element 객체
+		 * jokerx04.ui.getDom('body', upds.ui.getDom('html')); // body Element 객체
 		 * 		document.querySelector('body').className = 'bodyClass';
 		 * 		jokerx04.ui.getDom('.bodyClass'); // body Element 객체
 		 * 		document.querySelector('body').id = 'bodyId';
@@ -472,7 +472,11 @@
 		 */
 		getDom: function (selector) {
 			try {
-				return document.querySelector(_.toString(selector));
+				if (dom) {
+					return dom.querySelector(_.toString(selector));
+				} else {
+					return document.querySelector(_.toString(selector));
+				}
 			} catch (e) {
 				return null;
 			}
@@ -486,7 +490,7 @@
 		 * jokerx04.ui.getDomList(undefined); // NodeList [] 객체
 		 * jokerx04.ui.getDomList(''); // NodeList [] 객체
 		 * jokerx04.ui.getDomList('html'); // NodeList [html] 객체
-		 * jokerx04.ui.getDomList('body'); // NodeList [body] 객체
+		 * jokerx04.ui.getDomList('body', upds.ui.getDom('html')); // NodeList [body] 객체
 		 * 		document.querySelector('body').appendChild(document.createElement('div'));
 		 * 		document.querySelector('body').appendChild(document.createElement('div'));
 		 * 		document.querySelector('body').appendChild(document.createElement('div'));
@@ -494,7 +498,11 @@
 		 */
 		getDomList: function (selector) {
 			try {
-				return document.querySelectorAll(_.toString(selector));
+				if (dom) {
+					return dom.querySelectorAll(_.toString(selector));
+				} else {
+					return document.querySelectorAll(_.toString(selector));
+				}
 			} catch (e) {
 				return document.querySelectorAll(null);
 			}
@@ -508,16 +516,14 @@
 		 * jokerx04.ui.getDomStyleList(null); // [] 객체
 		 * jokerx04.ui.getDomStyleList(undefined); // [] 객체
 		 * jokerx04.ui.getDomStyleList(''); // [] 객체
-		 * jokerx04.ui.getDomStyleList('div'); // [CSSStyleDeclaration] 객체
-		 * jokerx04.ui.getDomStyleList('div', 'width'); // ['auto', '100%', 'auto', 'auto', '300px'] 객체
-		 * jokerx04.ui.getDomStyleList('div', 'propertyKey'); // ['', '', '', '', ''] 객체
+		 * jokerx04.ui.getDomStyleList(upds.ui.getDomList('div')); // [CSSStyleDeclaration] 객체
+		 * jokerx04.ui.getDomStyleList(upds.ui.getDomList('div', upds.ui.getDom('body')), 'width'); // ['auto', '100%', 'auto', 'auto', '300px'] 객체
+		 * jokerx04.ui.getDomStyleList(upds.ui.getDomList('div'), 'propertyKey'); // ['', '', '', '', ''] 객체
 		 */
-		getDomStyleList: function (selector, propertyKey) {
+		getDomStyleList: function (domList, propertyKey) {
 			let returnValue = new Array();
 
 			try {
-				let domList = jokerx04.ui.getDomList(selector);
-				
 				for (let i = 0; i < domList.length; i++) {
 					if (_.isNull(propertyKey) || _.isUndefined(propertyKey)) {
 						returnValue.push(window.getComputedStyle(domList[i]));
@@ -784,7 +790,7 @@
 					complete: function (jqXHR, textStatus) {
 
 					},
-					isCorsUrl: true
+					isCorsUrl: false
 
 				};
 
@@ -1339,11 +1345,15 @@
 					jokerx04.ui.blockUI(selectors, { 'data-text': '조회중입니다.' });
 				}
 				
-				echart.on('finished', function () {
+				const finishedHandler = function () {
 					if (defaultOptions.isBlockUI) {
 						jokerx04.ui.unblockUI(selectors);
 					}
-				});
+					
+					echart.off('finished', finishedHandler);
+				}
+				
+				echart.on('finished', finishedHandler);
 				
 				window.addEventListener('resize', function (eventObject) {
 					echart.resize();
@@ -1390,15 +1400,25 @@
 					tooltip: {
 						trigger: 'item',
 						formatter: function (params) {
-							return params.seriesName +
-									'<br />' +
-									params.marker +
-									params.name +
-									' : ' +
-									params.value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") +
-									' (' +
-									params.percent +
-									'%)';
+							if (_.isEmpty(params.seriesName)) {
+								return params.marker +
+										params.name +
+										' : ' +
+										params.value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") +
+										' (' +
+										params.percent +
+										'%)';
+							} else {
+								return params.seriesName +
+										'<br />' +
+										params.marker +
+										params.name +
+										' : ' +
+										params.value.toString().replace(/\B(?<!\.\d*)(?=(\d{3})+(?!\d))/g, ",") +
+										' (' +
+										params.percent +
+										'%)';
+							}
 						}
 					},
 					legend: {
@@ -1408,7 +1428,6 @@
 					},
 					series: [
 						{
-							name: options.title.text,
 							type: 'pie',
 							radius: '60%',
 							emphasis: {
@@ -1440,6 +1459,18 @@
 				}
 				
 				echart.setOption(defaultOptions);
+				
+				if (options.series[0].hasOwnProperty('data') &&
+						_.isArray(options.series[0].data) &&
+						(options.series[0].data.length > 0)) {
+					echart.setOption({
+						series: [
+							{
+								name: options.title.text,
+							}
+						]
+					});
+				}
 				
 				return echart;
 			}
