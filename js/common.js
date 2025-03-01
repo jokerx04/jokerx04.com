@@ -1,13 +1,13 @@
 (function (global, factory) {
 	'use strict';
-
+	
 	if ((typeof exports === 'object') && (typeof module !== 'undefined')) {
 		module.exports = factory();
 	} else if ((typeof define === 'function') && define.amd) {
 		define(factory);
 	} else if (typeof globalThis !== 'undefined') {
 		global = globalThis;
-
+		
 		global.common = factory();
 	} else {
 		global = self;
@@ -16,7 +16,7 @@
 	}
 })(this, (function () {
 	'use strict';
-
+	
 	/**
 	 * 라이브러리 디폴트 설정 정보이다.
 	 */
@@ -24,11 +24,12 @@
 		'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS',
 		'corsAnywhereServerUrl': 'https://cors.common.com/'
 	}
-
+	
 	/**
 	 * 라이브러리 생성자 함수이다.
 	 * Console 출력 여부에 따라 디폴트 설정 정보 및 함수 목록을 출력한다.
 	 * common(options); 형태로 선언하며 options 값으로 디폴트 설정 정보를 변경 또는 추가한다.
+	 * ASCII Art 텍스트 생성 : https://patorjk.com/software/taag
 	 * 
 	 * common({ 'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS' });
 	 */
@@ -36,13 +37,13 @@
 		try {
 			_.assign(defaults, options);
 			
-			console.info(`
-%c     ██╗ ██████╗ ██╗  ██╗███████╗██████╗ ██╗  ██╗ ██████╗ ██╗  ██╗     █████╗ ██████╗ ██╗
-%c     ██║██╔═══██╗██║ ██╔╝██╔════╝██╔══██╗╚██╗██╔╝██╔═████╗██║  ██║    ██╔══██╗██╔══██╗██║
-%c     ██║██║   ██║█████╔╝ █████╗  ██████╔╝ ╚███╔╝ ██║██╔██║███████║    ███████║██████╔╝██║
-%c██   ██║██║   ██║██╔═██╗ ██╔══╝  ██╔══██╗ ██╔██╗ ████╔╝██║╚════██║    ██╔══██║██╔═══╝ ██║
-%c╚█████╔╝╚██████╔╝██║  ██╗███████╗██║  ██║██╔╝ ██╗╚██████╔╝     ██║    ██║  ██║██║     ██║
-%c ╚════╝  ╚═════╝ ╚═╝  ╚═╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝      ╚═╝    ╚═╝  ╚═╝╚═╝     ╚═╝
+			common.common.console('console.info', `
+%c ██████╗ ██████╗ ███╗   ███╗███╗   ███╗ ██████╗ ███╗   ██╗     █████╗ ██████╗ ██╗
+%c██╔════╝██╔═══██╗████╗ ████║████╗ ████║██╔═══██╗████╗  ██║    ██╔══██╗██╔══██╗██║
+%c██║     ██║   ██║██╔████╔██║██╔████╔██║██║   ██║██╔██╗ ██║    ███████║██████╔╝██║
+%c██║     ██║   ██║██║╚██╔╝██║██║╚██╔╝██║██║   ██║██║╚██╗██║    ██╔══██║██╔═══╝ ██║
+%c╚██████╗╚██████╔╝██║ ╚═╝ ██║██║ ╚═╝ ██║╚██████╔╝██║ ╚████║    ██║  ██║██║     ██║
+%c ╚═════╝ ╚═════╝ ╚═╝     ╚═╝╚═╝     ╚═╝ ╚═════╝ ╚═╝  ╚═══╝    ╚═╝  ╚═╝╚═╝     ╚═╝
 					`, 'color: #084081', 'color: #0868AC', 'color: #2B8CBE', 'color: #4EB3D3', 'color: #7BCCC4', 'color: #A8DDB5');
 			
 			common.common.console('table', defaults);
@@ -236,24 +237,24 @@
 			let stringObject = _.toString(object);
 			let stringOpen = _.toString(open);
 			let stringClose = _.toString(close);
-
+			
 			let startIndex = stringObject.indexOf(stringOpen);
-
+			
 			if (_.isEqual(startIndex, -1)) {
 				startIndex = 0;
 			} else {
 				startIndex = stringObject.indexOf(stringOpen) + stringOpen.length;
 			}
-
+			
 			let endIndex = stringObject.indexOf(stringClose, startIndex);
 
 			if ((_.isEqual(endIndex, -1)) || (_.isEqual(startIndex, endIndex))) {
 				endIndex = stringObject.length;
 			}
-
+			
 			return stringObject.substring(startIndex, endIndex);
 		},
-
+		
 		/**
 		 * 객체의 HTML 특수 문자를 이스케이프 문자로 치환하여 반환한다.
 		 * 
@@ -270,11 +271,9 @@
 		 * common.string.getEscapeHtml(new Date()); // 'Fri Feb 24 2023 11:08:26 GMT+0900 (한국 표준시)'
 		 * common.string.getEscapeHtml(/\w+/); // '/\\w+/'
 		 * common.string.getEscapeHtml('<>&\"\'\n\t'); // '&lt;&gt;&amp;&quot;&#39;&#10;&#9;'
-		 * common.string.getEscapeHtml('<html><body onload="alert(\'common\');"></body></html>'); // '&lt;html&gt;&lt;body onload=&quot;alert(&#39;common&#39;);&quot;&gt;&lt;/body&gt;&lt;/html&gt;'
 		 */
 		getEscapeHtml: function (object) {
 			return _.toString(object).replace(/(<|>|&|"|'|\n|\t|)/g, function ($1) {
-
 						switch ($1) {
 							case '<': return '&lt;';
 							case '>': return '&gt;';
@@ -285,11 +284,10 @@
 							case '\t': return '&#9;';
 							default: return $1;
 						}
-
 					});
 		}
 	};
-
+	
 	/**
 	 * 일자 관련 함수 패키지이다.
 	 */
@@ -320,7 +318,7 @@
 			}
 			
 			dateFormat = _.defaultTo(dateFormat, defaults.dateFormat);
-
+			
 			return dateFormat.replace(/(yyyy|MM|dd|E|HH|mm|ss|SSS)/g, function ($1) {
 						switch ($1) {
 							case 'yyyy': return date.getFullYear();
@@ -333,10 +331,9 @@
 							case 'SSS': return ('000' + date.getMilliseconds()).slice(-3);
 							default: return $1;
 						}
-
 					});
 		},
-
+		
 		/**
 		 * 현재 일시를 출력 패턴 형태로 치환하여 반환한다.
 		 * dateFormat 를 지정하지 않을 경우 기본 출력 포맷은 'yyyy-MM-dd E HH:mm:ss.SSS' 이며, common(options); 의 options 에서 설정할 수 있다.
@@ -390,7 +387,7 @@
 					_.isEqual(typeof object.then, 'function') &&
 					_.isEqual(typeof object.catch, 'function'));
 		},
-
+		
 		/**
 		 * URL 을 Cors Anywhere(https://cors-anywhere.herokuapp.com) 서버 API URL 로 변환하여 반환한다.
 		 * 
@@ -421,18 +418,18 @@
 				} else {
 					url = new URL('http://' + common.string.getTrim(object));
 				}
-
+				
 				if (_.isEqual(url.port, '') && _.isEqual(url.protocol, 'https:')) {
 					return (defaults.corsAnywhereServerUrl + url.host + ':443' + url.pathname + url.search);
 				}
-	
+				
 				return (defaults.corsAnywhereServerUrl + url.host + url.pathname + url.search);
 			} catch (e) {
 				return defaults.corsAnywhereServerUrl;
 			}
 		}
 	};
-
+	
 	/**
 	 * UI(User interface) 관련 함수 패키지이다.
 	 */
@@ -445,14 +442,14 @@
 		 */
 		 createDom: function (element, object) {
 			let returnValue = document.createElement(_.toString(element));
-
+			
 			for (let key in object) {
 				returnValue.setAttribute(key, object[key]);
 			}
-
+			
 			return returnValue;
 		},
-
+		
 		/**
 		 * DOM 또는 CSS 선택자에 해당되는 첫번째 Element 객체를 반환한다.
 		 * 해당 Element 객체가 없을 경우 null 을 반환한다.
@@ -467,7 +464,7 @@
 		 * 		document.querySelector('body').id = 'bodyId';
 		 * 		common.ui.getDom('#bodyId'); // body Element 객체
 		 */
-		getDom: function (selector) {
+		getDom: function (selector, dom) {
 			try {
 				if (dom) {
 					return dom.querySelector(_.toString(selector));
@@ -478,7 +475,7 @@
 				return null;
 			}
 		},
-
+		
 		/**
 		 * DOM 또는 CSS 선택자에 해당되는 Element NodeList 객체를 반환한다.
 		 * 해당 Element 객체가 없을 경우 크기가 0 인 NodeList 객체를 반환한다.
@@ -493,7 +490,7 @@
 		 * 		document.querySelector('body').appendChild(document.createElement('div'));
 		 * 		common.ui.getDomList('div'); // NodeList [div, div, div] 객체
 		 */
-		getDomList: function (selector) {
+		getDomList: function (selector, dom) {
 			try {
 				if (dom) {
 					return dom.querySelectorAll(_.toString(selector));
@@ -504,7 +501,7 @@
 				return document.querySelectorAll(null);
 			}
 		},
-
+		
 		/**
 		 * DOM 또는 CSS 선택자에 해당되는 Element NodeList 객체의 CSSStyleDeclaration Array 객체를 반환한다.
 		 * 속성 키를 지정하여 호출 시 CSSStyleDeclaration 의 해당 속성 값을 Array 객체로 반환한다.
@@ -519,7 +516,7 @@
 		 */
 		getDomStyleList: function (domList, propertyKey) {
 			let returnValue = new Array();
-
+			
 			try {
 				for (let i = 0; i < domList.length; i++) {
 					if (_.isNull(propertyKey) || _.isUndefined(propertyKey)) {
@@ -531,10 +528,10 @@
 			} catch (e) {
 				return [];
 			}
-
+			
 			return returnValue;
 		},
-
+		
 		/**
 		 * DOM 또는 CSS 선택자에 해당되는 Element 에 불투명 레이어를 적용한다.
 		 * DOM 또는 CSS 선택자를 지정하지 않거나 해당되는 Element 객체가 없을 경우 body Element 에 불투명 레이어를 적용한다.
@@ -557,7 +554,7 @@
 				let styleDom = common.ui.createDom('style', {
 					'title': 'blockUI'
 				});
-	
+				
 				styleDom.appendChild(document.createTextNode(`
 .blockUI {
 	
@@ -615,12 +612,12 @@
 
 }
 				`));
-	
+				
 				common.ui.getDom('head').appendChild(styleDom);
 			}
 			
 			let parentDom = common.ui.getDom(selector) || document.body;
-
+			
 			if ((!_.isEqual(parentDom.tagName, 'BODY')) && _.isEmpty(parentDom.style.position)) {
 				parentDom.style.position = 'relative';
 			}
@@ -630,9 +627,8 @@
 				'style': (_.isEqual(parentDom.tagName, 'BODY')) ? 'position: fixed' : 'position: absolute',
 				'data-text': defaultOptions['data-text']
 			}));
-
 		},
-
+		
 		/**
 		 * DOM 또는 CSS 선택자에 해당되는 Element 의 불투명 레이어를 제거한다.
 		 * DOM 또는 CSS 선택자를 지정하지 않거나 해당되는 Element 객체가 없을 경우 불투명 레이어 모두를 제거한다.
@@ -657,7 +653,7 @@
 			}
 		}
 	};
-
+	
 	/**
 	 * jQuery, jQuery UI 관련 함수 패키지이다.
 	 * 
@@ -667,9 +663,6 @@
 	(function ($) {
 		if ($) {
 			$(document).ajaxStart(function () {
-
-				
-
 			});
 			
 			$(document).ajaxSend(function (event, jqXHR, ajaxOptions) {
@@ -710,7 +703,7 @@
 			getVersion: function () {
 				return $().jquery;
 			},
-
+			
 			/**
 			 * jQuery Ajax 를 실행한다.
 			 * 
@@ -740,7 +733,6 @@
 					timeout : 0,
 					headers: {  },
 					beforeSend: function (jqXHR, settings) {
-
 					},
 					success: function (data, textStatus, jqXHR) {
 						common.common.console('log', data);
@@ -748,36 +740,21 @@
 						common.common.console('log', jqXHR);
 					},
 					error: function (jqXHR, textStatus, errorThrown) {
-						switch (jqXHR.readyState) {
-							case 0:
-								common.common.console('error', 'readyState : ' + jqXHR.readyState + '(UNSENT)');
-
-								break;
-
-							case 1:
-								common.common.console('error', 'readyState : ' + jqXHR.readyState + '(OPENED)');
-
-								break;
-
-							case 2:
-								common.common.console('error', 'readyState : ' + jqXHR.readyState + '(HEADERS_RECEIVED)');
-
-								break;
-
-							case 3:
-								common.common.console('error', 'readyState : ' + jqXHR.readyState + '(LOADING)');
-
-								break;
-
-							case 4:
-								common.common.console('error', 'readyState : ' + jqXHR.readyState + '(DONE)');
-
-								break;
-
-							default:
-								common.common.console('error', 'readyState : ' + jqXHR.readyState);
+						let readyStateText = '';
+						
+						if (jqXHR.readyState === 0) {
+							readyStateText = '(UNSENT)';
+						} else if (jqXHR.readyState === 1) {
+							readyStateText = '(OPENED)';
+						} else if (jqXHR.readyState === 2) {
+							readyStateText = '(HEADERS_RECEIVED)';
+						} else if (jqXHR.readyState === 3) {
+							readyStateText = '(LOADING)';
+						} else if (jqXHR.readyState === 4) {
+							readyStateText = '(DONE)';
 						}
-
+						
+						common.common.console('error', 'readyState : ' + jqXHR.readyState + readyStateText);
 						common.common.console('error', 'status : ' + jqXHR.status);
 						common.common.console('error', 'statusText : ' + jqXHR.statusText);
 						common.common.console('error', 'textStatus : ' + textStatus);
@@ -785,26 +762,24 @@
 						common.common.console('error', 'responseText : ' + jqXHR.responseText);
 					},
 					complete: function (jqXHR, textStatus) {
-
 					},
 					isCorsUrl: false
-
 				};
-
+				
 				$.extend(defaults, options);
-
+				
 				if (defaults.crossDomain && jQuery.support.cors && defaults.isCorsUrl) {
 					defaults.url = common.ajax.getCorsAnywhereUrl(defaults.url);
 				}
-
+				
 				return $.ajax(defaults);
 			}
 		}
-
+		
 		if ($ && !$.ui) {
 			common.common.console('warn', common.name + '.jQuery.ui 패키지는 jQuery UI(https://jqueryui.com) 라이브러리가 필요합니다.');
 		}
-
+		
 		common.jQuery.ui = {
 			/**
 			 * jQuery UI 버전을 반환한다.
@@ -885,24 +860,22 @@
 						}
 					}
 				};
-
+				
 				$.extend(defaults, options);
-
+				
 				return $(selector).datepicker(defaults);
 			}
-			
-			
 		}
 	})(window.jQuery);
-
+	
 	/**
 	 * UAParser.js 관련 함수 패키지이다.
 	 * 
 	 * common.UAParser 패키지 사용 시 UAParser.js(https://github.com/faisalman/ua-parser-js) 라이브러리가 필요하다.
 	 */
 	(function (UAParser) {
-		var uaParser;
-
+		let uaParser;
+		
 		if (UAParser) {
 			uaParser = new UAParser();
 		} else {
@@ -918,7 +891,7 @@
 			 getBrowserName: function () {
 				return uaParser.getBrowser().name;
 			},
-
+			
 			/**
 			 * 사용자 브라우저 버전을 반환한다.
 			 * 
@@ -927,7 +900,7 @@
 			 getBrowserVersion: function () {
 				return uaParser.getBrowser().version;
 			},
-
+			
 			/**
 			 * 사용자 브라우저 주요 버전을 반환한다.
 			 * 
@@ -936,7 +909,7 @@
 			 getBrowserMajorVersion: function () {
 				return uaParser.getBrowser().version;
 			},
-
+			
 			/**
 			 * 사용자 기기 구분명을 반환한다.
 			 * 
@@ -945,7 +918,7 @@
 			 getDeviceType: function () {
 				return uaParser.getDevice().type;
 			},
-
+			
 			/**
 			 * 사용자 기기 공급업체명을 반환한다.
 			 * 
@@ -954,7 +927,7 @@
 			 getDeviceVendor: function () {
 				return uaParser.getDevice().vendor;
 			},
-
+			
 			/**
 			 * 사용자 기기 모델명을 반환한다.
 			 * 
@@ -963,7 +936,7 @@
 			 getDeviceModel: function () {
 				return uaParser.getDevice().model;
 			},
-
+			
 			/**
 			 * 사용자 브라우저 엔진명을 반환한다.
 			 * 
@@ -972,7 +945,7 @@
 			 getEngineName: function () {
 				return uaParser.getEngine().name;
 			},
-
+			
 			/**
 			 * 사용자 브라우저 엔진 버전을 반환한다.
 			 * 
@@ -981,7 +954,7 @@
 			 getEngineVersion: function () {
 				return uaParser.getEngine().version;
 			},
-
+			
 			/**
 			 * 사용자 OS 명을 반환한다.
 			 * 
@@ -990,7 +963,7 @@
 			 getOSName: function () {
 				return uaParser.getOS().name;
 			},
-
+			
 			/**
 			 * 사용자 OS 버전을 반환한다.
 			 * 
@@ -999,7 +972,7 @@
 			 getOSVersion: function () {
 				return uaParser.getOS().version;
 			},
-
+			
 			/**
 			 * 사용자의 CPU 아키텍처명을 반환한다.
 			 * 
@@ -1008,7 +981,7 @@
 			 getCPUArchitecture: function () {
 				return uaParser.getCPU().architecture;
 			},
-
+			
 			/**
 			 * User Agent 를 반환한다.
 			 * 
@@ -1017,7 +990,7 @@
 			 getUserAgent: function () {
 				return uaParser.getUA();
 			},
-
+			
 			/**
 			 * User Agent 를 설정한다.
 			 * 
@@ -1032,7 +1005,7 @@
 			}
 		}
 	})(window.UAParser);
-
+	
 	/**
 	 * PACE 관련 함수 패키지이다.
 	 * 
@@ -1041,10 +1014,9 @@
 	(function (Pace) {
 		if (Pace) {
 			let styleDom = common.ui.createDom('style');
-
+			
 			styleDom.appendChild(document.createTextNode(`
 .loadingBar.pace-running:before {
-	
 	content: "";
 	position: absolute;
 	cursor: wait;
@@ -1058,11 +1030,9 @@
 	background-color: #000000;
 	opacity: 0.5;
 	transition: opacity 0.25s;
-
 }
 
 .loadingBar .pace {
-
 	-webkit-pointer-events: none;
 	pointer-events: none;
 	-webkit-user-select: none;
@@ -1089,11 +1059,9 @@
 	width: 200px;
 	height: 50px;
 	overflow: hidden;
-
 }
 
 .loadingBar .pace .pace-progress {
-
 	-webkit-box-sizing: border-box;
 	-moz-box-sizing: border-box;
 	-ms-box-sizing: border-box;
@@ -1122,11 +1090,9 @@
 	-webkit-box-shadow: 120px 0 #ffffff, 240px 0 #ffffff;
 	-ms-box-shadow: 120px 0 #ffffff, 240px 0 #ffffff;
 	box-shadow: 120px 0 #ffffff, 240px 0 #ffffff;
-
 }
 
 .loadingBar .pace .pace-progress:after {
-
 	content: attr(data-progress-text);
 	display: inline-block;
 	position: fixed;
@@ -1136,7 +1102,6 @@
 	padding-right: 16px;
 	top: 4px;
 	color: #ffffff;
-
 }
 
 .loadingBar .pace .pace-progress[data-progress-text="0%"]:after { right: -200px }
@@ -1242,31 +1207,24 @@
 .loadingBar .pace .pace-progress[data-progress-text="100%"]:after { right: -14px }
 
 .loadingBar .pace .pace-activity {
-
 	position: absolute;
 	width: 100%;
 	height: 28px;
 	z-index: 2001;
 	box-shadow: inset 0 0 0 2px #72c02c, inset 0 0 0 7px #ffffff;
 	border-radius: 10px;
-
 }
 
 .loadingBar .pace.pace-inactive {
-
 	display: none;
-
 }
 			`));
-
+			
 			common.ui.getDom('head').appendChild(styleDom);
-
+			
 			Pace.on('hide', function () {
-				
 				common.ui.getDom('body').classList.remove('loadingBar');
-				
 				common.ui.getDom('body').classList.add('loadingBar');
-
 			});
 		} else {
 			common.common.console('warn', common.name + '.Pace 패키지는 PACE(https://codebyzach.github.io/pace) 라이브러리가 필요합니다.');
@@ -1300,11 +1258,11 @@
 				if (_.isPlainObject(options)) {
 					_.merge(defaultOptions, options);
 				}
-
+				
 				Pace.trigger('restart');
-
+				
 				Pace.stop();
-
+				
 				return Pace.start(defaultOptions);
 			}
 		}
