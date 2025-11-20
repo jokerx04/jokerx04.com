@@ -20,7 +20,7 @@
 	/**
 	 * 라이브러리 디폴트 설정 정보이다.
 	 */
-	var defaults = {
+	let defaults = {
 		'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS',
 		'corsAnywhereServerUrl': 'https://cors.common.com/'
 	}
