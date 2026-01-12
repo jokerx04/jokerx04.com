@@ -20,7 +20,7 @@
 	/**
 	 * 라이브러리 디폴트 설정 정보이다.
 	 */
-	let defaults = {
+	const defaults = {
 		'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS',
 		'corsAnywhereServerUrl': 'https://cors.common.com/'
 	}
@@ -33,7 +33,7 @@
 	 * 
 	 * common({ 'dateFormat': 'yyyy-MM-dd E HH:mm:ss.SSS' });
 	 */
-	let common = function (options) {
+	const common = function (options) {
 		try {
 			_.assign(defaults, options);
 			
@@ -136,7 +136,7 @@
 				return [];
 			}
 
-			let functionStringArray = function (object, objectName, returnValue) {
+			const functionStringArray = function (object, objectName, returnValue) {
 				let key;
 
 				let parameterText;
