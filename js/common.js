@@ -135,16 +135,16 @@
 			if (_.isNull(object) || _.isUndefined(object)) {
 				return [];
 			}
-
+			
 			const functionStringArray = function (object, objectName, returnValue) {
 				let key;
-
+				
 				let parameterText;
 				
 				for (key in object) {
 					if (_.isObject(object[key])) {
 						groupCount++;
-
+						
 						if (isCollapsed) {
 							common.common.console('groupCollapsed', objectName + '.' + key);
 						} else {
@@ -153,61 +153,61 @@
 						
 						if (_.isEqual(Object.keys(object[key]).length, 0)) {
 							groupCount--;
-
+							
 							common.common.console('groupEnd');
 						}
-
+						
 						if (Object.keys(object[key]).length > 0) {
 							functionStringArray(object[key], objectName + '.' + key, returnValue);
-
+							
 							groupCount--;
-
+							
 							common.common.console('groupEnd');
 						}
 					}
-
+					
 					if (_.isFunction(object[key])) {
 						parameterText = common.string.getSubstringBetween(object[key], '(', '{');
-
+						
 						parameterText = '(' + _.trim(parameterText) + ';';
-
+						
 						returnValue.push(objectName + '.' + key + parameterText);
-
+						
 						common.common.console('default', objectName + '.' + key + parameterText);
 					}
 				}
-
+				
 				return returnValue;
 			};
-
+			
 			let returnValue;
-
+			
 			let objectName;
-
+			
 			let groupCount = 0;
-
+			
 			if (_.isNull(isCollapsed) || _.isUndefined(isCollapsed)) {
 				isCollapsed = true;
 			}
-
+			
 			if (_.isNull(objectName) || _.isUndefined(objectName)) {
 				objectName = object.name;
-
+				
 				groupCount++;
-
+				
 				common.common.console('group', objectName);
 			}
 			
 			if (!_.isArray(returnValue)) {
 				returnValue = new Array();
 			}
-
+			
 			functionStringArray(object, objectName, returnValue);
-
+			
 			for (let i = 0; i < groupCount; i++) {
 				common.common.console('groupEnd');
 			}
-
+			
 			return returnValue;
 		}
 	};
@@ -247,7 +247,7 @@
 			}
 			
 			let endIndex = stringObject.indexOf(stringClose, startIndex);
-
+			
 			if ((_.isEqual(endIndex, -1)) || (_.isEqual(startIndex, endIndex))) {
 				endIndex = stringObject.length;
 			}
@@ -320,18 +320,18 @@
 			dateFormat = _.defaultTo(dateFormat, defaults.dateFormat);
 			
 			return dateFormat.replace(/(yyyy|MM|dd|E|HH|mm|ss|SSS)/g, function ($1) {
-						switch ($1) {
-							case 'yyyy': return date.getFullYear();
-							case 'MM': return ('0' + (date.getMonth() + 1)).slice(-2);
-							case 'dd': return ('0' + date.getDate()).slice(-2);
-							case 'E': return [ '일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일' ][date.getDay()];
-							case 'HH': return ('0' + date.getHours()).slice(-2);
-							case 'mm': return ('0' + date.getMinutes()).slice(-2);
-							case 'ss': return ('0' + date.getSeconds()).slice(-2);
-							case 'SSS': return ('000' + date.getMilliseconds()).slice(-3);
-							default: return $1;
-						}
-					});
+				switch ($1) {
+					case 'yyyy': return date.getFullYear();
+					case 'MM': return ('0' + (date.getMonth() + 1)).slice(-2);
+					case 'dd': return ('0' + date.getDate()).slice(-2);
+					case 'E': return [ '일요일', '월요일', '화요일', '수요일', '목요일', '금요일', '토요일' ][date.getDay()];
+					case 'HH': return ('0' + date.getHours()).slice(-2);
+					case 'mm': return ('0' + date.getMinutes()).slice(-2);
+					case 'ss': return ('0' + date.getSeconds()).slice(-2);
+					case 'SSS': return ('000' + date.getMilliseconds()).slice(-3);
+					default: return $1;
+				}
+			});
 		},
 		
 		/**
