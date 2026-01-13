@@ -226,7 +226,7 @@
 		 * common.string.getSubstringBetween(false, 'a', 's'); // 'l'
 		 * common.string.getSubstringBetween(Symbol('123'), 'y', '2'); // 'mbol(1'
 		 * common.string.getSubstringBetween([ 1, 2, 3 ], '[', ','); // '1'
-		 * common.string.getSubstringBetween({ "key1": 123, "key2": "value" }, 'key', 'key'); // '1":123,"'
+		 * common.string.getSubstringBetween({ "key1": 123, "key2": "value" }, 'key', 'key'); // '[object Object]'
 		 * common.string.getSubstringBetween(window, '', 'W'); // '[object '
 		 * common.string.getSubstringBetween(function () {}, '(', ''); // ') {}'
 		 * common.string.getSubstringBetween(new Date(), '(', ')'); // '한국 표준시'
