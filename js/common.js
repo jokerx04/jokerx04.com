@@ -233,10 +233,10 @@
 		 * common.string.getSubstringBetween(/\w+/, '/', '/'); // '\\w+'
 		 * common.string.getSubstringBetween(document.querySelector('body'), '[', ']'); // object HTMLBodyElement
 		 */
-		getSubstringBetween(object, open, close) {
-			let stringObject = _.toString(object);
-			let stringOpen = _.toString(open);
-			let stringClose = _.toString(close);
+		getSubstringBetween: function (object, open, close) {
+			const stringObject = _.toString(object);
+			const stringOpen = _.toString(open);
+			const stringClose = _.toString(close);
 			
 			let startIndex = stringObject.indexOf(stringOpen);
 			
@@ -441,7 +441,7 @@
 		 * common.ui.createDom('div', { 'id': 'divId', 'class': 'divClass' }); // <div id="divId" class="divClass"></div>
 		 */
 		 createDom: function (element, object) {
-			let returnValue = document.createElement(_.toString(element));
+			const returnValue = document.createElement(_.toString(element));
 			
 			for (let key in object) {
 				returnValue.setAttribute(key, object[key]);
@@ -458,7 +458,7 @@
 		 * common.ui.getDom(undefined); // null
 		 * common.ui.getDom(''); // null
 		 * common.ui.getDom('html'); // html Element 객체
-		 * common.ui.getDom('body', upds.ui.getDom('html')); // body Element 객체
+		 * common.ui.getDom('body', common.ui.getDom('html')); // body Element 객체
 		 * 		document.querySelector('body').className = 'bodyClass';
 		 * 		common.ui.getDom('.bodyClass'); // body Element 객체
 		 * 		document.querySelector('body').id = 'bodyId';
@@ -484,7 +484,7 @@
 		 * common.ui.getDomList(undefined); // NodeList [] 객체
 		 * common.ui.getDomList(''); // NodeList [] 객체
 		 * common.ui.getDomList('html'); // NodeList [html] 객체
-		 * common.ui.getDomList('body', upds.ui.getDom('html')); // NodeList [body] 객체
+		 * common.ui.getDomList('body', common.ui.getDom('html')); // NodeList [body] 객체
 		 * 		document.querySelector('body').appendChild(document.createElement('div'));
 		 * 		document.querySelector('body').appendChild(document.createElement('div'));
 		 * 		document.querySelector('body').appendChild(document.createElement('div'));
@@ -510,12 +510,12 @@
 		 * common.ui.getDomStyleList(null); // [] 객체
 		 * common.ui.getDomStyleList(undefined); // [] 객체
 		 * common.ui.getDomStyleList(''); // [] 객체
-		 * common.ui.getDomStyleList(upds.ui.getDomList('div')); // [CSSStyleDeclaration] 객체
-		 * common.ui.getDomStyleList(upds.ui.getDomList('div', upds.ui.getDom('body')), 'width'); // ['auto', '100%', 'auto', 'auto', '300px'] 객체
-		 * common.ui.getDomStyleList(upds.ui.getDomList('div'), 'propertyKey'); // ['', '', '', '', ''] 객체
+		 * common.ui.getDomStyleList(common.ui.getDomList('div')); // [CSSStyleDeclaration] 객체
+		 * common.ui.getDomStyleList(common.ui.getDomList('div', common.ui.getDom('body')), 'width'); // ['auto', '100%', 'auto', 'auto', '300px'] 객체
+		 * common.ui.getDomStyleList(common.ui.getDomList('div'), 'propertyKey'); // ['', '', '', '', ''] 객체
 		 */
 		getDomStyleList: function (domList, propertyKey) {
-			let returnValue = new Array();
+			const returnValue = new Array();
 			
 			try {
 				for (let i = 0; i < domList.length; i++) {
@@ -542,7 +542,7 @@
 		 * common.ui.blockUI('#divId', { 'data-text': '조회중입니다.' });
 		 */
 		blockUI: function (selector, options) {
-			let defaultOptions = {
+			const defaultOptions = {
 				'data-text': 'Loading...'
 			};
 			
@@ -551,7 +551,7 @@
 			}
 			
 			if (!common.ui.getDom('style[title="blockUI"]')) {
-				let styleDom = common.ui.createDom('style', {
+				const styleDom = common.ui.createDom('style', {
 					'title': 'blockUI'
 				});
 				
@@ -616,7 +616,7 @@
 				common.ui.getDom('head').appendChild(styleDom);
 			}
 			
-			let parentDom = common.ui.getDom(selector) || document.body;
+			const parentDom = common.ui.getDom(selector) || document.body;
 			
 			if ((!_.isEqual(parentDom.tagName, 'BODY')) && _.isEmpty(parentDom.style.position)) {
 				parentDom.style.position = 'relative';
@@ -645,7 +645,7 @@
 					common.ui.getDom(selector).removeChild(common.ui.getDom(_.toString(selector) + ' .blockUI'));
 				}
 			} catch (e) {
-				let domList = common.ui.getDomList('.blockUI');
+				const domList = common.ui.getDomList('.blockUI');
 				
 				for (let i = 0; i < domList.length; i++) {
 					domList[i].remove();
@@ -718,7 +718,7 @@
 			 * });
 			 */
 			ajax: function (options) {
-				let defaults = {
+				const defaults = {
 					global: true,
 					crossDomain: true,
 					context: this,
@@ -796,12 +796,12 @@
 			 * common.jQuery.ui.datepicker('#date');
 			 */
 			datepicker: function (selector, options) {
-				let minDate = new Date(2000, 0, 1);
-				let maxDate = new Date();
+				const minDate = new Date(2000, 0, 1);
+				const maxDate = new Date();
 				
 				maxDate.setFullYear(maxDate.getFullYear() + 3);
 				
-				let defaults = {
+				const defaults = {
 					dateFormat: 'yy-mm-dd',
 					minDate: minDate,
 					maxDate: maxDate,
@@ -826,9 +826,9 @@
 						//common.common.console('log', 'beforeShow:', input, inst);
 						
 						setTimeout(function () {
-							let reverseYears = $('.ui-datepicker-year option').get().reverse();
+							const $reverseYears = $('.ui-datepicker-year option').get().reverse();
 							
-							$('.ui-datepicker-year').html(reverseYears);
+							$('.ui-datepicker-year').html($reverseYears);
 							
 							$('.ui-datepicker-year option').each(function (index, element) {
 								if ($(this).text().indexOf('년') === -1) {
@@ -841,9 +841,9 @@
 						//common.common.console('log', 'beforeShow:', input, inst);
 						
 						setTimeout(function () {
-							let reverseYears = $('.ui-datepicker-year option').get().reverse();
+							const $reverseYears = $('.ui-datepicker-year option').get().reverse();
 							
-							$('.ui-datepicker-year').html(reverseYears);
+							$('.ui-datepicker-year').html($reverseYears);
 							
 							$('.ui-datepicker-year option').each(function (index, element) {
 								if ($(this).text().indexOf('년') === -1) {
@@ -1013,7 +1013,7 @@
 	 */
 	(function (Pace) {
 		if (Pace) {
-			let styleDom = common.ui.createDom('style');
+			const styleDom = common.ui.createDom('style');
 			
 			styleDom.appendChild(document.createTextNode(`
 .loadingBar.pace-running:before {
@@ -1230,7 +1230,7 @@
 			common.common.console('warn', common.name + '.Pace 패키지는 PACE(https://codebyzach.github.io/pace) 라이브러리가 필요합니다.');
 		}
 		
-		let defaultOptions = {
+		const defaultOptions = {
 			ajax: {
 				trackMethods: [
 					'GET',
@@ -1282,10 +1282,10 @@
 			/**
 			 * Apache ECharts 를 생성한다.
 			 * 
-			 * let echart1 = common.echarts.create('#echart1');
+			 * const echart1 = common.echarts.create('#echart1');
 			 */
 			create: function (selectors, options) {
-				let defaultOptions = {
+				const defaultOptions = {
 					locale: 'KO',
 					isBlockUI: false
 				};
@@ -1294,7 +1294,7 @@
 					_.merge(defaultOptions, options);
 				}
 				
-				let echart = echarts.init(document.querySelector(selectors), 'macarons', defaultOptions);
+				const echart = echarts.init(document.querySelector(selectors), 'macarons', defaultOptions);
 				
 				if (defaultOptions.isBlockUI) {
 					common.ui.blockUI(selectors, { 'data-text': '조회중입니다.' });
@@ -1343,7 +1343,7 @@
 					echart = common.echarts.create(echart);
 				}
 				
-				let defaultOptions = {
+				const defaultOptions = {
 					title: {
 						left: 'center',
 						top: '10',
