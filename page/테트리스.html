@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>테트리스</title>
+  <title>클래식 테트리스</title>
   <style>
     :root {
       --bg-gradient: radial-gradient(circle at center, #150d2a 0%, #080511 100%);
@@ -135,7 +135,7 @@
     
     html, body {
       width: 100%;
-      min-height: 100%;
+      height: 100%;
       touch-action: manipulation;
     }
 
@@ -145,7 +145,7 @@
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: flex-start;
+      justify-content: center;
       align-items: center;
       min-height: 100vh;
       min-height: -webkit-fill-available;
@@ -154,23 +154,23 @@
       overflow-x: hidden;
       overflow-y: auto;
       position: relative;
-      padding: env(safe-area-inset-top, 8px) 8px calc(env(safe-area-inset-bottom, 8px) + 16px) 8px;
+      padding: env(safe-area-inset-top, 6px) 6px calc(env(safe-area-inset-bottom, 6px) + 8px) 6px;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* 게임 보드 크기와 1:1로 일치되는 1단 중앙 컨테이너 */
+    /* 반응형 메인 컨테이너 (JS로 최적 너비 실시간 동기화) */
     .main-app-container {
       display: flex;
       flex-direction: column;
       align-items: stretch;
       width: 100%;
-      max-width: 276px; /* 기본 표준 보드 폭에 맞춤 */
+      max-width: 280px;
       gap: 6px;
-      margin: 0 auto;
-      transition: max-width 0.2s ease;
+      margin: auto 0;
+      transition: max-width 0.15s ease-out;
     }
 
-    /* 상단 통합 설정 라인 (패드 / 가이드 / 일시정지 / 테마) */
+    /* 상단 통합 설정 라인 */
     .top-bar {
       display: flex;
       gap: 4px;
@@ -185,7 +185,7 @@
       z-index: 20;
     }
     .btn {
-      padding: 4px 6px;
+      padding: 5px 6px;
       background: var(--btn-bg);
       color: var(--btn-text);
       border: 1px solid var(--btn-border);
@@ -193,7 +193,7 @@
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 10.5px;
+      font-size: 11px;
       white-space: nowrap;
       flex: 1;
       text-align: center;
@@ -224,7 +224,7 @@
       color: #080511;
       border: none;
       font-size: 13px;
-      padding: 7px 18px;
+      padding: 8px 18px;
       box-shadow: 0 0 12px rgba(255, 230, 0, 0.5);
       border-radius: 6px;
       font-weight: 800;
@@ -252,7 +252,7 @@
       font-weight: 700;
       outline: none;
       cursor: pointer;
-      max-width: 58px;
+      max-width: 56px;
     }
 
     /* 점수 현황판 */
@@ -271,13 +271,13 @@
       text-align: center;
     }
     .score-box h2 {
-      font-size: 8.5px;
+      font-size: 9px;
       font-weight: 700;
       color: var(--text-sub);
       margin-bottom: 1px;
     }
     .score-box p {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 900;
       font-variant-numeric: tabular-nums;
       color: var(--score-color);
@@ -312,8 +312,7 @@
       background-color: #06030e;
       border-radius: 5px;
       display: block;
-      max-height: 52vh;
-      max-width: 100%;
+      width: 100%;
       height: auto;
       object-fit: contain;
     }
@@ -336,7 +335,7 @@
       width: 100%;
     }
     .overlay-text {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 900;
       letter-spacing: 0.5px;
       text-align: center;
@@ -358,7 +357,7 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 10px;
+      font-size: 10.5px;
       color: var(--text-main);
       width: 100%;
       white-space: nowrap;
@@ -370,9 +369,9 @@
     }
     .start-setup-row select {
       flex: 1.2;
-      max-width: 105px;
-      font-size: 10px;
-      padding: 2px 3px;
+      max-width: 110px;
+      font-size: 10.5px;
+      padding: 2px 4px;
     }
 
     /* PC 키 안내 */
@@ -394,7 +393,7 @@
       border-radius: 3px;
       color: var(--text-accent);
       font-weight: 600;
-      font-size: 8px;
+      font-size: 8.5px;
     }
 
     /* 모바일 터치 패드 */
@@ -490,8 +489,8 @@
 
   <div class="main-app-container" id="main-container">
     
-    <!-- 1. 상단 통합 설정 라인 (패드 / 가이드 / 일시정지 / 테마) -->
-    <div class="top-bar">
+    <!-- 1. 상단 통합 설정 라인 -->
+    <div class="top-bar" id="top-bar">
       <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
       <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
       <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
@@ -508,8 +507,8 @@
       </div>
     </div>
 
-    <!-- 2. 점수 현황판 (게임 가로폭 1:1 일치) -->
-    <div class="top-stats-card">
+    <!-- 2. 점수 현황판 -->
+    <div class="top-stats-card" id="stats-card">
       <div class="scores-grid">
         <div class="score-box">
           <h2>점수</h2>
@@ -529,7 +528,7 @@
     <!-- 3. 게임 캔버스 영역 -->
     <div class="game-arena-wrapper">
       <div class="board-container">
-        <div class="canvas-container">
+        <div class="canvas-container" id="canvas-wrapper">
           <canvas id="tetris" width="270" height="540"></canvas>
           
           <div id="game-overlay" class="game-overlay">
@@ -569,15 +568,15 @@
       </div>
     </div>
 
-    <!-- 4. PC 키 조작 안내 (게임 가로폭 1:1 일치) -->
-    <div class="controls-guide-card">
+    <!-- 4. PC 키 조작 안내 -->
+    <div class="controls-guide-card" id="guide-card">
       <strong style="color: var(--text-main);">🎮 PC 키:</strong>
       <span class="key-badge">←</span> <span class="key-badge">→</span> 이동 |
       <span class="key-badge">↑</span> 회전 |
       <span class="key-badge">Space</span> 낙하
     </div>
 
-    <!-- 5. 모바일 터치 패드 (게임 가로폭 1:1 일치) -->
+    <!-- 5. 모바일 터치 패드 -->
     <div class="touch-bottom-panel" id="touch-bottom-panel">
       <div class="dpad-box">
         <div class="t-btn" id="v-up" data-act="rot">▲</div>
@@ -599,11 +598,11 @@
 <script>
 /* 1. 설정 및 테마 */
 const BOARD_SIZES = {
-  small:    { cols: 8,  rows: 16, blockSize: 28 },
-  standard: { cols: 10, rows: 20, blockSize: 26 },
-  wide:     { cols: 12, rows: 20, blockSize: 24 },
-  large:    { cols: 12, rows: 24, blockSize: 22 },
-  giant:    { cols: 14, rows: 26, blockSize: 20 }
+  small:    { cols: 8,  rows: 16, blockSize: 30 },
+  standard: { cols: 10, rows: 20, blockSize: 28 },
+  wide:     { cols: 12, rows: 20, blockSize: 26 },
+  large:    { cols: 12, rows: 24, blockSize: 24 },
+  giant:    { cols: 14, rows: 26, blockSize: 22 }
 };
 
 let currentBoardSizeKey = 'standard';
@@ -683,10 +682,37 @@ function changeTheme(themeKey) {
 document.body.setAttribute('data-theme', currentThemeKey);
 document.getElementById('theme-selector').value = currentThemeKey;
 
-/* 2. 상태 관리 & 가로폭 동기화 */
+/* 2. 반응형 레이아웃 계산 엔진 */
 let ghostEnabled = true;
 let startLevel = 1;
 let isPaused = false;
+
+function updateResponsiveLayout() {
+  const container = document.getElementById('main-container');
+  const dpad = document.getElementById('touch-bottom-panel');
+  const isDpadVisible = dpad && dpad.classList.contains('active');
+
+  const vh = window.innerHeight;
+  const vw = window.innerWidth;
+
+  // 헤더, 점수판, 안내, 여백의 높이를 합산하여 캔버스 가용 높이 계산
+  const reservedHeight = isDpadVisible ? 220 : 140;
+  const availableCanvasHeight = Math.max(180, vh - reservedHeight);
+
+  // 보드의 가로/세로 비율에 맞춰 가로폭 계산
+  const boardRatio = COLS / ROWS;
+  let targetWidth = availableCanvasHeight * boardRatio;
+
+  // 화면 너비 기준 최소/최대 제한
+  const maxAllowedWidth = Math.min(vw - 16, 420);
+  const minAllowedWidth = 220;
+
+  targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
+  container.style.maxWidth = `${Math.round(targetWidth)}px`;
+}
+
+window.addEventListener('resize', updateResponsiveLayout);
+window.addEventListener('orientationchange', updateResponsiveLayout);
 
 function applyBoardSize(sizeKey) {
   const cfg = BOARD_SIZES[sizeKey] || BOARD_SIZES.standard;
@@ -695,15 +721,10 @@ function applyBoardSize(sizeKey) {
   ROWS = cfg.rows;
   BLOCK_SIZE = cfg.blockSize;
 
-  const w = COLS * BLOCK_SIZE;
-  const h = ROWS * BLOCK_SIZE;
+  canvas.width = COLS * BLOCK_SIZE;
+  canvas.height = ROWS * BLOCK_SIZE;
 
-  canvas.width = w;
-  canvas.height = h;
-
-  // 게임 보드 너비 + 패딩(6px)에 맞춰 전체 UI 컨테이너 가로폭을 1:1로 일치화
-  const containerWidth = w + 8;
-  document.getElementById('main-container').style.maxWidth = `${containerWidth}px`;
+  updateResponsiveLayout();
 }
 
 function onBoardSizeChange(sizeKey) {
@@ -1212,6 +1233,7 @@ function setKeypadState(active) {
     btn.classList.remove('on');
     btn.innerText = '🎮 패드';
   }
+  updateResponsiveLayout();
 }
 
 function toggleVirtualKeypad() {
