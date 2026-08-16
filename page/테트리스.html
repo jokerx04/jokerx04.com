@@ -25,6 +25,7 @@
       --lines-color: #00ff66;
       --level-color: #ffe600;
       
+      /* PPSSPP 스타일 반투명 버튼 */
       --psp-btn-bg: rgba(255, 255, 255, 0.18);
       --psp-btn-border: rgba(0, 245, 255, 0.6);
       --psp-btn-active: rgba(0, 245, 255, 0.7);
@@ -158,7 +159,7 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* 좌측 게임 보드 + 우측 슬림 설정 사이드바 (2단) */
+    /* 좌측 게임 보드 + 우측 설정 사이드바 (2단) */
     .main-app-container {
       display: flex;
       flex-direction: row;
@@ -166,6 +167,7 @@
       justify-content: center;
       gap: 6px;
       margin: auto 0;
+      width: 100%;
     }
 
     .game-section {
@@ -173,6 +175,7 @@
       flex-direction: column;
       align-items: center;
       gap: 4px;
+      transition: max-width 0.15s ease-out;
     }
 
     .canvas-container {
@@ -207,13 +210,13 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       z-index: 25;
       padding: 6px;
       width: 100%;
     }
     .overlay-text {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 900;
       letter-spacing: 0.5px;
       text-align: center;
@@ -223,12 +226,12 @@
     .start-setup-box {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
       width: 90%;
       max-width: 200px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--card-border);
-      padding: 6px 8px;
+      padding: 5px 7px;
       border-radius: 6px;
     }
     .start-setup-row {
@@ -250,6 +253,13 @@
       max-width: 100px;
       font-size: 9.5px;
       padding: 1px 3px;
+      background: var(--btn-bg);
+      color: var(--text-accent);
+      border: 1px solid var(--panel-border);
+      border-radius: 3px;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
     }
 
     /* 랭킹 점수 등록 박스 */
@@ -765,21 +775,20 @@
 
 <script>
 /* =========================================================
-   0. Dreamlo 글로벌 랭킹 API 연동
+   0. Dreamlo 글로벌 랭킹 API 연동 (CORS 우회)
 ========================================================= */
-// 💡 dreamlo.com에서 발급받은 키를 아래에 입력하세요.
 const DREAMLO_PUBLIC_KEY = '6a81bf268f40bb1350637e05';
 const DREAMLO_PRIVATE_KEY = 'EEcqonUdEkygBoyz9ruF1wjJIub-2U_Eu9yCz9SeyRIw';
 
 async function fetchLeaderboard() {
   const list = document.getElementById('leaderboard-list');
-  if (DREAMLO_PUBLIC_KEY === '여기에_PUBLIC_KEY_입력' || !DREAMLO_PUBLIC_KEY) {
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">키 설정 필요</li>';
-    return;
-  }
   
   try {
-    const res = await fetch(`https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json`);
+    // 브라우저 자체 CORS 차단을 막기 위해 프록시 사용 (allorigins)
+    const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json?_=${Date.now()}`;
+    const proxyUrl = `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`;
+    
+    const res = await fetch(proxyUrl);
     const data = await res.json();
     let entries = [];
     
@@ -813,21 +822,23 @@ async function submitDreamloScore() {
     alert("이름을 입력해주세요."); 
     return; 
   }
-  if (DREAMLO_PRIVATE_KEY === '여기에_PRIVATE_KEY_입력' || !DREAMLO_PRIVATE_KEY) {
-    alert("Dreamlo Private Key가 설정되지 않았습니다.");
-    return;
-  }
   
   const btn = input.nextElementSibling.lastElementChild;
   btn.innerText = "등록 중...";
   btn.disabled = true;
 
   try {
-    await fetch(`https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`);
+    const url = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`;
+    
+    // 쓰기 요청은 응답을 무시하는 'no-cors' 모드로 전송하여 브라우저 에러를 피함
+    await fetch(url, { mode: 'no-cors', cache: 'no-store' });
+    
     input.value = "";
     document.getElementById('score-submit-box').style.display = 'none';
     document.getElementById('single-setup-box').style.display = 'flex';
-    fetchLeaderboard();
+    
+    // 서버 반영 후 새로고침 (1초 대기)
+    setTimeout(fetchLeaderboard, 1000); 
   } catch (err) {
     alert("등록 실패. 네트워크를 확인하세요.");
   } finally {
@@ -843,7 +854,7 @@ function cancelSubmitScore() {
 }
 
 /* =========================================================
-   1. 설정 및 테마
+   1. 설정 및 테마 (보드 크기와 무관하게 캔버스 고정 크기 유지)
 ========================================================= */
 const BOARD_CONFIG = {
   fixedWidth: 270,
@@ -1290,7 +1301,6 @@ function triggerGameOver() {
   msg.className = "overlay-text lose";
   pauseBtn.innerText = "⏸️ 정지";
 
-  // 점수가 있을 때만 랭킹 등록창 활성화, 없으면 재시작 창
   if (player.score > 0) {
     setupBox.style.display = 'none';
     scoreSubmitBox.style.display = 'flex';
@@ -1339,8 +1349,8 @@ function spawnParticles(y, colors) {
   for (let x = 0; x < COLS; x++) {
     for (let i = 0; i < 2; i++) {
       particles.push({
-        x: x * BLOCK_SIZE + BLOCK_SIZE / 2,
-        y: y * BLOCK_SIZE + BLOCK_SIZE / 2,
+        x: (x + 0.5) * BLOCK_SIZE,
+        y: (y + 0.5) * BLOCK_SIZE,
         vx: (Math.random() - 0.5) * 5,
         vy: (Math.random() - 0.5) * 5 - 1.5,
         size: Math.random() * 3 + 2,
