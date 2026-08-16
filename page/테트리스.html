@@ -749,6 +749,7 @@
       <div class="side-leaderboard-box">
         <span class="title">🏆 Top 5</span>
         <ul class="leaderboard-list" id="leaderboard-list">
+          <!-- JS 렌더링 -->
           <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
         </ul>
       </div>
@@ -774,63 +775,49 @@
 
 <script>
 /* =========================================================
-   0. Dreamlo 글로벌 랭킹 API 연동 (파이프(|) 텍스트 직접 파싱)
+   0. Dreamlo 글로벌 랭킹 (JSONP & Image Ping으로 프록시 우회)
 ========================================================= */
+const DREAMLO_PUBLIC_KEY = '6a81bf268f40bb1350637e05';
 const DREAMLO_PRIVATE_KEY = 'DIuuJSRTE0iTnGQvzxdvfgqaGot4Jc7E6IB7zHJ0LWEA';
 
-async function fetchLeaderboard() {
+// JSONP 콜백 함수 지정: Dreamlo가 데이터를 이 함수에 담아서 응답합니다.
+window.dreamloLoader = function(data) {
   const list = document.getElementById('leaderboard-list');
+  let entries = [];
   
-  try {
-    // Dreamlo의 파이프(|) 구분 기본 텍스트 포맷을 요청하는 URL 생성
-    const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/pipe?_=${Date.now()}`;
-    
-    // JSON 우회 전용 프록시 (allorigins의 /get 사용 시 컨텐츠를 JSON 안에 감싸서 반환해줌 -> 가장 안전)
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-    
-    const res = await fetch(proxyUrl);
-    if (!res.ok) throw new Error("프록시 응답 오류");
-    
-    const data = await res.json();
-    const textData = data.contents; // 파이프라인 원본 텍스트 추출
-
-    if (!textData || textData.trim() === "") {
-      list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
-      return;
-    }
-
-    // 텍스트 파싱: Name|Score|Seconds|Text|Date
-    const lines = textData.trim().split('\n');
-    let entries = [];
-    
-    for (let line of lines) {
-      if (!line) continue;
-      const parts = line.split('|');
-      if (parts.length >= 2) {
-        entries.push({ name: parts[0], score: parseInt(parts[1], 10) });
-      }
-    }
-    
-    if (entries.length === 0) {
-      list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
-      return;
-    }
-
-    // 상위 5명 렌더링
-    list.innerHTML = entries.slice(0, 5).map((s, idx) => `
-      <li class="leaderboard-item">
-        <span class="rank">${idx + 1}. ${s.name}</span>
-        <span class="score">${s.score.toLocaleString()}</span>
-      </li>
-    `).join('');
-
-  } catch (err) {
-    console.error("Dreamlo 로드 에러", err);
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055; font-size:7px;">네트워크 차단됨</li>';
+  if (data && data.dreamlo && data.dreamlo.leaderboard && data.dreamlo.leaderboard.entry) {
+    const raw = data.dreamlo.leaderboard.entry;
+    entries = Array.isArray(raw) ? raw : [raw];
   }
+  
+  if (entries.length === 0) {
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
+    return;
+  }
+
+  list.innerHTML = entries.slice(0, 5).map((s, idx) => `
+    <li class="leaderboard-item">
+      <span class="rank">${idx + 1}. ${s.name}</span>
+      <span class="score">${parseInt(s.score).toLocaleString()}</span>
+    </li>
+  `).join('');
+};
+
+function fetchLeaderboard() {
+  const list = document.getElementById('leaderboard-list');
+  // 프록시 서버 대신 스크립트 태그(JSONP)를 활용하여 브라우저 CORS 제약을 완벽 회피
+  const script = document.createElement('script');
+  script.src = `https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json-p?_=${Date.now()}`;
+  script.onerror = () => {
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">연결 실패</li>';
+  };
+  document.body.appendChild(script);
+  
+  // 데이터 수신 완료 후 DOM에서 스크립트 삭제
+  script.onload = () => script.remove();
 }
 
-async function submitDreamloScore() {
+function submitDreamloScore() {
   const input = document.getElementById('username-input');
   let name = input.value.trim();
   
@@ -843,24 +830,23 @@ async function submitDreamloScore() {
   btn.innerText = "등록 중...";
   btn.disabled = true;
 
-  try {
-    const url = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`;
-    
-    // 기록할 때는 데이터를 받아올 필요 없이 호출만 하면 됨 ('no-cors' 활용)
-    await fetch(url, { mode: 'no-cors', cache: 'no-store' });
-    
+  // Image Ping 기법: 단순 GET 쓰기 요청이므로 이미지 src에 할당하여 CORS 회피
+  const url = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`;
+  const ping = new Image();
+  
+  ping.onload = ping.onerror = function() {
     input.value = "";
     document.getElementById('score-submit-box').style.display = 'none';
     document.getElementById('single-setup-box').style.display = 'flex';
     
-    // 서버 반영 후 랭킹 새로고침 (약 1초 대기)
-    setTimeout(fetchLeaderboard, 1000); 
-  } catch (err) {
-    alert("등록 실패. 네트워크를 확인하세요.");
-  } finally {
     btn.innerText = "등록하기";
     btn.disabled = false;
-  }
+    
+    // 점수 등록이 서버에 반영될 시간을 약간 준 후 랭킹 새로고침
+    setTimeout(fetchLeaderboard, 1000); 
+  };
+  
+  ping.src = url;
 }
 
 function cancelSubmitScore() {
@@ -868,6 +854,7 @@ function cancelSubmitScore() {
   document.getElementById('score-submit-box').style.display = 'none';
   document.getElementById('single-setup-box').style.display = 'flex';
 }
+
 
 /* =========================================================
    1. 설정 및 테마 (보드 크기와 무관하게 캔버스 고정 크기 유지)
