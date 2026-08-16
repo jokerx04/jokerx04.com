@@ -24,10 +24,12 @@
       --score-color: #00f5ff;
       --lines-color: #00ff66;
       --level-color: #ffe600;
-      --touch-btn-bg: rgba(255, 255, 255, 0.15);
-      --touch-btn-border: rgba(0, 245, 255, 0.5);
-      --touch-btn-active: rgba(0, 245, 255, 0.6);
-      --touch-border: rgba(217, 70, 239, 0.5);
+      
+      /* PPSSPP 스타일 반투명 버튼 변수 */
+      --psp-btn-bg: rgba(255, 255, 255, 0.10);
+      --psp-btn-border: rgba(0, 245, 255, 0.45);
+      --psp-btn-active: rgba(0, 245, 255, 0.65);
+      --psp-btn-glow: rgba(0, 245, 255, 0.3);
     }
 
     body[data-theme="retro"] {
@@ -49,9 +51,9 @@
       --score-color: #ff0055;
       --lines-color: #ffcc00;
       --level-color: #00ccff;
-      --touch-border: rgba(255, 0, 85, 0.6);
-      --touch-btn-border: rgba(255, 204, 0, 0.6);
-      --touch-btn-active: rgba(255, 0, 85, 0.6);
+      --psp-btn-border: rgba(255, 0, 85, 0.5);
+      --psp-btn-active: rgba(255, 0, 85, 0.7);
+      --psp-btn-glow: rgba(255, 0, 85, 0.4);
     }
 
     body[data-theme="pastel"] {
@@ -73,9 +75,9 @@
       --score-color: #67e8f9;
       --lines-color: #86efac;
       --level-color: #fde047;
-      --touch-border: rgba(192, 132, 252, 0.5);
-      --touch-btn-border: rgba(103, 232, 249, 0.5);
-      --touch-btn-active: rgba(192, 132, 252, 0.5);
+      --psp-btn-border: rgba(103, 232, 249, 0.5);
+      --psp-btn-active: rgba(192, 132, 252, 0.7);
+      --psp-btn-glow: rgba(103, 232, 249, 0.4);
     }
 
     body[data-theme="mono"] {
@@ -97,9 +99,9 @@
       --score-color: #ffffff;
       --lines-color: #cbd5e1;
       --level-color: #e2e8f0;
-      --touch-border: rgba(255, 255, 255, 0.3);
-      --touch-btn-border: rgba(255, 255, 255, 0.4);
-      --touch-btn-active: rgba(255, 255, 255, 0.3);
+      --psp-btn-border: rgba(255, 255, 255, 0.4);
+      --psp-btn-active: rgba(255, 255, 255, 0.6);
+      --psp-btn-glow: rgba(255, 255, 255, 0.2);
     }
 
     body[data-theme="emerald"] {
@@ -121,9 +123,9 @@
       --score-color: #34d399;
       --lines-color: #6ee7b7;
       --level-color: #bef264;
-      --touch-border: rgba(16, 185, 129, 0.5);
-      --touch-btn-border: rgba(52, 211, 153, 0.5);
-      --touch-btn-active: rgba(16, 185, 129, 0.5);
+      --psp-btn-border: rgba(52, 211, 153, 0.5);
+      --psp-btn-active: rgba(16, 185, 129, 0.7);
+      --psp-btn-glow: rgba(16, 185, 129, 0.4);
     }
 
     * {
@@ -158,7 +160,6 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* 반응형 메인 컨테이너 (JS로 최적 너비 실시간 동기화) */
     .main-app-container {
       display: flex;
       flex-direction: column;
@@ -271,13 +272,13 @@
       text-align: center;
     }
     .score-box h2 {
-      font-size: 9px;
+      font-size: 8.5px;
       font-weight: 700;
       color: var(--text-sub);
       margin-bottom: 1px;
     }
     .score-box p {
-      font-size: 16px;
+      font-size: 15px;
       font-weight: 900;
       font-variant-numeric: tabular-nums;
       color: var(--score-color);
@@ -307,6 +308,7 @@
       justify-content: center;
       align-items: center;
       width: 100%;
+      overflow: hidden;
     }
     canvas {
       background-color: #06030e;
@@ -317,7 +319,7 @@
       object-fit: contain;
     }
 
-    /* 게임 오버레이 */
+    /* 게임 시작/종료 오버레이 */
     .game-overlay {
       display: flex;
       position: absolute;
@@ -330,7 +332,7 @@
       justify-content: center;
       align-items: center;
       gap: 8px;
-      z-index: 15;
+      z-index: 25;
       padding: 6px;
       width: 100%;
     }
@@ -374,6 +376,112 @@
       padding: 2px 4px;
     }
 
+    /* ============================================================
+       PPSSPP 스타일 반투명 오버레이 키패드 디자인
+    ============================================================ */
+    .touch-overlay-panel {
+      display: none;
+      position: absolute;
+      bottom: 8px;
+      left: 8px;
+      right: 8px;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 0;
+      background: transparent;
+      pointer-events: none;
+      z-index: 10;
+      touch-action: none;
+    }
+    .touch-overlay-panel.active {
+      display: flex;
+    }
+
+    /* D-Pad (방향키) */
+    .dpad-box {
+      display: grid;
+      grid-template-columns: repeat(3, 40px);
+      grid-template-rows: repeat(2, 38px);
+      gap: 4px;
+      justify-items: center;
+      align-items: center;
+      pointer-events: auto;
+    }
+    .t-btn {
+      width: 40px;
+      height: 38px;
+      background: var(--psp-btn-bg);
+      border: 1.5px solid var(--psp-btn-border);
+      border-radius: 12px;
+      color: var(--text-accent);
+      font-size: 15px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: inset 0 0 8px var(--psp-btn-glow), 0 4px 10px rgba(0, 0, 0, 0.4);
+      transition: all 0.08s ease-out;
+    }
+    .t-btn:active, .t-btn.touched {
+      background: var(--psp-btn-active) !important;
+      border-color: #ffffff !important;
+      color: #080511 !important;
+      transform: scale(0.90);
+      box-shadow: 0 0 16px var(--text-accent), inset 0 0 10px rgba(255, 255, 255, 0.8) !important;
+    }
+    #v-up    { grid-column: 2; grid-row: 1; }
+    #v-left  { grid-column: 1; grid-row: 2; }
+    #v-down  { grid-column: 2; grid-row: 2; }
+    #v-right { grid-column: 3; grid-row: 2; }
+
+    /* Action Drop Button (낙하 버튼) */
+    .action-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      pointer-events: auto;
+    }
+    .act-btn-drop {
+      width: 64px;
+      height: 64px;
+      background: var(--psp-btn-bg);
+      border: 2px solid var(--psp-btn-border);
+      border-radius: 50%;
+      color: var(--text-accent);
+      font-size: 11px;
+      font-weight: 900;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      box-shadow: inset 0 0 12px var(--psp-btn-glow), 0 4px 12px rgba(0, 0, 0, 0.4);
+      transition: all 0.08s ease-out;
+    }
+    .act-btn-drop span {
+      font-size: 18px;
+      line-height: 1;
+      margin-bottom: 2px;
+      filter: drop-shadow(0 0 4px var(--text-accent));
+    }
+    .act-btn-drop:active, .act-btn-drop.touched {
+      background: var(--psp-btn-active) !important;
+      border-color: #ffffff !important;
+      color: #080511 !important;
+      transform: scale(0.90);
+      box-shadow: 0 0 22px var(--text-accent), inset 0 0 14px rgba(255, 255, 255, 0.8) !important;
+    }
+
     /* PC 키 안내 */
     .controls-guide-card {
       background: var(--card-bg);
@@ -393,95 +501,7 @@
       border-radius: 3px;
       color: var(--text-accent);
       font-weight: 600;
-      font-size: 8.5px;
-    }
-
-    /* 모바일 터치 패드 */
-    .touch-bottom-panel {
-      display: none;
-      width: 100%;
-      justify-content: space-between;
-      align-items: center;
-      padding: 6px 8px;
-      background: var(--panel-bg);
-      border-radius: 12px;
-      border: 1px solid var(--panel-border);
-      z-index: 30;
-      touch-action: none;
-    }
-    .touch-bottom-panel.active {
-      display: flex;
-    }
-
-    .dpad-box {
-      display: grid;
-      grid-template-columns: repeat(3, 38px);
-      grid-template-rows: repeat(2, 36px);
-      gap: 3px;
-      justify-items: center;
-      align-items: center;
-    }
-    .t-btn {
-      width: 38px;
-      height: 36px;
-      background: var(--touch-btn-bg);
-      border: 1.5px solid var(--touch-btn-border);
-      border-radius: 7px;
-      color: var(--text-main);
-      font-size: 14px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: none;
-    }
-    .t-btn:active, .t-btn.touched {
-      background: var(--touch-btn-active) !important;
-      border-color: var(--text-accent) !important;
-      color: #fff !important;
-      transform: scale(0.92);
-    }
-    #v-up    { grid-column: 2; grid-row: 1; }
-    #v-left  { grid-column: 1; grid-row: 2; }
-    #v-down  { grid-column: 2; grid-row: 2; }
-    #v-right { grid-column: 3; grid-row: 2; }
-
-    .action-box {
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      align-items: center;
-    }
-    .act-btn-drop {
-      width: 58px;
-      height: 58px;
-      background: var(--touch-btn-bg);
-      border: 2px solid var(--touch-btn-border);
-      border-radius: 50%;
-      color: var(--text-accent);
-      font-size: 10px;
-      font-weight: 900;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      user-select: none;
-      -webkit-user-select: none;
-      touch-action: none;
-      box-shadow: 0 0 10px var(--touch-border);
-    }
-    .act-btn-drop span {
-      font-size: 16px;
-      line-height: 1;
-      margin-bottom: 2px;
-    }
-    .act-btn-drop:active, .act-btn-drop.touched {
-      background: var(--text-accent) !important;
-      color: #080511 !important;
-      transform: scale(0.92);
+      font-size: 8px;
     }
   </style>
 </head>
@@ -531,6 +551,7 @@
         <div class="canvas-container" id="canvas-wrapper">
           <canvas id="tetris" width="270" height="540"></canvas>
           
+          <!-- 게임 시작/종료 오버레이 -->
           <div id="game-overlay" class="game-overlay">
             <div id="overlay-msg" class="overlay-text" style="color: var(--text-accent);">준비 완료</div>
             
@@ -564,6 +585,24 @@
 
             <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
           </div>
+
+          <!-- PPSSPP 스타일 반투명 오버레이 터치 패드 -->
+          <div class="touch-overlay-panel" id="touch-overlay-panel">
+            <div class="dpad-box">
+              <div class="t-btn" id="v-up" data-act="rot">▲</div>
+              <div class="t-btn" id="v-left" data-act="left">◀</div>
+              <div class="t-btn" id="v-down" data-act="down">▼</div>
+              <div class="t-btn" id="v-right" data-act="right">▶</div>
+            </div>
+
+            <div class="action-box">
+              <div class="act-btn-drop" id="v-drop" data-act="hard">
+                <span>⚡</span>
+                낙하
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -574,23 +613,6 @@
       <span class="key-badge">←</span> <span class="key-badge">→</span> 이동 |
       <span class="key-badge">↑</span> 회전 |
       <span class="key-badge">Space</span> 낙하
-    </div>
-
-    <!-- 5. 모바일 터치 패드 -->
-    <div class="touch-bottom-panel" id="touch-bottom-panel">
-      <div class="dpad-box">
-        <div class="t-btn" id="v-up" data-act="rot">▲</div>
-        <div class="t-btn" id="v-left" data-act="left">◀</div>
-        <div class="t-btn" id="v-down" data-act="down">▼</div>
-        <div class="t-btn" id="v-right" data-act="right">▶</div>
-      </div>
-
-      <div class="action-box">
-        <div class="act-btn-drop" id="v-drop" data-act="hard">
-          <span>⚡</span>
-          낙하
-        </div>
-      </div>
     </div>
 
   </div>
@@ -682,30 +704,24 @@ function changeTheme(themeKey) {
 document.body.setAttribute('data-theme', currentThemeKey);
 document.getElementById('theme-selector').value = currentThemeKey;
 
-/* 2. 반응형 레이아웃 계산 엔진 */
+/* 2. 반응형 레이아웃 계산 */
 let ghostEnabled = true;
 let startLevel = 1;
 let isPaused = false;
 
 function updateResponsiveLayout() {
   const container = document.getElementById('main-container');
-  const dpad = document.getElementById('touch-bottom-panel');
-  const isDpadVisible = dpad && dpad.classList.contains('active');
-
   const vh = window.innerHeight;
   const vw = window.innerWidth;
 
-  // 헤더, 점수판, 안내, 여백의 높이를 합산하여 캔버스 가용 높이 계산
-  const reservedHeight = isDpadVisible ? 220 : 140;
-  const availableCanvasHeight = Math.max(180, vh - reservedHeight);
+  const reservedHeight = 135;
+  const availableCanvasHeight = Math.max(220, vh - reservedHeight);
 
-  // 보드의 가로/세로 비율에 맞춰 가로폭 계산
   const boardRatio = COLS / ROWS;
   let targetWidth = availableCanvasHeight * boardRatio;
 
-  // 화면 너비 기준 최소/최대 제한
   const maxAllowedWidth = Math.min(vw - 16, 420);
-  const minAllowedWidth = 220;
+  const minAllowedWidth = 240;
 
   targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
   container.style.maxWidth = `${Math.round(targetWidth)}px`;
@@ -1222,16 +1238,14 @@ function autoDetectMobileTouch() {
 
 function setKeypadState(active) {
   isKeypadActive = active;
-  const panel = document.getElementById('touch-bottom-panel');
+  const panel = document.getElementById('touch-overlay-panel');
   const btn = document.getElementById('btn-keypad-toggle');
   if (isKeypadActive) {
     panel.classList.add('active');
     btn.classList.add('on');
-    btn.innerText = '🎮 패드';
   } else {
     panel.classList.remove('active');
     btn.classList.remove('on');
-    btn.innerText = '🎮 패드';
   }
   updateResponsiveLayout();
 }
