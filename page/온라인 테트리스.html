@@ -29,7 +29,7 @@
       --opp-score-color: #f43f5e;
       --lines-color: #00ff66;
       --level-color: #ffe600;
-      --touch-btn-bg: rgba(255, 255, 255, 0.12);
+      --touch-btn-bg: rgba(255, 255, 255, 0.15);
       --touch-btn-border: rgba(0, 245, 255, 0.5);
       --touch-btn-active: rgba(0, 245, 255, 0.6);
       --touch-border: rgba(217, 70, 239, 0.5);
@@ -143,43 +143,53 @@
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+      -webkit-tap-highlight-color: transparent;
+    }
+    
+    html, body {
+      width: 100%;
+      min-height: 100%;
       touch-action: manipulation;
     }
+
     body {
       background: var(--bg-gradient);
       color: var(--text-main);
       font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
       display: flex;
       flex-direction: column;
-      justify-content: center;
+      justify-content: flex-start;
       align-items: center;
       min-height: 100vh;
+      min-height: -webkit-fill-available;
       user-select: none;
       -webkit-user-select: none;
       overflow-x: hidden;
       overflow-y: auto;
       position: relative;
-      padding: 10px;
+      padding: env(safe-area-inset-top, 10px) 10px calc(env(safe-area-inset-bottom, 10px) + 20px) 10px;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
     /* 상단 네비게이션 */
     .lobby-bar {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       align-items: center;
       background: var(--panel-bg);
-      padding: 8px 18px;
+      padding: 6px 12px;
       border-radius: 14px;
       border: 1px solid var(--panel-border);
-      box-shadow: 0 0 20px var(--panel-shadow);
-      margin-bottom: 10px;
+      box-shadow: 0 0 15px var(--panel-shadow);
+      margin-bottom: 8px;
       flex-wrap: wrap;
       justify-content: center;
+      width: 100%;
+      max-width: 600px;
       z-index: 20;
     }
     .btn {
-      padding: 7px 14px;
+      padding: 6px 10px;
       background: var(--btn-bg);
       color: var(--btn-text);
       border: 1px solid var(--btn-border);
@@ -187,7 +197,8 @@
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 12px;
+      font-size: 11px;
+      white-space: nowrap;
     }
     .btn:hover {
       background: var(--btn-text);
@@ -226,17 +237,12 @@
       border-color: #ef4444;
       color: #fff;
     }
-    .btn-leave:hover {
-      background: #dc2626;
-      box-shadow: 0 0 15px rgba(239, 68, 68, 0.6);
-      color: #fff;
-    }
     .btn-ready {
       background: #ffe600;
       color: #080511;
       border: none;
-      font-size: 15px;
-      padding: 10px 24px;
+      font-size: 14px;
+      padding: 8px 18px;
       box-shadow: 0 0 15px rgba(255, 230, 0, 0.5);
     }
     .btn-ready.is-ready {
@@ -248,33 +254,34 @@
     .option-select-box {
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       background: rgba(0, 0, 0, 0.4);
-      padding: 4px 8px;
+      padding: 4px 6px;
       border-radius: 8px;
       border: 1px solid var(--card-border);
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-main);
     }
     select {
       background: var(--btn-bg);
       color: var(--text-accent);
       border: 1px solid var(--panel-border);
-      padding: 4px 6px;
+      padding: 3px 5px;
       border-radius: 6px;
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 700;
       outline: none;
       cursor: pointer;
     }
 
-    /* 나가기 확인 팝업 모달 */
+    /* 게임 나가기 확인 팝업 모달 */
     .confirm-modal-backdrop {
       display: none;
       position: fixed;
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(8, 5, 17, 0.88);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       z-index: 200;
       justify-content: center;
       align-items: center;
@@ -284,26 +291,26 @@
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
       border-radius: 16px;
-      padding: 24px;
-      max-width: 360px;
+      padding: 20px;
+      max-width: 320px;
       width: 100%;
       text-align: center;
-      box-shadow: 0 0 40px var(--panel-shadow);
+      box-shadow: 0 0 30px var(--panel-shadow);
     }
     .confirm-modal-card h3 {
-      font-size: 18px;
+      font-size: 16px;
       color: var(--text-accent);
-      margin-bottom: 10px;
+      margin-bottom: 8px;
     }
     .confirm-modal-card p {
-      font-size: 13px;
+      font-size: 12px;
       color: var(--text-sub);
-      margin-bottom: 20px;
-      line-height: 1.5;
+      margin-bottom: 16px;
+      line-height: 1.4;
     }
     .confirm-btn-group {
       display: flex;
-      gap: 10px;
+      gap: 8px;
       justify-content: center;
     }
 
@@ -314,24 +321,27 @@
       top: 0; left: 0; right: 0; bottom: 0;
       background: rgba(8, 5, 17, 0.88);
       backdrop-filter: blur(10px);
+      -webkit-backdrop-filter: blur(10px);
       z-index: 100;
       justify-content: center;
       align-items: center;
       padding: 12px;
     }
     .lobby-modal {
-      width: 580px;
+      width: 540px;
       max-width: 100%;
+      max-height: 90vh;
+      overflow-y: auto;
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
       border-radius: 16px;
-      padding: 20px;
-      box-shadow: 0 0 40px var(--panel-shadow);
+      padding: 16px;
+      box-shadow: 0 0 30px var(--panel-shadow);
     }
     .lobby-modal h2 {
-      font-size: 18px;
+      font-size: 16px;
       color: var(--text-accent);
-      margin-bottom: 14px;
+      margin-bottom: 12px;
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -339,135 +349,128 @@
     .room-create-box {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin-bottom: 16px;
+      gap: 8px;
+      margin-bottom: 12px;
       background: var(--card-bg);
-      padding: 12px;
+      padding: 10px;
       border-radius: 10px;
       border: 1px solid var(--card-border);
     }
     .room-inputs {
       display: flex;
-      gap: 8px;
+      gap: 6px;
     }
     input[type="text"] {
       flex: 1;
-      padding: 9px 12px;
+      padding: 8px 10px;
       background: rgba(0, 0, 0, 0.6);
       border: 1px solid var(--card-border);
       border-radius: 8px;
       color: #fff;
-      font-size: 13px;
+      font-size: 12px;
       outline: none;
-    }
-    input[type="text"]:focus {
-      border-color: var(--text-accent);
     }
     .room-options-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      gap: 8px;
+      gap: 6px;
     }
     .room-option-label {
-      font-size: 12px;
+      font-size: 11px;
       color: var(--text-main);
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       cursor: pointer;
     }
     .room-list-container {
-      max-height: 200px;
+      max-height: 180px;
       overflow-y: auto;
       border: 1px solid var(--card-border);
       border-radius: 8px;
       background: rgba(0, 0, 0, 0.3);
-      padding: 6px;
+      padding: 4px;
     }
-    .room-list-container::-webkit-scrollbar { width: 6px; }
-    .room-list-container::-webkit-scrollbar-thumb { background: var(--text-accent); border-radius: 4px; }
-    
     .room-card {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 10px 12px;
+      padding: 8px 10px;
       background: var(--card-bg);
       border-radius: 8px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
       border: 1px solid transparent;
-      transition: all 0.2s;
-    }
-    .room-card:hover {
-      border-color: var(--text-accent);
-      background: rgba(0, 245, 255, 0.1);
-    }
-    .room-info {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
+      gap: 8px;
     }
     .room-name {
-      font-size: 14px;
+      font-size: 13px;
       font-weight: 700;
       color: #fff;
     }
     .room-meta {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-sub);
     }
     .empty-rooms {
       text-align: center;
-      padding: 24px;
+      padding: 18px;
       color: #64748b;
-      font-size: 13px;
+      font-size: 12px;
     }
 
     /* 게임 화면 컨테이너 */
     .game-wrapper {
       display: flex;
-      gap: 18px;
-      padding: 16px;
+      gap: 12px;
+      padding: 12px;
       background: var(--panel-bg);
-      border-radius: 20px;
+      border-radius: 16px;
       backdrop-filter: blur(16px);
-      box-shadow: 0 0 50px var(--panel-shadow);
+      -webkit-backdrop-filter: blur(16px);
+      box-shadow: 0 0 35px var(--panel-shadow);
       border: 1px solid var(--panel-border);
-      align-items: flex-start;
+      align-items: center;
       justify-content: center;
+      max-width: 100%;
       z-index: 5;
     }
     .board-container {
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
     }
     .board-title {
-      font-size: 13px;
+      font-size: 11px;
       font-weight: 800;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       color: var(--text-sub);
     }
     .canvas-container {
       position: relative;
-      border-radius: 12px;
-      padding: 4px;
+      border-radius: 10px;
+      padding: 3px;
       background: var(--board-border-grad);
-      box-shadow: 0 0 25px var(--board-shadow);
+      box-shadow: 0 0 20px var(--board-shadow);
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
     .canvas-container.opponent {
       background: linear-gradient(135deg, #ff7700, #ff0055, #6366f1);
-      box-shadow: 0 0 25px rgba(255, 119, 0, 0.25);
+      box-shadow: 0 0 20px rgba(255, 119, 0, 0.25);
     }
     canvas {
       background-color: #06030e;
       border-radius: 8px;
       display: block;
+      /* 모바일 뷰포트 높이에 맞춘 캔버스 자동 축소 */
+      max-height: 58vh;
       max-width: 100%;
       height: auto;
+      object-fit: contain;
     }
 
     /* 정보 및 채팅 패널 */
@@ -475,33 +478,32 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      width: 210px;
-      min-height: 480px;
+      width: 190px;
+      min-height: 440px;
     }
     .panel-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 10px;
-      margin-bottom: 8px;
+      border-radius: 10px;
+      padding: 8px;
+      margin-bottom: 6px;
     }
 
-    /* 점수 비교 카드 (1P / 2P) */
     .scores-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: 6px;
+      gap: 4px;
       text-align: center;
     }
     .score-box h2 {
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 700;
-      letter-spacing: 1px;
+      letter-spacing: 0.5px;
       color: var(--text-sub);
       margin-bottom: 2px;
     }
     .score-box p {
-      font-size: 18px;
+      font-size: 15px;
       font-weight: 900;
       font-variant-numeric: tabular-nums;
     }
@@ -509,131 +511,106 @@
     .score-box.p2 p { color: var(--opp-score-color); text-shadow: 0 0 8px var(--opp-score-color); }
 
     .single-stats p {
-      font-size: 20px;
+      font-size: 18px;
       font-weight: 900;
       color: var(--score-color);
-      text-shadow: 0 0 10px var(--score-color);
-      margin-bottom: 4px;
+      text-shadow: 0 0 8px var(--score-color);
+      margin-bottom: 2px;
     }
 
-    /* 인게임 실시간 채팅창 스타일 */
     .chat-card {
       display: none;
       flex-direction: column;
       background: var(--card-bg);
       border: 1px solid var(--card-border);
-      border-radius: 12px;
-      padding: 8px;
-      margin-bottom: 8px;
+      border-radius: 10px;
+      padding: 6px;
+      margin-bottom: 6px;
     }
     .chat-messages {
-      height: 100px;
+      height: 80px;
       overflow-y: auto;
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: 11px;
+      gap: 3px;
+      font-size: 10px;
       padding-right: 2px;
-      margin-bottom: 6px;
+      margin-bottom: 4px;
     }
-    .chat-messages::-webkit-scrollbar { width: 4px; }
-    .chat-messages::-webkit-scrollbar-thumb { background: var(--text-accent); border-radius: 2px; }
-    
-    .chat-msg {
-      word-break: break-word;
-      line-height: 1.4;
-    }
-    .chat-msg.me { color: var(--text-accent); }
-    .chat-msg.opp { color: var(--opp-score-color); }
-    .chat-msg.system { color: #ffe600; font-size: 10px; font-style: italic; }
-
     .chat-input-row {
       display: flex;
-      gap: 4px;
+      gap: 3px;
     }
     .chat-input-row input {
       flex: 1;
-      padding: 5px 8px;
+      padding: 4px 6px;
       background: rgba(0, 0, 0, 0.5);
       border: 1px solid var(--card-border);
       border-radius: 6px;
       color: #fff;
-      font-size: 11px;
+      font-size: 10px;
       outline: none;
     }
     .chat-input-row button {
-      padding: 5px 10px;
+      padding: 4px 8px;
       background: var(--btn-bg);
       border: 1px solid var(--btn-border);
       color: var(--btn-text);
       border-radius: 6px;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 700;
       cursor: pointer;
     }
 
-    /* 싱글 모드 내장 컨트롤 박스 */
     .single-controls-box {
       display: flex;
       flex-direction: column;
-      gap: 6px;
-      margin-bottom: 8px;
-      padding: 8px;
+      gap: 4px;
+      margin-bottom: 6px;
+      padding: 6px;
       background: var(--card-bg);
-      border-radius: 10px;
+      border-radius: 8px;
       border: 1px solid var(--card-border);
     }
     .single-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-main);
     }
     .btn-pause {
       width: 100%;
-      padding: 6px;
+      padding: 5px;
       background: rgba(255, 230, 0, 0.15);
       border: 1px solid #ffe600;
       color: #ffe600;
       font-weight: 800;
       border-radius: 6px;
       cursor: pointer;
-      font-size: 11px;
-      transition: all 0.2s;
-    }
-    .btn-pause:hover {
-      background: #ffe600;
-      color: #080511;
-      box-shadow: 0 0 10px #ffe600;
-    }
-    .btn-pause.is-paused {
-      background: #00ff66;
-      border-color: #00ff66;
-      color: #080511;
-      box-shadow: 0 0 12px #00ff66;
+      font-size: 10px;
     }
 
     .status-badge {
       text-align: center;
-      padding: 6px;
+      padding: 5px;
       border-radius: 6px;
-      font-size: 11px;
+      font-size: 10px;
       font-weight: bold;
       background: rgba(0, 245, 255, 0.1);
       color: var(--text-accent);
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       border: 1px solid var(--panel-border);
     }
     .ready-status-box {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      font-size: 11px;
-      margin-bottom: 8px;
+      gap: 3px;
+      font-size: 10px;
+      margin-bottom: 6px;
     }
     .ready-tag {
-      padding: 4px;
+      padding: 3px;
       border-radius: 4px;
       text-align: center;
       font-weight: 700;
@@ -647,20 +624,20 @@
     }
 
     .controls-guide {
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-sub);
-      line-height: 1.5;
+      line-height: 1.4;
       border-top: 1px solid var(--card-border);
-      padding-top: 6px;
+      padding-top: 4px;
     }
     .key-badge {
       display: inline-block;
-      padding: 1px 4px;
+      padding: 1px 3px;
       background: rgba(255, 255, 255, 0.1);
       border-radius: 4px;
       color: var(--text-accent);
       font-weight: 600;
-      font-size: 9px;
+      font-size: 8.5px;
     }
 
     /* 게임 결과 / 오버레이 */
@@ -668,152 +645,166 @@
       display: flex;
       position: absolute;
       top: 0; left: 0; right: 0; bottom: 0;
-      background: rgba(6, 3, 14, 0.9);
+      background: rgba(6, 3, 14, 0.92);
       backdrop-filter: blur(8px);
-      border-radius: 12px;
+      -webkit-backdrop-filter: blur(8px);
+      border-radius: 8px;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       z-index: 15;
-      padding: 16px;
+      padding: 10px;
     }
     .overlay-text {
-      font-size: 22px;
+      font-size: 18px;
       font-weight: 900;
-      letter-spacing: 1.5px;
+      letter-spacing: 1px;
       text-align: center;
     }
-    .overlay-text.win { color: #00ff66; text-shadow: 0 0 20px #00ff66; }
-    .overlay-text.lose { color: #ff0055; text-shadow: 0 0 20px #ff0055; }
+    .overlay-text.win { color: #00ff66; text-shadow: 0 0 15px #00ff66; }
+    .overlay-text.lose { color: #ff0055; text-shadow: 0 0 15px #ff0055; }
     
     .start-setup-box {
       display: flex;
       flex-direction: column;
-      gap: 8px;
+      gap: 6px;
       width: 100%;
-      max-width: 220px;
+      max-width: 190px;
       background: rgba(255, 255, 255, 0.05);
       border: 1px solid var(--card-border);
-      padding: 10px;
-      border-radius: 10px;
-      margin-bottom: 4px;
+      padding: 8px;
+      border-radius: 8px;
+      margin-bottom: 2px;
     }
     .start-setup-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-main);
     }
-
     .countdown-text {
-      font-size: 64px;
+      font-size: 48px;
       font-weight: 900;
       color: var(--level-color);
-      text-shadow: 0 0 30px var(--level-color);
+      text-shadow: 0 0 25px var(--level-color);
       animation: pop 0.8s ease-out;
     }
-    @keyframes pop {
-      0% { transform: scale(0.4); opacity: 0; }
-      50% { transform: scale(1.2); opacity: 1; }
-      100% { transform: scale(1.0); }
-    }
 
-    /* 에뮬레이터 스타일 투명 오버레이 키패드 */
-    .touch-overlay-container {
+    /* 모바일 가상 터치 키패드 */
+    .touch-bottom-panel {
       display: none;
-      position: fixed;
-      top: 0; left: 0; right: 0; bottom: 0;
-      pointer-events: none;
-      z-index: 40;
+      width: 100%;
+      max-width: 480px;
+      margin-top: 10px;
+      justify-content: space-between;
+      align-items: center;
+      padding: 6px 12px;
+      background: var(--panel-bg);
+      border-radius: 16px;
+      border: 1px solid var(--panel-border);
+      z-index: 30;
+      touch-action: none;
     }
-    .touch-overlay-container.active {
-      display: block;
+    .touch-bottom-panel.active {
+      display: flex;
     }
 
-    .dpad-overlay {
-      position: absolute;
-      left: 18px;
-      bottom: 24px;
-      width: 170px;
-      height: 170px;
-      pointer-events: auto;
+    .dpad-box {
+      display: grid;
+      grid-template-columns: repeat(3, 44px);
+      grid-template-rows: repeat(2, 40px);
+      gap: 4px;
+      justify-items: center;
+      align-items: center;
     }
-    .dpad-btn {
-      position: absolute;
-      width: 52px;
-      height: 52px;
+    .t-btn {
+      width: 44px;
+      height: 40px;
       background: var(--touch-btn-bg);
-      border: 2px solid var(--touch-btn-border);
-      border-radius: 14px;
+      border: 1.5px solid var(--touch-btn-border);
+      border-radius: 10px;
       color: var(--text-main);
-      font-size: 22px;
+      font-size: 16px;
       display: flex;
       justify-content: center;
       align-items: center;
-      backdrop-filter: blur(4px);
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
       cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
       touch-action: none;
     }
-    .dpad-btn:active, .dpad-btn.touched {
+    .t-btn:active, .t-btn.touched {
       background: var(--touch-btn-active) !important;
       border-color: var(--text-accent) !important;
       color: #fff !important;
       transform: scale(0.92);
-      box-shadow: 0 0 15px var(--text-accent) !important;
     }
-    #v-up    { top: 0; left: 59px; }
-    #v-left  { top: 59px; left: 0; }
-    #v-right { top: 59px; right: 0; }
-    #v-down  { bottom: 0; left: 59px; }
+    #v-up    { grid-column: 2; grid-row: 1; }
+    #v-left  { grid-column: 1; grid-row: 2; }
+    #v-down  { grid-column: 2; grid-row: 2; }
+    #v-right { grid-column: 3; grid-row: 2; }
 
-    .action-overlay {
-      position: absolute;
-      right: 24px;
-      bottom: 34px;
-      pointer-events: auto;
+    .action-box {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      align-items: center;
     }
     .act-btn-drop {
-      width: 80px;
-      height: 80px;
+      width: 68px;
+      height: 68px;
       background: var(--touch-btn-bg);
-      border: 2.5px solid var(--touch-btn-border);
+      border: 2px solid var(--touch-btn-border);
       border-radius: 50%;
       color: var(--text-accent);
-      font-size: 15px;
+      font-size: 12px;
       font-weight: 900;
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4), 0 0 15px var(--touch-border);
       cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
       touch-action: none;
+      box-shadow: 0 0 12px var(--touch-border);
     }
     .act-btn-drop span {
-      font-size: 24px;
+      font-size: 18px;
       line-height: 1;
       margin-bottom: 2px;
     }
     .act-btn-drop:active, .act-btn-drop.touched {
       background: var(--text-accent) !important;
-      border-color: #fff !important;
       color: #080511 !important;
       transform: scale(0.92);
-      box-shadow: 0 0 25px var(--text-accent) !important;
     }
 
+    /* 모바일 반응형 미디어 쿼리 (가로/세로 최적화) */
     @media (max-width: 768px) {
+      body {
+        padding: 6px 4px 16px 4px;
+        justify-content: flex-start;
+      }
       .game-wrapper {
-        gap: 10px;
-        padding: 10px;
+        flex-direction: column;
+        width: 100%;
+        max-width: 360px;
+        gap: 8px;
+        padding: 8px;
       }
       .info-panel {
         width: 100%;
         min-height: auto;
+        flex-direction: column;
+      }
+      .controls-guide {
+        display: none; /* 모바일에서는 키보드 안내 숨김 */
+      }
+      .scores-grid {
+        margin-bottom: 4px;
       }
     }
   </style>
@@ -822,18 +813,18 @@
 
   <!-- 상단 네비게이션 -->
   <div class="lobby-bar">
-    <button id="btn-single" class="btn active" onclick="requestNavigation('single')">🕹️ 혼자 하기</button>
-    <button id="btn-multi" class="btn" onclick="requestNavigation('multi')">⚔️ 대전 대기실</button>
-    <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 키패드 켜기</button>
+    <button id="btn-single" class="btn active" onclick="requestNavigation('single')">🕹️ 1인용</button>
+    <button id="btn-multi" class="btn" onclick="requestNavigation('multi')">⚔️ 대전</button>
+    <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
 
     <div class="option-select-box">
       <span>🎨 테마:</span>
       <select id="theme-selector" onchange="changeTheme(this.value)">
-        <option value="neon">네온 사이버</option>
-        <option value="retro">레트로 아케이드</option>
-        <option value="pastel">파스텔 드림</option>
-        <option value="mono">모노 다크</option>
-        <option value="emerald">에메랄드 시티</option>
+        <option value="neon">네온</option>
+        <option value="retro">레트로</option>
+        <option value="pastel">파스텔</option>
+        <option value="mono">모노</option>
+        <option value="emerald">에메랄드</option>
       </select>
     </div>
   </div>
@@ -842,10 +833,10 @@
   <div id="confirm-leave-modal" class="confirm-modal-backdrop">
     <div class="confirm-modal-card">
       <h3>⚠️ 게임 나가기 확인</h3>
-      <p id="confirm-leave-desc">현재 진행 중인 게임이 종료됩니다.<br>정말 나가시겠습니까?</p>
+      <p id="confirm-leave-desc">진행 중인 게임이 종료됩니다.<br>정말 나가시겠습니까?</p>
       <div class="confirm-btn-group">
-        <button class="btn" onclick="cancelLeaveGame()">계속하기 (취소)</button>
-        <button class="btn btn-leave" onclick="confirmLeaveGame()">게임 나가기</button>
+        <button class="btn" onclick="cancelLeaveGame()">취소</button>
+        <button class="btn btn-leave" onclick="confirmLeaveGame()">나가기</button>
       </div>
     </div>
   </div>
@@ -855,17 +846,17 @@
     <div class="lobby-modal">
       <h2>
         <span>🌐 온라인 대전 방 목록</span>
-        <button class="btn" onclick="refreshRoomList()" style="font-size:12px; padding:4px 10px;">🔄 새로고침</button>
+        <button class="btn" onclick="refreshRoomList()" style="font-size:11px; padding:3px 8px;">🔄 새로고침</button>
       </h2>
 
       <div class="room-create-box">
         <div class="room-inputs">
-          <input type="text" id="room-name-input" placeholder="방 이름을 반드시 입력해주세요 (예: 한판 붙자)">
+          <input type="text" id="room-name-input" placeholder="방 이름을 입력하세요">
           <button class="btn btn-action" onclick="createRoom()">방 만들기</button>
         </div>
         <div class="room-options-row">
-          <div class="option-select-box" style="background: rgba(0,0,0,0.6);">
-            <span>📐 보드 크기:</span>
+          <div class="option-select-box">
+            <span>보드:</span>
             <select id="room-board-size">
               <option value="small">소형 (8×16)</option>
               <option value="standard" selected>표준 (10×20)</option>
@@ -874,8 +865,8 @@
               <option value="giant">특대형 (14×26)</option>
             </select>
           </div>
-          <div class="option-select-box" style="background: rgba(0,0,0,0.6);">
-            <span>🚀 시작 단계:</span>
+          <div class="option-select-box">
+            <span>단계:</span>
             <select id="room-start-level">
               <option value="1" selected>1단계</option>
               <option value="2">2단계</option>
@@ -891,16 +882,16 @@
           </div>
           <label class="room-option-label">
             <input type="checkbox" id="room-ghost-rule" checked>
-            <span>낙하 가이드 허용</span>
+            <span>가이드</span>
           </label>
         </div>
       </div>
 
       <div class="room-list-container" id="room-list">
-        <div class="empty-rooms">열려 있는 대전 방을 검색 중입니다...</div>
+        <div class="empty-rooms">열려 있는 방을 검색 중입니다...</div>
       </div>
 
-      <div style="margin-top: 14px; text-align: right;">
+      <div style="margin-top: 10px; text-align: right;">
         <button class="btn" onclick="closeMultiLobby()">닫기</button>
       </div>
     </div>
@@ -911,17 +902,16 @@
     <!-- 내 화면 -->
     <div class="board-container">
       <div class="board-title" id="p1-title">내 화면</div>
-      <div class="canvas-container" style="position: relative;">
+      <div class="canvas-container">
         <canvas id="tetris" width="270" height="540"></canvas>
         
         <!-- 게임 오버레이 -->
         <div id="game-overlay" class="game-overlay">
           <div id="overlay-msg" class="overlay-text" style="color: var(--text-accent);">준비 완료</div>
           
-          <!-- 싱글 및 대전 방장 옵션 박스 -->
           <div id="single-setup-box" class="start-setup-box">
             <div class="start-setup-row">
-              <span>📐 보드 크기</span>
+              <span>보드 크기</span>
               <select id="single-board-size" onchange="onBoardSizeChange(this.value)">
                 <option value="small">소형 (8×16)</option>
                 <option value="standard" selected>표준 (10×20)</option>
@@ -931,7 +921,7 @@
               </select>
             </div>
             <div class="start-setup-row">
-              <span>🚀 시작 단계</span>
+              <span>시작 단계</span>
               <select id="single-start-level" onchange="onStartLevelChange(this.value)">
                 <option value="1" selected>1단계</option>
                 <option value="2">2단계</option>
@@ -946,13 +936,13 @@
               </select>
             </div>
             <div class="start-setup-row" id="match-ghost-row" style="display: none;">
-              <span>👁️ 낙하 가이드</span>
-              <button id="btn-match-ghost" class="btn btn-toggle on" style="padding: 2px 6px; font-size: 10px;" onclick="toggleMatchGhostRule()">허용</button>
+              <span>낙하 가이드</span>
+              <button id="btn-match-ghost" class="btn btn-toggle on" style="padding: 2px 6px; font-size: 9px;" onclick="toggleMatchGhostRule()">허용</button>
             </div>
           </div>
 
           <button id="overlay-btn" class="btn btn-ready" onclick="handleOverlayButtonClick()">게임 시작</button>
-          <button id="overlay-leave-btn" class="btn btn-leave" style="display:none;" onclick="requestNavigation('single')">🚪 방 나가기 (혼자 하기로 이동)</button>
+          <button id="overlay-leave-btn" class="btn btn-leave" style="display:none;" onclick="requestNavigation('single')">🚪 방 나가기</button>
         </div>
       </div>
     </div>
@@ -974,7 +964,7 @@
         <div id="single-controls" class="single-controls-box">
           <div class="single-row">
             <span>👁️ 낙하 가이드</span>
-            <button id="btn-ghost-toggle" class="btn btn-toggle on" style="padding: 3px 8px; font-size: 11px;" onclick="toggleSingleGhost()">켜짐</button>
+            <button id="btn-ghost-toggle" class="btn btn-toggle on" style="padding: 2px 6px; font-size: 10px;" onclick="toggleSingleGhost()">켜짐</button>
           </div>
           <button id="btn-pause" class="btn-pause" onclick="togglePause()">⏸️ 일시 정지 (P)</button>
         </div>
@@ -982,20 +972,26 @@
         <div id="multi-ready-box" class="ready-status-box" style="display: none;">
           <div id="ready-tag-p1" class="ready-tag">나: 대기 중 ⏳</div>
           <div id="ready-tag-p2" class="ready-tag">상대방: 대기 중 ⏳</div>
-          <button class="btn btn-leave" style="margin-top: 4px; padding: 5px;" onclick="requestNavigation('single')">🚪 방 나가기</button>
+          <button class="btn btn-leave" style="margin-top: 2px; padding: 4px;" onclick="requestNavigation('single')">🚪 퇴장하기</button>
         </div>
 
-        <!-- 점수 카드 (싱글 및 대전 비교) -->
+        <!-- 점수 카드 -->
         <div class="panel-card" id="stats-panel">
           <!-- 싱글 모드 점수 -->
           <div id="single-stats-view">
-            <div class="stats-item">
-              <h2>점수</h2>
-              <p id="score" style="font-size: 22px; font-weight: 900; color: var(--score-color); text-shadow: 0 0 10px var(--score-color); margin-bottom: 6px;">0</p>
-              <h2>제거한 줄</h2>
-              <p id="lines" style="font-size: 20px; font-weight: 900; color: var(--lines-color); text-shadow: 0 0 10px var(--lines-color); margin-bottom: 6px;">0</p>
-              <h2>단계</h2>
-              <p id="level" style="font-size: 20px; font-weight: 900; color: var(--level-color); text-shadow: 0 0 10px var(--level-color); margin-bottom: 0;">1</p>
+            <div class="scores-grid" style="grid-template-columns: repeat(3, 1fr);">
+              <div class="score-box">
+                <h2>점수</h2>
+                <p id="score">0</p>
+              </div>
+              <div class="score-box">
+                <h2>줄</h2>
+                <p id="lines" style="color: var(--lines-color);">0</p>
+              </div>
+              <div class="score-box">
+                <h2>단계</h2>
+                <p id="level" style="color: var(--level-color);">1</p>
+              </div>
             </div>
           </div>
 
@@ -1005,19 +1001,19 @@
               <div class="score-box p1">
                 <h2>내 점수</h2>
                 <p id="score-p1">0</p>
-                <h2 style="margin-top: 4px;">내 줄</h2>
-                <p id="lines-p1" style="color: var(--lines-color); font-size: 16px;">0</p>
+                <h2 style="margin-top: 2px;">내 줄</h2>
+                <p id="lines-p1" style="color: var(--lines-color); font-size: 14px;">0</p>
               </div>
               <div class="score-box p2">
                 <h2>상대 점수</h2>
                 <p id="score-p2">0</p>
-                <h2 style="margin-top: 4px;">상대 줄</h2>
-                <p id="lines-p2" style="color: var(--lines-color); font-size: 16px;">0</p>
+                <h2 style="margin-top: 2px;">상대 줄</h2>
+                <p id="lines-p2" style="color: var(--lines-color); font-size: 14px;">0</p>
               </div>
             </div>
-            <div style="text-align: center; margin-top: 6px; border-top: 1px solid var(--card-border); padding-top: 4px;">
-              <span style="font-size: 10px; color: var(--text-sub);">현재 단계: </span>
-              <strong id="multi-level-display" style="font-size: 12px; color: var(--level-color);">1단계</strong>
+            <div style="text-align: center; margin-top: 4px; border-top: 1px solid var(--card-border); padding-top: 2px;">
+              <span style="font-size: 9px; color: var(--text-sub);">현재 단계: </span>
+              <strong id="multi-level-display" style="font-size: 11px; color: var(--level-color);">1단계</strong>
             </div>
           </div>
         </div>
@@ -1028,33 +1024,31 @@
             <div class="chat-msg system">대전 대기실에 입장했습니다.</div>
           </div>
           <div class="chat-input-row">
-            <input type="text" id="chat-input" placeholder="메시지 입력..." onkeydown="handleChatKeyDown(event)">
+            <input type="text" id="chat-input" placeholder="메시지..." onkeydown="handleChatKeyDown(event)">
             <button onclick="sendChatMessage()">전송</button>
           </div>
         </div>
       </div>
       
       <div class="controls-guide">
-        <strong style="color: var(--text-main);">🎮 조작 안내</strong><br>
-        • <span class="key-badge">←</span> <span class="key-badge">→</span> : 좌우 이동<br>
-        • <span class="key-badge">↑</span> : 회전<br>
-        • <span class="key-badge">↓</span> : 천천히 내리기<br>
-        • <span class="key-badge">Space</span> / <span class="key-badge">⚡ 낙하</span> : 즉시 내리기<br>
-        • <span class="key-badge">P</span> / <span class="key-badge">ESC</span> : 일시 정지
+        <strong style="color: var(--text-main);">🎮 PC 키 안내</strong><br>
+        • <span class="key-badge">←</span> <span class="key-badge">→</span> 좌우 | <span class="key-badge">↑</span> 회전<br>
+        • <span class="key-badge">↓</span> 소프트 | <span class="key-badge">Space</span> 하드<br>
+        • <span class="key-badge">P</span> 일시 정지
       </div>
     </div>
   </div>
 
-  <!-- PPSSPP 스타일 반투명 오버레이 가상 키패드 -->
-  <div class="touch-overlay-container" id="touch-overlay-container">
-    <div class="dpad-overlay">
-      <div class="dpad-btn" id="v-up" data-act="rot">▲</div>
-      <div class="dpad-btn" id="v-left" data-act="left">◀</div>
-      <div class="dpad-btn" id="v-right" data-act="right">▶</div>
-      <div class="dpad-btn" id="v-down" data-act="down">▼</div>
+  <!-- 하단 고정형 터치 키패드 -->
+  <div class="touch-bottom-panel" id="touch-bottom-panel">
+    <div class="dpad-box">
+      <div class="t-btn" id="v-up" data-act="rot">▲</div>
+      <div class="t-btn" id="v-left" data-act="left">◀</div>
+      <div class="t-btn" id="v-down" data-act="down">▼</div>
+      <div class="t-btn" id="v-right" data-act="right">▶</div>
     </div>
 
-    <div class="action-overlay">
+    <div class="action-box">
       <div class="act-btn-drop" id="v-drop" data-act="hard">
         <span>⚡</span>
         낙하
@@ -1063,15 +1057,13 @@
   </div>
 
 <script>
-/* ============================================================
-   1. 보드 크기 프리셋 & 테마 정의
-============================================================ */
+/* 1. 보드 크기 프리셋 & 테마 정의 */
 const BOARD_SIZES = {
-  small:    { cols: 8,  rows: 16, blockSize: 30, name: '소형 (8×16)' },
-  standard: { cols: 10, rows: 20, blockSize: 27, name: '표준 (10×20)' },
-  wide:     { cols: 12, rows: 20, blockSize: 25, name: '와이드 (12×20)' },
-  large:    { cols: 12, rows: 24, blockSize: 24, name: '대형 (12×24)' },
-  giant:    { cols: 14, rows: 26, blockSize: 22, name: '특대형 (14×26)' }
+  small:    { cols: 8,  rows: 16, blockSize: 28, name: '소형 (8×16)' },
+  standard: { cols: 10, rows: 20, blockSize: 26, name: '표준 (10×20)' },
+  wide:     { cols: 12, rows: 20, blockSize: 24, name: '와이드 (12×20)' },
+  large:    { cols: 12, rows: 24, blockSize: 22, name: '대형 (12×24)' },
+  giant:    { cols: 14, rows: 26, blockSize: 20, name: '특대형 (14×26)' }
 };
 
 let currentBoardSizeKey = 'standard';
@@ -1151,9 +1143,7 @@ function changeTheme(themeKey) {
 document.body.setAttribute('data-theme', currentThemeKey);
 document.getElementById('theme-selector').value = currentThemeKey;
 
-/* ============================================================
-   2. 캔버스 리사이징 및 옵션 상태 관리
-============================================================ */
+/* 2. 캔버스 리사이징 및 옵션 상태 관리 */
 let singleGhostEnabled = true;
 let matchGhostEnabled = true;
 let singleStartLevel = 1;
@@ -1275,9 +1265,7 @@ function togglePause() {
   }
 }
 
-/* ============================================================
-   나가기 확인 팝업 모달
-============================================================ */
+/* 나가기 확인 팝업 모달 */
 function requestNavigation(dest) {
   if (player.isPlaying && !isMultiplayer) {
     pendingDestination = dest;
@@ -1328,9 +1316,7 @@ function executeNavigation(dest) {
   }
 }
 
-/* ============================================================
-   3. 테트리스 게임 엔진
-============================================================ */
+/* 3. 테트리스 게임 엔진 */
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 const oppCanvas = document.getElementById('tetris-opponent');
@@ -1341,7 +1327,6 @@ const linesElement = document.getElementById('lines');
 const levelElement = document.getElementById('level');
 const networkStatus = document.getElementById('network-status');
 
-// 대전 점수판 엘리먼트
 const scoreP1 = document.getElementById('score-p1');
 const linesP1 = document.getElementById('lines-p1');
 const scoreP2 = document.getElementById('score-p2');
@@ -1624,22 +1609,20 @@ function updateScore() {
   }
 }
 
-/* ============================================================
-   4. 파티클 이펙트
-============================================================ */
+/* 4. 파티클 이펙트 */
 const particles = [];
 function spawnParticles(y, colors) {
   for (let x = 0; x < COLS; x++) {
-    for (let i = 0; i < 3; i++) {
+    for (let i = 0; i < 2; i++) {
       particles.push({
         x: x * BLOCK_SIZE + BLOCK_SIZE / 2,
         y: y * BLOCK_SIZE + BLOCK_SIZE / 2,
-        vx: (Math.random() - 0.5) * 6,
-        vy: (Math.random() - 0.5) * 6 - 2,
-        size: Math.random() * 4 + 2,
+        vx: (Math.random() - 0.5) * 5,
+        vy: (Math.random() - 0.5) * 5 - 1.5,
+        size: Math.random() * 3 + 2,
         color: colors[Math.floor(Math.random() * colors.length)],
         alpha: 1,
-        decay: Math.random() * 0.02 + 0.015
+        decay: Math.random() * 0.02 + 0.02
       });
     }
   }
@@ -1662,15 +1645,13 @@ function drawParticles(ctx) {
     ctx.globalAlpha = p.alpha;
     ctx.fillStyle = p.color;
     ctx.shadowColor = p.color;
-    ctx.shadowBlur = 8;
+    ctx.shadowBlur = 6;
     ctx.fillRect(p.x, p.y, p.size, p.size);
     ctx.restore();
   });
 }
 
-/* ============================================================
-   5. 보드 화면 렌더링
-============================================================ */
+/* 5. 보드 화면 렌더링 */
 function drawBlock(ctx, x, y, paletteIdx, isGhost = false) {
   const px = x * BLOCK_SIZE;
   const py = y * BLOCK_SIZE;
@@ -1681,9 +1662,9 @@ function drawBlock(ctx, x, y, paletteIdx, isGhost = false) {
     ctx.save();
     ctx.strokeStyle = item.glow;
     ctx.lineWidth = 1.5;
-    ctx.strokeRect(px + 2, py + 2, BLOCK_SIZE - 4, BLOCK_SIZE - 4);
+    ctx.strokeRect(px + 1.5, py + 1.5, BLOCK_SIZE - 3, BLOCK_SIZE - 3);
     ctx.fillStyle = 'rgba(255, 255, 255, 0.03)';
-    ctx.fillRect(px + 2, py + 2, BLOCK_SIZE - 4, BLOCK_SIZE - 4);
+    ctx.fillRect(px + 1.5, py + 1.5, BLOCK_SIZE - 3, BLOCK_SIZE - 3);
     ctx.restore();
     return;
   }
@@ -1698,8 +1679,8 @@ function drawBlock(ctx, x, y, paletteIdx, isGhost = false) {
   ctx.fillRect(px + 1, py + 1, BLOCK_SIZE - 2, BLOCK_SIZE - 2);
 
   ctx.strokeStyle = item.light;
-  ctx.lineWidth = 1.2;
-  ctx.strokeRect(px + 2.5, py + 2.5, BLOCK_SIZE - 5, BLOCK_SIZE - 5);
+  ctx.lineWidth = 1;
+  ctx.strokeRect(px + 2, py + 2, BLOCK_SIZE - 4, BLOCK_SIZE - 4);
   ctx.restore();
 }
 
@@ -1755,9 +1736,7 @@ function draw() {
   }
 }
 
-/* ============================================================
-   6. 입력 제어 & 키패드 바인딩
-============================================================ */
+/* 6. 입력 제어 & 키패드 터치 바인딩 (iOS 최적화) */
 const keys = {
   ArrowLeft: { pressed: false, timer: 0 },
   ArrowRight: { pressed: false, timer: 0 },
@@ -1795,7 +1774,6 @@ function handleInput(deltaTime) {
 
 window.addEventListener('keydown', event => {
   if (['ArrowLeft', 'ArrowRight', 'ArrowUp', 'ArrowDown', 'Space'].includes(event.code)) {
-    // 채팅 입력 중일 때는 게임 조작 차단
     if (document.activeElement === document.getElementById('chat-input')) return;
     event.preventDefault();
   }
@@ -1837,7 +1815,7 @@ window.addEventListener('keyup', event => {
 
 let isKeypadActive = false;
 function autoDetectMobileTouch() {
-  const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 1024);
+  const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
   if (isTouchDevice) {
     setKeypadState(true);
   }
@@ -1845,16 +1823,16 @@ function autoDetectMobileTouch() {
 
 function setKeypadState(active) {
   isKeypadActive = active;
-  const overlay = document.getElementById('touch-overlay-container');
+  const panel = document.getElementById('touch-bottom-panel');
   const btn = document.getElementById('btn-keypad-toggle');
   if (isKeypadActive) {
-    overlay.classList.add('active');
+    panel.classList.add('active');
     btn.classList.add('on');
-    btn.innerText = '🎮 키패드 끄기';
+    btn.innerText = '🎮 패드 켬';
   } else {
-    overlay.classList.remove('active');
+    panel.classList.remove('active');
     btn.classList.remove('on');
-    btn.innerText = '🎮 키패드 켜기';
+    btn.innerText = '🎮 패드 끔';
   }
 }
 
@@ -1868,6 +1846,7 @@ function setupTouchButton(btnId, action) {
 
   const startAction = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     el.classList.add('touched');
     if (!player.isPlaying || isPaused) return;
 
@@ -1892,6 +1871,7 @@ function setupTouchButton(btnId, action) {
 
   const stopAction = (e) => {
     e.preventDefault();
+    e.stopPropagation();
     el.classList.remove('touched');
     if (action === 'left') keys.ArrowLeft.pressed = false;
     if (action === 'right') keys.ArrowRight.pressed = false;
@@ -1913,9 +1893,7 @@ setupTouchButton('v-down', 'down');
 setupTouchButton('v-up', 'rot');
 setupTouchButton('v-drop', 'hard');
 
-/* ============================================================
-   7. 메인 게임 루프
-============================================================ */
+/* 7. 메인 게임 루프 */
 let dropCounter = 0;
 let dropInterval = 800;
 let lastTime = 0;
@@ -1947,9 +1925,7 @@ function update(time = 0) {
   requestAnimationFrame(update);
 }
 
-/* ============================================================
-   8. 멀티플레이어 통신, 실시간 채팅 & 설정 동기화
-============================================================ */
+/* 8. 멀티플레이어 통신 & 로비 */
 let isMultiplayer = false;
 let isHost = false;
 let peer = null;
@@ -2065,27 +2041,26 @@ function renderRoomList() {
   const roomKeys = Object.keys(activeRooms).filter(id => id !== myPeerId);
 
   if (roomKeys.length === 0) {
-    container.innerHTML = '<div class="empty-rooms">현재 개설된 방이 없습니다. 상단에서 방을 직접 만들어보세요!</div>';
+    container.innerHTML = '<div class="empty-rooms">현재 개설된 방이 없습니다.</div>';
     return;
   }
 
   container.innerHTML = roomKeys.map(id => {
     const room = activeRooms[id];
-    const ghostText = room.ghostEnabled ? '가이드: 켜짐' : '가이드: 꺼짐';
+    const ghostText = room.ghostEnabled ? '가이드: 켬' : '가이드: 끔';
     const sizeName = BOARD_SIZES[room.boardSize] ? BOARD_SIZES[room.boardSize].name : '표준';
     return `
       <div class="room-card">
-        <div class="room-info">
-          <span class="room-name">${escapeHtml(room.name)}</span>
-          <span class="room-meta">방장: ${escapeHtml(room.host)} | 📐 <strong>${sizeName}</strong> | 🚀 <strong>${room.startLevel}단계</strong> | 👁️ ${ghostText}</span>
+        <div>
+          <div class="room-name">${escapeHtml(room.name)}</div>
+          <div class="room-meta">📐 ${sizeName} | 🚀 ${room.startLevel}단계 | 👁️ ${ghostText}</div>
         </div>
-        <button class="btn btn-action" onclick="joinRoom('${id}', '${room.boardSize}', ${room.startLevel}, ${room.ghostEnabled})">참가하기</button>
+        <button class="btn btn-action" onclick="joinRoom('${id}', '${room.boardSize}', ${room.startLevel}, ${room.ghostEnabled})">참가</button>
       </div>
     `;
   }).join('');
 }
 
-// 1. 방 이름 필수 입력 검증 추가
 function createRoom() {
   const nameInput = document.getElementById('room-name-input');
   const roomName = nameInput.value.trim();
@@ -2115,7 +2090,7 @@ function createRoom() {
     broadcastRoomPing();
     closeMultiLobby();
     startMultiplayerSession(true);
-    networkStatus.innerText = `상대방 접속 대기 중... (${startLvl}단계 | ${BOARD_SIZES[boardSize].name})`;
+    networkStatus.innerText = `상대방 대기 중 (${startLvl}단계)`;
     networkStatus.style.color = "#ffe600";
   });
 }
@@ -2148,7 +2123,6 @@ function startMultiplayerSession(hostFlag) {
   document.getElementById('multi-stats-view').style.display = 'block';
   document.getElementById('chat-panel').style.display = 'flex';
 
-  // 대전 시작 전 옵션 설정 UI
   const setupBox = document.getElementById('single-setup-box');
   const sizeSelect = document.getElementById('single-board-size');
   const levelSelect = document.getElementById('single-start-level');
@@ -2158,7 +2132,6 @@ function startMultiplayerSession(hostFlag) {
   sizeSelect.value = currentBoardSizeKey;
   levelSelect.value = matchStartLevel;
 
-  // 방장만 옵션 수정 가능, 게스트는 보기만 가능
   sizeSelect.disabled = !isHost;
   levelSelect.disabled = !isHost;
   matchGhostRow.style.display = isHost ? 'flex' : 'none';
@@ -2183,14 +2156,14 @@ function startMultiplayerSession(hostFlag) {
 
   resetGameBoards(matchStartLevel);
   clearChat();
-  appendChatMessage("시스템", `대전 대기실에 입장했습니다. (${isHost ? '방장 권한으로 옵션 변경 가능' : '방장의 설정이 적용됩니다'})`, "system");
+  appendChatMessage("시스템", `대전 대기실에 입장했습니다.`, "system");
 }
 
 function setupConnection(conn) {
   dataConnection = conn;
 
   conn.on('open', () => {
-    networkStatus.innerText = `⚔️ 상대방 연결 완료 (준비 필요)`;
+    networkStatus.innerText = `⚔️ 상대방 연결됨 (준비 필요)`;
     networkStatus.style.color = "#00ff66";
     if (myHostedRoom && mqttClient) {
       mqttClient.publish(MQTT_TOPIC, JSON.stringify({ type: 'ROOM_REMOVE', peerId: myPeerId }));
@@ -2210,14 +2183,13 @@ function setupConnection(conn) {
     } else if (data.type === 'START_GAME') {
       executeGameStartCountdown();
     } else if (data.type === 'OPTIONS_SYNC') {
-      // 2. 게스트 화면에 방장의 변경된 옵션 실시간 동기화
       matchStartLevel = data.startLevel;
       matchGhostEnabled = data.ghostEnabled;
       applyBoardSize(data.boardSize);
       document.getElementById('single-board-size').value = data.boardSize;
       document.getElementById('single-start-level').value = data.startLevel;
       resetGameBoards(matchStartLevel);
-      appendChatMessage("시스템", `방장이 게임 설정을 변경했습니다. (${BOARD_SIZES[data.boardSize].name} | ${data.startLevel}단계)`, "system");
+      appendChatMessage("시스템", `방장이 설정을 변경했습니다.`, "system");
     } else if (data.type === 'STATE') {
       oppArena = data.arena;
       oppPlayer = data.player;
@@ -2231,17 +2203,17 @@ function setupConnection(conn) {
     } else if (data.type === 'CHAT') {
       appendChatMessage("상대방", data.text, "opp");
     } else if (data.type === 'LEAVE_ROOM') {
-      alert("상대방이 방을 나갔습니다. 혼자 하기 모드로 전환합니다.");
+      alert("상대방이 방을 나갔습니다.");
       leaveMultiplayerRoom();
     }
   });
 
   conn.on('close', () => {
-    networkStatus.innerText = "상대방과의 연결이 종료되었습니다.";
+    networkStatus.innerText = "상대방과의 연결 종료";
     networkStatus.style.color = "#ff0055";
     p2Ready = false;
     updateReadyUI();
-    appendChatMessage("시스템", "상대방과의 연결이 종료되었습니다.", "system");
+    appendChatMessage("시스템", "상대방 연결이 종료되었습니다.", "system");
   });
 }
 
@@ -2270,7 +2242,7 @@ function toggleReady() {
   const btn = document.getElementById('overlay-btn');
   if (p1Ready) {
     btn.classList.add('is-ready');
-    btn.innerText = '준비 완료 (취소하려면 클릭)';
+    btn.innerText = '준비 완료 (취소)';
   } else {
     btn.classList.remove('is-ready');
     btn.innerText = '준비하기';
@@ -2363,9 +2335,7 @@ function broadcastState() {
   }
 }
 
-/* ============================================================
-   실시간 인게임 채팅 시스템
-============================================================ */
+/* 실시간 채팅 */
 function handleChatKeyDown(event) {
   if (event.key === 'Enter') {
     sendChatMessage();
@@ -2427,7 +2397,6 @@ function setMode(mode) {
     document.getElementById('multi-stats-view').style.display = 'none';
     document.getElementById('chat-panel').style.display = 'none';
     
-    // 싱글 전용 설정 복구
     const setupBox = document.getElementById('single-setup-box');
     const sizeSelect = document.getElementById('single-board-size');
     const levelSelect = document.getElementById('single-start-level');
@@ -2475,9 +2444,7 @@ function escapeHtml(text) {
   }[m]));
 }
 
-/* ============================================================
-   9. 초기화 실행
-============================================================ */
+/* 9. 초기화 실행 */
 setMode('single');
 autoDetectMobileTouch();
 update();
