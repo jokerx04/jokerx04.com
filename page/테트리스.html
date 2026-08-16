@@ -775,7 +775,7 @@
 
 <script>
 /* =========================================================
-   0. Dreamlo 글로벌 랭킹 API 연동 (CORS 우회)
+   0. Dreamlo 글로벌 랭킹 API 연동 (CORS 우회 로직 강화)
 ========================================================= */
 const DREAMLO_PUBLIC_KEY = '6a81bf268f40bb1350637e05';
 const DREAMLO_PRIVATE_KEY = 'EEcqonUdEkygBoyz9ruF1wjJIub-2U_Eu9yCz9SeyRIw';
@@ -784,17 +784,33 @@ async function fetchLeaderboard() {
   const list = document.getElementById('leaderboard-list');
   
   try {
-    // 안정적인 corsproxy.io 로 우회 서버 변경
     const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json?_=${Date.now()}`;
-    const proxyUrl = `https://corsproxy.io/?${encodeURIComponent(targetUrl)}`;
     
-    const res = await fetch(proxyUrl);
+    // AdBlock 및 서버 불안정에 대비한 다중 우회 프록시 배열
+    const proxies = [
+      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
+      `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`,
+      `https://thingproxy.freeboard.io/fetch/${targetUrl}`
+    ];
+
+    let data = null;
     
-    if (!res.ok) throw new Error("프록시 응답 오류");
+    // 프록시 배열을 순회하며 성공할 때까지 요청 시도
+    for (let proxy of proxies) {
+      try {
+        const res = await fetch(proxy);
+        if (res.ok) {
+          data = await res.json();
+          break; // 데이터를 성공적으로 받아오면 루프 탈출
+        }
+      } catch (e) {
+        console.warn("Proxy failed, trying next...", proxy);
+      }
+    }
+
+    if (!data) throw new Error("모든 프록시 서버 요청 실패");
     
-    const data = await res.json();
     let entries = [];
-    
     if (data.dreamlo && data.dreamlo.leaderboard && data.dreamlo.leaderboard.entry) {
       const raw = data.dreamlo.leaderboard.entry;
       entries = Array.isArray(raw) ? raw : [raw];
@@ -813,7 +829,7 @@ async function fetchLeaderboard() {
     `).join('');
   } catch (err) {
     console.error("Dreamlo 로드 에러", err);
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">연결 실패</li>';
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055; font-size:7px;">네트워크 차단됨<br>(광고차단기 해제 필요)</li>';
   }
 }
 
@@ -833,14 +849,14 @@ async function submitDreamloScore() {
   try {
     const url = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`;
     
-    // 쓰기 요청은 응답을 무시하는 'no-cors' 모드로 전송하여 브라우저 에러를 피함
+    // 데이터 전송 시에는 응답 데이터를 읽지 않는 'no-cors' 모드를 사용하여 브라우저 오류를 무시합니다.
     await fetch(url, { mode: 'no-cors', cache: 'no-store' });
     
     input.value = "";
     document.getElementById('score-submit-box').style.display = 'none';
     document.getElementById('single-setup-box').style.display = 'flex';
     
-    // 서버 반영 후 새로고침 (1초 대기)
+    // 서버에 기록될 시간을 약간 부여한 후 랭킹 새로고침
     setTimeout(fetchLeaderboard, 1000); 
   } catch (err) {
     alert("등록 실패. 네트워크를 확인하세요.");
