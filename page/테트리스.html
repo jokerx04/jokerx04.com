@@ -774,46 +774,49 @@
 
 <script>
 /* =========================================================
-   0. Dreamlo 글로벌 랭킹 (CORS 회피용 HTTPS Proxy 적용)
+   0. Dreamlo 글로벌 랭킹 API 연동 (프록시 완전 제거, JSONP 방식)
 ========================================================= */
 const DREAMLO_PUBLIC_KEY = '6a81bf268f40bb1350637e05';
-const DREAMLO_PRIVATE_KEY = 'DIuuJSRTE0iTnGQvzxdvfgqaGot4Jc7E6IB7zHJ0LWEA';
+const DREAMLO_PRIVATE_KEY = 'EEcqonUdEkygBoyz9ruF1wjJIub-2U_Eu9yCz9SeyRIw';
 
-async function fetchLeaderboard() {
+// Dreamlo 전용 글로벌 콜백 함수 (JSONP가 데이터를 이 함수로 넘겨줍니다)
+window.dreamloLoader = function(data) {
   const list = document.getElementById('leaderboard-list');
-  try {
-    // 티스토리 HTTPS 환경에서 Dreamlo의 HTTP를 호출하기 위해 allorigins 우회 서버 사용
-    // ?url= 부분에 http:// 경로를 넣으면 proxy 서버가 데이터를 가져와서 HTTPS로 쏴줍니다.
-    const targetUrl = `http://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json?_=${Date.now()}`;
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
-    
-    const res = await fetch(proxyUrl);
-    const data = await res.json();
-    
-    // allorigins는 원본 데이터를 contents 안에 문자열 형태로 반환합니다.
-    const dreamloData = JSON.parse(data.contents);
-    
-    let entries = [];
-    if (dreamloData.dreamlo && dreamloData.dreamlo.leaderboard && dreamloData.dreamlo.leaderboard.entry) {
-      const raw = dreamloData.dreamlo.leaderboard.entry;
-      entries = Array.isArray(raw) ? raw : [raw];
-    }
-    
-    if (entries.length === 0) {
-      list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
-      return;
-    }
-
-    list.innerHTML = entries.slice(0, 5).map((s, idx) => `
-      <li class="leaderboard-item">
-        <span class="rank">${idx + 1}. ${s.name}</span>
-        <span class="score">${parseInt(s.score).toLocaleString()}</span>
-      </li>
-    `).join('');
-  } catch (err) {
-    console.error("Dreamlo 로드 에러", err);
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">연결 실패</li>';
+  let entries = [];
+  
+  if (data && data.dreamlo && data.dreamlo.leaderboard && data.dreamlo.leaderboard.entry) {
+    const raw = data.dreamlo.leaderboard.entry;
+    entries = Array.isArray(raw) ? raw : [raw];
   }
+  
+  if (entries.length === 0) {
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
+    return;
+  }
+
+  list.innerHTML = entries.slice(0, 5).map((s, idx) => `
+    <li class="leaderboard-item">
+      <span class="rank">${idx + 1}. ${s.name}</span>
+      <span class="score">${parseInt(s.score).toLocaleString()}</span>
+    </li>
+  `).join('');
+};
+
+function fetchLeaderboard() {
+  const list = document.getElementById('leaderboard-list');
+  
+  // 기존 스크립트 찌꺼기 제거
+  const oldScript = document.getElementById('dreamlo-script');
+  if (oldScript) oldScript.remove();
+
+  // 브라우저의 CORS 자체를 무시하는 JSONP용 스크립트 태그 직접 삽입
+  const script = document.createElement('script');
+  script.id = 'dreamlo-script';
+  script.src = `https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json-p?_=${Date.now()}`;
+  script.onerror = () => {
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">데이터 연결 실패</li>';
+  };
+  document.head.appendChild(script);
 }
 
 async function submitDreamloScore() {
@@ -830,18 +833,17 @@ async function submitDreamloScore() {
   btn.disabled = true;
 
   try {
-    // 점수 저장 역시 동일하게 프록시 서버를 경유하도록 설정합니다.
-    const targetUrl = `http://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}?_=${Date.now()}`;
-    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+    const url = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`;
     
-    await fetch(proxyUrl);
+    // 쓰기 요청 시 CORS 차단을 무시하는 'no-cors' 모드로 직접 전송 (프록시 X)
+    await fetch(url, { mode: 'no-cors', cache: 'no-store' });
     
     input.value = "";
     document.getElementById('score-submit-box').style.display = 'none';
     document.getElementById('single-setup-box').style.display = 'flex';
     
-    // 서버에 반영될 시간을 잠깐 대기한 후 랭킹을 새로고침합니다.
-    setTimeout(fetchLeaderboard, 1000); 
+    // 점수 반영 시간 확보 후 새로고침
+    setTimeout(fetchLeaderboard, 1500); 
   } catch (err) {
     alert("등록 실패. 네트워크를 확인하세요.");
   } finally {
