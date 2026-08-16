@@ -155,7 +155,8 @@
       user-select: none;
       -webkit-user-select: none;
       position: relative;
-      padding: env(safe-area-inset-top, 6px) 6px env(safe-area-inset-bottom, 6px) 6px;
+      /* 위·아래 여백을 좌우 여백과 동일하게(8px) 동기화 */
+      padding: max(8px, env(safe-area-inset-top, 8px)) 8px max(8px, env(safe-area-inset-bottom, 8px)) 8px;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
@@ -369,7 +370,6 @@
       z-index: 20;
     }
 
-    /* 사이드바 내부 점수/줄/단계 카드 */
     .side-stat-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -398,7 +398,6 @@
       font-variant-numeric: tabular-nums;
     }
 
-    /* 사이드바 내부 다음 블록 카드 */
     .side-next-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -783,7 +782,7 @@ function updateResponsiveLayout() {
   const vw = window.innerWidth;
 
   const dpadH = isDpadVisible ? 68 : 0;
-  const marginH = 20;
+  const marginH = 16;
 
   const reservedHeight = dpadH + marginH;
   const availableCanvasHeight = Math.max(160, vh - reservedHeight);
@@ -791,8 +790,7 @@ function updateResponsiveLayout() {
   const boardRatio = COLS / ROWS;
   let targetWidth = availableCanvasHeight * boardRatio;
 
-  // 우측 사이드바(68px + 6px gap = 74px)를 고려한 가로폭 제한
-  const maxAllowedWidth = Math.min(vw - 88, 380);
+  const maxAllowedWidth = Math.min(vw - 84, 380);
   const minAllowedWidth = 160;
 
   targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
