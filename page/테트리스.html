@@ -25,7 +25,6 @@
       --lines-color: #00ff66;
       --level-color: #ffe600;
       
-      /* PPSSPP 스타일 반투명 버튼 */
       --psp-btn-bg: rgba(255, 255, 255, 0.18);
       --psp-btn-border: rgba(0, 245, 255, 0.6);
       --psp-btn-active: rgba(0, 245, 255, 0.7);
@@ -155,7 +154,6 @@
       user-select: none;
       -webkit-user-select: none;
       position: relative;
-      /* 위·아래 여백을 좌우 여백과 동일하게(8px) 동기화 */
       padding: max(8px, env(safe-area-inset-top, 8px)) 8px max(8px, env(safe-area-inset-bottom, 8px)) 8px;
       transition: background 0.3s ease, color 0.3s ease;
     }
@@ -170,7 +168,6 @@
       margin: auto 0;
     }
 
-    /* 좌측 게임 보드 영역 */
     .game-section {
       display: flex;
       flex-direction: column;
@@ -210,13 +207,13 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       z-index: 25;
       padding: 6px;
       width: 100%;
     }
     .overlay-text {
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 900;
       letter-spacing: 0.5px;
       text-align: center;
@@ -226,12 +223,12 @@
     .start-setup-box {
       display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 5px;
       width: 90%;
       max-width: 200px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--card-border);
-      padding: 5px 7px;
+      padding: 6px 8px;
       border-radius: 6px;
     }
     .start-setup-row {
@@ -254,6 +251,33 @@
       font-size: 9.5px;
       padding: 1px 3px;
     }
+
+    /* 랭킹 점수 등록 박스 */
+    .score-submit-box {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      width: 90%;
+      max-width: 200px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      padding: 8px 10px;
+      border-radius: 6px;
+    }
+    .score-submit-box input {
+      width: 100%;
+      padding: 4px 6px;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      color: #fff;
+      font-size: 11px;
+      outline: none;
+      text-align: center;
+      margin-bottom: 2px;
+    }
+    .score-submit-box input::placeholder { color: #aaa; }
 
     /* PPSSPP 스타일 터치 패드 */
     .touch-bottom-panel {
@@ -356,7 +380,7 @@
       box-shadow: 0 0 16px var(--text-accent), inset 0 0 10px rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* 우측 슬림 사이드바 (점수, 다음블록, 설정 통합) */
+    /* 우측 슬림 사이드바 */
     .side-settings-bar {
       display: flex;
       flex-direction: column;
@@ -460,6 +484,7 @@
       border-radius: 6px;
       font-weight: 800;
       cursor: pointer;
+      width: 100%;
     }
 
     .side-theme-box {
@@ -487,6 +512,55 @@
       cursor: pointer;
       width: 100%;
       text-align: center;
+    }
+
+    /* 명예의 전당 (저장된 랭킹) */
+    .side-leaderboard-box {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 4px 2px;
+      border-radius: 5px;
+      border: 1px solid var(--card-border);
+      width: 100%;
+      flex-grow: 1;
+    }
+    .side-leaderboard-box .title {
+      font-size: 8px;
+      font-weight: 800;
+      color: var(--level-color);
+      margin-bottom: 3px;
+      text-shadow: 0 0 4px var(--level-color);
+    }
+    .leaderboard-list {
+      list-style: none;
+      width: 100%;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+    }
+    .leaderboard-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 8px;
+      padding: 2px;
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 2px;
+      line-height: 1;
+    }
+    .leaderboard-item .rank { 
+      color: var(--text-sub); 
+      white-space: nowrap; 
+      overflow: hidden; 
+      text-overflow: ellipsis; 
+      max-width: 32px;
+    }
+    .leaderboard-item .score { 
+      font-weight: 700; 
+      color: var(--text-main); 
     }
 
     /* 조작키 설명 팝업 모달 */
@@ -550,14 +624,13 @@
     <!-- 1단 (좌측): 게임 캔버스 영역 및 패드 -->
     <div class="game-section" id="game-section">
       
-      <!-- 캔버스 영역 -->
       <div class="canvas-container" id="canvas-wrapper">
         <canvas id="tetris" width="270" height="540"></canvas>
-        
-        <!-- 게임 시작/종료 오버레이 -->
+
         <div id="game-overlay" class="game-overlay">
           <div id="overlay-msg" class="overlay-text" style="color: var(--text-accent);">준비 완료</div>
           
+          <!-- 게임 설정 및 시작 -->
           <div id="single-setup-box" class="start-setup-box">
             <div class="start-setup-row">
               <span>보드 크기</span>
@@ -584,13 +657,23 @@
                 <option value="10">10단계</option>
               </select>
             </div>
+            <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
           </div>
 
-          <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
+          <!-- 점수 달성 시 랭킹 등록 영역 (기본 숨김) -->
+          <div id="score-submit-box" class="score-submit-box">
+            <span style="font-size: 10px; color: var(--text-sub); margin-bottom: 2px;">🏆 글로벌 랭킹 등록</span>
+            <input type="text" id="username-input" placeholder="영문 이름 입력 (최대 8자)" maxlength="8" oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
+            <div style="display: flex; gap: 4px; width: 100%;">
+              <button class="btn" style="background: rgba(255,255,255,0.1); color: var(--text-main); border: 1px solid var(--card-border);" onclick="cancelSubmitScore()">건너뛰기</button>
+              <button class="btn btn-action" style="background: var(--level-color); color: #000; border: none;" onclick="submitDreamloScore()">등록하기</button>
+            </div>
+          </div>
+
         </div>
       </div>
 
-      <!-- 게임 보드 바로 아래 위치하는 PPSSPP 터치 패드 -->
+      <!-- 터치 패드 -->
       <div class="touch-bottom-panel" id="touch-bottom-panel">
         <div class="dpad-box">
           <div class="t-btn" id="v-up" data-act="rot">▲</div>
@@ -609,7 +692,7 @@
 
     </div>
 
-    <!-- 2단 (우측): 점수/다음블록/설정 통합 사이드바 -->
+    <!-- 2단 (우측): 사이드바 -->
     <div class="side-settings-bar" id="side-settings-bar">
       
       <!-- 점수 / 줄 / 단계 카드 -->
@@ -651,6 +734,16 @@
           <option value="emerald">에메랄드</option>
         </select>
       </div>
+
+      <!-- Dreamlo 글로벌 랭킹 -->
+      <div class="side-leaderboard-box">
+        <span class="title">🏆 Top 5</span>
+        <ul class="leaderboard-list" id="leaderboard-list">
+          <!-- JS 렌더링 -->
+          <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
+        </ul>
+      </div>
+
     </div>
 
   </div>
@@ -671,19 +764,104 @@
   </div>
 
 <script>
-/* 1. 설정 및 테마 */
+/* =========================================================
+   0. Dreamlo 글로벌 랭킹 API 연동
+========================================================= */
+// 💡 dreamlo.com에서 발급받은 키를 아래에 입력하세요.
+const DREAMLO_PUBLIC_KEY = '6a81bf268f40bb1350637e05';
+const DREAMLO_PRIVATE_KEY = 'EEcqonUdEkygBoyz9ruF1wjJIub-2U_Eu9yCz9SeyRIw';
+
+async function fetchLeaderboard() {
+  const list = document.getElementById('leaderboard-list');
+  if (DREAMLO_PUBLIC_KEY === '여기에_PUBLIC_KEY_입력' || !DREAMLO_PUBLIC_KEY) {
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">키 설정 필요</li>';
+    return;
+  }
+  
+  try {
+    const res = await fetch(`https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json`);
+    const data = await res.json();
+    let entries = [];
+    
+    if (data.dreamlo && data.dreamlo.leaderboard && data.dreamlo.leaderboard.entry) {
+      const raw = data.dreamlo.leaderboard.entry;
+      entries = Array.isArray(raw) ? raw : [raw];
+    }
+    
+    if (entries.length === 0) {
+      list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
+      return;
+    }
+
+    list.innerHTML = entries.slice(0, 5).map((s, idx) => `
+      <li class="leaderboard-item">
+        <span class="rank">${idx + 1}. ${s.name}</span>
+        <span class="score">${parseInt(s.score).toLocaleString()}</span>
+      </li>
+    `).join('');
+  } catch (err) {
+    console.error("Dreamlo 로드 에러", err);
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">연결 실패</li>';
+  }
+}
+
+async function submitDreamloScore() {
+  const input = document.getElementById('username-input');
+  let name = input.value.trim();
+  
+  if (!name) { 
+    alert("이름을 입력해주세요."); 
+    return; 
+  }
+  if (DREAMLO_PRIVATE_KEY === '여기에_PRIVATE_KEY_입력' || !DREAMLO_PRIVATE_KEY) {
+    alert("Dreamlo Private Key가 설정되지 않았습니다.");
+    return;
+  }
+  
+  const btn = input.nextElementSibling.lastElementChild;
+  btn.innerText = "등록 중...";
+  btn.disabled = true;
+
+  try {
+    await fetch(`https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`);
+    input.value = "";
+    document.getElementById('score-submit-box').style.display = 'none';
+    document.getElementById('single-setup-box').style.display = 'flex';
+    fetchLeaderboard();
+  } catch (err) {
+    alert("등록 실패. 네트워크를 확인하세요.");
+  } finally {
+    btn.innerText = "등록하기";
+    btn.disabled = false;
+  }
+}
+
+function cancelSubmitScore() {
+  document.getElementById('username-input').value = "";
+  document.getElementById('score-submit-box').style.display = 'none';
+  document.getElementById('single-setup-box').style.display = 'flex';
+}
+
+/* =========================================================
+   1. 설정 및 테마
+========================================================= */
+const BOARD_CONFIG = {
+  fixedWidth: 270,
+  fixedHeight: 540
+};
+
 const BOARD_SIZES = {
-  small:    { cols: 8,  rows: 16, blockSize: 30 },
-  standard: { cols: 10, rows: 20, blockSize: 28 },
-  wide:     { cols: 12, rows: 20, blockSize: 26 },
-  large:    { cols: 12, rows: 24, blockSize: 24 },
-  giant:    { cols: 14, rows: 26, blockSize: 22 }
+  small:    { cols: 8,  rows: 16 },
+  standard: { cols: 10, rows: 20 },
+  wide:     { cols: 12, rows: 20 },
+  large:    { cols: 12, rows: 24 },
+  giant:    { cols: 14, rows: 26 }
 };
 
 let currentBoardSizeKey = 'standard';
 let COLS = BOARD_SIZES.standard.cols;
 let ROWS = BOARD_SIZES.standard.rows;
-let BLOCK_SIZE = BOARD_SIZES.standard.blockSize;
+let BLOCK_SIZE = BOARD_CONFIG.fixedWidth / COLS;
 
 const THEMES = {
   neon: [
@@ -787,9 +965,10 @@ function updateResponsiveLayout() {
   const reservedHeight = dpadH + marginH;
   const availableCanvasHeight = Math.max(160, vh - reservedHeight);
 
-  const boardRatio = COLS / ROWS;
+  const boardRatio = BOARD_CONFIG.fixedWidth / BOARD_CONFIG.fixedHeight;
   let targetWidth = availableCanvasHeight * boardRatio;
 
+  // 우측 사이드바(68px + 6px gap = 74px)를 고려한 가로폭 제한
   const maxAllowedWidth = Math.min(vw - 84, 380);
   const minAllowedWidth = 160;
 
@@ -805,10 +984,10 @@ function applyBoardSize(sizeKey) {
   currentBoardSizeKey = sizeKey;
   COLS = cfg.cols;
   ROWS = cfg.rows;
-  BLOCK_SIZE = cfg.blockSize;
-
-  canvas.width = COLS * BLOCK_SIZE;
-  canvas.height = ROWS * BLOCK_SIZE;
+  
+  canvas.width = BOARD_CONFIG.fixedWidth;
+  canvas.height = BOARD_CONFIG.fixedHeight;
+  BLOCK_SIZE = BOARD_CONFIG.fixedWidth / COLS;
 
   updateResponsiveLayout();
 }
@@ -845,17 +1024,17 @@ function togglePause() {
   isPaused = !isPaused;
   const overlay = document.getElementById('game-overlay');
   const msg = document.getElementById('overlay-msg');
-  const btn = document.getElementById('overlay-btn');
   const pauseBtn = document.getElementById('btn-pause');
   const setupBox = document.getElementById('single-setup-box');
+  const scoreSubmitBox = document.getElementById('score-submit-box');
 
   if (isPaused) {
     overlay.style.display = 'flex';
     setupBox.style.display = 'none';
+    scoreSubmitBox.style.display = 'none';
     msg.innerText = "일시 정지됨";
     msg.className = "overlay-text";
     msg.style.color = "#ffe600";
-    btn.innerText = "계속하기";
     pauseBtn.innerText = "▶️ 계속";
   } else {
     overlay.style.display = 'none';
@@ -1099,18 +1278,28 @@ function playerReset() {
 function triggerGameOver() {
   player.isPlaying = false;
   isPaused = false;
+  
   const overlay = document.getElementById('game-overlay');
   const msg = document.getElementById('overlay-msg');
-  const btn = document.getElementById('overlay-btn');
   const setupBox = document.getElementById('single-setup-box');
+  const scoreSubmitBox = document.getElementById('score-submit-box');
   const pauseBtn = document.getElementById('btn-pause');
 
   overlay.style.display = 'flex';
-  setupBox.style.display = 'flex';
   msg.innerText = "게임 종료";
   msg.className = "overlay-text lose";
-  btn.innerText = '다시 시작';
   pauseBtn.innerText = "⏸️ 정지";
+
+  // 점수가 있을 때만 랭킹 등록창 활성화, 없으면 재시작 창
+  if (player.score > 0) {
+    setupBox.style.display = 'none';
+    scoreSubmitBox.style.display = 'flex';
+    document.getElementById('username-input').focus();
+  } else {
+    setupBox.style.display = 'flex';
+    scoreSubmitBox.style.display = 'none';
+    document.getElementById('overlay-btn').innerText = '다시 시작';
+  }
 }
 
 function updateScore() {
@@ -1453,6 +1642,7 @@ function update(time = 0) {
 }
 
 /* 8. 초기화 실행 */
+fetchLeaderboard();
 applyBoardSize('standard');
 resetGameBoard(1);
 autoDetectMobileTouch();
