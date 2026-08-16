@@ -16,6 +16,29 @@
 <br /><br />
 
 
+## 페이지 임베드
+
+```html
+<!-- https://rawcdn.githack.com/jokerx04/{레파지토리}/main/{파일경로 및 파일명} -->
+<iframe src="https://rawcdn.githack.com/jokerx04/jokerx04.com/main/page/%ED%85%8C%ED%8A%B8%EB%A6%AC%EC%8A%A4.html"
+	style="width: 100%; height: 100vh; min-height: 800px; border: none; display: block;"
+	allow="autoplay; fullscreen">
+</iframe>
+
+<!-- https://rawcdn.githack.com/jokerx04/{레파지토리}/@SHA/{파일경로 및 파일명} -->
+<iframe src="https://rawcdn.githack.com/jokerx04/jokerx04.com/ab55e2a/page/%ED%85%8C%ED%8A%B8%EB%A6%AC%EC%8A%A4.html"
+	style="width: 100%; height: 100vh; min-height: 800px; border: none; display: block;"
+	allow="autoplay; fullscreen">
+</iframe>
+
+<!-- https://rawcdn.githack.com/jokerx04/{레파지토리}/@Tag/{파일경로 및 파일명} -->
+<iframe src="https://rawcdn.githack.com/jokerx04/jokerx04.com/v1.0.0/page/%ED%85%8C%ED%8A%B8%EB%A6%AC%EC%8A%A4.html"
+	style="width: 100%; height: 100vh; min-height: 800px; border: none; display: block;"
+	allow="autoplay; fullscreen">
+</iframe>
+```
+<br /><br />
+
 ## INSPINIA Preview
 
 - v4 : https://webapplayers.com/inspinia/
