@@ -777,9 +777,6 @@
 /* =========================================================
    0. Dreamlo 글로벌 랭킹 API 연동 (CORS 우회)
 ========================================================= */
-/* =========================================================
-   0. Dreamlo 글로벌 랭킹 API 연동 (CORS 우회 서버 변경)
-========================================================= */
 const DREAMLO_PUBLIC_KEY = '6a81bf268f40bb1350637e05';
 const DREAMLO_PRIVATE_KEY = 'EEcqonUdEkygBoyz9ruF1wjJIub-2U_Eu9yCz9SeyRIw';
 
@@ -798,7 +795,6 @@ async function fetchLeaderboard() {
     const data = await res.json();
     let entries = [];
     
-    // Dreamlo JSON 구조 파싱
     if (data.dreamlo && data.dreamlo.leaderboard && data.dreamlo.leaderboard.entry) {
       const raw = data.dreamlo.leaderboard.entry;
       entries = Array.isArray(raw) ? raw : [raw];
@@ -809,7 +805,6 @@ async function fetchLeaderboard() {
       return;
     }
 
-    // 상위 5명만 렌더링
     list.innerHTML = entries.slice(0, 5).map((s, idx) => `
       <li class="leaderboard-item">
         <span class="rank">${idx + 1}. ${s.name}</span>
