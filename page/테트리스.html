@@ -749,7 +749,6 @@
       <div class="side-leaderboard-box">
         <span class="title">🏆 Top 5</span>
         <ul class="leaderboard-list" id="leaderboard-list">
-          <!-- JS 렌더링 -->
           <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
         </ul>
       </div>
@@ -775,45 +774,41 @@
 
 <script>
 /* =========================================================
-   0. Dreamlo 글로벌 랭킹 API 연동 (CORS 우회 로직 강화)
+   0. Dreamlo 글로벌 랭킹 API 연동 (파이프(|) 텍스트 직접 파싱)
 ========================================================= */
-const DREAMLO_PUBLIC_KEY = '6a81bf268f40bb1350637e05';
-const DREAMLO_PRIVATE_KEY = 'EEcqonUdEkygBoyz9ruF1wjJIub-2U_Eu9yCz9SeyRIw';
+const DREAMLO_PRIVATE_KEY = 'DIuuJSRTE0iTnGQvzxdvfgqaGot4Jc7E6IB7zHJ0LWEA';
 
 async function fetchLeaderboard() {
   const list = document.getElementById('leaderboard-list');
   
   try {
-    const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json?_=${Date.now()}`;
+    // Dreamlo의 파이프(|) 구분 기본 텍스트 포맷을 요청하는 URL 생성
+    const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/pipe?_=${Date.now()}`;
     
-    // AdBlock 및 서버 불안정에 대비한 다중 우회 프록시 배열
-    const proxies = [
-      `https://api.codetabs.com/v1/proxy?quest=${encodeURIComponent(targetUrl)}`,
-      `https://api.allorigins.win/raw?url=${encodeURIComponent(targetUrl)}`,
-      `https://thingproxy.freeboard.io/fetch/${targetUrl}`
-    ];
+    // JSON 우회 전용 프록시 (allorigins의 /get 사용 시 컨텐츠를 JSON 안에 감싸서 반환해줌 -> 가장 안전)
+    const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}`;
+    
+    const res = await fetch(proxyUrl);
+    if (!res.ok) throw new Error("프록시 응답 오류");
+    
+    const data = await res.json();
+    const textData = data.contents; // 파이프라인 원본 텍스트 추출
 
-    let data = null;
-    
-    // 프록시 배열을 순회하며 성공할 때까지 요청 시도
-    for (let proxy of proxies) {
-      try {
-        const res = await fetch(proxy);
-        if (res.ok) {
-          data = await res.json();
-          break; // 데이터를 성공적으로 받아오면 루프 탈출
-        }
-      } catch (e) {
-        console.warn("Proxy failed, trying next...", proxy);
-      }
+    if (!textData || textData.trim() === "") {
+      list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
+      return;
     }
 
-    if (!data) throw new Error("모든 프록시 서버 요청 실패");
-    
+    // 텍스트 파싱: Name|Score|Seconds|Text|Date
+    const lines = textData.trim().split('\n');
     let entries = [];
-    if (data.dreamlo && data.dreamlo.leaderboard && data.dreamlo.leaderboard.entry) {
-      const raw = data.dreamlo.leaderboard.entry;
-      entries = Array.isArray(raw) ? raw : [raw];
+    
+    for (let line of lines) {
+      if (!line) continue;
+      const parts = line.split('|');
+      if (parts.length >= 2) {
+        entries.push({ name: parts[0], score: parseInt(parts[1], 10) });
+      }
     }
     
     if (entries.length === 0) {
@@ -821,15 +816,17 @@ async function fetchLeaderboard() {
       return;
     }
 
+    // 상위 5명 렌더링
     list.innerHTML = entries.slice(0, 5).map((s, idx) => `
       <li class="leaderboard-item">
         <span class="rank">${idx + 1}. ${s.name}</span>
-        <span class="score">${parseInt(s.score).toLocaleString()}</span>
+        <span class="score">${s.score.toLocaleString()}</span>
       </li>
     `).join('');
+
   } catch (err) {
     console.error("Dreamlo 로드 에러", err);
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055; font-size:7px;">네트워크 차단됨<br>(광고차단기 해제 필요)</li>';
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055; font-size:7px;">네트워크 차단됨</li>';
   }
 }
 
@@ -849,14 +846,14 @@ async function submitDreamloScore() {
   try {
     const url = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`;
     
-    // 데이터 전송 시에는 응답 데이터를 읽지 않는 'no-cors' 모드를 사용하여 브라우저 오류를 무시합니다.
+    // 기록할 때는 데이터를 받아올 필요 없이 호출만 하면 됨 ('no-cors' 활용)
     await fetch(url, { mode: 'no-cors', cache: 'no-store' });
     
     input.value = "";
     document.getElementById('score-submit-box').style.display = 'none';
     document.getElementById('single-setup-box').style.display = 'flex';
     
-    // 서버에 기록될 시간을 약간 부여한 후 랭킹 새로고침
+    // 서버 반영 후 랭킹 새로고침 (약 1초 대기)
     setTimeout(fetchLeaderboard, 1000); 
   } catch (err) {
     alert("등록 실패. 네트워크를 확인하세요.");
