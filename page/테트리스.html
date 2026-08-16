@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>클래식 테트리스</title>
+  <title>테트리스</title>
   <style>
     :root {
       --bg-gradient: radial-gradient(circle at center, #150d2a 0%, #080511 100%);
@@ -137,7 +137,7 @@
     
     html, body {
       width: 100%;
-      min-height: 100%;
+      height: 100%;
       touch-action: manipulation;
     }
 
@@ -156,27 +156,120 @@
       overflow-x: hidden;
       overflow-y: auto;
       position: relative;
-      /* 상단 및 하단 여유 공간(Padding) 추가 */
-      padding: calc(env(safe-area-inset-top, 24px) + 20px) 16px calc(env(safe-area-inset-bottom, 24px) + 30px) 16px;
+      padding: calc(env(safe-area-inset-top, 20px) + 12px) 12px calc(env(safe-area-inset-bottom, 20px) + 20px) 12px;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* 좌측 게임 + 우측 제어 패널 배치 컨테이너 */
+    /* 1단 수직 레이아웃 메인 컨테이너 */
     .main-app-container {
       display: flex;
-      flex-direction: row;
+      flex-direction: column;
       align-items: stretch;
       justify-content: center;
-      gap: 14px;
+      width: 100%;
+      max-width: 280px;
+      gap: 8px;
       margin: auto 0;
-      max-width: 100%;
+      transition: max-width 0.15s ease-out;
     }
 
-    /* 좌측 게임 보드 영역 */
+    /* 상단 통합 설정 라인 */
+    .top-bar {
+      display: flex;
+      gap: 4px;
+      align-items: center;
+      background: var(--panel-bg);
+      padding: 5px 6px;
+      border-radius: 10px;
+      border: 1px solid var(--panel-border);
+      box-shadow: 0 0 12px var(--panel-shadow);
+      justify-content: space-between;
+      width: 100%;
+      z-index: 20;
+    }
+    .btn {
+      padding: 5px 6px;
+      background: var(--btn-bg);
+      color: var(--btn-text);
+      border: 1px solid var(--btn-border);
+      border-radius: 6px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.2s;
+      font-size: 11px;
+      white-space: nowrap;
+      flex: 1;
+      text-align: center;
+    }
+    .btn:hover {
+      background: var(--btn-text);
+      color: #080511;
+      box-shadow: 0 0 8px var(--btn-text);
+    }
+    .btn-toggle {
+      background: rgba(255, 255, 255, 0.08);
+      border-color: var(--text-sub);
+      color: var(--text-sub);
+    }
+    .btn-toggle.on {
+      background: rgba(0, 245, 255, 0.2);
+      border-color: var(--text-accent);
+      color: var(--text-accent);
+      box-shadow: 0 0 8px var(--panel-shadow);
+    }
+    .btn-pause {
+      background: rgba(255, 230, 0, 0.15);
+      border: 1px solid #ffe600;
+      color: #ffe600;
+    }
+    .btn-ready {
+      background: #ffe600;
+      color: #080511;
+      border: none;
+      font-size: 13px;
+      padding: 8px 18px;
+      box-shadow: 0 0 12px rgba(255, 230, 0, 0.5);
+      border-radius: 6px;
+      font-weight: 800;
+      cursor: pointer;
+    }
+
+    .option-select-box {
+      display: flex;
+      align-items: center;
+      gap: 2px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3px 4px;
+      border-radius: 6px;
+      border: 1px solid var(--card-border);
+      font-size: 10px;
+      color: var(--text-main);
+    }
+    select {
+      background: var(--btn-bg);
+      color: var(--text-accent);
+      border: 1px solid var(--panel-border);
+      padding: 2px 2px;
+      border-radius: 4px;
+      font-size: 10px;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
+      max-width: 56px;
+    }
+
+    /* 중앙 게임 보드 영역 */
     .game-arena-wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    .board-container {
       display: flex;
       flex-direction: column;
       align-items: center;
+      width: 100%;
     }
     .canvas-container {
       position: relative;
@@ -187,15 +280,54 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      width: 100%;
       overflow: hidden;
     }
     canvas {
       background-color: #06030e;
       border-radius: 9px;
       display: block;
+      width: 100%;
       height: auto;
-      max-height: 74vh;
       object-fit: contain;
+    }
+
+    /* 게임 내부 우측 상단 반투명 HUD 점수판 */
+    .ingame-score-hud {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      background: rgba(10, 5, 22, 0.65);
+      backdrop-filter: blur(8px);
+      -webkit-backdrop-filter: blur(8px);
+      border: 1px solid var(--panel-border);
+      border-radius: 10px;
+      padding: 6px 10px;
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      z-index: 12;
+      pointer-events: none;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+      min-width: 76px;
+    }
+    .hud-row {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+    }
+    .hud-label {
+      font-size: 8px;
+      font-weight: 800;
+      color: var(--text-sub);
+      letter-spacing: 0.5px;
+      line-height: 1;
+    }
+    .hud-value {
+      font-size: 15px;
+      font-weight: 900;
+      line-height: 1.1;
+      font-variant-numeric: tabular-nums;
     }
 
     /* 게임 시작/종료 오버레이 */
@@ -210,13 +342,13 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
       z-index: 25;
-      padding: 10px;
+      padding: 6px;
       width: 100%;
     }
     .overlay-text {
-      font-size: 17px;
+      font-size: 16px;
       font-weight: 900;
       letter-spacing: 0.5px;
       text-align: center;
@@ -226,19 +358,19 @@
     .start-setup-box {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       width: 92%;
       max-width: 220px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--card-border);
-      padding: 8px 10px;
+      padding: 6px 8px;
       border-radius: 8px;
     }
     .start-setup-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
+      font-size: 10.5px;
       color: var(--text-main);
       width: 100%;
       white-space: nowrap;
@@ -251,11 +383,11 @@
     .start-setup-row select {
       flex: 1.2;
       max-width: 110px;
-      font-size: 11px;
+      font-size: 10.5px;
       padding: 2px 4px;
     }
 
-    /* 캔버스 하단 반투명 오버레이 터치 패드 */
+    /* 캔버스 하단 PPSSPP 스타일 반투명 오버레이 터치 패드 */
     .touch-overlay-panel {
       display: none;
       position: absolute;
@@ -357,269 +489,136 @@
       box-shadow: 0 0 22px var(--text-accent), inset 0 0 14px rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* 우측 사이드 패널 (설정, 점수, 키 가이드) */
-    .right-sidebar {
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      width: 170px;
-      justify-content: flex-start;
-    }
-
-    .panel-box {
-      background: var(--panel-bg);
-      border: 1px solid var(--panel-border);
-      border-radius: 12px;
-      padding: 10px;
-      box-shadow: 0 0 15px var(--panel-shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-    }
-
-    .btn {
-      padding: 6px 8px;
-      background: var(--btn-bg);
-      color: var(--btn-text);
-      border: 1px solid var(--btn-border);
-      border-radius: 6px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-size: 11px;
-      white-space: nowrap;
-      text-align: center;
-      width: 100%;
-    }
-    .btn:hover {
-      background: var(--btn-text);
-      color: #080511;
-      box-shadow: 0 0 8px var(--btn-text);
-    }
-    .btn-toggle {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--text-sub);
-      color: var(--text-sub);
-    }
-    .btn-toggle.on {
-      background: rgba(0, 245, 255, 0.2);
-      border-color: var(--text-accent);
-      color: var(--text-accent);
-      box-shadow: 0 0 8px var(--panel-shadow);
-    }
-    .btn-pause {
-      background: rgba(255, 230, 0, 0.15);
-      border: 1px solid #ffe600;
-      color: #ffe600;
-    }
-    .btn-ready {
-      background: #ffe600;
-      color: #080511;
-      border: none;
-      font-size: 13px;
-      padding: 8px 18px;
-      box-shadow: 0 0 12px rgba(255, 230, 0, 0.5);
-      border-radius: 6px;
-      font-weight: 800;
-      cursor: pointer;
-    }
-
-    .option-select-box {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 5px 8px;
-      border-radius: 6px;
-      border: 1px solid var(--card-border);
-      font-size: 11px;
-      color: var(--text-main);
-      width: 100%;
-    }
-    select {
-      background: var(--btn-bg);
-      color: var(--text-accent);
-      border: 1px solid var(--panel-border);
-      padding: 3px 4px;
-      border-radius: 4px;
-      font-size: 11px;
-      font-weight: 700;
-      outline: none;
-      cursor: pointer;
-      max-width: 85px;
-    }
-
-    .stat-item {
-      display: flex;
-      flex-direction: column;
-      gap: 2px;
-      text-align: center;
-      background: var(--card-bg);
-      padding: 6px;
-      border-radius: 8px;
-      border: 1px solid var(--card-border);
-    }
-    .stat-item h2 {
-      font-size: 10px;
-      font-weight: 700;
-      color: var(--text-sub);
-      letter-spacing: 0.5px;
-    }
-    .stat-item p {
-      font-size: 17px;
-      font-weight: 900;
-      font-variant-numeric: tabular-nums;
-    }
-
+    /* 하단 PC 키 조작 안내 카드 */
     .controls-guide-card {
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
-      border-radius: 12px;
-      padding: 10px;
-      font-size: 10.5px;
+      border-radius: 10px;
+      padding: 6px 10px;
+      font-size: 9.5px;
       color: var(--text-sub);
-      line-height: 1.6;
-      box-shadow: 0 0 15px var(--panel-shadow);
+      text-align: center;
+      line-height: 1.4;
+      width: 100%;
+      box-shadow: 0 0 12px var(--panel-shadow);
     }
     .key-badge {
       display: inline-block;
       padding: 1px 4px;
       background: rgba(255, 255, 255, 0.1);
-      border-radius: 4px;
+      border-radius: 3px;
       color: var(--text-accent);
-      font-weight: 700;
-      font-size: 9.5px;
-    }
-
-    /* 작은 모바일 화면 대응 (너비 480px 이하 세로 전환) */
-    @media (max-width: 480px) {
-      .main-app-container {
-        flex-direction: column;
-        align-items: center;
-      }
-      .right-sidebar {
-        width: 100%;
-        max-width: 280px;
-      }
-      .panel-box {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 6px;
-      }
+      font-weight: 600;
+      font-size: 8.5px;
     }
   </style>
 </head>
 <body>
 
-  <div class="main-app-container">
+  <div class="main-app-container" id="main-container">
     
-    <!-- 1. 좌측 게임 보드 영역 (캔버스 + 오버레이 패드) -->
-    <div class="game-arena-wrapper">
-      <div class="canvas-container" id="canvas-wrapper">
-        <canvas id="tetris" width="270" height="540"></canvas>
-        
-        <!-- 게임 시작/종료 오버레이 -->
-        <div id="game-overlay" class="game-overlay">
-          <div id="overlay-msg" class="overlay-text" style="color: var(--text-accent);">준비 완료</div>
-          
-          <div id="single-setup-box" class="start-setup-box">
-            <div class="start-setup-row">
-              <span>보드 크기</span>
-              <select id="single-board-size" onchange="onBoardSizeChange(this.value)">
-                <option value="small">소형 (8×16)</option>
-                <option value="standard" selected>표준 (10×20)</option>
-                <option value="wide">와이드 (12×20)</option>
-                <option value="large">대형 (12×24)</option>
-                <option value="giant">특대형 (14×26)</option>
-              </select>
-            </div>
-            <div class="start-setup-row">
-              <span>시작 단계</span>
-              <select id="single-start-level" onchange="onStartLevelChange(this.value)">
-                <option value="1" selected>1단계</option>
-                <option value="2">2단계</option>
-                <option value="3">3단계</option>
-                <option value="4">4단계</option>
-                <option value="5">5단계</option>
-                <option value="6">6단계</option>
-                <option value="7">7단계</option>
-                <option value="8">8단계</option>
-                <option value="9">9단계</option>
-                <option value="10">10단계</option>
-              </select>
-            </div>
-          </div>
+    <!-- 1. 상단 통합 설정 라인 -->
+    <div class="top-bar" id="top-bar">
+      <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
+      <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
+      <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
 
-          <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
-        </div>
-
-        <!-- PPSSPP 스타일 반투명 오버레이 터치 패드 -->
-        <div class="touch-overlay-panel" id="touch-overlay-panel">
-          <div class="dpad-box">
-            <div class="t-btn" id="v-up" data-act="rot">▲</div>
-            <div class="t-btn" id="v-left" data-act="left">◀</div>
-            <div class="t-btn" id="v-down" data-act="down">▼</div>
-            <div class="t-btn" id="v-right" data-act="right">▶</div>
-          </div>
-
-          <div class="action-box">
-            <div class="act-btn-drop" id="v-drop" data-act="hard">
-              <span>⚡</span>
-              낙하
-            </div>
-          </div>
-        </div>
-
+      <div class="option-select-box">
+        <span>🎨</span>
+        <select id="theme-selector" onchange="changeTheme(this.value)">
+          <option value="neon">네온</option>
+          <option value="retro">레트로</option>
+          <option value="pastel">파스텔</option>
+          <option value="mono">모노</option>
+          <option value="emerald">에메랄드</option>
+        </select>
       </div>
     </div>
 
-    <!-- 2. 우측 사이드바 (설정, 점수판, PC 키 가이드) -->
-    <div class="right-sidebar">
-      
-      <!-- 점수 현황 패널 -->
-      <div class="panel-box">
-        <div class="stat-item">
-          <h2>점수</h2>
-          <p id="score" style="color: var(--score-color); text-shadow: 0 0 8px var(--score-color);">0</p>
-        </div>
-        <div class="stat-item">
-          <h2>제거한 줄</h2>
-          <p id="lines" style="color: var(--lines-color); text-shadow: 0 0 8px var(--lines-color);">0</p>
-        </div>
-        <div class="stat-item">
-          <h2>단계</h2>
-          <p id="level" style="color: var(--level-color); text-shadow: 0 0 8px var(--level-color);">1</p>
+    <!-- 2. 중앙 게임 캔버스 영역 (내부 HUD 점수판 + 오버레이 패드 포함) -->
+    <div class="game-arena-wrapper">
+      <div class="board-container">
+        <div class="canvas-container" id="canvas-wrapper">
+          <canvas id="tetris" width="270" height="540"></canvas>
+          
+          <!-- 게임 내부 우측 상단 반투명 HUD 점수판 -->
+          <div class="ingame-score-hud">
+            <div class="hud-row">
+              <span class="hud-label">SCORE</span>
+              <span id="score" class="hud-value" style="color: var(--score-color); text-shadow: 0 0 8px var(--score-color);">0</span>
+            </div>
+            <div class="hud-row" style="margin-top: 2px;">
+              <span class="hud-label">LINES</span>
+              <span id="lines" class="hud-value" style="color: var(--lines-color); text-shadow: 0 0 8px var(--lines-color); font-size: 13px;">0</span>
+            </div>
+            <div class="hud-row" style="margin-top: 2px;">
+              <span class="hud-label">LEVEL</span>
+              <span id="level" class="hud-value" style="color: var(--level-color); text-shadow: 0 0 8px var(--level-color); font-size: 13px;">1</span>
+            </div>
+          </div>
+
+          <!-- 게임 시작/종료 오버레이 -->
+          <div id="game-overlay" class="game-overlay">
+            <div id="overlay-msg" class="overlay-text" style="color: var(--text-accent);">준비 완료</div>
+            
+            <div id="single-setup-box" class="start-setup-box">
+              <div class="start-setup-row">
+                <span>보드 크기</span>
+                <select id="single-board-size" onchange="onBoardSizeChange(this.value)">
+                  <option value="small">소형 (8×16)</option>
+                  <option value="standard" selected>표준 (10×20)</option>
+                  <option value="wide">와이드 (12×20)</option>
+                  <option value="large">대형 (12×24)</option>
+                  <option value="giant">특대형 (14×26)</option>
+                </select>
+              </div>
+              <div class="start-setup-row">
+                <span>시작 단계</span>
+                <select id="single-start-level" onchange="onStartLevelChange(this.value)">
+                  <option value="1" selected>1단계</option>
+                  <option value="2">2단계</option>
+                  <option value="3">3단계</option>
+                  <option value="4">4단계</option>
+                  <option value="5">5단계</option>
+                  <option value="6">6단계</option>
+                  <option value="7">7단계</option>
+                  <option value="8">8단계</option>
+                  <option value="9">9단계</option>
+                  <option value="10">10단계</option>
+                </select>
+              </div>
+            </div>
+
+            <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
+          </div>
+
+          <!-- PPSSPP 스타일 반투명 오버레이 터치 패드 -->
+          <div class="touch-overlay-panel" id="touch-overlay-panel">
+            <div class="dpad-box">
+              <div class="t-btn" id="v-up" data-act="rot">▲</div>
+              <div class="t-btn" id="v-left" data-act="left">◀</div>
+              <div class="t-btn" id="v-down" data-act="down">▼</div>
+              <div class="t-btn" id="v-right" data-act="right">▶</div>
+            </div>
+
+            <div class="action-box">
+              <div class="act-btn-drop" id="v-drop" data-act="hard">
+                <span>⚡</span>
+                낙하
+              </div>
+            </div>
+          </div>
+
         </div>
       </div>
+    </div>
 
-      <!-- 제어 및 설정 패널 -->
-      <div class="panel-box">
-        <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 일시 정지 (P)</button>
-        <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 낙하 가이드</button>
-        <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 터치 패드</button>
-
-        <div class="option-select-box">
-          <span>🎨 테마</span>
-          <select id="theme-selector" onchange="changeTheme(this.value)">
-            <option value="neon">네온</option>
-            <option value="retro">레트로</option>
-            <option value="pastel">파스텔</option>
-            <option value="mono">모노</option>
-            <option value="emerald">에메랄드</option>
-          </select>
-        </div>
-      </div>
-
-      <!-- PC 키 조작 안내 -->
-      <div class="controls-guide-card">
-        <strong style="color: var(--text-main); display: block; margin-bottom: 4px;">🎮 PC 조작 키</strong>
-        • <span class="key-badge">←</span> <span class="key-badge">→</span> 이동<br>
-        • <span class="key-badge">↑</span> 블록 회전<br>
-        • <span class="key-badge">↓</span> 소프트 드롭<br>
-        • <span class="key-badge">Space</span> 즉시 낙하<br>
-        • <span class="key-badge">P</span> 일시 정지
-      </div>
-
+    <!-- 3. 하단 PC 키 조작 안내 -->
+    <div class="controls-guide-card" id="guide-card">
+      <strong style="color: var(--text-main);">🎮 PC 키:</strong>
+      <span class="key-badge">←</span> <span class="key-badge">→</span> 이동 |
+      <span class="key-badge">↑</span> 회전 |
+      <span class="key-badge">Space</span> 낙하
     </div>
 
   </div>
@@ -711,10 +710,32 @@ function changeTheme(themeKey) {
 document.body.setAttribute('data-theme', currentThemeKey);
 document.getElementById('theme-selector').value = currentThemeKey;
 
-/* 2. 상태 관리 & 보드 크기 적용 */
+/* 2. 반응형 레이아웃 계산 */
 let ghostEnabled = true;
 let startLevel = 1;
 let isPaused = false;
+
+function updateResponsiveLayout() {
+  const container = document.getElementById('main-container');
+  const vh = window.innerHeight;
+  const vw = window.innerWidth;
+
+  // 상단 바, 안내 카드 및 상하 여백을 고려하여 캔버스 최대 높이 확보
+  const reservedHeight = 150;
+  const availableCanvasHeight = Math.max(220, vh - reservedHeight);
+
+  const boardRatio = COLS / ROWS;
+  let targetWidth = availableCanvasHeight * boardRatio;
+
+  const maxAllowedWidth = Math.min(vw - 24, 420);
+  const minAllowedWidth = 240;
+
+  targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
+  container.style.maxWidth = `${Math.round(targetWidth)}px`;
+}
+
+window.addEventListener('resize', updateResponsiveLayout);
+window.addEventListener('orientationchange', updateResponsiveLayout);
 
 function applyBoardSize(sizeKey) {
   const cfg = BOARD_SIZES[sizeKey] || BOARD_SIZES.standard;
@@ -725,6 +746,8 @@ function applyBoardSize(sizeKey) {
 
   canvas.width = COLS * BLOCK_SIZE;
   canvas.height = ROWS * BLOCK_SIZE;
+
+  updateResponsiveLayout();
 }
 
 function onBoardSizeChange(sizeKey) {
@@ -749,8 +772,10 @@ function toggleGhost() {
   const btn = document.getElementById('btn-ghost-toggle');
   if (ghostEnabled) {
     btn.classList.add('on');
+    btn.innerText = '👁️ 가이드';
   } else {
     btn.classList.remove('on');
+    btn.innerText = '👁️ 꺼짐';
   }
 }
 
@@ -770,10 +795,10 @@ function togglePause() {
     msg.className = "overlay-text";
     msg.style.color = "#ffe600";
     btn.innerText = "계속하기";
-    pauseBtn.innerText = "▶️ 게임 재개 (P)";
+    pauseBtn.innerText = "▶️ 계속";
   } else {
     overlay.style.display = 'none';
-    pauseBtn.innerText = "⏸️ 일시 정지 (P)";
+    pauseBtn.innerText = "⏸️ 정지";
   }
 }
 
@@ -980,7 +1005,7 @@ function triggerGameOver() {
   msg.innerText = "게임 종료";
   msg.className = "overlay-text lose";
   btn.innerText = '다시 시작';
-  pauseBtn.innerText = "⏸️ 일시 정지 (P)";
+  pauseBtn.innerText = "⏸️ 정지";
 }
 
 function updateScore() {
