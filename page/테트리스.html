@@ -550,14 +550,16 @@
       flex-direction: column;
       gap: 2px;
     }
+    
     .leaderboard-item {
       display: flex;
-      justify-content: space-between;
-      align-items: center;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 3px;
       font-size: 8px;
-      padding: 2px;
+      padding: 4px;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 2px;
+      border-radius: 3px;
       line-height: 1;
     }
     .leaderboard-item .rank { 
@@ -565,11 +567,14 @@
       white-space: nowrap; 
       overflow: hidden; 
       text-overflow: ellipsis; 
-      max-width: 32px;
+      width: 100%;
+      max-width: 55px; 
     }
     .leaderboard-item .score { 
-      font-weight: 700; 
+      font-weight: 800; 
       color: var(--text-main); 
+      align-self: flex-end; 
+      font-size: 8.5px;
     }
 
     /* 조작키 설명 팝업 모달 */
@@ -746,7 +751,7 @@
 
       <!-- Dreamlo 글로벌 랭킹 -->
       <div class="side-leaderboard-box">
-        <span class="title">🏆 Top 5</span>
+        <span class="title">🏆 Top 10</span>
         <ul class="leaderboard-list" id="leaderboard-list">
           <!-- JS 렌더링 -->
           <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
@@ -798,7 +803,7 @@ window.dreamloReadCallback = function(response) {
       return;
     }
 
-    list.innerHTML = entries.slice(0, 5).map((s, idx) => `
+    list.innerHTML = entries.slice(0, 10).map((s, idx) => `
       <li class="leaderboard-item">
         <span class="rank">${idx + 1}. ${s.name}</span>
         <span class="score">${parseInt(s.score).toLocaleString()}</span>
@@ -1151,7 +1156,7 @@ const player = {
   lines: 0,
   level: 1,
   isPlaying: false
-};
+}
 
 function collide(arenaTarget, piece) {
   const [m, o] = [piece.matrix, piece.pos];
