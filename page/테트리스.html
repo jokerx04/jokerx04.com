@@ -813,7 +813,6 @@
 ========================================================= */
 
 const CHEDDA_API_KEY = 'cb_blog-tetris_4097310434';
-const CHEDDA_LEADERBOARD_ID = 'blog-tetris';
 
 function fetchLeaderboard() {
   const list = document.getElementById('leaderboard-list');
@@ -840,6 +839,8 @@ function fetchLeaderboard() {
       entries = res.data.leaderboard;
     } else if (res.entries) {
       entries = res.entries;
+    } else if (Array.isArray(res)) {
+      entries = res;
     }
 
     if (!entries || entries.length === 0) {
@@ -850,7 +851,7 @@ function fetchLeaderboard() {
     // s.nickname 속성 우선 참조
     list.innerHTML = entries.slice(0, 10).map((s, idx) => `
       <li class="leaderboard-item">
-        <span class="rank">${idx + 1}. ${s.nickname || s.player || s.name || '익명'}</span>
+        <span class="rank">${idx + 1}. ${s.nickname || s.player || s.playerId || '익명'}</span>
         <span class="score">${parseInt(s.score).toLocaleString()}</span>
       </li>
     `).join('');
@@ -874,8 +875,7 @@ function submitScore() {
   btn.innerText = "등록 중...";
   btn.disabled = true;
 
-  // 명확하게 리더보드 ID를 지정하는 엔드포인트로 변경
-  const targetUrl = `https://api.cheddaboards.com/leaderboards/${CHEDDA_LEADERBOARD_ID}/scores`;
+  const targetUrl = `https://api.cheddaboards.com/scores`;
 
   fetch(targetUrl, {
     method: 'POST',
@@ -883,14 +883,15 @@ function submitScore() {
       'X-API-Key': CHEDDA_API_KEY,
       'Content-Type': 'application/json'
     },
-    // 강제 할당을 방지하기 위해 단일한 닉네임과 스코어만 전달 (고유 UUID 파라미터 배제)
     body: JSON.stringify({
-      nickname: name,
-      score: player.score
+      playerId: name,   // 익명 식별자 (임의 변환 방지용)
+      nickname: name,   // 표출 닉네임
+      score: player.score,
+      streak: 0
     })
   })
   .then(response => {
-    if(!response.ok) throw new Error("등록 API 연동 오류");
+    if(!response.ok) throw new Error("등록 API 연동 오류: " + response.status);
     
     // 정상 등록 시 UI 초기화
     document.getElementById('username-input').value = "";
