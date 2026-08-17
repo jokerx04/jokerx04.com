@@ -177,6 +177,56 @@
       transition: max-width 0.15s ease-out;
     }
 
+    /* 게임 상단 컨트롤 바 (테마, 가이드, 패드) */
+    .top-controls {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      width: 100%;
+      gap: 3px;
+      margin-bottom: 2px;
+    }
+
+    .top-theme-box {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      background: rgba(0, 0, 0, 0.4);
+      padding: 3px 4px;
+      border-radius: 5px;
+      border: 1px solid var(--card-border);
+      font-size: 8.5px;
+      font-weight: 800;
+      color: var(--text-main);
+      flex: 1.5;
+      justify-content: center;
+      height: 100%;
+      white-space: nowrap;
+    }
+    
+    .top-theme-box select {
+      background: var(--btn-bg);
+      color: var(--text-accent);
+      border: 1px solid var(--panel-border);
+      padding: 2px 2px;
+      border-radius: 3px;
+      font-size: 8.5px;
+      font-weight: 700;
+      outline: none;
+      cursor: pointer;
+      width: auto;
+      flex-grow: 1;
+      text-align: center;
+    }
+
+    .top-controls .btn {
+      flex: 1;
+      padding: 4px 2px;
+      font-size: 8.5px;
+      height: 100%;
+    }
+
     .canvas-container {
       position: relative;
       border-radius: 10px;
@@ -187,6 +237,7 @@
       justify-content: center;
       align-items: center;
       overflow: hidden;
+      width: 100%;
     }
     canvas#tetris {
       background-color: #06030e;
@@ -496,33 +547,6 @@
       width: 100%;
     }
 
-    .side-theme-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 2px;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 3px 2px;
-      border-radius: 5px;
-      border: 1px solid var(--card-border);
-      font-size: 8.5px;
-      color: var(--text-main);
-      width: 100%;
-    }
-    .side-theme-box select {
-      background: var(--btn-bg);
-      color: var(--text-accent);
-      border: 1px solid var(--panel-border);
-      padding: 2px 1px;
-      border-radius: 3px;
-      font-size: 8.5px;
-      font-weight: 700;
-      outline: none;
-      cursor: pointer;
-      width: 100%;
-      text-align: center;
-    }
-
     /* 명예의 전당 (저장된 랭킹) */
     .side-leaderboard-box {
       display: flex;
@@ -635,9 +659,26 @@
 
   <div class="main-app-container" id="main-container">
     
-    <!-- 1단 (좌측): 게임 캔버스 영역 및 패드 -->
+    <!-- 1단 (좌측): 게임 영역 -->
     <div class="game-section" id="game-section">
       
+      <!-- 게임 상단 컨트롤 바 (테마, 가이드, 패드) -->
+      <div class="top-controls" id="top-controls">
+        <div class="top-theme-box">
+          <span>🎨 테마</span>
+          <select id="theme-selector" onchange="changeTheme(this.value)">
+            <option value="neon">네온</option>
+            <option value="retro">레트로</option>
+            <option value="pastel">파스텔</option>
+            <option value="mono">모노</option>
+            <option value="emerald">에메랄드</option>
+          </select>
+        </div>
+        <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
+        <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
+      </div>
+
+      <!-- 게임 캔버스 컨테이너 -->
       <div class="canvas-container" id="canvas-wrapper">
         <canvas id="tetris" width="270" height="540"></canvas>
 
@@ -674,7 +715,7 @@
             <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
           </div>
 
-          <!-- 점수 달성 시 랭킹 등록 영역 (기본 숨김) -->
+          <!-- 점수 달성 시 랭킹 등록 영역 -->
           <div id="score-submit-box" class="score-submit-box">
             <span style="font-size: 10px; color: var(--text-sub); margin-bottom: 2px;">🏆 글로벌 랭킹 등록</span>
             <input type="text" id="username-input" placeholder="영문 이름 입력 (최대 8자)" maxlength="8" oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
@@ -731,23 +772,11 @@
         <canvas id="next-canvas" width="36" height="36"></canvas>
       </div>
 
-      <!-- 제어 버튼 목록 -->
+      <!-- 정지 버튼 -->
       <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
-      <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
-      <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
-      <button class="btn btn-toggle" onclick="openControlsModal()">⌨️ 조작키</button>
 
-      <!-- 테마 선택 -->
-      <div class="side-theme-box">
-        <span>🎨 테마</span>
-        <select id="theme-selector" onchange="changeTheme(this.value)">
-          <option value="neon">네온</option>
-          <option value="retro">레트로</option>
-          <option value="pastel">파스텔</option>
-          <option value="mono">모노</option>
-          <option value="emerald">에메랄드</option>
-        </select>
-      </div>
+      <!-- 조작키 버튼 -->
+      <button class="btn btn-toggle" onclick="openControlsModal()">⌨️ 조작키</button>
 
       <!-- Dreamlo 글로벌 랭킹 -->
       <div class="side-leaderboard-box">
@@ -999,15 +1028,17 @@ function closeControlsModal(e) {
 function updateResponsiveLayout() {
   const gameSection = document.getElementById('game-section');
   const dpad = document.getElementById('touch-bottom-panel');
+  const topControls = document.getElementById('top-controls');
   const isDpadVisible = dpad && dpad.classList.contains('active');
 
   const vh = window.innerHeight;
   const vw = window.innerWidth;
 
+  const topControlsH = topControls ? topControls.offsetHeight : 0;
   const dpadH = isDpadVisible ? 68 : 0;
   const marginH = 16;
 
-  const reservedHeight = dpadH + marginH;
+  const reservedHeight = topControlsH + dpadH + marginH;
   const availableCanvasHeight = Math.max(160, vh - reservedHeight);
 
   const boardRatio = BOARD_CONFIG.fixedWidth / BOARD_CONFIG.fixedHeight;
@@ -1034,7 +1065,7 @@ function applyBoardSize(sizeKey) {
   canvas.height = BOARD_CONFIG.fixedHeight;
   BLOCK_SIZE = BOARD_CONFIG.fixedWidth / COLS;
 
-  updateResponsiveLayout();
+  setTimeout(updateResponsiveLayout, 0);
 }
 
 function onBoardSizeChange(sizeKey) {
@@ -1690,6 +1721,7 @@ fetchLeaderboard();
 applyBoardSize('standard');
 resetGameBoard(1);
 autoDetectMobileTouch();
+setTimeout(updateResponsiveLayout, 100);
 update();
 </script>
 
