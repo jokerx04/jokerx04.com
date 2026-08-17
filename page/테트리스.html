@@ -812,39 +812,45 @@
    - 안정적인 서버리스 API 기반 리더보드 연동
 ========================================================= */
 
-// ★ 여기에 본인의 CheddaBoards API 키를 입력하세요.
 const CHEDDA_API_KEY = 'cb_blog-tetris_4097310434';
+const CHEDDA_LEADERBOARD_ID = 'blog-tetris';
 
 function fetchLeaderboard() {
   const list = document.getElementById('leaderboard-list');
   list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>';
   
-  fetch('https://api.cheddaboards.com/leaderboard', {
+  // 브라우저 캐시 방지를 위해 타임스탬프 파라미터 추가
+  const targetUrl = `https://api.cheddaboards.com/leaderboard?_t=${Date.now()}`;
+
+  fetch(targetUrl, {
     method: 'GET',
     headers: {
-      'X-API-Key': CHEDDA_API_KEY
+      'X-API-Key': CHEDDA_API_KEY, // Bearer 대신 명시적인 X-API-Key 사용
+      'Accept': 'application/json'
     }
   })
   .then(response => {
-    if (!response.ok) throw new Error("API 연동 오류");
+    if (!response.ok) throw new Error("조회 API 연동 오류");
     return response.json();
   })
   .then(data => {
-    let entries = data.entries || [];
+    let entries = data.entries || data.scores || data || [];
     if (entries.length === 0) {
       list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
       return;
     }
 
+    // Top 10 데이터 렌더링
     list.innerHTML = entries.slice(0, 10).map((s, idx) => `
       <li class="leaderboard-item">
-        <span class="rank">${idx + 1}. ${s.player || s.playerId}</span>
+        <span class="rank">${idx + 1}. ${s.player || s.playerName || s.playerId || s.name || '익명'}</span>
         <span class="score">${parseInt(s.score).toLocaleString()}</span>
       </li>
     `).join('');
   })
   .catch(err => {
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">네트워크 오류</li>';
+    console.error("CheddaBoards Load Error:", err);
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">목록 갱신 실패</li>';
   });
 }
 
@@ -861,21 +867,27 @@ function submitScore() {
   btn.innerText = "등록 중...";
   btn.disabled = true;
 
-  fetch('https://api.cheddaboards.com/scores', {
+  const targetUrl = `https://api.cheddaboards.com/scores`;
+
+  fetch(targetUrl, {
     method: 'POST',
     headers: {
       'X-API-Key': CHEDDA_API_KEY,
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      playerId: name,
+      playerId: name,        // API 표준 요구 규격
+      player: name,          // 표시용 이름 속성 매핑 (호환성)
+      playerName: name,      // 표시용 이름 속성 매핑 (호환성)
+      name: name,            // 표시용 이름 속성 매핑 (호환성)
       score: player.score,
-      streak: 0
+      leaderboardId: CHEDDA_LEADERBOARD_ID
     })
   })
   .then(response => {
-    if(!response.ok) throw new Error("서버 연동 오류");
+    if(!response.ok) throw new Error("등록 API 연동 오류");
     
+    // 정상 등록 시 UI 초기화
     document.getElementById('username-input').value = "";
     document.getElementById('score-submit-box').style.display = 'none';
     document.getElementById('single-setup-box').style.display = 'flex';
@@ -883,11 +895,12 @@ function submitScore() {
     btn.innerText = "등록하기";
     btn.disabled = false;
     
-    // 점수 등록 직후 리더보드 재조회
+    // 랭킹 즉각 갱신(새로고침)
     fetchLeaderboard();
   })
   .catch(err => {
-    alert("등록 실패. 네트워크를 확인하거나 API 키를 점검하세요.");
+    console.error("CheddaBoards Submit Error:", err);
+    alert("등록 실패. 네트워크를 확인하세요.");
     btn.innerText = "등록하기";
     btn.disabled = false;
   });
