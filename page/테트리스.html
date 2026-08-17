@@ -718,7 +718,7 @@
           <!-- 점수 달성 시 랭킹 등록 영역 -->
           <div id="score-submit-box" class="score-submit-box">
             <span style="font-size: 10px; color: var(--text-sub); margin-bottom: 2px;">🏆 글로벌 랭킹 등록</span>
-            <input type="text" id="username-input" placeholder="영문 이름 입력 (최대 8자)" maxlength="8" oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
+            <input type="text" id="username-input" placeholder="닉네임 입력 (최대 8자)" maxlength="8" oninput="this.value=this.value.replace(/[^a-zA-Z0-9가-힣]/g,'');">
             <div style="display: flex; gap: 4px; width: 100%;">
               <button class="btn" style="background: rgba(255,255,255,0.1); color: var(--text-main); border: 1px solid var(--card-border);" onclick="cancelSubmitScore()">건너뛰기</button>
               <button class="btn btn-action" id="btn-submit-score" style="background: var(--level-color); color: #000; border: none;" onclick="submitScore()">등록하기</button>
