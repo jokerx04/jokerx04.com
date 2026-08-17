@@ -811,10 +811,6 @@
    0. CheddaBoards 글로벌 랭킹 (REST API)
    - 안정적인 서버리스 API 기반 리더보드 연동
 ========================================================= */
-/* =========================================================
-   0. CheddaBoards 글로벌 랭킹 (REST API)
-   - 안정적인 서버리스 API 기반 리더보드 연동
-========================================================= */
 
 const CHEDDA_API_KEY = 'cb_blog-tetris_4097310434';
 const CHEDDA_LEADERBOARD_ID = 'blog-tetris';
@@ -838,7 +834,7 @@ function fetchLeaderboard() {
     return response.json();
   })
   .then(res => {
-    // ★ 수정됨: 응답 데이터 구조(res.data.leaderboard)에 맞게 파싱
+    // 응답 데이터 구조(res.data.leaderboard)에 맞게 파싱
     let entries = [];
     if (res.data && res.data.leaderboard) {
       entries = res.data.leaderboard;
@@ -846,12 +842,12 @@ function fetchLeaderboard() {
       entries = res.entries;
     }
 
-    if (entries.length === 0) {
+    if (!entries || entries.length === 0) {
       list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
       return;
     }
 
-    // ★ 수정됨: s.nickname 속성 우선 참조
+    // s.nickname 속성 우선 참조
     list.innerHTML = entries.slice(0, 10).map((s, idx) => `
       <li class="leaderboard-item">
         <span class="rank">${idx + 1}. ${s.nickname || s.player || s.name || '익명'}</span>
@@ -878,7 +874,8 @@ function submitScore() {
   btn.innerText = "등록 중...";
   btn.disabled = true;
 
-  const targetUrl = `https://api.cheddaboards.com/scores`;
+  // 명확하게 리더보드 ID를 지정하는 엔드포인트로 변경
+  const targetUrl = `https://api.cheddaboards.com/leaderboards/${CHEDDA_LEADERBOARD_ID}/scores`;
 
   fetch(targetUrl, {
     method: 'POST',
@@ -886,11 +883,9 @@ function submitScore() {
       'X-API-Key': CHEDDA_API_KEY,
       'Content-Type': 'application/json'
     },
+    // 강제 할당을 방지하기 위해 단일한 닉네임과 스코어만 전달 (고유 UUID 파라미터 배제)
     body: JSON.stringify({
-      // ★ 수정됨: 강제 닉네임 할당을 방지하기 위해 가능한 모든 식별자에 name을 삽입
       nickname: name,
-      playerId: name,
-      player: name,
       score: player.score
     })
   })
