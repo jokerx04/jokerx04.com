@@ -811,6 +811,10 @@
    0. CheddaBoards 글로벌 랭킹 (REST API)
    - 안정적인 서버리스 API 기반 리더보드 연동
 ========================================================= */
+/* =========================================================
+   0. CheddaBoards 글로벌 랭킹 (REST API)
+   - 안정적인 서버리스 API 기반 리더보드 연동
+========================================================= */
 
 const CHEDDA_API_KEY = 'cb_blog-tetris_4097310434';
 const CHEDDA_LEADERBOARD_ID = 'blog-tetris';
@@ -825,7 +829,7 @@ function fetchLeaderboard() {
   fetch(targetUrl, {
     method: 'GET',
     headers: {
-      'X-API-Key': CHEDDA_API_KEY, // Bearer 대신 명시적인 X-API-Key 사용
+      'X-API-Key': CHEDDA_API_KEY,
       'Accept': 'application/json'
     }
   })
@@ -833,24 +837,31 @@ function fetchLeaderboard() {
     if (!response.ok) throw new Error("조회 API 연동 오류");
     return response.json();
   })
-  .then(data => {
-    let entries = data.entries || data.scores || data || [];
+  .then(res => {
+    // ★ 수정됨: 응답 데이터 구조(res.data.leaderboard)에 맞게 파싱
+    let entries = [];
+    if (res.data && res.data.leaderboard) {
+      entries = res.data.leaderboard;
+    } else if (res.entries) {
+      entries = res.entries;
+    }
+
     if (entries.length === 0) {
       list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
       return;
     }
 
-    // Top 10 데이터 렌더링
+    // ★ 수정됨: s.nickname 속성 우선 참조
     list.innerHTML = entries.slice(0, 10).map((s, idx) => `
       <li class="leaderboard-item">
-        <span class="rank">${idx + 1}. ${s.player || s.playerName || s.playerId || s.name || '익명'}</span>
+        <span class="rank">${idx + 1}. ${s.nickname || s.player || s.name || '익명'}</span>
         <span class="score">${parseInt(s.score).toLocaleString()}</span>
       </li>
     `).join('');
   })
   .catch(err => {
     console.error("CheddaBoards Load Error:", err);
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">목록 갱신 실패</li>';
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">네트워크 오류</li>';
   });
 }
 
@@ -876,12 +887,11 @@ function submitScore() {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      playerId: name,        // API 표준 요구 규격
-      player: name,          // 표시용 이름 속성 매핑 (호환성)
-      playerName: name,      // 표시용 이름 속성 매핑 (호환성)
-      name: name,            // 표시용 이름 속성 매핑 (호환성)
-      score: player.score,
-      leaderboardId: CHEDDA_LEADERBOARD_ID
+      // ★ 수정됨: 강제 닉네임 할당을 방지하기 위해 가능한 모든 식별자에 name을 삽입
+      nickname: name,
+      playerId: name,
+      player: name,
+      score: player.score
     })
   })
   .then(response => {
