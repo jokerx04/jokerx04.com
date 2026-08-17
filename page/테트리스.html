@@ -833,7 +833,7 @@ function fetchLeaderboard() {
   if (oldScript) oldScript.remove();
 
   // 순수 JSON을 Allorigins를 통해 JSONP(스크립트 실행) 형태로 안전하게 가져옵니다.
-  const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json?_=${Date.now()}`;
+  const targetUrl = `http://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json?_=${Date.now()}`;
   const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}&callback=dreamloReadCallback`;
   
   const script = document.createElement('script');
@@ -862,7 +862,7 @@ function submitDreamloScore() {
   if (oldScript) oldScript.remove();
 
   // 점수 쓰기 역시 JSONP 형태로 던져 브라우저 차단을 무력화합니다.
-  const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}?_=${Date.now()}`;
+  const targetUrl = `http://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}?_=${Date.now()}`;
   const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}&callback=dreamloWriteCallback`;
   
   const script = document.createElement('script');
