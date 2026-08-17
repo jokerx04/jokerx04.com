@@ -25,7 +25,6 @@
       --lines-color: #00ff66;
       --level-color: #ffe600;
       
-      /* PPSSPP 스타일 반투명 버튼 */
       --psp-btn-bg: rgba(255, 255, 255, 0.18);
       --psp-btn-border: rgba(0, 245, 255, 0.6);
       --psp-btn-active: rgba(0, 245, 255, 0.7);
@@ -676,7 +675,7 @@
             <input type="text" id="username-input" placeholder="영문 이름 입력 (최대 8자)" maxlength="8" oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
             <div style="display: flex; gap: 4px; width: 100%;">
               <button class="btn" style="background: rgba(255,255,255,0.1); color: var(--text-main); border: 1px solid var(--card-border);" onclick="cancelSubmitScore()">건너뛰기</button>
-              <button class="btn btn-action" style="background: var(--level-color); color: #000; border: none;" onclick="submitDreamloScore()">등록하기</button>
+              <button class="btn btn-action" id="btn-submit-score" style="background: var(--level-color); color: #000; border: none;" onclick="submitDreamloScore()">등록하기</button>
             </div>
           </div>
 
@@ -749,6 +748,7 @@
       <div class="side-leaderboard-box">
         <span class="title">🏆 Top 5</span>
         <ul class="leaderboard-list" id="leaderboard-list">
+          <!-- JS 렌더링 -->
           <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
         </ul>
       </div>
@@ -774,52 +774,78 @@
 
 <script>
 /* =========================================================
-   0. Dreamlo 글로벌 랭킹 API 연동 (프록시 완전 제거, JSONP 방식)
+   0. Dreamlo 글로벌 랭킹 (JSONP + Allorigins 우회 하이브리드)
+   - 브라우저의 CORS 및 CDN 차단을 완벽하게 우회합니다.
 ========================================================= */
 const DREAMLO_PUBLIC_KEY = '6a81bf268f40bb1350637e05';
 const DREAMLO_PRIVATE_KEY = 'EEcqonUdEkygBoyz9ruF1wjJIub-2U_Eu9yCz9SeyRIw';
 
-// Dreamlo 전용 글로벌 콜백 함수 (JSONP가 데이터를 이 함수로 넘겨줍니다)
-window.dreamloLoader = function(data) {
+// (1) 읽기 콜백: Allorigins가 JSON 데이터를 감싸서 이 함수로 반환해줍니다.
+window.dreamloReadCallback = function(response) {
   const list = document.getElementById('leaderboard-list');
-  let entries = [];
-  
-  if (data && data.dreamlo && data.dreamlo.leaderboard && data.dreamlo.leaderboard.entry) {
-    const raw = data.dreamlo.leaderboard.entry;
-    entries = Array.isArray(raw) ? raw : [raw];
-  }
-  
-  if (entries.length === 0) {
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
-    return;
-  }
+  try {
+    if (!response || !response.contents) throw new Error("데이터 없음");
+    const data = JSON.parse(response.contents);
+    let entries = [];
+    
+    if (data.dreamlo && data.dreamlo.leaderboard && data.dreamlo.leaderboard.entry) {
+      const raw = data.dreamlo.leaderboard.entry;
+      entries = Array.isArray(raw) ? raw : [raw];
+    }
+    
+    if (entries.length === 0) {
+      list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
+      return;
+    }
 
-  list.innerHTML = entries.slice(0, 5).map((s, idx) => `
-    <li class="leaderboard-item">
-      <span class="rank">${idx + 1}. ${s.name}</span>
-      <span class="score">${parseInt(s.score).toLocaleString()}</span>
-    </li>
-  `).join('');
+    list.innerHTML = entries.slice(0, 5).map((s, idx) => `
+      <li class="leaderboard-item">
+        <span class="rank">${idx + 1}. ${s.name}</span>
+        <span class="score">${parseInt(s.score).toLocaleString()}</span>
+      </li>
+    `).join('');
+  } catch (err) {
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">로딩 실패</li>';
+  }
+};
+
+// (2) 쓰기 콜백: 점수 등록 후 호출되어 화면을 초기화합니다.
+window.dreamloWriteCallback = function(response) {
+  document.getElementById('username-input').value = "";
+  document.getElementById('score-submit-box').style.display = 'none';
+  document.getElementById('single-setup-box').style.display = 'flex';
+  
+  const btn = document.getElementById('btn-submit-score');
+  if(btn) {
+    btn.innerText = "등록하기";
+    btn.disabled = false;
+  }
+  
+  // 등록 직후 랭킹 재조회
+  fetchLeaderboard();
 };
 
 function fetchLeaderboard() {
   const list = document.getElementById('leaderboard-list');
+  list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>';
   
-  // 기존 스크립트 찌꺼기 제거
-  const oldScript = document.getElementById('dreamlo-script');
+  const oldScript = document.getElementById('dreamlo-read-script');
   if (oldScript) oldScript.remove();
 
-  // 브라우저의 CORS 자체를 무시하는 JSONP용 스크립트 태그 직접 삽입
+  // 순수 JSON을 Allorigins를 통해 JSONP(스크립트 실행) 형태로 안전하게 가져옵니다.
+  const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json?_=${Date.now()}`;
+  const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}&callback=dreamloReadCallback`;
+  
   const script = document.createElement('script');
-  script.id = 'dreamlo-script';
-  script.src = `https://dreamlo.com/lb/${DREAMLO_PUBLIC_KEY}/json-p?_=${Date.now()}`;
+  script.id = 'dreamlo-read-script';
+  script.src = proxyUrl;
   script.onerror = () => {
-    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">데이터 연결 실패</li>';
+    list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#ff0055;">네트워크 오류</li>';
   };
-  document.head.appendChild(script);
+  document.body.appendChild(script);
 }
 
-async function submitDreamloScore() {
+function submitDreamloScore() {
   const input = document.getElementById('username-input');
   let name = input.value.trim();
   
@@ -828,28 +854,26 @@ async function submitDreamloScore() {
     return; 
   }
   
-  const btn = input.nextElementSibling.lastElementChild;
+  const btn = document.getElementById('btn-submit-score');
   btn.innerText = "등록 중...";
   btn.disabled = true;
 
-  try {
-    const url = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}`;
-    
-    // 쓰기 요청 시 CORS 차단을 무시하는 'no-cors' 모드로 직접 전송 (프록시 X)
-    await fetch(url, { mode: 'no-cors', cache: 'no-store' });
-    
-    input.value = "";
-    document.getElementById('score-submit-box').style.display = 'none';
-    document.getElementById('single-setup-box').style.display = 'flex';
-    
-    // 점수 반영 시간 확보 후 새로고침
-    setTimeout(fetchLeaderboard, 1500); 
-  } catch (err) {
+  const oldScript = document.getElementById('dreamlo-write-script');
+  if (oldScript) oldScript.remove();
+
+  // 점수 쓰기 역시 JSONP 형태로 던져 브라우저 차단을 무력화합니다.
+  const targetUrl = `https://dreamlo.com/lb/${DREAMLO_PRIVATE_KEY}/add/${name}/${player.score}?_=${Date.now()}`;
+  const proxyUrl = `https://api.allorigins.win/get?url=${encodeURIComponent(targetUrl)}&callback=dreamloWriteCallback`;
+  
+  const script = document.createElement('script');
+  script.id = 'dreamlo-write-script';
+  script.src = proxyUrl;
+  script.onerror = () => {
     alert("등록 실패. 네트워크를 확인하세요.");
-  } finally {
     btn.innerText = "등록하기";
     btn.disabled = false;
-  }
+  };
+  document.body.appendChild(script);
 }
 
 function cancelSubmitScore() {
