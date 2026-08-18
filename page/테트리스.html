@@ -154,11 +154,36 @@
       user-select: none;
       -webkit-user-select: none;
       position: relative;
-      padding: max(8px, env(safe-area-inset-top, 8px)) 8px max(8px, env(safe-area-inset-bottom, 8px)) 8px;
+      padding: max(6px, env(safe-area-inset-top, 6px)) 6px max(6px, env(safe-area-inset-bottom, 6px)) 6px;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* 좌측 게임 보드 + 우측 설정 사이드바 (2단) */
+    /* 상단 모드 전환 탭 */
+    .top-mode-nav {
+      display: flex;
+      gap: 6px;
+      margin-bottom: 5px;
+      z-index: 30;
+    }
+    .mode-tab-btn {
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      color: var(--text-sub);
+      padding: 4px 10px;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .mode-tab-btn.active {
+      background: var(--btn-bg);
+      border-color: var(--text-accent);
+      color: var(--text-accent);
+      box-shadow: 0 0 8px var(--panel-shadow);
+    }
+
+    /* 메인 앱 컨테이너 */
     .main-app-container {
       display: flex;
       flex-direction: row;
@@ -167,6 +192,8 @@
       gap: 6px;
       margin: auto 0;
       width: 100%;
+      height: calc(100% - 35px);
+      max-height: 100%;
     }
 
     .game-section {
@@ -177,7 +204,7 @@
       transition: max-width 0.15s ease-out;
     }
 
-    /* 게임 상단 컨트롤 바 (테마, 가이드, 패드) */
+    /* 게임 상단 컨트롤 바 */
     .top-controls {
       display: flex;
       flex-direction: row;
@@ -248,7 +275,7 @@
       object-fit: contain;
     }
 
-    /* 게임 시작/종료 오버레이 */
+    /* 게임 시작/종료/로비 오버레이 */
     .game-overlay {
       display: flex;
       position: absolute;
@@ -262,26 +289,28 @@
       align-items: center;
       gap: 6px;
       z-index: 25;
-      padding: 6px;
+      padding: 8px;
       width: 100%;
+      overflow-y: auto;
     }
     .overlay-text {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 900;
       letter-spacing: 0.5px;
       text-align: center;
     }
     .overlay-text.lose { color: #ff0055; text-shadow: 0 0 10px #ff0055; }
+    .overlay-text.win { color: #00ff66; text-shadow: 0 0 10px #00ff66; }
     
     .start-setup-box {
       display: flex;
       flex-direction: column;
       gap: 4px;
-      width: 90%;
-      max-width: 200px;
+      width: 95%;
+      max-width: 220px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--card-border);
-      padding: 5px 7px;
+      padding: 6px 8px;
       border-radius: 6px;
     }
     .start-setup-row {
@@ -298,19 +327,49 @@
       text-align: left;
       font-weight: 600;
     }
-    .start-setup-row select {
-      flex: 1.2;
-      max-width: 100px;
+    .start-setup-row select, .start-setup-row input {
+      flex: 1.3;
+      max-width: 110px;
       font-size: 9.5px;
-      padding: 1px 3px;
+      padding: 2px 4px;
       background: var(--btn-bg);
       color: var(--text-accent);
       border: 1px solid var(--panel-border);
       border-radius: 3px;
       font-weight: 700;
       outline: none;
-      cursor: pointer;
+      text-align: center;
     }
+
+    /* 멀티 대전 룸 목록 컨테이너 */
+    .multi-room-list {
+      list-style: none;
+      width: 100%;
+      max-height: 120px;
+      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      margin: 4px 0;
+    }
+    .multi-room-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 4px 6px;
+      font-size: 9px;
+    }
+    .room-badge {
+      padding: 1px 4px;
+      border-radius: 3px;
+      font-size: 8px;
+      font-weight: 800;
+    }
+    .badge-waiting { background: #238636; color: #fff; }
+    .badge-playing { background: #d29922; color: #000; }
 
     /* 랭킹 점수 등록 박스 */
     .score-submit-box {
@@ -440,18 +499,20 @@
       box-shadow: 0 0 16px var(--text-accent), inset 0 0 10px rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* 우측 슬림 사이드바 */
+    /* 우측 슬림 사이드바 & 멀티 대전 보드 리스트 */
     .side-settings-bar {
       display: flex;
       flex-direction: column;
       gap: 5px;
-      width: 68px;
+      width: 82px;
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
       border-radius: 10px;
       padding: 5px 4px;
       box-shadow: 0 0 10px var(--panel-shadow);
       z-index: 20;
+      height: 100%;
+      overflow-y: auto;
     }
 
     .side-stat-card {
@@ -499,6 +560,42 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
+    /* 대전 상대방 미니 화면 리스트 */
+    .side-opponents-box {
+      display: none;
+      flex-direction: column;
+      gap: 4px;
+      width: 100%;
+    }
+    .opp-card {
+      background: rgba(0, 0, 0, 0.4);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      padding: 2px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      position: relative;
+    }
+    .opp-card.ko {
+      opacity: 0.35;
+      filter: grayscale(1);
+    }
+    .opp-name {
+      font-size: 7px;
+      font-weight: 800;
+      color: #fff;
+      max-width: 70px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .opp-canvas {
+      background: #000;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 2px;
+    }
+
     .btn {
       padding: 5px 2px;
       background: var(--btn-bg);
@@ -508,7 +605,7 @@
       font-weight: 700;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 9.5px;
+      font-size: 9px;
       white-space: nowrap;
       text-align: center;
       width: 100%;
@@ -538,8 +635,8 @@
       background: #ffe600;
       color: #080511;
       border: none;
-      font-size: 12px;
-      padding: 6px 14px;
+      font-size: 11px;
+      padding: 6px 12px;
       box-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
       border-radius: 6px;
       font-weight: 800;
@@ -547,7 +644,7 @@
       width: 100%;
     }
 
-    /* 명예의 전당 (저장된 랭킹) */
+    /* 명예의 전당 */
     .side-leaderboard-box {
       display: flex;
       flex-direction: column;
@@ -579,9 +676,9 @@
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 3px;
-      font-size: 8px;
-      padding: 4px;
+      gap: 2px;
+      font-size: 7.5px;
+      padding: 3px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 3px;
       line-height: 1;
@@ -592,13 +689,13 @@
       overflow: hidden; 
       text-overflow: ellipsis; 
       width: 100%;
-      max-width: 55px; 
+      max-width: 68px; 
     }
     .leaderboard-item .score { 
       font-weight: 800; 
       color: var(--text-main); 
       align-self: flex-end; 
-      font-size: 8.5px;
+      font-size: 8px;
     }
 
     /* 조작키 설명 팝업 모달 */
@@ -657,9 +754,15 @@
 </head>
 <body>
 
+  <!-- 최상단 모드 선택 바 -->
+  <div class="top-mode-nav">
+    <button class="mode-tab-btn active" id="btn-mode-single" onclick="setAppMode('single')">🕹️ 싱글 모드</button>
+    <button class="mode-tab-btn" id="btn-mode-multi" onclick="setAppMode('multi')">⚔️ 온라인 대전</button>
+  </div>
+
   <div class="main-app-container" id="main-container">
     
-    <!-- 1단 (좌측): 게임 영역 -->
+    <!-- 1단 (좌측): 대형 메인 보드 -->
     <div class="game-section" id="game-section">
       
       <!-- 게임 상단 컨트롤 바 (테마, 가이드, 패드) -->
@@ -685,7 +788,7 @@
         <div id="game-overlay" class="game-overlay">
           <div id="overlay-msg" class="overlay-text" style="color: var(--text-accent);">준비 완료</div>
           
-          <!-- 게임 설정 및 시작 -->
+          <!-- 1. 싱글 플레이 설정 박스 -->
           <div id="single-setup-box" class="start-setup-box">
             <div class="start-setup-row">
               <span>보드 크기</span>
@@ -715,9 +818,53 @@
             <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
           </div>
 
-          <!-- 점수 달성 시 랭킹 등록 영역 -->
+          <!-- 2. 온라인 대전 로비 & 방 생성/참가 박스 -->
+          <div id="multi-lobby-box" class="start-setup-box" style="display: none; max-width: 240px;">
+            <div style="font-size: 9.5px; font-weight:800; color:var(--text-accent); text-align:center; border-bottom:1px solid var(--card-border); padding-bottom:3px;">
+              온라인 대전 로비 (최대 6인)
+            </div>
+            <div class="start-setup-row" style="margin-top:2px;">
+              <span>닉네임</span>
+              <input type="text" id="multi-player-name" value="Player1" maxlength="8">
+            </div>
+            <div class="start-setup-row">
+              <span>보드 크기</span>
+              <select id="multi-board-size">
+                <option value="small">소형 (8×16)</option>
+                <option value="standard" selected>표준 (10×20)</option>
+                <option value="wide">와이드 (12×20)</option>
+                <option value="large">대형 (12×24)</option>
+                <option value="giant">특대형 (14×26)</option>
+              </select>
+            </div>
+            <div class="start-setup-row">
+              <span>시작 단계</span>
+              <select id="multi-start-level">
+                <option value="1" selected>1단계</option>
+                <option value="3">3단계</option>
+                <option value="5">5단계</option>
+                <option value="8">8단계</option>
+              </select>
+            </div>
+            <div class="start-setup-row">
+              <span>인원수</span>
+              <select id="multi-max-players">
+                <option value="2">2명 (1 vs 1)</option>
+                <option value="4">4명 대전</option>
+                <option value="6" selected>6명 (풀방)</option>
+              </select>
+            </div>
+            <button class="btn-ready" style="margin-top:2px;" onclick="createMultiRoom()">방 만들기 & 시작</button>
+            
+            <div style="font-size: 8px; color:var(--text-sub); margin-top:4px; font-weight:700;">진행/대기 중인 방 목록</div>
+            <ul class="multi-room-list" id="multi-room-list">
+              <!-- JS 렌더링 -->
+            </ul>
+          </div>
+
+          <!-- 3. 점수 달성 시 랭킹 등록 영역 (싱글 & 대전 승자 공용) -->
           <div id="score-submit-box" class="score-submit-box">
-            <span style="font-size: 10px; color: var(--text-sub); margin-bottom: 2px;">🏆 글로벌 랭킹 등록</span>
+            <span id="score-submit-title" style="font-size: 10px; color: var(--level-color); font-weight:800; margin-bottom: 2px;">🏆 글로벌 랭킹 등록</span>
             <input type="text" id="username-input" placeholder="영문 이름 입력(최대 8자)" maxlength="8" oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
             <div style="display: flex; gap: 4px; width: 100%;">
               <button class="btn" style="background: rgba(255,255,255,0.1); color: var(--text-main); border: 1px solid var(--card-border);" onclick="cancelSubmitScore()">건너뛰기</button>
@@ -747,7 +894,7 @@
 
     </div>
 
-    <!-- 2단 (우측): 사이드바 -->
+    <!-- 2단 (우측): 사이드바 및 다른 플레이어 미니 화면 -->
     <div class="side-settings-bar" id="side-settings-bar">
       
       <!-- 점수 / 줄 / 단계 카드 -->
@@ -767,9 +914,14 @@
       </div>
 
       <!-- 다음 블록 미리보기 카드 -->
-      <div class="side-next-card">
+      <div class="side-next-card" id="side-next-card">
         <span class="side-stat-label">다음 블록</span>
         <canvas id="next-canvas" width="36" height="36"></canvas>
+      </div>
+
+      <!-- 대전 모드 시 상대방 미니 화면 리스트 (최대 5명) -->
+      <div class="side-opponents-box" id="side-opponents-box">
+        <!-- JS 동적 생성 -->
       </div>
 
       <!-- 정지 버튼 -->
@@ -779,10 +931,9 @@
       <button class="btn btn-toggle" onclick="openControlsModal()">⌨️ 조작키</button>
 
       <!-- CheddaBoards 글로벌 랭킹 -->
-      <div class="side-leaderboard-box">
+      <div class="side-leaderboard-box" id="side-leaderboard-box">
         <span class="title">🏆 Top 10</span>
         <ul class="leaderboard-list" id="leaderboard-list">
-          <!-- JS 렌더링 -->
           <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
         </ul>
       </div>
@@ -809,16 +960,13 @@
 <script>
 /* =========================================================
    0. CheddaBoards 글로벌 랭킹 (REST API)
-   - 안정적인 서버리스 API 기반 리더보드 연동
 ========================================================= */
-
 const CHEDDA_API_KEY = 'cb_blog-tetris_4097310434';
 
 function fetchLeaderboard() {
   const list = document.getElementById('leaderboard-list');
   list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>';
   
-  // 브라우저 캐시 방지를 위해 타임스탬프 파라미터 추가
   const targetUrl = `https://api.cheddaboards.com/leaderboard?_t=${Date.now()}`;
 
   fetch(targetUrl, {
@@ -833,22 +981,16 @@ function fetchLeaderboard() {
     return response.json();
   })
   .then(res => {
-    // 응답 데이터 구조(res.data.leaderboard)에 맞게 파싱
     let entries = [];
-    if (res.data && res.data.leaderboard) {
-      entries = res.data.leaderboard;
-    } else if (res.entries) {
-      entries = res.entries;
-    } else if (Array.isArray(res)) {
-      entries = res;
-    }
+    if (res.data && res.data.leaderboard) entries = res.data.leaderboard;
+    else if (res.entries) entries = res.entries;
+    else if (Array.isArray(res)) entries = res;
 
     if (!entries || entries.length === 0) {
       list.innerHTML = '<li class="leaderboard-item" style="justify-content:center; color:#888;">기록 없음</li>';
       return;
     }
 
-    // s.nickname 속성 우선 참조
     list.innerHTML = entries.slice(0, 10).map((s, idx) => `
       <li class="leaderboard-item">
         <span class="rank">${idx + 1}. ${s.nickname || s.player || s.playerId || '익명'}</span>
@@ -884,8 +1026,8 @@ function submitScore() {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      playerId: name,   // 익명 식별자 (임의 변환 방지용)
-      nickname: name,   // 표출 닉네임
+      playerId: name,
+      nickname: name,
       score: player.score,
       streak: 0
     })
@@ -893,15 +1035,17 @@ function submitScore() {
   .then(response => {
     if(!response.ok) throw new Error("등록 API 연동 오류: " + response.status);
     
-    // 정상 등록 시 UI 초기화
     document.getElementById('username-input').value = "";
     document.getElementById('score-submit-box').style.display = 'none';
-    document.getElementById('single-setup-box').style.display = 'flex';
+    
+    if (currentAppMode === 'single') {
+      document.getElementById('single-setup-box').style.display = 'flex';
+    } else {
+      document.getElementById('multi-lobby-box').style.display = 'flex';
+    }
     
     btn.innerText = "등록하기";
     btn.disabled = false;
-    
-    // 랭킹 즉각 갱신(새로고침)
     fetchLeaderboard();
   })
   .catch(err => {
@@ -915,11 +1059,15 @@ function submitScore() {
 function cancelSubmitScore() {
   document.getElementById('username-input').value = "";
   document.getElementById('score-submit-box').style.display = 'none';
-  document.getElementById('single-setup-box').style.display = 'flex';
+  if (currentAppMode === 'single') {
+    document.getElementById('single-setup-box').style.display = 'flex';
+  } else {
+    document.getElementById('multi-lobby-box').style.display = 'flex';
+  }
 }
 
 /* =========================================================
-   1. 설정 및 테마 (보드 크기와 무관하게 캔버스 고정 크기 유지)
+   1. 설정 및 테마
 ========================================================= */
 const BOARD_CONFIG = {
   fixedWidth: 270,
@@ -1012,10 +1160,52 @@ function changeTheme(themeKey) {
 document.body.setAttribute('data-theme', currentThemeKey);
 document.getElementById('theme-selector').value = currentThemeKey;
 
-/* 2. 모달 제어 및 반응형 엔진 */
+/* =========================================================
+   2. 모드 전환 & 레이아웃 엔진
+========================================================= */
+let currentAppMode = 'single'; // 'single' or 'multi'
+let isSpectator = false;
 let ghostEnabled = true;
 let startLevel = 1;
 let isPaused = false;
+
+function setAppMode(mode) {
+  currentAppMode = mode;
+  document.getElementById('btn-mode-single').classList.toggle('active', mode === 'single');
+  document.getElementById('btn-mode-multi').classList.toggle('active', mode === 'multi');
+
+  const overlay = document.getElementById('game-overlay');
+  const singleBox = document.getElementById('single-setup-box');
+  const multiBox = document.getElementById('multi-lobby-box');
+  const scoreBox = document.getElementById('score-submit-box');
+  const oppBox = document.getElementById('side-opponents-box');
+  const nextCard = document.getElementById('side-next-card');
+
+  player.isPlaying = false;
+  isPaused = false;
+  isSpectator = false;
+  scoreBox.style.display = 'none';
+
+  if (mode === 'single') {
+    overlay.style.display = 'flex';
+    document.getElementById('overlay-msg').innerText = "싱글 플레이 준비";
+    document.getElementById('overlay-msg').style.color = "var(--text-accent)";
+    singleBox.style.display = 'flex';
+    multiBox.style.display = 'none';
+    oppBox.style.display = 'none';
+    nextCard.style.display = 'flex';
+    applyBoardSize(document.getElementById('single-board-size').value);
+    resetGameBoard(parseInt(document.getElementById('single-start-level').value, 10));
+  } else {
+    overlay.style.display = 'flex';
+    document.getElementById('overlay-msg').innerText = "온라인 대전 로비";
+    document.getElementById('overlay-msg').style.color = "var(--level-color)";
+    singleBox.style.display = 'none';
+    multiBox.style.display = 'flex';
+    renderMultiRoomList();
+  }
+  updateResponsiveLayout();
+}
 
 function openControlsModal() {
   document.getElementById('controls-modal').style.display = 'flex';
@@ -1036,18 +1226,18 @@ function updateResponsiveLayout() {
   const vh = window.innerHeight;
   const vw = window.innerWidth;
 
+  const topNavH = 32;
   const topControlsH = topControls ? topControls.offsetHeight : 0;
   const dpadH = isDpadVisible ? 68 : 0;
   const marginH = 16;
 
-  const reservedHeight = topControlsH + dpadH + marginH;
+  const reservedHeight = topNavH + topControlsH + dpadH + marginH;
   const availableCanvasHeight = Math.max(160, vh - reservedHeight);
 
   const boardRatio = BOARD_CONFIG.fixedWidth / BOARD_CONFIG.fixedHeight;
   let targetWidth = availableCanvasHeight * boardRatio;
 
-  // 우측 사이드바(68px + 6px gap = 74px)를 고려한 가로폭 제한
-  const maxAllowedWidth = Math.min(vw - 84, 380);
+  const maxAllowedWidth = Math.min(vw - 96, 380);
   const minAllowedWidth = 160;
 
   targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
@@ -1098,17 +1288,19 @@ function toggleGhost() {
 }
 
 function togglePause() {
-  if (!player.isPlaying) return;
+  if (!player.isPlaying || isSpectator) return;
   isPaused = !isPaused;
   const overlay = document.getElementById('game-overlay');
   const msg = document.getElementById('overlay-msg');
   const pauseBtn = document.getElementById('btn-pause');
   const setupBox = document.getElementById('single-setup-box');
+  const multiBox = document.getElementById('multi-lobby-box');
   const scoreSubmitBox = document.getElementById('score-submit-box');
 
   if (isPaused) {
     overlay.style.display = 'flex';
     setupBox.style.display = 'none';
+    multiBox.style.display = 'none';
     scoreSubmitBox.style.display = 'none';
     msg.innerText = "일시 정지됨";
     msg.className = "overlay-text";
@@ -1120,7 +1312,208 @@ function togglePause() {
   }
 }
 
-/* 3. 게임 엔진 & NEXT 블록 렌더링 */
+/* =========================================================
+   3. 온라인 대전 시뮬레이션 및 멀티플레이 엔진
+========================================================= */
+const mockMultiRooms = [
+  { id: 'R1', title: '고수만 (표준 10x20)', size: 'standard', lvl: 3, players: 4, max: 6, status: 'playing' },
+  { id: 'R2', title: '초보 환영방', size: 'small', lvl: 1, players: 2, max: 4, status: 'waiting' },
+  { id: 'R3', title: '스피드 대난투', size: 'wide', lvl: 5, players: 5, max: 6, status: 'playing' }
+];
+
+let multiState = {
+  roomId: '',
+  maxPlayers: 6,
+  opponents: [], // [{ id, name, board, isAlive }]
+  simTimer: null
+};
+
+function renderMultiRoomList() {
+  const list = document.getElementById('multi-room-list');
+  list.innerHTML = '';
+  mockMultiRooms.forEach(r => {
+    const li = document.createElement('li');
+    li.className = 'multi-room-item';
+    const isPlaying = r.status === 'playing';
+    li.innerHTML = `
+      <div>
+        <div style="font-weight:bold; color:#fff;">${r.title}</div>
+        <div style="color:var(--text-sub); font-size:7.5px;">Lv.${r.lvl} | ${r.players}/${r.max}명</div>
+      </div>
+      <div style="display:flex; align-items:center; gap:4px;">
+        <span class="room-badge ${isPlaying ? 'badge-playing' : 'badge-waiting'}">${isPlaying ? '진행 중' : '대기 중'}</span>
+        <button class="btn" style="padding:2px 6px; font-size:8px; width:auto;" onclick="joinMultiRoom('${r.id}', ${isPlaying})">
+          ${isPlaying ? '관전' : '참가'}
+        </button>
+      </div>
+    `;
+    list.appendChild(li);
+  });
+}
+
+function createMultiRoom() {
+  const name = document.getElementById('multi-player-name').value.trim() || 'Player';
+  const sizeKey = document.getElementById('multi-board-size').value;
+  const lvl = parseInt(document.getElementById('multi-start-level').value, 10);
+  const max = parseInt(document.getElementById('multi-max-players').value, 10);
+
+  multiState.maxPlayers = max;
+  multiState.opponents = [];
+  for (let i = 1; i < max; i++) {
+    multiState.opponents.push({
+      id: `bot_${i}`,
+      name: `Challenger_${i}`,
+      board: createMatrix(BOARD_SIZES[sizeKey].cols, BOARD_SIZES[sizeKey].rows),
+      isAlive: true
+    });
+  }
+
+  isSpectator = false;
+  startMultiGame(sizeKey, lvl);
+}
+
+function joinMultiRoom(roomId, asSpectator = false) {
+  const room = mockMultiRooms.find(r => r.id === roomId) || mockMultiRooms[0];
+  multiState.maxPlayers = room.max;
+  multiState.opponents = [];
+
+  const totalBots = asSpectator ? room.players : room.players - 1;
+  for (let i = 1; i <= totalBots; i++) {
+    multiState.opponents.push({
+      id: `opp_${i}`,
+      name: `Player_${i}`,
+      board: createMatrix(BOARD_SIZES[room.size].cols, BOARD_SIZES[room.size].rows),
+      isAlive: true
+    });
+  }
+
+  isSpectator = asSpectator;
+  startMultiGame(room.size, room.lvl);
+}
+
+function startMultiGame(sizeKey, lvl) {
+  applyBoardSize(sizeKey);
+  resetGameBoard(lvl);
+  
+  document.getElementById('game-overlay').style.display = 'none';
+  document.getElementById('side-opponents-box').style.display = 'flex';
+  
+  buildOpponentCardsUI();
+
+  if (isSpectator) {
+    player.isPlaying = false;
+    document.getElementById('overlay-msg').innerText = "👁️ 실시간 관전 중";
+    document.getElementById('overlay-msg').style.color = "#d29922";
+  } else {
+    player.isPlaying = true;
+    nextPiece = getRandomPiece();
+    playerReset();
+  }
+
+  startOpponentSimulation();
+}
+
+function buildOpponentCardsUI() {
+  const container = document.getElementById('side-opponents-box');
+  container.innerHTML = '';
+
+  multiState.opponents.forEach(opp => {
+    const card = document.createElement('div');
+    card.className = 'opp-card';
+    card.id = `opp-card-${opp.id}`;
+
+    const miniW = 54;
+    const miniH = Math.floor(miniW * (ROWS / COLS));
+
+    card.innerHTML = `
+      <span class="opp-name">${opp.name}</span>
+      <canvas id="canvas-${opp.id}" class="opp-canvas" width="${miniW}" height="${miniH}"></canvas>
+    `;
+    container.appendChild(card);
+  });
+}
+
+function startOpponentSimulation() {
+  if (multiState.simTimer) clearInterval(multiState.simTimer);
+
+  multiState.simTimer = setInterval(() => {
+    if (currentAppMode !== 'multi') {
+      clearInterval(multiState.simTimer);
+      return;
+    }
+
+    let aliveCount = (player.isPlaying && !isSpectator) ? 1 : 0;
+
+    multiState.opponents.forEach(opp => {
+      if (!opp.isAlive) return;
+
+      // 봇 블록 쌓기 시뮬레이션
+      if (Math.random() < 0.45) {
+        const randR = Math.floor(Math.random() * (ROWS - 4)) + 4;
+        const randC = Math.floor(Math.random() * COLS);
+        opp.board[randR][randC] = Math.floor(Math.random() * 7) + 1;
+      }
+
+      // 일정 확률로 KO 탈락
+      if (Math.random() < 0.035) {
+        opp.isAlive = false;
+        const card = document.getElementById(`opp-card-${opp.id}`);
+        if (card) card.classList.add('ko');
+      } else {
+        aliveCount++;
+      }
+
+      renderMiniOpponent(opp);
+    });
+
+    // 최후의 1인 판정 (승리)
+    if (aliveCount === 1 && player.isPlaying && !isSpectator) {
+      clearInterval(multiState.simTimer);
+      triggerVictory();
+    }
+  }, 800);
+}
+
+function renderMiniOpponent(opp) {
+  const canvas = document.getElementById(`canvas-${opp.id}`);
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  const miniBlockW = canvas.width / COLS;
+  const miniBlockH = canvas.height / ROWS;
+
+  for (let r = 0; r < ROWS; r++) {
+    for (let c = 0; c < COLS; c++) {
+      const val = opp.board[r][c];
+      if (val && PALETTE[val]) {
+        ctx.fillStyle = PALETTE[val].base;
+        ctx.fillRect(c * miniBlockW, r * miniBlockH, miniBlockW - 0.5, miniBlockH - 0.5);
+      }
+    }
+  }
+}
+
+function triggerVictory() {
+  player.isPlaying = false;
+  const overlay = document.getElementById('game-overlay');
+  const msg = document.getElementById('overlay-msg');
+  const scoreSubmitBox = document.getElementById('score-submit-box');
+  const multiBox = document.getElementById('multi-lobby-box');
+
+  overlay.style.display = 'flex';
+  msg.innerText = "🏆 최종 승리 (VICTORY)!";
+  msg.className = "overlay-text win";
+
+  document.getElementById('score-submit-title').innerText = "🏆 대전 우승자 랭킹 등록";
+  multiBox.style.display = 'none';
+  scoreSubmitBox.style.display = 'flex';
+  document.getElementById('username-input').focus();
+}
+
+/* =========================================================
+   4. 게임 엔진 & NEXT 블록 렌더링
+========================================================= */
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
 const nextCanvas = document.getElementById('next-canvas');
@@ -1189,7 +1582,7 @@ const player = {
   lines: 0,
   level: 1,
   isPlaying: false
-}
+};
 
 function collide(arenaTarget, piece) {
   const [m, o] = [piece.matrix, piece.pos];
@@ -1360,6 +1753,7 @@ function triggerGameOver() {
   const overlay = document.getElementById('game-overlay');
   const msg = document.getElementById('overlay-msg');
   const setupBox = document.getElementById('single-setup-box');
+  const multiBox = document.getElementById('multi-lobby-box');
   const scoreSubmitBox = document.getElementById('score-submit-box');
   const pauseBtn = document.getElementById('btn-pause');
 
@@ -1370,12 +1764,18 @@ function triggerGameOver() {
 
   if (player.score > 0) {
     setupBox.style.display = 'none';
+    multiBox.style.display = 'none';
+    document.getElementById('score-submit-title').innerText = "🏆 글로벌 랭킹 등록";
     scoreSubmitBox.style.display = 'flex';
     document.getElementById('username-input').focus();
   } else {
-    setupBox.style.display = 'flex';
+    if (currentAppMode === 'single') {
+      setupBox.style.display = 'flex';
+      document.getElementById('overlay-btn').innerText = '다시 시작';
+    } else {
+      multiBox.style.display = 'flex';
+    }
     scoreSubmitBox.style.display = 'none';
-    document.getElementById('overlay-btn').innerText = '다시 시작';
   }
 }
 
@@ -1395,6 +1795,7 @@ function startGame() {
   applyBoardSize(selectedSize);
 
   document.getElementById('game-overlay').style.display = 'none';
+  document.getElementById('side-opponents-box').style.display = 'none';
   resetGameBoard(startLevel);
   player.isPlaying = true;
   nextPiece = getRandomPiece();
@@ -1410,7 +1811,9 @@ function resetGameBoard(lvl = 1) {
   updateScore();
 }
 
-/* 4. 파티클 이펙트 */
+/* =========================================================
+   5. 파티클 이펙트
+========================================================= */
 const particles = [];
 function spawnParticles(y, colors) {
   for (let x = 0; x < COLS; x++) {
@@ -1452,7 +1855,9 @@ function drawParticles(ctx) {
   });
 }
 
-/* 5. 보드 렌더링 */
+/* =========================================================
+   6. 보드 렌더링
+========================================================= */
 function drawBlock(ctx, x, y, paletteIdx, isGhost = false) {
   const px = x * BLOCK_SIZE;
   const py = y * BLOCK_SIZE;
@@ -1533,27 +1938,34 @@ function draw() {
   drawParticles(context);
 }
 
-/* 6. 입력 제어 */
+/* =========================================================
+   7. DAS / ARR 입력 엔진 (밀림 방지 정밀 보정)
+========================================================= */
 const keys = {
-  ArrowLeft: { pressed: false, timer: 0 },
-  ArrowRight: { pressed: false, timer: 0 },
+  ArrowLeft: { pressed: false, timer: 0, lastStep: 0 },
+  ArrowRight: { pressed: false, timer: 0, lastStep: 0 },
   ArrowDown: { pressed: false, timer: 0 }
 };
 
-const DAS = 130;
-const ARR = 35;
+const DAS = 150; // 지연 시작 시간 (ms)
+const ARR = 40;  // 반복 주기 (ms)
 const SOFT_DROP_RATE = 35;
 
 function handleInput(deltaTime) {
-  if (isPaused) return;
+  if (isPaused || !player.isPlaying) return;
 
   ['ArrowLeft', 'ArrowRight'].forEach(key => {
     const k = keys[key];
     if (k.pressed) {
       k.timer += deltaTime;
-      if (k.timer > DAS) {
-        if ((k.timer - DAS) % ARR < deltaTime) {
-          playerMove(key === 'ArrowLeft' ? -1 : 1);
+      if (k.timer >= DAS) {
+        const steps = Math.floor((k.timer - DAS) / ARR);
+        if (steps > k.lastStep) {
+          const deltaSteps = steps - k.lastStep;
+          for (let i = 0; i < deltaSteps; i++) {
+            playerMove(key === 'ArrowLeft' ? -1 : 1);
+          }
+          k.lastStep = steps;
         }
       }
     }
@@ -1584,10 +1996,12 @@ window.addEventListener('keydown', event => {
   if (event.code === 'ArrowLeft') {
     keys.ArrowLeft.pressed = true;
     keys.ArrowLeft.timer = 0;
+    keys.ArrowLeft.lastStep = 0;
     playerMove(-1);
   } else if (event.code === 'ArrowRight') {
     keys.ArrowRight.pressed = true;
     keys.ArrowRight.timer = 0;
+    keys.ArrowRight.lastStep = 0;
     playerMove(1);
   } else if (event.code === 'ArrowDown') {
     keys.ArrowDown.pressed = true;
@@ -1604,6 +2018,7 @@ window.addEventListener('keyup', event => {
   if (keys[event.code]) {
     keys[event.code].pressed = false;
     keys[event.code].timer = 0;
+    keys[event.code].lastStep = 0;
   }
 });
 
@@ -1646,10 +2061,12 @@ function setupTouchButton(btnId, action) {
     if (action === 'left') {
       keys.ArrowLeft.pressed = true;
       keys.ArrowLeft.timer = 0;
+      keys.ArrowLeft.lastStep = 0;
       playerMove(-1);
     } else if (action === 'right') {
       keys.ArrowRight.pressed = true;
       keys.ArrowRight.timer = 0;
+      keys.ArrowRight.lastStep = 0;
       playerMove(1);
     } else if (action === 'down') {
       keys.ArrowDown.pressed = true;
@@ -1666,8 +2083,16 @@ function setupTouchButton(btnId, action) {
     e.preventDefault();
     e.stopPropagation();
     el.classList.remove('touched');
-    if (action === 'left') keys.ArrowLeft.pressed = false;
-    if (action === 'right') keys.ArrowRight.pressed = false;
+    if (action === 'left') {
+      keys.ArrowLeft.pressed = false;
+      keys.ArrowLeft.timer = 0;
+      keys.ArrowLeft.lastStep = 0;
+    }
+    if (action === 'right') {
+      keys.ArrowRight.pressed = false;
+      keys.ArrowRight.timer = 0;
+      keys.ArrowRight.lastStep = 0;
+    }
     if (action === 'down') keys.ArrowDown.pressed = false;
   };
 
@@ -1686,7 +2111,9 @@ setupTouchButton('v-down', 'down');
 setupTouchButton('v-up', 'rot');
 setupTouchButton('v-drop', 'hard');
 
-/* 7. 메인 루프 */
+/* =========================================================
+   8. 메인 루프 및 초기화 실행
+========================================================= */
 let dropCounter = 0;
 let dropInterval = 800;
 let lastTime = 0;
@@ -1718,7 +2145,7 @@ function update(time = 0) {
   requestAnimationFrame(update);
 }
 
-/* 8. 초기화 실행 */
+// 시작 초기화
 fetchLeaderboard();
 applyBoardSize('standard');
 resetGameBoard(1);
