@@ -4,6 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>테트리스</title>
+  <!-- WebRTC P2P 실시간 통신 라이브러리 -->
+  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
   <style>
     :root {
       --bg-gradient: radial-gradient(circle at center, #150d2a 0%, #080511 100%);
@@ -158,7 +160,6 @@
       transition: background 0.3s ease, color 0.3s ease;
     }
 
-    /* 상단 모드 전환 탭 */
     .top-mode-nav {
       display: flex;
       gap: 6px;
@@ -183,7 +184,6 @@
       box-shadow: 0 0 8px var(--panel-shadow);
     }
 
-    /* 메인 앱 컨테이너 */
     .main-app-container {
       display: flex;
       flex-direction: row;
@@ -204,7 +204,6 @@
       transition: max-width 0.15s ease-out;
     }
 
-    /* 게임 상단 컨트롤 바 */
     .top-controls {
       display: flex;
       flex-direction: row;
@@ -275,7 +274,6 @@
       object-fit: contain;
     }
 
-    /* 게임 시작/종료/로비 오버레이 */
     .game-overlay {
       display: flex;
       position: absolute;
@@ -341,37 +339,20 @@
       text-align: center;
     }
 
-    /* 멀티 대전 룸 목록 컨테이너 */
-    .multi-room-list {
-      list-style: none;
-      width: 100%;
-      max-height: 120px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-      margin: 4px 0;
-    }
-    .multi-room-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--card-border);
+    .room-code-badge {
+      background: rgba(0, 245, 255, 0.2);
+      border: 1px dashed var(--text-accent);
+      color: #fff;
+      padding: 3px 6px;
       border-radius: 4px;
-      padding: 4px 6px;
-      font-size: 9px;
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      user-select: all;
+      -webkit-user-select: all;
+      cursor: pointer;
     }
-    .room-badge {
-      padding: 1px 4px;
-      border-radius: 3px;
-      font-size: 8px;
-      font-weight: 800;
-    }
-    .badge-waiting { background: #238636; color: #fff; }
-    .badge-playing { background: #d29922; color: #000; }
 
-    /* 랭킹 점수 등록 박스 */
     .score-submit-box {
       display: none;
       flex-direction: column;
@@ -396,9 +377,7 @@
       text-align: center;
       margin-bottom: 2px;
     }
-    .score-submit-box input::placeholder { color: #aaa; }
 
-    /* PPSSPP 스타일 터치 패드 */
     .touch-bottom-panel {
       display: none;
       width: 100%;
@@ -412,9 +391,7 @@
       touch-action: none;
       box-shadow: 0 0 10px var(--panel-shadow);
     }
-    .touch-bottom-panel.active {
-      display: flex;
-    }
+    .touch-bottom-panel.active { display: flex; }
 
     .dpad-box {
       display: grid;
@@ -499,7 +476,6 @@
       box-shadow: 0 0 16px var(--text-accent), inset 0 0 10px rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* 우측 슬림 사이드바 & 멀티 대전 보드 리스트 */
     .side-settings-bar {
       display: flex;
       flex-direction: column;
@@ -560,7 +536,6 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    /* 대전 상대방 미니 화면 리스트 */
     .side-opponents-box {
       display: none;
       flex-direction: column;
@@ -644,7 +619,6 @@
       width: 100%;
     }
 
-    /* 명예의 전당 */
     .side-leaderboard-box {
       display: flex;
       flex-direction: column;
@@ -698,7 +672,6 @@
       font-size: 8px;
     }
 
-    /* 조작키 설명 팝업 모달 */
     .controls-modal-backdrop {
       display: none;
       position: fixed;
@@ -754,10 +727,10 @@
 </head>
 <body>
 
-  <!-- 최상단 모드 선택 바 -->
+  <!-- 최상단 모드 전환 탭 -->
   <div class="top-mode-nav">
     <button class="mode-tab-btn active" id="btn-mode-single" onclick="setAppMode('single')">🕹️ 싱글 모드</button>
-    <button class="mode-tab-btn" id="btn-mode-multi" onclick="setAppMode('multi')">⚔️ 온라인 대전</button>
+    <button class="mode-tab-btn" id="btn-mode-multi" onclick="setAppMode('multi')">⚔️ 실시간 온라인 대전</button>
   </div>
 
   <div class="main-app-container" id="main-container">
@@ -765,7 +738,7 @@
     <!-- 1단 (좌측): 대형 메인 보드 -->
     <div class="game-section" id="game-section">
       
-      <!-- 게임 상단 컨트롤 바 (테마, 가이드, 패드) -->
+      <!-- 게임 상단 컨트롤 바 -->
       <div class="top-controls" id="top-controls">
         <div class="top-theme-box">
           <span>🎨 테마</span>
@@ -818,10 +791,10 @@
             <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
           </div>
 
-          <!-- 2. 온라인 대전 로비 & 방 생성/참가 박스 -->
+          <!-- 2. 실시간 WebRTC 온라인 대전 방 생성/참가 박스 -->
           <div id="multi-lobby-box" class="start-setup-box" style="display: none; max-width: 240px;">
             <div style="font-size: 9.5px; font-weight:800; color:var(--text-accent); text-align:center; border-bottom:1px solid var(--card-border); padding-bottom:3px;">
-              온라인 대전 로비 (최대 6인)
+              P2P 실시간 온라인 대전 (최대 6인)
             </div>
             <div class="start-setup-row" style="margin-top:2px;">
               <span>닉네임</span>
@@ -846,20 +819,24 @@
                 <option value="8">8단계</option>
               </select>
             </div>
-            <div class="start-setup-row">
-              <span>인원수</span>
-              <select id="multi-max-players">
-                <option value="2">2명 (1 vs 1)</option>
-                <option value="4">4명 대전</option>
-                <option value="6" selected>6명 (풀방)</option>
-              </select>
-            </div>
-            <button class="btn-ready" style="margin-top:2px;" onclick="createMultiRoom()">방 만들기 & 시작</button>
             
-            <div style="font-size: 8px; color:var(--text-sub); margin-top:4px; font-weight:700;">진행/대기 중인 방 목록</div>
-            <ul class="multi-room-list" id="multi-room-list">
-              <!-- JS 렌더링 -->
-            </ul>
+            <button class="btn-ready" style="margin-top:2px;" onclick="hostCreateRoom()">방 만들기 (Host)</button>
+            
+            <div style="margin: 4px 0; border-top:1px dashed var(--card-border);"></div>
+
+            <div style="font-size: 8px; color:var(--text-sub); text-align:center;">다른 플레이어의 방 코드로 참가</div>
+            <div style="display:flex; gap:3px; margin-top:2px;">
+              <input type="text" id="join-room-input" placeholder="방 코드 (예: TETRIS-XXXX)" style="flex:1; font-size:9px; background:var(--btn-bg); color:#fff; border:1px solid var(--panel-border); border-radius:3px; padding:2px; text-align:center;">
+              <button class="btn" style="width:50px; font-size:9px;" onclick="joinRoomByCode()">참가</button>
+            </div>
+
+            <!-- 생성된 방 대기실 상태 -->
+            <div id="room-waiting-info" style="display:none; flex-direction:column; align-items:center; gap:3px; margin-top:4px; background:rgba(0,0,0,0.5); padding:4px; border-radius:4px; border:1px solid var(--panel-border);">
+              <span style="font-size:8px; color:var(--text-sub);">초대 코드 (클릭 시 복사):</span>
+              <span id="display-room-code" class="room-code-badge" onclick="copyRoomCode()">TETRIS-????</span>
+              <span id="display-player-count" style="font-size:8px; color:#fff;">참가자: 1 / 6명</span>
+              <button id="btn-host-start" class="btn-ready" style="font-size:9.5px; padding:4px;" onclick="hostStartMatch()">대전 시작하기</button>
+            </div>
           </div>
 
           <!-- 3. 점수 달성 시 랭킹 등록 영역 (싱글 & 대전 승자 공용) -->
@@ -1067,7 +1044,7 @@ function cancelSubmitScore() {
 }
 
 /* =========================================================
-   1. 설정 및 테마
+   1. 보드 설정 및 테마
 ========================================================= */
 const BOARD_CONFIG = {
   fixedWidth: 270,
@@ -1163,7 +1140,7 @@ document.getElementById('theme-selector').value = currentThemeKey;
 /* =========================================================
    2. 모드 전환 & 레이아웃 엔진
 ========================================================= */
-let currentAppMode = 'single'; // 'single' or 'multi'
+let currentAppMode = 'single';
 let isSpectator = false;
 let ghostEnabled = true;
 let startLevel = 1;
@@ -1198,11 +1175,12 @@ function setAppMode(mode) {
     resetGameBoard(parseInt(document.getElementById('single-start-level').value, 10));
   } else {
     overlay.style.display = 'flex';
-    document.getElementById('overlay-msg').innerText = "온라인 대전 로비";
+    document.getElementById('overlay-msg').innerText = "실시간 P2P 대전 로비";
     document.getElementById('overlay-msg').style.color = "var(--level-color)";
     singleBox.style.display = 'none';
     multiBox.style.display = 'flex';
-    renderMultiRoomList();
+    document.getElementById('room-waiting-info').style.display = 'none';
+    initPeerNetwork();
   }
   updateResponsiveLayout();
 }
@@ -1313,88 +1291,201 @@ function togglePause() {
 }
 
 /* =========================================================
-   3. 온라인 대전 시뮬레이션 및 멀티플레이 엔진
+   3. 실제 WebRTC P2P 온라인 대전 네트워크 엔진
 ========================================================= */
-const mockMultiRooms = [
-  { id: 'R1', title: '고수만 (표준 10x20)', size: 'standard', lvl: 3, players: 4, max: 6, status: 'playing' },
-  { id: 'R2', title: '초보 환영방', size: 'small', lvl: 1, players: 2, max: 4, status: 'waiting' },
-  { id: 'R3', title: '스피드 대난투', size: 'wide', lvl: 5, players: 5, max: 6, status: 'playing' }
-];
+let peer = null;
+let myPeerId = '';
+let isHost = false;
+let hostConn = null; // 게스트인 경우 방장과의 연결
+let peerConnections = {}; // 방장인 경우 참가자들과의 연결 { peerId: conn }
+let networkPeers = {}; // { peerId: { name, board, isAlive, isSpectator } }
+let broadcastTimer = null;
+let pendingGarbageQueue = 0;
 
-let multiState = {
-  roomId: '',
-  maxPlayers: 6,
-  opponents: [], // [{ id, name, board, isAlive }]
-  simTimer: null
-};
+function initPeerNetwork() {
+  if (peer && !peer.destroyed) return;
 
-function renderMultiRoomList() {
-  const list = document.getElementById('multi-room-list');
-  list.innerHTML = '';
-  mockMultiRooms.forEach(r => {
-    const li = document.createElement('li');
-    li.className = 'multi-room-item';
-    const isPlaying = r.status === 'playing';
-    li.innerHTML = `
-      <div>
-        <div style="font-weight:bold; color:#fff;">${r.title}</div>
-        <div style="color:var(--text-sub); font-size:7.5px;">Lv.${r.lvl} | ${r.players}/${r.max}명</div>
-      </div>
-      <div style="display:flex; align-items:center; gap:4px;">
-        <span class="room-badge ${isPlaying ? 'badge-playing' : 'badge-waiting'}">${isPlaying ? '진행 중' : '대기 중'}</span>
-        <button class="btn" style="padding:2px 6px; font-size:8px; width:auto;" onclick="joinMultiRoom('${r.id}', ${isPlaying})">
-          ${isPlaying ? '관전' : '참가'}
-        </button>
-      </div>
-    `;
-    list.appendChild(li);
+  const randId = 'TETRIS-' + Math.random().toString(36).substring(2, 6).toUpperCase();
+  peer = new Peer(randId, {
+    debug: 1
+  });
+
+  peer.on('open', id => {
+    myPeerId = id;
+    console.log("My Peer ID:", myPeerId);
+  });
+
+  peer.on('connection', conn => {
+    handleIncomingConnection(conn);
+  });
+
+  peer.on('error', err => {
+    console.warn("PeerJS connection note:", err);
   });
 }
 
-function createMultiRoom() {
-  const name = document.getElementById('multi-player-name').value.trim() || 'Player';
+function handleIncomingConnection(conn) {
+  conn.on('open', () => {
+    const isRoomFull = Object.keys(peerConnections).length >= 5;
+    const isGameStarted = player.isPlaying;
+
+    conn.on('data', data => {
+      handleNetworkMessage(conn, data);
+    });
+
+    if (isHost) {
+      peerConnections[conn.peer] = conn;
+      // 방 정보 및 상태 동기화 전달
+      conn.send({
+        type: 'ROOM_SYNC',
+        sizeKey: currentBoardSizeKey,
+        startLevel: startLevel,
+        isStarted: isGameStarted,
+        isSpectator: isGameStarted || isRoomFull
+      });
+      updateWaitingPlayerCount();
+    }
+  });
+
+  conn.on('close', () => {
+    delete peerConnections[conn.peer];
+    delete networkPeers[conn.peer];
+    updateWaitingPlayerCount();
+    buildOpponentCardsUI();
+  });
+}
+
+function hostCreateRoom() {
+  if (!peer || !myPeerId) {
+    initPeerNetwork();
+  }
+
+  isHost = true;
   const sizeKey = document.getElementById('multi-board-size').value;
   const lvl = parseInt(document.getElementById('multi-start-level').value, 10);
-  const max = parseInt(document.getElementById('multi-max-players').value, 10);
-
-  multiState.maxPlayers = max;
-  multiState.opponents = [];
-  for (let i = 1; i < max; i++) {
-    multiState.opponents.push({
-      id: `bot_${i}`,
-      name: `Challenger_${i}`,
-      board: createMatrix(BOARD_SIZES[sizeKey].cols, BOARD_SIZES[sizeKey].rows),
-      isAlive: true
-    });
-  }
-
-  isSpectator = false;
-  startMultiGame(sizeKey, lvl);
-}
-
-function joinMultiRoom(roomId, asSpectator = false) {
-  const room = mockMultiRooms.find(r => r.id === roomId) || mockMultiRooms[0];
-  multiState.maxPlayers = room.max;
-  multiState.opponents = [];
-
-  const totalBots = asSpectator ? room.players : room.players - 1;
-  for (let i = 1; i <= totalBots; i++) {
-    multiState.opponents.push({
-      id: `opp_${i}`,
-      name: `Player_${i}`,
-      board: createMatrix(BOARD_SIZES[room.size].cols, BOARD_SIZES[room.size].rows),
-      isAlive: true
-    });
-  }
-
-  isSpectator = asSpectator;
-  startMultiGame(room.size, room.lvl);
-}
-
-function startMultiGame(sizeKey, lvl) {
   applyBoardSize(sizeKey);
-  resetGameBoard(lvl);
-  
+  startLevel = lvl;
+
+  document.getElementById('room-waiting-info').style.display = 'flex';
+  document.getElementById('display-room-code').innerText = myPeerId;
+  document.getElementById('btn-host-start').style.display = 'block';
+  updateWaitingPlayerCount();
+}
+
+function copyRoomCode() {
+  navigator.clipboard.writeText(myPeerId).then(() => {
+    alert("방 코드가 클립보드에 복사되었습니다: " + myPeerId);
+  }).catch(() => {
+    alert("방 코드: " + myPeerId);
+  });
+}
+
+function updateWaitingPlayerCount() {
+  const count = Object.keys(peerConnections).length + 1;
+  const countElem = document.getElementById('display-player-count');
+  if (countElem) {
+    countElem.innerText = `참가자: ${count} / 6명`;
+  }
+}
+
+function joinRoomByCode() {
+  const code = document.getElementById('join-room-input').value.trim().toUpperCase();
+  if (!code) {
+    alert("참가할 방 코드를 입력해주세요.");
+    return;
+  }
+  if (!peer) initPeerNetwork();
+
+  isHost = false;
+  hostConn = peer.connect(code);
+
+  hostConn.on('open', () => {
+    const myName = document.getElementById('multi-player-name').value.trim() || 'Player';
+    hostConn.send({ type: 'JOIN', name: myName });
+    document.getElementById('overlay-msg').innerText = "방 연결 성공! 대기 중...";
+    document.getElementById('overlay-msg').style.color = "var(--text-accent)";
+  });
+
+  hostConn.on('data', data => {
+    handleNetworkMessage(hostConn, data);
+  });
+
+  hostConn.on('close', () => {
+    alert("방장과의 연결이 끊어졌습니다.");
+    setAppMode('multi');
+  });
+}
+
+function hostStartMatch() {
+  // 방장이 모든 참가자에게 시작 신호 브로드캐스트
+  broadcastToAll({
+    type: 'GAME_START',
+    sizeKey: currentBoardSizeKey,
+    startLevel: startLevel
+  });
+
+  startActualMultiGame(false);
+}
+
+function handleNetworkMessage(conn, data) {
+  if (data.type === 'ROOM_SYNC') {
+    applyBoardSize(data.sizeKey);
+    startLevel = data.startLevel;
+    if (data.isStarted) {
+      // 진행 중인 게임 관전 모드로 즉시 진입
+      isSpectator = true;
+      startActualMultiGame(true);
+    }
+  } else if (data.type === 'JOIN') {
+    networkPeers[conn.peer] = {
+      name: data.name || 'User',
+      board: createMatrix(COLS, ROWS),
+      isAlive: true,
+      isSpectator: false
+    };
+    buildOpponentCardsUI();
+  } else if (data.type === 'GAME_START') {
+    applyBoardSize(data.sizeKey);
+    startLevel = data.startLevel;
+    startActualMultiGame(false);
+  } else if (data.type === 'STATE_UPDATE') {
+    if (!networkPeers[conn.peer]) {
+      networkPeers[conn.peer] = { name: data.name, board: data.board, isAlive: data.isAlive };
+      buildOpponentCardsUI();
+    } else {
+      networkPeers[conn.peer].board = data.board;
+      networkPeers[conn.peer].isAlive = data.isAlive;
+    }
+    renderPeerMiniCanvas(conn.peer);
+
+    // 방장인 경우 다른 모든 피어에게 릴레이
+    if (isHost) {
+      for (let pId in peerConnections) {
+        if (pId !== conn.peer) {
+          peerConnections[pId].send(data);
+        }
+      }
+    }
+    checkMultiWinner();
+  } else if (data.type === 'ATTACK_GARBAGE') {
+    if (!isSpectator && player.isPlaying) {
+      pendingGarbageQueue += data.lines;
+    }
+  }
+}
+
+function broadcastToAll(msg) {
+  if (isHost) {
+    for (let pId in peerConnections) {
+      peerConnections[pId].send(msg);
+    }
+  } else if (hostConn && hostConn.open) {
+    hostConn.send(msg);
+  }
+}
+
+function startActualMultiGame(asSpectator = false) {
+  isSpectator = asSpectator;
   document.getElementById('game-overlay').style.display = 'none';
   document.getElementById('side-opponents-box').style.display = 'flex';
   
@@ -1405,77 +1496,54 @@ function startMultiGame(sizeKey, lvl) {
     document.getElementById('overlay-msg').innerText = "👁️ 실시간 관전 중";
     document.getElementById('overlay-msg').style.color = "#d29922";
   } else {
+    resetGameBoard(startLevel);
     player.isPlaying = true;
     nextPiece = getRandomPiece();
     playerReset();
   }
 
-  startOpponentSimulation();
+  // 내 보드 데이터 주기적 실시간 브로드캐스트 (0.12초)
+  if (broadcastTimer) clearInterval(broadcastTimer);
+  broadcastTimer = setInterval(() => {
+    if (currentAppMode !== 'multi') {
+      clearInterval(broadcastTimer);
+      return;
+    }
+    broadcastToAll({
+      type: 'STATE_UPDATE',
+      peerId: myPeerId,
+      name: document.getElementById('multi-player-name').value.trim() || 'Player',
+      board: arena,
+      isAlive: player.isPlaying
+    });
+  }, 120);
 }
 
 function buildOpponentCardsUI() {
   const container = document.getElementById('side-opponents-box');
   container.innerHTML = '';
 
-  multiState.opponents.forEach(opp => {
+  for (let pId in networkPeers) {
+    const opp = networkPeers[pId];
     const card = document.createElement('div');
-    card.className = 'opp-card';
-    card.id = `opp-card-${opp.id}`;
+    card.className = 'opp-card' + (opp.isAlive ? '' : ' ko');
+    card.id = `opp-card-${pId}`;
 
     const miniW = 54;
     const miniH = Math.floor(miniW * (ROWS / COLS));
 
     card.innerHTML = `
       <span class="opp-name">${opp.name}</span>
-      <canvas id="canvas-${opp.id}" class="opp-canvas" width="${miniW}" height="${miniH}"></canvas>
+      <canvas id="canvas-${pId}" class="opp-canvas" width="${miniW}" height="${miniH}"></canvas>
     `;
     container.appendChild(card);
-  });
+  }
 }
 
-function startOpponentSimulation() {
-  if (multiState.simTimer) clearInterval(multiState.simTimer);
-
-  multiState.simTimer = setInterval(() => {
-    if (currentAppMode !== 'multi') {
-      clearInterval(multiState.simTimer);
-      return;
-    }
-
-    let aliveCount = (player.isPlaying && !isSpectator) ? 1 : 0;
-
-    multiState.opponents.forEach(opp => {
-      if (!opp.isAlive) return;
-
-      // 봇 블록 쌓기 시뮬레이션
-      if (Math.random() < 0.45) {
-        const randR = Math.floor(Math.random() * (ROWS - 4)) + 4;
-        const randC = Math.floor(Math.random() * COLS);
-        opp.board[randR][randC] = Math.floor(Math.random() * 7) + 1;
-      }
-
-      // 일정 확률로 KO 탈락
-      if (Math.random() < 0.035) {
-        opp.isAlive = false;
-        const card = document.getElementById(`opp-card-${opp.id}`);
-        if (card) card.classList.add('ko');
-      } else {
-        aliveCount++;
-      }
-
-      renderMiniOpponent(opp);
-    });
-
-    // 최후의 1인 판정 (승리)
-    if (aliveCount === 1 && player.isPlaying && !isSpectator) {
-      clearInterval(multiState.simTimer);
-      triggerVictory();
-    }
-  }, 800);
-}
-
-function renderMiniOpponent(opp) {
-  const canvas = document.getElementById(`canvas-${opp.id}`);
+function renderPeerMiniCanvas(pId) {
+  const opp = networkPeers[pId];
+  if (!opp) return;
+  const canvas = document.getElementById(`canvas-${pId}`);
   if (!canvas) return;
   const ctx = canvas.getContext('2d');
   ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -1485,12 +1553,49 @@ function renderMiniOpponent(opp) {
 
   for (let r = 0; r < ROWS; r++) {
     for (let c = 0; c < COLS; c++) {
-      const val = opp.board[r][c];
+      const val = opp.board[r] ? opp.board[r][c] : 0;
       if (val && PALETTE[val]) {
         ctx.fillStyle = PALETTE[val].base;
         ctx.fillRect(c * miniBlockW, r * miniBlockH, miniBlockW - 0.5, miniBlockH - 0.5);
       }
     }
+  }
+}
+
+function sendGarbageAttack(clearedLines) {
+  let attackLines = clearedLines >= 4 ? 4 : clearedLines - 1;
+  if (attackLines > 0) {
+    broadcastToAll({
+      type: 'ATTACK_GARBAGE',
+      lines: attackLines
+    });
+  }
+}
+
+function receiveGarbageLines() {
+  if (pendingGarbageQueue <= 0) return;
+  const addCount = pendingGarbageQueue;
+  pendingGarbageQueue = 0;
+
+  for (let i = 0; i < addCount; i++) {
+    arena.shift();
+    const garbageRow = new Array(COLS).fill(8); // 회색 블록
+    garbageRow[Math.floor(Math.random() * COLS)] = 0; // 1개 빈 구멍
+    arena.push(garbageRow);
+  }
+}
+
+function checkMultiWinner() {
+  if (isSpectator || !player.isPlaying) return;
+  
+  let otherAlive = 0;
+  for (let pId in networkPeers) {
+    if (networkPeers[pId].isAlive) otherAlive++;
+  }
+
+  // 나와 연결된 상대방이 1명 이상 있고, 그들이 모두 탈락했을 때
+  if (Object.keys(networkPeers).length > 0 && otherAlive === 0) {
+    triggerVictory();
   }
 }
 
@@ -1512,7 +1617,7 @@ function triggerVictory() {
 }
 
 /* =========================================================
-   4. 게임 엔진 & NEXT 블록 렌더링
+   4. 테트리스 코어 게임 엔진 & NEXT 블록
 ========================================================= */
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -1664,6 +1769,7 @@ function resetLockDelay() {
 function lockPiece() {
   merge(arena, player);
   arenaSweep();
+  receiveGarbageLines();
   playerReset();
   lockTimer = 0;
   lockResets = 0;
@@ -1730,6 +1836,10 @@ function arenaSweep() {
     player.level = startLevel + Math.floor(player.lines / 10);
     dropInterval = Math.max(80, 800 - (player.level - 1) * 70);
     updateScore();
+
+    if (currentAppMode === 'multi') {
+      sendGarbageAttack(rowCount);
+    }
   }
 }
 
@@ -1761,6 +1871,16 @@ function triggerGameOver() {
   msg.innerText = "게임 종료";
   msg.className = "overlay-text lose";
   pauseBtn.innerText = "⏸️ 정지";
+
+  if (currentAppMode === 'multi') {
+    broadcastToAll({
+      type: 'STATE_UPDATE',
+      peerId: myPeerId,
+      name: document.getElementById('multi-player-name').value.trim() || 'Player',
+      board: arena,
+      isAlive: false
+    });
+  }
 
   if (player.score > 0) {
     setupBox.style.display = 'none';
@@ -1947,8 +2067,8 @@ const keys = {
   ArrowDown: { pressed: false, timer: 0 }
 };
 
-const DAS = 150; // 지연 시작 시간 (ms)
-const ARR = 40;  // 반복 주기 (ms)
+const DAS = 150;
+const ARR = 40;
 const SOFT_DROP_RATE = 35;
 
 function handleInput(deltaTime) {
@@ -2112,7 +2232,7 @@ setupTouchButton('v-up', 'rot');
 setupTouchButton('v-drop', 'hard');
 
 /* =========================================================
-   8. 메인 루프 및 초기화 실행
+   8. 메인 루프 및 초기화
 ========================================================= */
 let dropCounter = 0;
 let dropInterval = 800;
@@ -2145,7 +2265,6 @@ function update(time = 0) {
   requestAnimationFrame(update);
 }
 
-// 시작 초기화
 fetchLeaderboard();
 applyBoardSize('standard');
 resetGameBoard(1);
