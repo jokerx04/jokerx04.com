@@ -29,6 +29,10 @@
       --psp-btn-border: rgba(0, 245, 255, 0.6);
       --psp-btn-active: rgba(0, 245, 255, 0.7);
       --psp-btn-glow: rgba(0, 245, 255, 0.3);
+
+      --app-scale-w: 240px;
+      --app-side-w: 95px;
+      --app-height: 480px;
     }
 
     body[data-theme="retro"] {
@@ -274,7 +278,7 @@
       user-select: none;
       -webkit-user-select: none;
       position: relative;
-      padding: max(6px, env(safe-area-inset-top, 6px)) 6px max(6px, env(safe-area-inset-bottom, 6px)) 6px;
+      padding: max(4px, env(safe-area-inset-top, 4px)) 4px max(4px, env(safe-area-inset-bottom, 4px)) 4px;
       transition: background 0.3s ease, color 0.3s ease;
     }
 
@@ -283,50 +287,53 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      width: 373px;
-      max-width: 100%;
+      width: 100%;
+      max-width: 380px;
       height: 100%;
       max-height: 100%;
       margin: 0 auto;
-      gap: 6px;
+      gap: 4px;
     }
 
     /* 최상단 1열 기능 바 */
     .top-action-nav {
       display: grid;
-      grid-template-columns: 1.25fr 1fr 1fr 1fr;
-      gap: 6px;
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      gap: 4px;
       width: 100%;
       z-index: 30;
       box-sizing: border-box;
+      max-width: calc(var(--app-scale-w) + var(--app-side-w) + 6px);
     }
 
-    /* 테마 선택기 컨테이너 (아이콘 + 셀렉트) */
     .theme-select-container {
       display: flex;
       align-items: center;
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
       border-radius: 6px;
-      padding: 0 4px 0 6px;
-      gap: 3px;
+      padding: 0 2px 0 4px;
+      gap: 2px;
+      min-width: 0;
     }
     .theme-icon-label {
       font-size: 11px;
       line-height: 1;
+      flex-shrink: 0;
     }
     .theme-select-inline {
       background: transparent;
       border: none;
       color: var(--text-accent);
-      padding: 5px 0;
+      padding: 4px 0;
       border-radius: 4px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
       cursor: pointer;
       outline: none;
       text-align: center;
       width: 100%;
+      min-width: 0;
     }
     .theme-select-inline option {
       background: #0d061a;
@@ -337,9 +344,9 @@
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
       color: var(--text-sub);
-      padding: 5px 0;
+      padding: 4px 0;
       border-radius: 6px;
-      font-size: 11.5px;
+      font-size: 11px;
       font-weight: 800;
       cursor: pointer;
       transition: all 0.2s ease;
@@ -348,7 +355,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      gap: 3px;
+      gap: 2px;
+      min-width: 0;
     }
     .btn-nav-tile:hover {
       background: var(--btn-bg);
@@ -363,31 +371,32 @@
       box-shadow: 0 0 8px var(--panel-shadow);
     }
 
-    /* 메인 플레이 영역 (보드 260px + gap 8px + 사이드바 105px = 373px) */
+    /* 메인 플레이 영역 */
     .main-app-container {
       display: flex;
       flex-direction: row;
       align-items: stretch;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       width: 100%;
-      height: 520px;
+      height: var(--app-height);
+      max-width: calc(var(--app-scale-w) + var(--app-side-w) + 6px);
     }
 
     .side-bar {
       display: flex;
       flex-direction: column;
-      gap: 4px;
-      width: 105px;
-      min-width: 105px;
-      max-width: 105px;
+      gap: 3px;
+      width: var(--app-side-w);
+      min-width: var(--app-side-w);
+      max-width: var(--app-side-w);
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
-      border-radius: 10px;
-      padding: 4px;
+      border-radius: 9px;
+      padding: 4px 3px;
       box-shadow: 0 0 10px var(--panel-shadow);
       z-index: 20;
-      height: 520px;
+      height: 100%;
       overflow: hidden;
       box-sizing: border-box;
     }
@@ -396,16 +405,16 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      width: 260px;
-      min-width: 260px;
-      max-width: 260px;
-      height: 520px;
+      width: var(--app-scale-w);
+      min-width: var(--app-scale-w);
+      max-width: var(--app-scale-w);
+      height: 100%;
     }
 
     .canvas-container {
       position: relative;
-      border-radius: 10px;
-      padding: 2.5px;
+      border-radius: 9px;
+      padding: 2px;
       background: var(--board-border-grad);
       box-shadow: 0 0 14px var(--board-shadow);
       display: flex;
@@ -417,10 +426,11 @@
     }
     canvas#tetris {
       background-color: #06030e;
-      border-radius: 7px;
+      border-radius: 6px;
       display: block;
-      width: 260px;
-      height: 520px;
+      width: 100%;
+      height: 100%;
+      object-fit: fill;
     }
 
     .game-overlay {
@@ -434,14 +444,14 @@
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      gap: 8px;
+      gap: 6px;
       z-index: 25;
-      padding: 8px;
+      padding: 6px;
       width: 100%;
       overflow-y: auto;
     }
     .overlay-text {
-      font-size: 15px;
+      font-size: 14px;
       font-weight: 900;
       letter-spacing: 0.5px;
       text-align: center;
@@ -451,19 +461,19 @@
     .start-setup-box {
       display: flex;
       flex-direction: column;
-      gap: 6px;
+      gap: 5px;
       width: 96%;
-      max-width: 250px;
+      max-width: 220px;
       background: rgba(255, 255, 255, 0.06);
       border: 1px solid var(--card-border);
-      padding: 10px;
+      padding: 8px;
       border-radius: 8px;
     }
     .start-setup-row {
       display: flex;
       justify-content: space-between;
       align-items: center;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-main);
       width: 100%;
       white-space: nowrap;
@@ -475,13 +485,13 @@
     }
     .start-setup-row select {
       flex: 1.3;
-      max-width: 125px;
-      font-size: 11px;
-      padding: 4px 6px;
+      max-width: 110px;
+      font-size: 10px;
+      padding: 3px 4px;
       background: var(--btn-bg);
       color: var(--text-accent);
       border: 1px solid var(--panel-border);
-      border-radius: 5px;
+      border-radius: 4px;
       font-weight: 700;
       outline: none;
       text-align: center;
@@ -491,22 +501,22 @@
       display: none;
       flex-direction: column;
       align-items: center;
-      gap: 5px;
-      width: 90%;
-      max-width: 210px;
+      gap: 4px;
+      width: 92%;
+      max-width: 200px;
       background: rgba(255, 255, 255, 0.08);
       border: 1px solid var(--card-border);
-      padding: 10px;
+      padding: 8px;
       border-radius: 6px;
     }
     .score-submit-box input {
       width: 100%;
-      padding: 5px 6px;
+      padding: 4px 6px;
       background: rgba(0, 0, 0, 0.5);
       border: 1px solid var(--card-border);
       border-radius: 4px;
       color: #fff;
-      font-size: 12px;
+      font-size: 11px;
       outline: none;
       text-align: center;
       margin-bottom: 2px;
@@ -518,33 +528,34 @@
       width: 100%;
       justify-content: space-between;
       align-items: center;
-      padding: 6px 10px;
+      padding: 4px 8px;
       background: var(--panel-bg);
-      border-radius: 10px;
+      border-radius: 9px;
       border: 1px solid var(--panel-border);
       z-index: 20;
       touch-action: none;
       box-shadow: 0 0 10px var(--panel-shadow);
+      max-width: calc(var(--app-scale-w) + var(--app-side-w) + 6px);
     }
     .touch-bottom-panel.active { display: flex; }
 
     /* 대형 D-Pad */
     .dpad-box {
       display: grid;
-      grid-template-columns: repeat(3, 46px);
-      grid-template-rows: repeat(2, 42px);
-      gap: 4px;
+      grid-template-columns: repeat(3, 40px);
+      grid-template-rows: repeat(2, 36px);
+      gap: 3px;
       justify-items: center;
       align-items: center;
     }
     .t-btn {
-      width: 46px;
-      height: 42px;
+      width: 40px;
+      height: 36px;
       background: var(--psp-btn-bg);
       border: 1.5px solid var(--psp-btn-border);
-      border-radius: 9px;
+      border-radius: 8px;
       color: var(--text-accent);
-      font-size: 17px;
+      font-size: 15px;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -575,13 +586,13 @@
       align-items: center;
     }
     .act-btn-drop {
-      width: 62px;
-      height: 62px;
+      width: 54px;
+      height: 54px;
       background: var(--psp-btn-bg);
       border: 2px solid var(--psp-btn-border);
       border-radius: 50%;
       color: var(--text-accent);
-      font-size: 10px;
+      font-size: 9px;
       font-weight: 900;
       white-space: nowrap;
       letter-spacing: -0.3px;
@@ -599,9 +610,9 @@
       transition: all 0.08s ease-out;
     }
     .act-btn-drop span {
-      font-size: 18px;
+      font-size: 16px;
       line-height: 1;
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       filter: drop-shadow(0 0 3px var(--text-accent));
     }
     .act-btn-drop:active, .act-btn-drop.touched {
@@ -612,7 +623,7 @@
       box-shadow: 0 0 16px var(--text-accent), inset 0 0 10px rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* 사이드바 통계 카드 (점수 아래 줄, 단계 2열 배치) */
+    /* 사이드바 통계 카드 (1열 줄, 2열 단계) */
     .side-stat-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -620,7 +631,7 @@
       padding: 3px 2px;
       display: flex;
       flex-direction: column;
-      gap: 2px;
+      gap: 1px;
       text-align: center;
       flex-shrink: 0;
     }
@@ -645,13 +656,13 @@
       align-items: center;
     }
     .side-stat-label {
-      font-size: 8px;
+      font-size: 7.5px;
       font-weight: 800;
       color: var(--text-sub);
       line-height: 1;
     }
     .side-stat-value {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 900;
       line-height: 1.1;
       font-variant-numeric: tabular-nums;
@@ -674,6 +685,8 @@
       background: rgba(0, 0, 0, 0.3);
       border-radius: 4px;
       border: 1px solid rgba(255, 255, 255, 0.05);
+      width: 36px;
+      height: 36px;
     }
 
     .btn {
@@ -685,7 +698,7 @@
       font-weight: 800;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 9.5px;
+      font-size: 9px;
       white-space: nowrap;
       text-align: center;
       width: 100%;
@@ -705,14 +718,14 @@
       border: 1px solid #ffe600;
       color: #ffe600;
       flex-shrink: 0;
-      padding: 4px 0;
+      padding: 3px 0;
     }
     .btn-ready {
       background: #ffe600;
       color: #080511;
       border: none;
-      font-size: 12px;
-      padding: 7px 12px;
+      font-size: 11px;
+      padding: 6px 10px;
       box-shadow: 0 0 10px rgba(255, 230, 0, 0.5);
       border-radius: 6px;
       font-weight: 800;
@@ -726,7 +739,7 @@
       flex-direction: column;
       align-items: center;
       background: rgba(0, 0, 0, 0.4);
-      padding: 3px 2px;
+      padding: 2px;
       border-radius: 6px;
       border: 1px solid var(--card-border);
       width: 100%;
@@ -735,10 +748,10 @@
     }
 
     .side-leaderboard-box .title {
-      font-size: 8.5px;
+      font-size: 8px;
       font-weight: 800;
       color: var(--level-color);
-      margin-bottom: 2px;
+      margin-bottom: 1px;
       text-shadow: 0 0 4px var(--level-color);
       flex-shrink: 0;
       line-height: 1;
@@ -750,17 +763,17 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: calc(100% - 12px);
-      gap: 1.5px;
+      height: calc(100% - 10px);
+      gap: 1px;
     }
     
     .leaderboard-item {
       display: flex;
       flex-direction: column;
       align-items: flex-start;
-      gap: 1px;
-      font-size: 7.5px;
-      padding: 2px 3px;
+      gap: 0;
+      font-size: 7px;
+      padding: 1.5px 2px;
       background: rgba(255, 255, 255, 0.05);
       border-radius: 3px;
       line-height: 1;
@@ -773,14 +786,14 @@
       overflow: hidden; 
       text-overflow: ellipsis; 
       width: 100%; 
-      max-width: 86px; 
+      max-width: 80px; 
       font-weight: 600;
     }
     .leaderboard-item .score { 
       font-weight: 800; 
       color: var(--text-main); 
       align-self: flex-end; 
-      font-size: 7.5px; 
+      font-size: 7px; 
     }
 
     .controls-modal-backdrop {
@@ -793,7 +806,7 @@
       z-index: 100;
       justify-content: center;
       align-items: center;
-      padding: 16px;
+      padding: 14px;
     }
     .controls-modal-card {
       background: var(--panel-bg);
@@ -809,15 +822,15 @@
       gap: 8px;
     }
     .controls-modal-card h3 {
-      font-size: 14px;
+      font-size: 13px;
       color: var(--text-accent);
     }
     .modal-guide-list {
       display: flex;
       flex-direction: column;
-      gap: 5px;
+      gap: 4px;
       text-align: left;
-      font-size: 11px;
+      font-size: 10px;
       color: var(--text-main);
       background: var(--card-bg);
       padding: 8px;
@@ -827,12 +840,22 @@
     }
     .key-badge {
       display: inline-block;
-      padding: 2px 5px;
+      padding: 1px 4px;
       background: rgba(255, 255, 255, 0.12);
       border-radius: 3px;
       color: var(--text-accent);
       font-weight: 700;
-      font-size: 10px;
+      font-size: 9px;
+    }
+
+    /* 초소형 화면(iPhone SE / 가로 320~350px) 전용 미세 최적화 */
+    @media (max-width: 350px) {
+      .top-action-nav { gap: 2px; }
+      .theme-select-inline, .btn-nav-tile { font-size: 9.5px; }
+      .dpad-box { grid-template-columns: repeat(3, 36px); grid-template-rows: repeat(2, 32px); }
+      .t-btn { width: 36px; height: 32px; font-size: 13px; }
+      .act-btn-drop { width: 48px; height: 48px; font-size: 8px; }
+      .act-btn-drop span { font-size: 14px; }
     }
   </style>
 </head>
@@ -862,7 +885,7 @@
       <button class="btn-nav-tile" onclick="openControlsModal()">⌨️ 조작키</button>
     </div>
 
-    <!-- 메인 컨테이너 (보드 260px 고정 + 우측 사이드바 105px 고정, 높이 520px 동일) -->
+    <!-- 메인 컨테이너 (보드 & 우측 사이드바 동적 반응형) -->
     <div class="main-app-container" id="main-container">
       
       <!-- 게임 섹션 -->
@@ -937,7 +960,7 @@
 
         <div class="side-next-card" id="side-next-card">
           <span class="side-stat-label">다음 블록</span>
-          <canvas id="next-canvas" width="40" height="40"></canvas>
+          <canvas id="next-canvas" width="36" height="36"></canvas>
         </div>
 
         <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
@@ -983,7 +1006,7 @@
         <div>• <span class="key-badge">Space</span> / <span class="key-badge">⚡</span> : 하드 드롭</div>
         <div>• <span class="key-badge">P</span> : 일시 정지 / 계속하기</div>
       </div>
-      <button class="btn" style="padding: 7px;" onclick="closeControlsModal()">닫기</button>
+      <button class="btn" style="padding: 6px;" onclick="closeControlsModal()">닫기</button>
     </div>
   </div>
 
@@ -1090,8 +1113,8 @@ function cancelSubmitScore() {
 /* =========================================================
    1. 보드 설정 및 10종 테마
 ========================================================= */
-const FIXED_BOARD_WIDTH = 260;
-const FIXED_BOARD_HEIGHT = 520;
+const RENDER_WIDTH = 260;
+const RENDER_HEIGHT = 520;
 
 const BOARD_SIZES = {
   small:    { cols: 8,  rows: 16 },
@@ -1104,8 +1127,8 @@ const BOARD_SIZES = {
 let currentBoardSizeKey = 'standard';
 let COLS = BOARD_SIZES.standard.cols;
 let ROWS = BOARD_SIZES.standard.rows;
-let BLOCK_W = FIXED_BOARD_WIDTH / COLS;
-let BLOCK_H = FIXED_BOARD_HEIGHT / ROWS;
+let BLOCK_W = RENDER_WIDTH / COLS;
+let BLOCK_H = RENDER_HEIGHT / ROWS;
 
 const THEMES = {
   neon: [
@@ -1243,11 +1266,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================================
-   2. 게임 상태 & 보드 크기 적용
+   2. 동적 반응형 뷰포트 스케일링 엔진
 ========================================================= */
 let ghostEnabled = true;
 let startLevel = 1;
 let isPaused = false;
+let isKeypadActive = false;
 
 function openControlsModal() {
   document.getElementById('controls-modal').style.display = 'flex';
@@ -1259,17 +1283,53 @@ function closeControlsModal(e) {
   }
 }
 
+function updateResponsiveLayout() {
+  const vw = window.innerWidth;
+  const vh = window.innerHeight;
+  const isPadOpen = isKeypadActive;
+
+  // 상단 바(32px) + 패드(70px/0px) + 여백(16px) 계산
+  const topNavH = 34;
+  const padH = isPadOpen ? 76 : 0;
+  const marginH = 14;
+
+  const availHeight = vh - topNavH - padH - marginH;
+  const availWidth = vw - 8; // 좌우 안전 마진 4px씩
+
+  // 표준 보드 1:2 비율 기반 최적 높이 및 너비 도출
+  let targetH = Math.min(availHeight, 520);
+  targetH = Math.max(targetH, 300); // 최소 높이 보장
+
+  let sideW = Math.max(82, Math.min(105, Math.floor(availWidth * 0.28)));
+  let boardW = targetH * 0.5; // 1:2 비율
+
+  // 화면 가로를 초과할 경우 너비에 맞춰 높이 재역산
+  if (boardW + sideW + 6 > availWidth) {
+    boardW = Math.max(150, availWidth - sideW - 6);
+    targetH = boardW * 2;
+  }
+
+  // CSS 변수 동적 적용
+  document.documentElement.style.setProperty('--app-height', `${Math.round(targetH)}px`);
+  document.documentElement.style.setProperty('--app-scale-w', `${Math.round(boardW)}px`);
+  document.documentElement.style.setProperty('--app-side-w', `${Math.round(sideW)}px`);
+}
+
+window.addEventListener('resize', updateResponsiveLayout);
+window.addEventListener('orientationchange', () => setTimeout(updateResponsiveLayout, 100));
+
 function applyBoardSize(sizeKey) {
   const cfg = BOARD_SIZES[sizeKey] || BOARD_SIZES.standard;
   currentBoardSizeKey = sizeKey;
   COLS = cfg.cols;
   ROWS = cfg.rows;
   
-  BLOCK_W = FIXED_BOARD_WIDTH / COLS;
-  BLOCK_H = FIXED_BOARD_HEIGHT / ROWS;
+  BLOCK_W = RENDER_WIDTH / COLS;
+  BLOCK_H = RENDER_HEIGHT / ROWS;
   
-  canvas.width = FIXED_BOARD_WIDTH;
-  canvas.height = FIXED_BOARD_HEIGHT;
+  canvas.width = RENDER_WIDTH;
+  canvas.height = RENDER_HEIGHT;
+  updateResponsiveLayout();
 }
 
 function onBoardSizeChange(sizeKey) {
@@ -1358,7 +1418,7 @@ function drawNextPiece() {
   nextContext.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
   if (!nextPiece) return;
 
-  const size = 8;
+  const size = 7.5;
   const offsetX = (nextCanvas.width - nextPiece[0].length * size) / 2;
   const offsetY = (nextCanvas.height - nextPiece.length * size) / 2;
 
@@ -1829,7 +1889,6 @@ window.addEventListener('keyup', event => {
   }
 });
 
-let isKeypadActive = false;
 function autoDetectMobileTouch() {
   const isTouchDevice = ('ontouchstart' in window) || (navigator.maxTouchPoints > 0) || (window.innerWidth <= 768);
   if (isTouchDevice) {
@@ -1848,6 +1907,7 @@ function setKeypadState(active) {
     panel.classList.remove('active');
     btn.classList.remove('on');
   }
+  updateResponsiveLayout();
 }
 
 function toggleVirtualKeypad() {
@@ -1955,6 +2015,7 @@ fetchLeaderboard();
 applyBoardSize('standard');
 resetGameBoard(1);
 autoDetectMobileTouch();
+updateResponsiveLayout();
 update();
 </script>
 
