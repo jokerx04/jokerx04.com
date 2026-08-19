@@ -174,7 +174,7 @@
       flex-direction: row;
       align-items: flex-start;
       justify-content: center;
-      gap: 8px;
+      gap: 6px;
       width: 100%;
       height: 100%;
       max-height: 100%;
@@ -184,9 +184,9 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      width: 88px;
-      min-width: 88px;
-      max-width: 88px;
+      width: 84px;
+      min-width: 84px;
+      max-width: 84px;
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
       border-radius: 10px;
@@ -282,7 +282,6 @@
       text-align: center;
     }
     .overlay-text.lose { color: #ff0055; text-shadow: 0 0 10px #ff0055; }
-    .overlay-text.win { color: #00ff66; text-shadow: 0 0 10px #00ff66; }
     
     .start-setup-box {
       display: flex;
@@ -309,7 +308,7 @@
       text-align: left;
       font-weight: 600;
     }
-    .start-setup-row select, .start-setup-row input {
+    .start-setup-row select {
       flex: 1.3;
       max-width: 125px;
       font-size: 9.5px;
@@ -553,16 +552,25 @@
       border-radius: 5px;
       border: 1px solid var(--card-border);
       width: 100%;
-      height: fit-content;
-      flex-grow: 0;
-      flex-shrink: 0;
+      height: 100%;
+      flex-grow: 1;
+      overflow-y: auto;
     }
+    .side-leaderboard-box::-webkit-scrollbar { width: 3px; }
+    .side-leaderboard-box::-webkit-scrollbar-thumb { background: var(--panel-border); border-radius: 3px; }
     .side-leaderboard-box .title {
       font-size: 8px;
       font-weight: 800;
       color: var(--level-color);
       margin-bottom: 3px;
       text-shadow: 0 0 4px var(--level-color);
+      position: sticky;
+      top: 0;
+      background: rgba(10, 5, 25, 0.85);
+      width: 100%;
+      text-align: center;
+      padding: 2px 0;
+      border-radius: 3px;
     }
     .leaderboard-list {
       list-style: none;
@@ -590,7 +598,7 @@
       overflow: hidden; 
       text-overflow: ellipsis; 
       width: 100%; 
-      max-width: 74px; 
+      max-width: 70px; 
     }
     .leaderboard-item .score { 
       font-weight: 800; 
@@ -657,10 +665,20 @@
   <!-- 전체 중앙 정렬 래퍼 -->
   <div class="app-wrapper" id="app-wrapper">
 
-    <!-- 메인 컨테이너: 1열(중앙: 메인 보드) + 2열(우측: 조작/설정/상태/랭킹) -->
+    <!-- 1열(좌측: Top 20 랭킹) + 2열(중앙: 메인 보드) + 3열(우측: 테마/점수/블록/정지/가이드/패드/조작키) -->
     <div class="main-app-container" id="main-container">
       
-      <!-- 1열: 메인 보드 및 터치패드 -->
+      <!-- 1열: 좌측 사이드바 (Top 20 글로벌 랭킹) -->
+      <div class="side-bar" id="side-left-bar">
+        <div class="side-leaderboard-box" id="side-leaderboard-box">
+          <span class="title">🏆 Top 20</span>
+          <ul class="leaderboard-list" id="leaderboard-list">
+            <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- 2열: 메인 보드 및 터치패드 -->
       <div class="game-section" id="game-section">
 
         <!-- 게임 캔버스 컨테이너 -->
@@ -732,10 +750,22 @@
 
       </div>
 
-      <!-- 2열: 우측 통합 사이드바 (상태/미니화면/설정/랭킹) -->
+      <!-- 3열: 우측 사이드바 (테마 → 점수 → 다음블록 → 정지 → 가이드 → 패드 → 조작키) -->
       <div class="side-bar" id="side-right-bar">
         
-        <!-- 점수 / 줄 / 단계 카드 -->
+        <!-- 1. 🎨 테마 설정 -->
+        <div class="side-theme-box">
+          <span>🎨 테마</span>
+          <select id="theme-selector" onchange="changeTheme(this.value)">
+            <option value="neon">네온</option>
+            <option value="retro">레트로</option>
+            <option value="pastel">파스텔</option>
+            <option value="mono">모노</option>
+            <option value="emerald">에메랄드</option>
+          </select>
+        </div>
+
+        <!-- 2. 점수 / 줄 / 단계 카드 -->
         <div class="side-stat-card">
           <div class="side-stat-row">
             <span class="side-stat-label">점수</span>
@@ -751,43 +781,23 @@
           </div>
         </div>
 
-        <!-- 다음 블록 미리보기 카드 -->
+        <!-- 3. 다음 블록 미리보기 카드 -->
         <div class="side-next-card" id="side-next-card">
           <span class="side-stat-label">다음 블록</span>
           <canvas id="next-canvas" width="36" height="36"></canvas>
         </div>
 
-        <!-- 🎨 테마 설정 -->
-        <div class="side-theme-box">
-          <span>🎨 테마</span>
-          <select id="theme-selector" onchange="changeTheme(this.value)">
-            <option value="neon">네온</option>
-            <option value="retro">레트로</option>
-            <option value="pastel">파스텔</option>
-            <option value="mono">모노</option>
-            <option value="emerald">에메랄드</option>
-          </select>
-        </div>
-
-        <!-- 👁️ 가이드 토글 -->
-        <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
-        
-        <!-- 🎮 패드 토글 -->
-        <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
-        
-        <!-- ⌨️ 조작키 안내 -->
-        <button class="btn btn-toggle" onclick="openControlsModal()">⌨️ 조작키</button>
-
-        <!-- 정지 버튼 -->
+        <!-- 4. ⏸️ 정지 버튼 -->
         <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
 
-        <!-- 🏆 CheddaBoards 글로벌 랭킹 -->
-        <div class="side-leaderboard-box" id="side-leaderboard-box">
-          <span class="title">🏆 Top 10</span>
-          <ul class="leaderboard-list" id="leaderboard-list">
-            <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
-          </ul>
-        </div>
+        <!-- 5. 👁️ 가이드 토글 -->
+        <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
+        
+        <!-- 6. 🎮 패드 토글 -->
+        <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
+        
+        <!-- 7. ⌨️ 조작키 안내 -->
+        <button class="btn btn-toggle" onclick="openControlsModal()">⌨️ 조작키</button>
 
       </div>
 
@@ -812,7 +822,7 @@
 
 <script>
 /* =========================================================
-   0. CheddaBoards 글로벌 랭킹 (REST API)
+   0. CheddaBoards 글로벌 랭킹 (Top 20 조회 REST API)
 ========================================================= */
 const CHEDDA_API_KEY = 'cb_blog-tetris_4097310434';
 
@@ -844,7 +854,7 @@ function fetchLeaderboard() {
       return;
     }
 
-    list.innerHTML = entries.slice(0, 10).map((s, idx) => `
+    list.innerHTML = entries.slice(0, 20).map((s, idx) => `
       <li class="leaderboard-item">
         <span class="rank">${idx + 1}. ${s.nickname || s.player || s.playerId || '익명'}</span>
         <span class="score">${parseInt(s.score).toLocaleString()}</span>
@@ -1038,7 +1048,7 @@ function updateResponsiveLayout() {
   const boardRatio = (COLS * BLOCK_W) / (ROWS * BLOCK_H);
   let targetWidth = availableCanvasHeight * boardRatio;
 
-  const maxAllowedWidth = Math.min(vw - 110, 360);
+  const maxAllowedWidth = Math.min(vw - 184, 360);
   const minAllowedWidth = 150;
 
   targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
