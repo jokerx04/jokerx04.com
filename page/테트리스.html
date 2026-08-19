@@ -169,6 +169,47 @@
       margin: 0 auto;
     }
 
+    /* 최상단 1열 기능 바 */
+    .top-action-nav {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 6px;
+      width: 100%;
+      margin-bottom: 6px;
+      z-index: 30;
+      box-sizing: border-box;
+    }
+
+    .btn-nav-tile {
+      background: var(--panel-bg);
+      border: 1px solid var(--panel-border);
+      color: var(--text-sub);
+      padding: 5px 0;
+      border-radius: 6px;
+      font-size: 10.5px;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+      white-space: nowrap;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 3px;
+    }
+    .btn-nav-tile:hover {
+      background: var(--btn-bg);
+      border-color: var(--text-accent);
+      color: var(--text-accent);
+      box-shadow: 0 0 6px var(--panel-shadow);
+    }
+    .btn-nav-tile.on {
+      background: var(--btn-bg);
+      border-color: var(--text-accent);
+      color: var(--text-accent);
+      box-shadow: 0 0 8px var(--panel-shadow);
+    }
+
     .main-app-container {
       display: flex;
       flex-direction: row;
@@ -176,7 +217,7 @@
       justify-content: center;
       gap: 8px;
       width: 100%;
-      height: 100%;
+      height: calc(100% - 38px);
       max-height: 100%;
     }
 
@@ -200,39 +241,6 @@
 
     .side-bar::-webkit-scrollbar { width: 3px; }
     .side-bar::-webkit-scrollbar-thumb { background: var(--panel-border); border-radius: 3px; }
-
-    /* 상단 1줄 4버튼 그리드 */
-    .top-action-grid {
-      display: grid;
-      grid-template-columns: repeat(4, 1fr);
-      gap: 2px;
-      width: 100%;
-    }
-
-    .btn-icon-tile {
-      padding: 4px 0;
-      font-size: 11px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: var(--btn-bg);
-      border: 1px solid var(--panel-border);
-      border-radius: 4px;
-      color: var(--text-accent);
-      cursor: pointer;
-      transition: all 0.15s ease;
-    }
-    .btn-icon-tile:hover {
-      background: var(--text-accent);
-      color: #080511;
-      box-shadow: 0 0 6px var(--text-accent);
-    }
-    .btn-icon-tile.on {
-      background: rgba(0, 245, 255, 0.25);
-      border-color: var(--text-accent);
-      color: var(--text-accent);
-      box-shadow: 0 0 5px var(--panel-shadow);
-    }
 
     .game-section {
       display: flex;
@@ -673,6 +681,14 @@
   <!-- 전체 중앙 정렬 래퍼 -->
   <div class="app-wrapper" id="app-wrapper">
 
+    <!-- 최상단 기능 버튼 1열 (테마 / 가이드 / 패드 / 조작키) -->
+    <div class="top-action-nav" id="top-action-nav">
+      <button class="btn-nav-tile" onclick="openThemeModal()">🎨 테마</button>
+      <button id="btn-ghost-toggle" class="btn-nav-tile on" onclick="toggleGhost()">👁️ 가이드</button>
+      <button id="btn-keypad-toggle" class="btn-nav-tile" onclick="toggleVirtualKeypad()">🎮 패드</button>
+      <button class="btn-nav-tile" onclick="openControlsModal()">⌨️ 조작키</button>
+    </div>
+
     <!-- 메인 컨테이너: 1열(좌: 메인 보드) + 2열(우: 통합 사이드바) -->
     <div class="main-app-container" id="main-container">
       
@@ -748,18 +764,10 @@
 
       </div>
 
-      <!-- 2열: 우측 통합 사이드바 -->
+      <!-- 2열: 우측 통합 사이드바 (점수 / 블록 / 정지 / Top 10) -->
       <div class="side-bar" id="side-right-bar">
         
-        <!-- 1. 최상단 1줄 4버튼: 테마 / 가이드 / 패드 / 조작키 -->
-        <div class="top-action-grid">
-          <button class="btn-icon-tile" title="테마 변경" onclick="openThemeModal()">🎨</button>
-          <button id="btn-ghost-toggle" class="btn-icon-tile on" title="가이드 토글" onclick="toggleGhost()">👁️</button>
-          <button id="btn-keypad-toggle" class="btn-icon-tile" title="가상패드 토글" onclick="toggleVirtualKeypad()">🎮</button>
-          <button class="btn-icon-tile" title="조작키 안내" onclick="openControlsModal()">⌨️</button>
-        </div>
-
-        <!-- 2. 점수 / 줄 / 단계 카드 -->
+        <!-- 1. 점수 / 줄 / 단계 카드 -->
         <div class="side-stat-card">
           <div class="side-stat-row">
             <span class="side-stat-label">점수</span>
@@ -775,16 +783,16 @@
           </div>
         </div>
 
-        <!-- 3. 다음 블록 미리보기 카드 -->
+        <!-- 2. 다음 블록 미리보기 카드 -->
         <div class="side-next-card" id="side-next-card">
           <span class="side-stat-label">다음 블록</span>
           <canvas id="next-canvas" width="36" height="36"></canvas>
         </div>
 
-        <!-- 4. 정지 버튼 -->
+        <!-- 3. 정지 버튼 -->
         <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
 
-        <!-- 5. 🏆 Top 10 글로벌 랭킹 -->
+        <!-- 4. 🏆 Top 10 글로벌 랭킹 -->
         <div class="side-leaderboard-box" id="side-leaderboard-box">
           <span class="title">🏆 Top 10</span>
           <ul class="leaderboard-list" id="leaderboard-list">
@@ -1059,15 +1067,17 @@ function closeControlsModal(e) {
 function updateResponsiveLayout() {
   const gameSection = document.getElementById('game-section');
   const dpad = document.getElementById('touch-bottom-panel');
+  const topNav = document.getElementById('top-action-nav');
   const isDpadVisible = dpad && dpad.classList.contains('active');
 
   const vh = window.innerHeight;
   const vw = window.innerWidth;
 
+  const topNavH = topNav ? topNav.offsetHeight : 34;
   const dpadH = isDpadVisible ? 68 : 0;
   const marginH = 20;
 
-  const reservedHeight = dpadH + marginH;
+  const reservedHeight = topNavH + dpadH + marginH;
   const availableCanvasHeight = Math.max(160, vh - reservedHeight);
 
   const boardRatio = (COLS * BLOCK_W) / (ROWS * BLOCK_H);
@@ -1078,6 +1088,11 @@ function updateResponsiveLayout() {
 
   targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
   gameSection.style.maxWidth = `${Math.round(targetWidth)}px`;
+
+  if (topNav) {
+    const totalAppWidth = Math.round(targetWidth) + 98 + 8;
+    topNav.style.maxWidth = `${totalAppWidth}px`;
+  }
 }
 
 window.addEventListener('resize', updateResponsiveLayout);
