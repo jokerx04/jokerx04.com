@@ -4,9 +4,6 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>테트리스</title>
-  <!-- PeerJS (WebRTC P2P) & MQTT (공용 룸 리스트 실시간 탐색) CDN -->
-  <script src="https://unpkg.com/peerjs@1.5.4/dist/peerjs.min.js"></script>
-  <script src="https://unpkg.com/mqtt/dist/mqtt.min.js"></script>
   <style>
     :root {
       --bg-gradient: radial-gradient(circle at center, #150d2a 0%, #080511 100%);
@@ -172,43 +169,14 @@
       margin: 0 auto;
     }
 
-    .top-mode-nav {
-      display: flex;
-      width: 100%;
-      gap: 6px;
-      margin-bottom: 5px;
-      z-index: 30;
-      box-sizing: border-box;
-    }
-    .mode-tab-btn {
-      flex: 1;
-      background: var(--panel-bg);
-      border: 1px solid var(--panel-border);
-      color: var(--text-sub);
-      padding: 5px 0;
-      border-radius: 6px;
-      font-size: 10.5px;
-      font-weight: 800;
-      cursor: pointer;
-      transition: 0.2s;
-      text-align: center;
-      white-space: nowrap;
-    }
-    .mode-tab-btn.active {
-      background: var(--btn-bg);
-      border-color: var(--text-accent);
-      color: var(--text-accent);
-      box-shadow: 0 0 8px var(--panel-shadow);
-    }
-
     .main-app-container {
       display: flex;
       flex-direction: row;
       align-items: flex-start;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
       width: 100%;
-      height: calc(100% - 44px);
+      height: 100%;
       max-height: 100%;
     }
 
@@ -216,9 +184,9 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      width: 82px;
-      min-width: 82px;
-      max-width: 82px;
+      width: 88px;
+      min-width: 88px;
+      max-width: 88px;
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
       border-radius: 10px;
@@ -354,129 +322,6 @@
       outline: none;
       text-align: center;
     }
-
-    .room-list-scroll {
-      list-style: none;
-      width: 100%;
-      max-height: 240px;
-      min-height: 180px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      margin: 4px 0;
-      padding-right: 3px;
-    }
-    .room-list-scroll::-webkit-scrollbar { width: 4px; }
-    .room-list-scroll::-webkit-scrollbar-thumb { background: var(--panel-border); border-radius: 4px; }
-
-    .room-item-card {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.6);
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 6px 8px;
-      font-size: 10px;
-      transition: all 0.15s;
-    }
-    .room-item-card:hover { border-color: var(--text-accent); background: rgba(0, 245, 255, 0.05); }
-    .room-badge {
-      padding: 2px 5px;
-      border-radius: 3px;
-      font-size: 8px;
-      font-weight: 800;
-    }
-    .badge-wait { background: #238636; color: #fff; }
-    .badge-play { background: #d29922; color: #000; }
-
-    .waiting-chat-box {
-      width: 100%;
-      background: rgba(0, 0, 0, 0.45);
-      border: 1px solid var(--card-border);
-      border-radius: 6px;
-      padding: 4px;
-      display: flex;
-      flex-direction: column;
-      gap: 4px;
-    }
-    .waiting-chat-logs {
-      width: 100%;
-      height: 52px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      text-align: left;
-      padding-right: 2px;
-    }
-    .waiting-chat-logs::-webkit-scrollbar { width: 3px; }
-    .waiting-chat-logs::-webkit-scrollbar-thumb { background: var(--panel-border); border-radius: 3px; }
-    .chat-msg-row {
-      font-size: 8.5px;
-      line-height: 1.25;
-      word-break: break-all;
-    }
-    .chat-msg-sender {
-      color: var(--text-accent);
-      font-weight: 700;
-    }
-    .chat-msg-system {
-      color: var(--level-color);
-      font-size: 7.5px;
-      font-style: italic;
-    }
-    .waiting-chat-input-row {
-      display: flex;
-      gap: 3px;
-      width: 100%;
-    }
-    .waiting-chat-input-row input {
-      flex: 1;
-      padding: 3px 5px;
-      background: rgba(0, 0, 0, 0.5);
-      border: 1px solid var(--panel-border);
-      border-radius: 3px;
-      color: #fff;
-      font-size: 8.5px;
-      outline: none;
-    }
-
-    /* 4인 대기실 참가자 목록 (4명 전원 스크롤 없이 표시) */
-    .waiting-player-list {
-      list-style: none;
-      width: 100%;
-      min-height: 98px;
-      max-height: 105px;
-      overflow-y: hidden;
-      display: flex;
-      flex-direction: column;
-      gap: 3px;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 4px;
-      border-radius: 4px;
-      border: 1px solid var(--card-border);
-    }
-    .waiting-player-item {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: 8.5px;
-      color: var(--text-main);
-      padding: 3px 4px;
-      background: rgba(255, 255, 255, 0.04);
-      border-radius: 3px;
-    }
-    .p-ready-badge {
-      font-size: 7.5px;
-      font-weight: 800;
-      padding: 1px 4px;
-      border-radius: 2px;
-    }
-    .p-ready-badge.ready { background: #00ff66; color: #080511; }
-    .p-ready-badge.wait { background: #ff0055; color: #fff; }
-    .p-ready-badge.playing { background: #ffe600; color: #080511; }
 
     .score-submit-box {
       display: none;
@@ -646,41 +491,6 @@
       border: 1px solid rgba(255, 255, 255, 0.05);
     }
 
-    .side-opponents-box {
-      display: none;
-      flex-direction: column;
-      gap: 4px;
-      width: 100%;
-    }
-    .opp-card {
-      background: rgba(0, 0, 0, 0.4);
-      border: 1px solid var(--card-border);
-      border-radius: 4px;
-      padding: 2px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      position: relative;
-    }
-    .opp-card.ko {
-      opacity: 0.35;
-      filter: grayscale(1);
-    }
-    .opp-name {
-      font-size: 7px;
-      font-weight: 800;
-      color: #fff;
-      max-width: 70px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis;
-    }
-    .opp-canvas {
-      background: #000;
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 2px;
-    }
-
     .btn {
       padding: 5px 2px;
       background: var(--btn-bg);
@@ -779,14 +589,14 @@
       white-space: nowrap; 
       overflow: hidden; 
       text-overflow: ellipsis; 
-      width: 100%;
-      max-width: 68px; 
+      width: 100%; 
+      max-width: 74px; 
     }
     .leaderboard-item .score { 
       font-weight: 800; 
       color: var(--text-main); 
       align-self: flex-end; 
-      font-size: 8px;
+      font-size: 8px; 
     }
 
     .controls-modal-backdrop {
@@ -840,45 +650,6 @@
       font-weight: 600;
       font-size: 9px;
     }
-
-    .confirm-modal-card {
-      background: var(--panel-bg);
-      border: 1px solid var(--panel-border);
-      border-radius: 12px;
-      padding: 16px 14px;
-      max-width: 270px;
-      width: 100%;
-      text-align: center;
-      box-shadow: 0 0 25px var(--panel-shadow);
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-      animation: modalPop 0.18s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-    }
-    @keyframes modalPop {
-      0% { transform: scale(0.85); opacity: 0; }
-      100% { transform: scale(1); opacity: 1; }
-    }
-    .confirm-modal-title {
-      font-size: 13px;
-      font-weight: 800;
-      color: var(--level-color);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 4px;
-    }
-    .confirm-modal-body {
-      font-size: 11px;
-      color: var(--text-main);
-      line-height: 1.4;
-      word-break: keep-all;
-    }
-    .confirm-modal-actions {
-      display: flex;
-      gap: 6px;
-      width: 100%;
-    }
   </style>
 </head>
 <body>
@@ -886,50 +657,10 @@
   <!-- 전체 중앙 정렬 래퍼 -->
   <div class="app-wrapper" id="app-wrapper">
 
-    <!-- 최상단 모드 전환 탭 (하단 좌우 사이드바+보드 합산 폭과 100% 일치) -->
-    <div class="top-mode-nav" id="top-mode-nav">
-      <button class="mode-tab-btn active" id="btn-mode-single" onclick="handleModeSwitch('single')">🕹️ 싱글 모드</button>
-      <button class="mode-tab-btn" id="btn-mode-multi" onclick="handleModeSwitch('multi')">⚔️ 실시간 온라인 대전</button>
-    </div>
-
-    <!-- 1열(좌측: 테마/가이드/패드/조작키/랭킹), 2열(중앙: 메인 보드), 3열(우측: 상태/미니화면/정지) -->
+    <!-- 메인 컨테이너: 1열(중앙: 메인 보드) + 2열(우측: 조작/설정/상태/랭킹) -->
     <div class="main-app-container" id="main-container">
       
-      <!-- 1열: 좌측 사이드바 -->
-      <div class="side-bar" id="side-left-bar">
-        
-        <!-- 🎨 테마 설정 -->
-        <div class="side-theme-box">
-          <span>🎨 테마</span>
-          <select id="theme-selector" onchange="changeTheme(this.value)">
-            <option value="neon">네온</option>
-            <option value="retro">레트로</option>
-            <option value="pastel">파스텔</option>
-            <option value="mono">모노</option>
-            <option value="emerald">에메랄드</option>
-          </select>
-        </div>
-
-        <!-- 👁️ 가이드 토글 -->
-        <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
-        
-        <!-- 🎮 패드 토글 -->
-        <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
-        
-        <!-- ⌨️ 조작키 안내 -->
-        <button class="btn btn-toggle" onclick="openControlsModal()">⌨️ 조작키</button>
-
-        <!-- 🏆 CheddaBoards 글로벌 랭킹 -->
-        <div class="side-leaderboard-box" id="side-leaderboard-box">
-          <span class="title">🏆 Top 10</span>
-          <ul class="leaderboard-list" id="leaderboard-list">
-            <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
-          </ul>
-        </div>
-
-      </div>
-
-      <!-- 2열: 대형 메인 보드 및 터치패드 -->
+      <!-- 1열: 메인 보드 및 터치패드 -->
       <div class="game-section" id="game-section">
 
         <!-- 게임 캔버스 컨테이너 -->
@@ -939,7 +670,7 @@
           <div id="game-overlay" class="game-overlay">
             <div id="overlay-msg" class="overlay-text" style="color: var(--text-accent);">싱글 플레이 준비</div>
             
-            <!-- 1. 싱글 플레이 설정 박스 -->
+            <!-- 싱글 플레이 설정 박스 -->
             <div id="single-setup-box" class="start-setup-box">
               <div class="start-setup-row">
                 <span>보드 크기</span>
@@ -969,89 +700,7 @@
               <button id="overlay-btn" class="btn-ready" onclick="startGame()">게임 시작</button>
             </div>
 
-            <!-- 2-A. 온라인 대전 로비: 대형 실시간 방 목록 화면 -->
-            <div id="multi-lobby-list-box" class="start-setup-box" style="display: none; width: 96%; max-width: 250px;">
-              <div style="display:flex; justify-content:space-between; align-items:center; border-bottom:1px solid var(--card-border); padding-bottom:4px;">
-                <span style="font-size: 10px; font-weight:800; color:var(--text-accent);">열린 방 목록 (최대 4인)</span>
-                <span id="lobby-status-text" style="font-size: 8px; color:#238636;">● 로비 연결됨</span>
-              </div>
-
-              <ul class="room-list-scroll" id="active-rooms-list">
-                <li style="text-align:center; font-size:9px; color:#888; padding:30px 0;">방 목록 탐색 중...</li>
-              </ul>
-
-              <button class="btn-ready" onclick="showRoomCreateView()">➕ 방 만들기</button>
-            </div>
-
-            <!-- 2-B. 온라인 대전: 방 만들기 설정 창 (최대 4인) -->
-            <div id="multi-create-box" class="start-setup-box" style="display: none; width: 96%; max-width: 250px;">
-              <div style="font-size: 10.5px; font-weight:800; color:var(--text-accent); text-align:center; border-bottom:1px solid var(--card-border); padding-bottom:4px; margin-bottom:2px;">
-                새 대전 방 만들기 (최대 4인)
-              </div>
-              <div class="start-setup-row">
-                <span>방 제목</span>
-                <input type="text" id="multi-room-title" value="테트리스 한판" maxlength="10">
-              </div>
-              <div class="start-setup-row">
-                <span>보드 크기</span>
-                <select id="multi-board-size">
-                  <option value="small">소형 (8×16)</option>
-                  <option value="standard" selected>표준 (10×20)</option>
-                  <option value="wide">와이드 (12×20)</option>
-                  <option value="large">대형 (12×24)</option>
-                  <option value="giant">특대형 (14×26)</option>
-                </select>
-              </div>
-              <div class="start-setup-row">
-                <span>시작 단계</span>
-                <select id="multi-start-level">
-                  <option value="1" selected>1단계</option>
-                  <option value="3">3단계</option>
-                  <option value="5">5단계</option>
-                  <option value="8">8단계</option>
-                </select>
-              </div>
-              <div style="display:flex; flex-direction:column; gap:5px; width:100%; margin-top:6px;">
-                <button class="btn-ready" style="padding:6px 0;" onclick="hostCreateRoom()">개설하기</button>
-                <button class="btn" style="background:rgba(255,255,255,0.1); border-color:var(--card-border); color:var(--text-main); padding:6px 0;" onclick="showRoomListView()">취소</button>
-              </div>
-            </div>
-
-            <!-- 2-C. 방 개설/참여 후 대기실 UI (4인 명단 스크롤 없이 표시) -->
-            <div id="multi-waiting-box" class="start-setup-box" style="display: none; width: 96%; max-width: 250px; gap:4px; padding:7px 8px; text-align:center;">
-              <div id="waiting-room-title" style="font-size:11px; font-weight:800; color:var(--text-accent);">[방 제목]</div>
-              
-              <!-- 실시간 대기실 전용 채팅창 -->
-              <div class="waiting-chat-box">
-                <div id="waiting-chat-logs" class="waiting-chat-logs">
-                  <div class="chat-msg-row chat-msg-system">💬 대기실에 입장했습니다. 대화를 나눠보세요.</div>
-                </div>
-                <div class="waiting-chat-input-row">
-                  <input type="text" id="waiting-chat-input" placeholder="메시지 입력..." maxlength="40" onkeydown="if(event.key==='Enter') sendRoomChatMessage();">
-                  <button class="btn" style="width: auto; padding: 2px 7px; font-size:8.5px;" onclick="sendRoomChatMessage()">전송</button>
-                </div>
-              </div>
-
-              <div style="display:flex; justify-content:space-between; align-items:center; font-size:8px; color:var(--text-sub); margin-top:1px;">
-                <span>참가자 현황</span>
-                <span id="display-player-count" style="color:var(--level-color); font-weight:800;">1 / 4명</span>
-              </div>
-
-              <!-- 대기실 참가자 목록 (4명 높이에 정확히 매핑) -->
-              <ul id="waiting-player-list" class="waiting-player-list"></ul>
-
-              <div style="display:flex; flex-direction:column; gap:4px; width:100%; margin-top:2px;">
-                <!-- 방장 전용: 대전 시작 버튼 -->
-                <button id="btn-host-start" class="btn-ready" style="padding:6px 0; font-size:10px;" onclick="hostStartMatch()">대전 시작하기</button>
-                
-                <!-- 참가자 전용: 준비 토글 버튼 -->
-                <button id="btn-guest-ready" class="btn btn-toggle" style="display:none; padding:6px 0; font-size:10px; font-weight:800;" onclick="toggleGuestReady()">준비 완료</button>
-                
-                <button class="btn" style="padding:5px 0; background:rgba(255,0,85,0.2); border-color:#ff0055; color:#ff4d79; font-weight:800;" onclick="confirmLeaveWaitingRoom()">방 나가기</button>
-              </div>
-            </div>
-
-            <!-- 3. 점수 달성 시 랭킹 등록 영역 (싱글 및 멀티 공용) -->
+            <!-- 점수 달성 시 랭킹 등록 영역 -->
             <div id="score-submit-box" class="score-submit-box">
               <span id="score-submit-title" style="font-size: 10px; color: var(--level-color); font-weight:800; margin-bottom: 2px;">🏆 글로벌 랭킹 등록</span>
               <input type="text" id="username-input" placeholder="영문 이름 입력(최대 8자)" maxlength="8" oninput="this.value=this.value.replace(/[^a-zA-Z0-9]/g,'');">
@@ -1083,7 +732,7 @@
 
       </div>
 
-      <!-- 3열: 우측 사이드바 -->
+      <!-- 2열: 우측 통합 사이드바 (상태/미니화면/설정/랭킹) -->
       <div class="side-bar" id="side-right-bar">
         
         <!-- 점수 / 줄 / 단계 카드 -->
@@ -1108,30 +757,42 @@
           <canvas id="next-canvas" width="36" height="36"></canvas>
         </div>
 
-        <!-- 대전 모드 시 상대방 미니 화면 리스트 (최대 3명) -->
-        <div class="side-opponents-box" id="side-opponents-box">
-          <!-- JS 동적 생성 -->
+        <!-- 🎨 테마 설정 -->
+        <div class="side-theme-box">
+          <span>🎨 테마</span>
+          <select id="theme-selector" onchange="changeTheme(this.value)">
+            <option value="neon">네온</option>
+            <option value="retro">레트로</option>
+            <option value="pastel">파스텔</option>
+            <option value="mono">모노</option>
+            <option value="emerald">에메랄드</option>
+          </select>
         </div>
 
-        <!-- 정지 버튼 (싱글 모드 전용) -->
+        <!-- 👁️ 가이드 토글 -->
+        <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
+        
+        <!-- 🎮 패드 토글 -->
+        <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
+        
+        <!-- ⌨️ 조작키 안내 -->
+        <button class="btn btn-toggle" onclick="openControlsModal()">⌨️ 조작키</button>
+
+        <!-- 정지 버튼 -->
         <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
 
+        <!-- 🏆 CheddaBoards 글로벌 랭킹 -->
+        <div class="side-leaderboard-box" id="side-leaderboard-box">
+          <span class="title">🏆 Top 10</span>
+          <ul class="leaderboard-list" id="leaderboard-list">
+            <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
+          </ul>
+        </div>
+
       </div>
 
     </div>
 
-  </div>
-
-  <!-- 공용 확인 레이어 팝업 모달 -->
-  <div id="confirm-modal" class="controls-modal-backdrop">
-    <div class="confirm-modal-card" onclick="event.stopPropagation()">
-      <div id="confirm-modal-title" class="confirm-modal-title">⚠️ 확인</div>
-      <div id="confirm-modal-body" class="confirm-modal-body">진행 중인 게임을 종료하고 이동하시겠습니까?</div>
-      <div class="confirm-modal-actions">
-        <button class="btn" style="background: rgba(255, 255, 255, 0.1); border-color: var(--card-border); color: var(--text-main);" onclick="closeConfirmModal()">취소</button>
-        <button class="btn" id="btn-confirm-proceed" style="background: #ff0055; border-color: #ff0055; color: #fff; font-weight: 800;" onclick="onConfirmProceed()">확인</button>
-      </div>
-    </div>
   </div>
 
   <!-- 조작키 설명 팝업 모달 -->
@@ -1143,7 +804,7 @@
         <div>• <span class="key-badge">↑</span> : 블록 회전</div>
         <div>• <span class="key-badge">↓</span> : 소프트 드롭</div>
         <div>• <span class="key-badge">Space</span> / <span class="key-badge">⚡</span> : 하드 드롭</div>
-        <div>• <span class="key-badge">P</span> : 일시 정지 / 계속하기 (싱글 전용)</div>
+        <div>• <span class="key-badge">P</span> : 일시 정지 / 계속하기</div>
       </div>
       <button class="btn" style="padding: 6px;" onclick="closeControlsModal()">닫기</button>
     </div>
@@ -1229,19 +890,7 @@ function submitScore() {
     
     document.getElementById('username-input').value = "";
     document.getElementById('score-submit-box').style.display = 'none';
-    
-    if (currentAppMode === 'single') {
-      document.getElementById('single-setup-box').style.display = 'flex';
-    } else {
-      if (isMatchOngoing) {
-        // 게임 진행 중 탈락 관전인 경우 오버레이 유지 (대기실 표시 방지)
-        document.getElementById('game-overlay').style.display = 'flex';
-        document.getElementById('overlay-msg').innerText = "👁️ 실시간 관전 중 (KO)";
-        document.getElementById('overlay-msg').style.color = "#d29922";
-      } else {
-        showRoomWaitingView(hostRoomTitle);
-      }
-    }
+    document.getElementById('single-setup-box').style.display = 'flex';
     
     btn.innerText = "등록하기";
     btn.disabled = false;
@@ -1258,17 +907,7 @@ function submitScore() {
 function cancelSubmitScore() {
   document.getElementById('username-input').value = "";
   document.getElementById('score-submit-box').style.display = 'none';
-  if (currentAppMode === 'single') {
-    document.getElementById('single-setup-box').style.display = 'flex';
-  } else {
-    if (isMatchOngoing) {
-      document.getElementById('game-overlay').style.display = 'flex';
-      document.getElementById('overlay-msg').innerText = "👁️ 실시간 관전 중 (KO)";
-      document.getElementById('overlay-msg').style.color = "#d29922";
-    } else {
-      showRoomWaitingView(hostRoomTitle);
-    }
-  }
+  document.getElementById('single-setup-box').style.display = 'flex';
 }
 
 /* =========================================================
@@ -1366,139 +1005,11 @@ document.body.setAttribute('data-theme', currentThemeKey);
 document.getElementById('theme-selector').value = currentThemeKey;
 
 /* =========================================================
-   2. 모드 전환 & 반응형 레이아웃 엔진
+   2. 게임 상태 & 반응형 레이아웃
 ========================================================= */
-let currentAppMode = 'single';
-let isSpectator = false;
 let ghostEnabled = true;
 let startLevel = 1;
 let isPaused = false;
-let confirmActionCallback = null;
-
-function openConfirmModal(titleText, bodyText, callback) {
-  document.getElementById('confirm-modal-title').innerText = titleText;
-  document.getElementById('confirm-modal-body').innerText = bodyText;
-  confirmActionCallback = callback;
-  document.getElementById('confirm-modal').style.display = 'flex';
-}
-
-function closeConfirmModal() {
-  confirmActionCallback = null;
-  document.getElementById('confirm-modal').style.display = 'none';
-}
-
-function onConfirmProceed() {
-  const cb = confirmActionCallback;
-  closeConfirmModal();
-  if (typeof cb === 'function') cb();
-}
-
-function handleModeSwitch(targetMode) {
-  if (player.isPlaying) {
-    openConfirmModal("⚠️ 게임 진행 중", "진행 중인 게임을 종료하고 이동하시겠습니까?", () => {
-      if (currentAppMode === 'multi') {
-        forceQuitMultiGame();
-      } else {
-        player.isPlaying = false;
-        isPaused = false;
-      }
-      setAppMode(targetMode);
-    });
-    return;
-  }
-
-  setAppMode(targetMode);
-}
-
-function confirmLeaveWaitingRoom() {
-  openConfirmModal("🚪 대기실 나가기", "대기실을 종료하고 로비로 나가시겠습니까?", () => {
-    leaveWaitingRoom();
-  });
-}
-
-function showRoomListView() {
-  document.getElementById('multi-lobby-list-box').style.display = 'flex';
-  document.getElementById('multi-create-box').style.display = 'none';
-  document.getElementById('multi-waiting-box').style.display = 'none';
-  document.getElementById('overlay-msg').innerText = "실시간 대전 로비";
-  document.getElementById('overlay-msg').style.color = "var(--level-color)";
-
-  // 로비 진입 시 탐색 상태 초기화 및 렌더링
-  startLobbyFetchTimer();
-}
-
-function showRoomCreateView() {
-  document.getElementById('multi-lobby-list-box').style.display = 'none';
-  document.getElementById('multi-create-box').style.display = 'flex';
-  document.getElementById('multi-waiting-box').style.display = 'none';
-  document.getElementById('overlay-msg').innerText = "방 만들기 (최대 4인)";
-  document.getElementById('overlay-msg').style.color = "var(--text-accent)";
-}
-
-function showRoomWaitingView(title) {
-  document.getElementById('multi-lobby-list-box').style.display = 'none';
-  document.getElementById('multi-create-box').style.display = 'none';
-  document.getElementById('multi-waiting-box').style.display = 'flex';
-  document.getElementById('waiting-room-title').innerText = `[${title}] 대기실`;
-  document.getElementById('overlay-msg').innerText = "대전 대기실";
-  document.getElementById('overlay-msg').style.color = "var(--text-accent)";
-
-  myReadyState = false;
-
-  const btnHost = document.getElementById('btn-host-start');
-  const btnGuest = document.getElementById('btn-guest-ready');
-
-  if (isHost) {
-    btnHost.style.display = 'block';
-    btnGuest.style.display = 'none';
-    updateHostStartButtonState();
-  } else {
-    btnHost.style.display = 'none';
-    btnGuest.style.display = 'block';
-    btnGuest.innerText = "준비 완료";
-    btnGuest.classList.remove('on');
-  }
-}
-
-function setAppMode(mode) {
-  currentAppMode = mode;
-  document.getElementById('btn-mode-single').classList.toggle('active', mode === 'single');
-  document.getElementById('btn-mode-multi').classList.toggle('active', mode === 'multi');
-
-  const overlay = document.getElementById('game-overlay');
-  const singleBox = document.getElementById('single-setup-box');
-  const scoreBox = document.getElementById('score-submit-box');
-  const oppBox = document.getElementById('side-opponents-box');
-  const nextCard = document.getElementById('side-next-card');
-  const pauseBtn = document.getElementById('btn-pause');
-
-  player.isPlaying = false;
-  isPaused = false;
-  isSpectator = false;
-  scoreBox.style.display = 'none';
-
-  if (mode === 'single') {
-    overlay.style.display = 'flex';
-    document.getElementById('overlay-msg').innerText = "싱글 플레이 준비";
-    document.getElementById('overlay-msg').style.color = "var(--text-accent)";
-    singleBox.style.display = 'flex';
-    document.getElementById('multi-lobby-list-box').style.display = 'none';
-    document.getElementById('multi-create-box').style.display = 'none';
-    document.getElementById('multi-waiting-box').style.display = 'none';
-    oppBox.style.display = 'none';
-    nextCard.style.display = 'flex';
-    pauseBtn.style.display = 'block';
-    applyBoardSize(document.getElementById('single-board-size').value);
-    resetGameBoard(parseInt(document.getElementById('single-start-level').value, 10));
-  } else {
-    overlay.style.display = 'flex';
-    singleBox.style.display = 'none';
-    pauseBtn.style.display = 'none';
-    showRoomListView();
-    initPeerAndLobbyDiscovery();
-  }
-  updateResponsiveLayout();
-}
 
 function openControlsModal() {
   document.getElementById('controls-modal').style.display = 'flex';
@@ -1513,32 +1024,25 @@ function closeControlsModal(e) {
 function updateResponsiveLayout() {
   const gameSection = document.getElementById('game-section');
   const dpad = document.getElementById('touch-bottom-panel');
-  const topNav = document.getElementById('top-mode-nav');
   const isDpadVisible = dpad && dpad.classList.contains('active');
 
   const vh = window.innerHeight;
   const vw = window.innerWidth;
 
-  const topNavH = topNav ? topNav.offsetHeight : 34;
   const dpadH = isDpadVisible ? 68 : 0;
   const marginH = 20;
 
-  const reservedHeight = topNavH + dpadH + marginH;
+  const reservedHeight = dpadH + marginH;
   const availableCanvasHeight = Math.max(160, vh - reservedHeight);
 
   const boardRatio = (COLS * BLOCK_W) / (ROWS * BLOCK_H);
   let targetWidth = availableCanvasHeight * boardRatio;
 
-  const maxAllowedWidth = Math.min(vw - 180, 360);
+  const maxAllowedWidth = Math.min(vw - 110, 360);
   const minAllowedWidth = 150;
 
   targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
   gameSection.style.maxWidth = `${Math.round(targetWidth)}px`;
-
-  if (topNav) {
-    const totalAppWidth = Math.round(targetWidth) + 82 + 82 + 12;
-    topNav.style.maxWidth = `${totalAppWidth}px`;
-  }
 }
 
 window.addEventListener('resize', updateResponsiveLayout);
@@ -1587,7 +1091,7 @@ function toggleGhost() {
 }
 
 function togglePause() {
-  if (currentAppMode !== 'single' || !player.isPlaying || isSpectator) return;
+  if (!player.isPlaying) return;
   isPaused = !isPaused;
   const overlay = document.getElementById('game-overlay');
   const msg = document.getElementById('overlay-msg');
@@ -1598,9 +1102,6 @@ function togglePause() {
   if (isPaused) {
     overlay.style.display = 'flex';
     setupBox.style.display = 'none';
-    document.getElementById('multi-lobby-list-box').style.display = 'none';
-    document.getElementById('multi-create-box').style.display = 'none';
-    document.getElementById('multi-waiting-box').style.display = 'none';
     scoreSubmitBox.style.display = 'none';
     msg.innerText = "일시 정지됨";
     msg.className = "overlay-text";
@@ -1613,930 +1114,7 @@ function togglePause() {
 }
 
 /* =========================================================
-   3. 실시간 로비 탐색(MQTT Discovery) & WebRTC P2P 대전 (최대 4인)
-========================================================= */
-const MQTT_BROKER = 'wss://broker.emqx.io:8084/mqtt';
-const LOBBY_TOPIC = 'tetris/global_lobby_v2';
-const MAX_PLAYERS = 4;
-
-let mqttClient = null;
-let peer = null;
-let myPeerId = '';
-let myAssignedName = 'Player 1';
-let isHost = false;
-let hostConn = null;
-let hostPeerId = '';
-let peerConnections = {};
-let networkPeers = {}; // { [peerId]: { peerId, name, joinedAt, isReady, isPlaying, isAlive, ... } }
-let broadcastTimer = null;
-let roomHeartbeatTimer = null;
-let pendingGarbageQueue = 0;
-let discoveredRooms = {};
-let myReadyState = false;
-let hostRoomTitle = '테트리스 한판';
-let isMatchOngoing = false;
-let isLobbyFetching = true;
-
-function initPeerAndLobbyDiscovery() {
-  if (!peer || peer.destroyed) {
-    const randId = 'T_' + Math.random().toString(36).substring(2, 7).toUpperCase();
-    peer = new Peer(randId);
-
-    peer.on('open', id => {
-      myPeerId = id;
-    });
-
-    peer.on('connection', conn => {
-      handleIncomingConnection(conn);
-    });
-  }
-
-  if (!mqttClient || !mqttClient.connected) {
-    try {
-      mqttClient = mqtt.connect(MQTT_BROKER);
-
-      mqttClient.on('connect', () => {
-        document.getElementById('lobby-status-text').innerText = "● 로비 연결됨";
-        document.getElementById('lobby-status-text').style.color = "#238636";
-        mqttClient.subscribe(LOBBY_TOPIC);
-      });
-
-      mqttClient.on('message', (topic, message) => {
-        try {
-          const data = JSON.parse(message.toString());
-          handleLobbyMessage(data);
-        } catch(e) {}
-      });
-
-      setInterval(() => {
-        const now = Date.now();
-        let changed = false;
-        for (let rId in discoveredRooms) {
-          if (now - discoveredRooms[rId].lastSeen > 6000) {
-            delete discoveredRooms[rId];
-            changed = true;
-          }
-        }
-        if (changed) renderDiscoveredRoomsUI();
-      }, 3000);
-
-    } catch(e) {
-      console.warn("MQTT discovery fallback");
-    }
-  }
-}
-
-function startLobbyFetchTimer() {
-  isLobbyFetching = true;
-  renderDiscoveredRoomsUI();
-  setTimeout(() => {
-    isLobbyFetching = false;
-    renderDiscoveredRoomsUI();
-  }, 1500);
-}
-
-function handleLobbyMessage(msg) {
-  if (msg.type === 'ROOM_ANNOUNCE') {
-    discoveredRooms[msg.roomId] = {
-      id: msg.roomId,
-      title: msg.title,
-      size: msg.size,
-      lvl: msg.lvl,
-      players: msg.players,
-      max: msg.max || MAX_PLAYERS,
-      status: msg.status,
-      hostPeerId: msg.hostPeerId,
-      lastSeen: Date.now()
-    };
-    renderDiscoveredRoomsUI();
-  } else if (msg.type === 'ROOM_CLOSED') {
-    delete discoveredRooms[msg.roomId];
-    renderDiscoveredRoomsUI();
-  }
-}
-
-function renderDiscoveredRoomsUI() {
-  const list = document.getElementById('active-rooms-list');
-  if (!list) return;
-
-  const roomKeys = Object.keys(discoveredRooms);
-
-  // 1. 탐색 중 상태일 때
-  if (isLobbyFetching && roomKeys.length === 0) {
-    list.innerHTML = `<li style="text-align:center; font-size:9px; color:var(--level-color); padding:30px 0;">🔍 방 목록 탐색 중...</li>`;
-    return;
-  }
-
-  // 2. 탐색 완료 후 방이 진짜 없을 때
-  if (roomKeys.length === 0) {
-    list.innerHTML = `<li style="text-align:center; font-size:9px; color:#888; padding:30px 0;">개설된 방이 없습니다.</li>`;
-    return;
-  }
-
-  // 3. 개설된 방 목록 렌더링
-  list.innerHTML = roomKeys.map(rId => {
-    const room = discoveredRooms[rId];
-    const isPlaying = room.status === 'playing';
-    const isFull = room.players >= (room.max || MAX_PLAYERS);
-    const canJoin = !isPlaying && !isFull;
-
-    return `
-      <li class="room-item-card">
-        <div>
-          <div style="font-weight:800; color:#fff; font-size:10.5px;">${room.title}</div>
-          <div style="color:var(--text-sub); font-size:8px;">${room.size} | Lv.${room.lvl} | ${room.players}/${room.max || MAX_PLAYERS}명</div>
-        </div>
-        <div style="display:flex; align-items:center; gap:4px;">
-          <span class="room-badge ${isPlaying ? 'badge-play' : 'badge-wait'}">${isPlaying ? '진행 중' : '대기 중'}</span>
-          <button class="btn" style="padding:3px 8px; font-size:8.5px; width:auto;" onclick="joinRoomByClick('${room.hostPeerId}', '${room.title}', ${isPlaying || isFull})">
-            ${canJoin ? '참여' : '관전'}
-          </button>
-        </div>
-      </li>
-    `;
-  }).join('');
-}
-
-function hostCreateRoom() {
-  if (!peer || !myPeerId) {
-    initPeerAndLobbyDiscovery();
-  }
-
-  isHost = true;
-  isMatchOngoing = false;
-  myAssignedName = 'Player 1 (방장)';
-  hostPeerId = myPeerId;
-
-  const titleInput = document.getElementById('multi-room-title');
-  let title = titleInput.value.trim();
-  if (!title) {
-    title = '테트리스 한판';
-    titleInput.value = title;
-  }
-  hostRoomTitle = title;
-
-  const sizeKey = document.getElementById('multi-board-size').value;
-  const lvl = parseInt(document.getElementById('multi-start-level').value, 10);
-  applyBoardSize(sizeKey);
-  startLevel = lvl;
-
-  showRoomWaitingView(title);
-  updateWaitingPlayerList();
-
-  startHostHeartbeat();
-}
-
-function startHostHeartbeat() {
-  if (roomHeartbeatTimer) clearInterval(roomHeartbeatTimer);
-  roomHeartbeatTimer = setInterval(() => {
-    broadcastRoomToLobby(hostRoomTitle, currentBoardSizeKey, startLevel, isMatchOngoing ? 'playing' : 'waiting');
-  }, 2000);
-  broadcastRoomToLobby(hostRoomTitle, currentBoardSizeKey, startLevel, 'waiting');
-}
-
-function broadcastRoomToLobby(title, size, lvl, status) {
-  if (mqttClient && mqttClient.connected && isHost) {
-    mqttClient.publish(LOBBY_TOPIC, JSON.stringify({
-      type: 'ROOM_ANNOUNCE',
-      roomId: myPeerId,
-      title: title,
-      size: size,
-      lvl: lvl,
-      players: Object.keys(peerConnections).length + 1,
-      max: MAX_PLAYERS,
-      status: status,
-      hostPeerId: myPeerId
-    }));
-  }
-}
-
-function leaveWaitingRoom() {
-  if (roomHeartbeatTimer) clearInterval(roomHeartbeatTimer);
-
-  if (isHost) {
-    const peerKeys = Object.keys(peerConnections);
-    
-    if (peerKeys.length > 0) {
-      const sortedPeers = peerKeys.map(id => ({ id, joinedAt: networkPeers[id] ? networkPeers[id].joinedAt : Date.now() }))
-                                  .sort((a, b) => a.joinedAt - b.joinedAt);
-      const nextHostId = sortedPeers[0].id;
-
-      if (mqttClient && mqttClient.connected) {
-        mqttClient.publish(LOBBY_TOPIC, JSON.stringify({ type: 'ROOM_CLOSED', roomId: myPeerId }));
-      }
-
-      broadcastToAll({
-        type: 'HOST_MIGRATED',
-        newHostPeerId: nextHostId,
-        allPeers: sortedPeers.map(p => p.id),
-        oldHostPeerId: myPeerId
-      });
-
-      setTimeout(() => {
-        for (let pId in peerConnections) {
-          if (peerConnections[pId]) peerConnections[pId].close();
-        }
-        peerConnections = {};
-      }, 100);
-    } else {
-      if (mqttClient && mqttClient.connected) {
-        mqttClient.publish(LOBBY_TOPIC, JSON.stringify({ type: 'ROOM_CLOSED', roomId: myPeerId }));
-      }
-      for (let pId in peerConnections) {
-        if (peerConnections[pId]) peerConnections[pId].close();
-      }
-      peerConnections = {};
-    }
-  } else if (hostConn) {
-    hostConn.close();
-    hostConn = null;
-  }
-  
-  isHost = false;
-  isMatchOngoing = false;
-  networkPeers = {};
-  myReadyState = false;
-  showRoomListView();
-}
-
-function joinRoomByClick(targetHostPeerId, title = '대전 방', asSpectator = false) {
-  if (!peer || !myPeerId) initPeerAndLobbyDiscovery();
-
-  isHost = false;
-  isSpectator = asSpectator;
-  myReadyState = false;
-  hostRoomTitle = title;
-  hostPeerId = targetHostPeerId;
-  hostConn = peer.connect(targetHostPeerId);
-
-  hostConn.on('open', () => {
-    hostConn.send({ type: 'JOIN', asSpectator: asSpectator, joinedAt: Date.now() });
-    showRoomWaitingView(hostRoomTitle);
-  });
-
-  hostConn.on('data', data => {
-    handleNetworkMessage(hostConn, data);
-  });
-
-  hostConn.on('close', () => {
-    if (!isHost) {
-      console.warn("방장과의 연결이 끊겼습니다.");
-    }
-  });
-}
-
-function handleIncomingConnection(conn) {
-  conn.on('open', () => {
-    conn.on('data', data => {
-      handleNetworkMessage(conn, data);
-    });
-
-    if (isHost) {
-      peerConnections[conn.peer] = conn;
-
-      networkPeers[conn.peer] = {
-        peerId: conn.peer,
-        board: createMatrix(COLS, ROWS),
-        isAlive: false,
-        isSpectator: false,
-        isReady: false,
-        isPlaying: isMatchOngoing,
-        joinedAt: Date.now()
-      };
-
-      conn.send({
-        type: 'ROOM_SYNC',
-        roomTitle: hostRoomTitle,
-        sizeKey: currentBoardSizeKey,
-        startLevel: startLevel,
-        isStarted: isMatchOngoing,
-        isSpectator: isMatchOngoing || Object.keys(peerConnections).length >= MAX_PLAYERS
-      });
-
-      broadcastWaitingRoster();
-      updateWaitingPlayerList();
-      broadcastRoomToLobby(hostRoomTitle, currentBoardSizeKey, startLevel, isMatchOngoing ? 'playing' : 'waiting');
-      appendChatMessage("시스템", `새로운 플레이어가 입장했습니다.`, true);
-    }
-  });
-
-  conn.on('close', () => {
-    delete peerConnections[conn.peer];
-    delete networkPeers[conn.peer];
-    if (isHost) {
-      checkAllPlayersFinished();
-      broadcastWaitingRoster();
-      updateWaitingPlayerList();
-      broadcastRoomToLobby(hostRoomTitle, currentBoardSizeKey, startLevel, isMatchOngoing ? 'playing' : 'waiting');
-      appendChatMessage("시스템", `참가자가 퇴장했습니다.`, true);
-    }
-    buildOpponentCardsUI();
-  });
-}
-
-function promoteToHost(allPeers, oldHostPeerId = '') {
-  isHost = true;
-  hostPeerId = myPeerId;
-  myAssignedName = 'Player 1 (방장)';
-
-  if (hostConn) {
-    hostConn.close();
-    hostConn = null;
-  }
-
-  if (oldHostPeerId) {
-    delete networkPeers[oldHostPeerId];
-    delete peerConnections[oldHostPeerId];
-  }
-  delete networkPeers[myPeerId];
-
-  showRoomWaitingView(hostRoomTitle);
-  appendChatMessage("시스템", "👑 이전 방장이 퇴장하여 새로운 방장으로 승격되었습니다.", true);
-
-  startHostHeartbeat();
-
-  allPeers.forEach(pId => {
-    if (pId !== myPeerId && pId !== oldHostPeerId) {
-      if (!peerConnections[pId] || !peerConnections[pId].open) {
-        const conn = peer.connect(pId);
-        conn.on('open', () => {
-          peerConnections[pId] = conn;
-          conn.send({
-            type: 'ROOM_SYNC',
-            roomTitle: hostRoomTitle,
-            sizeKey: currentBoardSizeKey,
-            startLevel: startLevel,
-            isStarted: isMatchOngoing
-          });
-          broadcastWaitingRoster();
-        });
-        conn.on('data', d => handleNetworkMessage(conn, d));
-      }
-    }
-  });
-
-  broadcastWaitingRoster();
-  updateWaitingPlayerList();
-}
-
-function sendRoomChatMessage() {
-  const input = document.getElementById('waiting-chat-input');
-  const text = input.value.trim();
-  if (!text) return;
-
-  const chatData = {
-    type: 'CHAT_MESSAGE',
-    sender: myAssignedName,
-    text: text
-  };
-
-  appendChatMessage(myAssignedName, text);
-  broadcastToAll(chatData);
-  input.value = '';
-}
-
-function appendChatMessage(sender, text, isSystem = false) {
-  const logBox = document.getElementById('waiting-chat-logs');
-  if (!logBox) return;
-
-  const row = document.createElement('div');
-  row.className = 'chat-msg-row' + (isSystem ? ' chat-msg-system' : '');
-  
-  if (isSystem) {
-    row.innerText = `📢 ${text}`;
-  } else {
-    row.innerHTML = `<span class="chat-msg-sender">${sender}:</span> <span>${text.replace(/</g, '&lt;').replace(/>/g, '&gt;')}</span>`;
-  }
-  
-  logBox.appendChild(row);
-  logBox.scrollTop = logBox.scrollHeight;
-}
-
-// 준비 완료 / 준비 취소 상호 토글
-function toggleGuestReady() {
-  if (isMatchOngoing) {
-    alert("이전 게임이 아직 진행 중입니다. 모든 플레이어가 종료될 때까지 대기해주세요.");
-    return;
-  }
-  myReadyState = !myReadyState;
-  const btnGuest = document.getElementById('btn-guest-ready');
-  if (myReadyState) {
-    btnGuest.innerText = "준비 취소";
-    btnGuest.classList.add('on');
-  } else {
-    btnGuest.innerText = "준비 완료";
-    btnGuest.classList.remove('on');
-  }
-
-  if (hostConn && hostConn.open) {
-    hostConn.send({
-      type: 'PLAYER_READY_CHANGE',
-      peerId: myPeerId,
-      isReady: myReadyState
-    });
-  }
-}
-
-// 최대 4인 순차 자동 재채번 및 명단 브로드캐스트
-function broadcastWaitingRoster() {
-  if (!isHost) return;
-
-  const sortedGuests = Object.keys(networkPeers)
-    .map(pId => networkPeers[pId])
-    .sort((a, b) => (a.joinedAt || 0) - (b.joinedAt || 0))
-    .slice(0, MAX_PLAYERS - 1);
-
-  const roster = [{
-    peerId: myPeerId,
-    name: 'Player 1 (방장)',
-    isHost: true,
-    isReady: true,
-    isPlaying: player.isPlaying,
-    joinedAt: 0
-  }];
-
-  sortedGuests.forEach((g, idx) => {
-    const num = idx + 2;
-    const assignedName = `Player ${num}`;
-    g.name = assignedName;
-
-    roster.push({
-      peerId: g.peerId,
-      name: assignedName,
-      isHost: false,
-      isReady: !!g.isReady,
-      isSpectator: !!g.isSpectator,
-      isPlaying: !!g.isPlaying,
-      joinedAt: g.joinedAt
-    });
-  });
-
-  myAssignedName = 'Player 1 (방장)';
-
-  broadcastToAll({
-    type: 'ROSTER_UPDATE',
-    roster: roster,
-    isMatchOngoing: isMatchOngoing
-  });
-}
-
-// 4명 기준 높이에 맞춘 대기실 참가자 목록 렌더링
-function updateWaitingPlayerList(roster = null) {
-  const list = document.getElementById('waiting-player-list');
-  const countElem = document.getElementById('display-player-count');
-  if (!list) return;
-
-  let playerList = [];
-
-  if (isHost) {
-    const sortedGuests = Object.keys(networkPeers)
-      .map(pId => networkPeers[pId])
-      .sort((a, b) => (a.joinedAt || 0) - (b.joinedAt || 0))
-      .slice(0, MAX_PLAYERS - 1);
-
-    playerList.push({ name: 'Player 1 (방장)', isHost: true, isReady: true, isPlaying: player.isPlaying });
-    sortedGuests.forEach((g, idx) => {
-      playerList.push({
-        name: `Player ${idx + 2}`,
-        isHost: false,
-        isReady: !!g.isReady,
-        isSpectator: !!g.isSpectator,
-        isPlaying: !!g.isPlaying
-      });
-    });
-  } else if (roster) {
-    playerList = roster;
-    const me = roster.find(p => p.peerId === myPeerId);
-    if (me) {
-      myAssignedName = me.name;
-    }
-  }
-
-  if (countElem) {
-    countElem.innerText = `${playerList.length} / ${MAX_PLAYERS}명`;
-  }
-
-  list.innerHTML = playerList.map(p => {
-    let badgeClass = 'wait';
-    let badgeText = '대기 중';
-
-    if (p.isHost) {
-      badgeClass = p.isPlaying ? 'playing' : 'ready';
-      badgeText = p.isPlaying ? '게임 중' : '방장';
-    } else if (p.isPlaying) {
-      badgeClass = 'playing';
-      badgeText = '게임 중';
-    } else if (p.isReady) {
-      badgeClass = 'ready';
-      badgeText = '준비 완료';
-    }
-
-    return `
-      <li class="waiting-player-item">
-        <span>${p.name} ${p.isHost ? '👑' : ''}</span>
-        <span class="p-ready-badge ${badgeClass}">${badgeText}</span>
-      </li>
-    `;
-  }).join('');
-
-  if (isHost) {
-    updateHostStartButtonState();
-  }
-}
-
-function updateHostStartButtonState() {
-  const btnHost = document.getElementById('btn-host-start');
-  if (!btnHost || !isHost) return;
-
-  const peerKeys = Object.keys(networkPeers);
-  const totalGuests = peerKeys.filter(k => !networkPeers[k].isSpectator).length;
-  const readyGuests = peerKeys.filter(k => !networkPeers[k].isSpectator && networkPeers[k].isReady).length;
-
-  if (isMatchOngoing) {
-    btnHost.disabled = true;
-    btnHost.innerText = "대전 진행 중 (종료 대기)...";
-    return;
-  }
-
-  if (totalGuests > 0 && totalGuests === readyGuests) {
-    btnHost.disabled = false;
-    btnHost.innerText = "대전 시작하기 (Ready!)";
-  } else {
-    btnHost.disabled = true;
-    btnHost.innerText = totalGuests === 0 ? "참가자 대기 중..." : "참가자 준비 대기 중...";
-  }
-}
-
-// 모든 참가자 게임 종료 여부 확인 및 대기실 복귀
-function checkAllPlayersFinished() {
-  if (!isHost || !isMatchOngoing) return;
-
-  let anyAlive = player.isPlaying;
-  for (let pId in networkPeers) {
-    if (networkPeers[pId].isAlive && !networkPeers[pId].isSpectator) {
-      anyAlive = true;
-      break;
-    }
-  }
-
-  let activePlayingCount = 0;
-  for (let pId in networkPeers) {
-    if (networkPeers[pId].isPlaying && !networkPeers[pId].isSpectator) activePlayingCount++;
-  }
-  if (player.isPlaying) activePlayingCount++;
-
-  if (activePlayingCount === 0) {
-    isMatchOngoing = false;
-    for (let pId in networkPeers) {
-      networkPeers[pId].isReady = false;
-      networkPeers[pId].isPlaying = false;
-      networkPeers[pId].isAlive = false;
-    }
-    broadcastRoomToLobby(hostRoomTitle, currentBoardSizeKey, startLevel, 'waiting');
-    broadcastWaitingRoster();
-    updateWaitingPlayerList();
-    broadcastToAll({ type: 'MATCH_ALL_FINISHED' });
-    showRoomWaitingView(hostRoomTitle);
-    appendChatMessage("시스템", "📢 매치가 모두 종료되었습니다. 다음 게임을 준비해주세요.", true);
-  }
-}
-
-function hostStartMatch() {
-  if (!isHost || isMatchOngoing) return;
-  const title = hostRoomTitle;
-  isMatchOngoing = true;
-
-  for (let pId in networkPeers) {
-    networkPeers[pId].isPlaying = true;
-    networkPeers[pId].isAlive = true;
-    networkPeers[pId].isReady = false;
-  }
-
-  broadcastRoomToLobby(title, currentBoardSizeKey, startLevel, 'playing');
-
-  broadcastToAll({
-    type: 'GAME_START',
-    sizeKey: currentBoardSizeKey,
-    startLevel: startLevel
-  });
-
-  startActualMultiGame(false);
-}
-
-function handleNetworkMessage(conn, data) {
-  if (data.type === 'ROOM_SYNC') {
-    applyBoardSize(data.sizeKey);
-    startLevel = data.startLevel;
-    isMatchOngoing = data.isStarted;
-    if (data.roomTitle) {
-      hostRoomTitle = data.roomTitle;
-      document.getElementById('waiting-room-title').innerText = `[${hostRoomTitle}] 대기실`;
-    }
-    if (data.isStarted) {
-      isSpectator = true;
-      startActualMultiGame(true);
-    }
-  } else if (data.type === 'JOIN') {
-    networkPeers[conn.peer] = {
-      peerId: conn.peer,
-      board: createMatrix(COLS, ROWS),
-      isAlive: false,
-      isSpectator: data.asSpectator,
-      isReady: false,
-      isPlaying: isMatchOngoing,
-      joinedAt: data.joinedAt || Date.now()
-    };
-    broadcastWaitingRoster();
-    updateWaitingPlayerList();
-    buildOpponentCardsUI();
-  } else if (data.type === 'HOST_MIGRATED') {
-    if (data.newHostPeerId === myPeerId) {
-      promoteToHost(data.allPeers, data.oldHostPeerId);
-    } else {
-      hostPeerId = data.newHostPeerId;
-      if (hostConn) hostConn.close();
-      
-      hostConn = peer.connect(hostPeerId);
-      hostConn.on('open', () => {
-        hostConn.send({ type: 'JOIN', asSpectator: isSpectator, joinedAt: Date.now() });
-      });
-      hostConn.on('data', d => handleNetworkMessage(hostConn, d));
-      appendChatMessage("시스템", "👑 방장이 변경되었습니다.", true);
-    }
-  } else if (data.type === 'PLAYER_READY_CHANGE') {
-    if (isHost && networkPeers[data.peerId]) {
-      networkPeers[data.peerId].isReady = data.isReady;
-      broadcastWaitingRoster();
-      updateWaitingPlayerList();
-    }
-  } else if (data.type === 'ROSTER_UPDATE') {
-    if (!isHost) {
-      isMatchOngoing = !!data.isMatchOngoing;
-      updateWaitingPlayerList(data.roster);
-      if (!isMatchOngoing) {
-        const btnGuest = document.getElementById('btn-guest-ready');
-        if (btnGuest) {
-          myReadyState = false;
-          btnGuest.innerText = "준비 완료";
-          btnGuest.classList.remove('on');
-        }
-      }
-    }
-  } else if (data.type === 'CHAT_MESSAGE') {
-    appendChatMessage(data.sender, data.text);
-    if (isHost) {
-      for (let pId in peerConnections) {
-        if (pId !== conn.peer) peerConnections[pId].send(data);
-      }
-    }
-  } else if (data.type === 'GAME_START') {
-    isMatchOngoing = true;
-    applyBoardSize(data.sizeKey);
-    startLevel = data.startLevel;
-    startActualMultiGame(isSpectator);
-  } else if (data.type === 'STATE_UPDATE') {
-    if (!networkPeers[conn.peer]) {
-      networkPeers[conn.peer] = { peerId: conn.peer, name: data.name, board: data.board, isAlive: data.isAlive, isPlaying: data.isPlaying, joinedAt: Date.now() };
-      buildOpponentCardsUI();
-    } else {
-      networkPeers[conn.peer].name = data.name;
-      networkPeers[conn.peer].board = data.board;
-      networkPeers[conn.peer].isAlive = data.isAlive;
-      networkPeers[conn.peer].isPlaying = data.isPlaying;
-    }
-    renderPeerMiniCanvas(conn.peer);
-
-    if (isHost) {
-      for (let pId in peerConnections) {
-        if (pId !== conn.peer) peerConnections[pId].send(data);
-      }
-      checkMultiWinner();
-      checkAllPlayersFinished();
-    } else {
-      checkMultiWinner();
-    }
-  } else if (data.type === 'MATCH_ALL_FINISHED') {
-    isMatchOngoing = false;
-    isSpectator = false;
-    player.isPlaying = false;
-    showRoomWaitingView(hostRoomTitle);
-  } else if (data.type === 'ATTACK_GARBAGE') {
-    if (!isSpectator && player.isPlaying) {
-      pendingGarbageQueue += data.lines;
-    }
-  }
-}
-
-function broadcastToAll(msg) {
-  if (isHost) {
-    for (let pId in peerConnections) peerConnections[pId].send(msg);
-  } else if (hostConn && hostConn.open) {
-    hostConn.send(msg);
-  }
-}
-
-function startActualMultiGame(asSpectator = false) {
-  isSpectator = asSpectator;
-  document.getElementById('side-opponents-box').style.display = 'flex';
-  buildOpponentCardsUI();
-
-  if (isSpectator) {
-    player.isPlaying = false;
-    document.getElementById('game-overlay').style.display = 'flex';
-    document.getElementById('overlay-msg').innerText = "👁️ 실시간 관전 중";
-    document.getElementById('overlay-msg').style.color = "#d29922";
-    document.getElementById('single-setup-box').style.display = 'none';
-    document.getElementById('multi-lobby-list-box').style.display = 'none';
-    document.getElementById('multi-create-box').style.display = 'none';
-    document.getElementById('multi-waiting-box').style.display = 'none';
-  } else {
-    // 생존 플레이어는 게임 조작 화면 정상 노출 (대기실 숨김)
-    document.getElementById('game-overlay').style.display = 'none';
-    document.getElementById('single-setup-box').style.display = 'none';
-    document.getElementById('multi-lobby-list-box').style.display = 'none';
-    document.getElementById('multi-create-box').style.display = 'none';
-    document.getElementById('multi-waiting-box').style.display = 'none';
-
-    resetGameBoard(startLevel);
-    player.isPlaying = true;
-    nextPiece = getRandomPiece();
-    playerReset();
-  }
-
-  if (broadcastTimer) clearInterval(broadcastTimer);
-  broadcastTimer = setInterval(() => {
-    if (currentAppMode !== 'multi') {
-      clearInterval(broadcastTimer);
-      return;
-    }
-    broadcastToAll({
-      type: 'STATE_UPDATE',
-      peerId: myPeerId,
-      name: myAssignedName,
-      board: arena,
-      isAlive: player.isPlaying,
-      isPlaying: player.isPlaying || (isSpectator && isMatchOngoing)
-    });
-  }, 120);
-}
-
-function forceQuitMultiGame() {
-  if (broadcastTimer) clearInterval(broadcastTimer);
-  
-  broadcastToAll({
-    type: 'STATE_UPDATE',
-    peerId: myPeerId,
-    name: myAssignedName,
-    board: arena,
-    isAlive: false,
-    isPlaying: false
-  });
-
-  player.isPlaying = false;
-  isPaused = false;
-  isSpectator = false;
-
-  document.getElementById('score-submit-box').style.display = 'none';
-
-  if (isHost) {
-    leaveWaitingRoom();
-  } else if (hostConn) {
-    hostConn.close();
-    hostConn = null;
-  }
-  networkPeers = {};
-}
-
-function buildOpponentCardsUI() {
-  const container = document.getElementById('side-opponents-box');
-  container.innerHTML = '';
-
-  for (let pId in networkPeers) {
-    const opp = networkPeers[pId];
-
-    const card = document.createElement('div');
-    card.className = 'opp-card' + (opp.isAlive ? '' : ' ko');
-    card.id = `opp-card-${pId}`;
-
-    const miniW = 54;
-    const miniH = Math.floor(miniW * (ROWS / COLS));
-
-    card.innerHTML = `
-      <span class="opp-name">${opp.name || 'Player'}</span>
-      <canvas id="canvas-${pId}" class="opp-canvas" width="${miniW}" height="${miniH}"></canvas>
-    `;
-    container.appendChild(card);
-  }
-}
-
-function renderPeerMiniCanvas(pId) {
-  const opp = networkPeers[pId];
-  if (!opp) return;
-  const canvas = document.getElementById(`canvas-${pId}`);
-  if (!canvas) return;
-  const ctx = canvas.getContext('2d');
-  ctx.clearRect(0, 0, canvas.width, canvas.height);
-
-  const miniBlockW = canvas.width / COLS;
-  const miniBlockH = canvas.height / ROWS;
-
-  for (let r = 0; r < ROWS; r++) {
-    for (let c = 0; c < COLS; c++) {
-      const val = opp.board[r] ? opp.board[r][c] : 0;
-      if (val && PALETTE[val]) {
-        ctx.fillStyle = PALETTE[val].base;
-        ctx.fillRect(c * miniBlockW, r * miniBlockH, miniBlockW - 0.5, miniBlockH - 0.5);
-      }
-    }
-  }
-}
-
-function sendGarbageAttack(clearedLines) {
-  let attackLines = clearedLines >= 4 ? 4 : clearedLines - 1;
-  if (attackLines > 0) {
-    broadcastToAll({
-      type: 'ATTACK_GARBAGE',
-      lines: attackLines
-    });
-  }
-}
-
-function receiveGarbageLines() {
-  if (pendingGarbageQueue <= 0) return;
-  const addCount = pendingGarbageQueue;
-  pendingGarbageQueue = 0;
-
-  for (let i = 0; i < addCount; i++) {
-    arena.shift();
-    const garbageRow = new Array(COLS).fill(8);
-    garbageRow[Math.floor(Math.random() * COLS)] = 0;
-    arena.push(garbageRow);
-  }
-}
-
-// 최후 1인 배틀로얄 판정 (살아있는 사람이 1명일 때 우승 처리)
-function checkMultiWinner() {
-  if (!isMatchOngoing) return;
-  
-  let alivePeers = [];
-  if (player.isPlaying) {
-    alivePeers.push({ id: myPeerId, name: myAssignedName });
-  }
-
-  for (let pId in networkPeers) {
-    if (networkPeers[pId].isAlive && !networkPeers[pId].isSpectator) {
-      alivePeers.push({ id: pId, name: networkPeers[pId].name });
-    }
-  }
-
-  const totalInGame = Object.keys(networkPeers).length + 1;
-  if (totalInGame >= 2 && alivePeers.length === 1) {
-    const winner = alivePeers[0];
-    if (winner.id === myPeerId && player.isPlaying) {
-      triggerVictory();
-    }
-  }
-}
-
-function triggerVictory() {
-  player.isPlaying = false;
-  isSpectator = true;
-  
-  broadcastToAll({
-    type: 'STATE_UPDATE',
-    peerId: myPeerId,
-    name: myAssignedName,
-    board: arena,
-    isAlive: false,
-    isPlaying: false
-  });
-
-  appendChatMessage("시스템", `🏆 ${myAssignedName} 님이 최종 생존하여 우승하였습니다!`, true);
-  
-  const overlay = document.getElementById('game-overlay');
-  const msg = document.getElementById('overlay-msg');
-  const scoreSubmitBox = document.getElementById('score-submit-box');
-
-  overlay.style.display = 'flex';
-  msg.innerText = "🏆 최종 승리 (VICTORY)!";
-  msg.className = "overlay-text win";
-
-  if (player.score > 0) {
-    document.getElementById('multi-lobby-list-box').style.display = 'none';
-    document.getElementById('multi-create-box').style.display = 'none';
-    document.getElementById('multi-waiting-box').style.display = 'none';
-    document.getElementById('score-submit-title').innerText = "🏆 대전 우승자 랭킹 등록";
-    scoreSubmitBox.style.display = 'flex';
-    document.getElementById('username-input').focus();
-  }
-
-  if (isHost) {
-    checkAllPlayersFinished();
-  }
-}
-
-/* =========================================================
-   4. 테트리스 코어 게임 엔진
+   3. 테트리스 코어 게임 엔진
 ========================================================= */
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -2688,7 +1266,6 @@ function resetLockDelay() {
 function lockPiece() {
   merge(arena, player);
   arenaSweep();
-  receiveGarbageLines();
   playerReset();
   lockTimer = 0;
   lockResets = 0;
@@ -2755,10 +1332,6 @@ function arenaSweep() {
     player.level = startLevel + Math.floor(player.lines / 10);
     dropInterval = Math.max(80, 800 - (player.level - 1) * 70);
     updateScore();
-
-    if (currentAppMode === 'multi') {
-      sendGarbageAttack(rowCount);
-    }
   }
 }
 
@@ -2775,7 +1348,6 @@ function playerReset() {
   }
 }
 
-// 탈락(KO) 시 관전 모드로 전환하여 타 플레이어 화면 관전
 function triggerGameOver() {
   player.isPlaying = false;
   isPaused = false;
@@ -2787,64 +1359,19 @@ function triggerGameOver() {
   const pauseBtn = document.getElementById('btn-pause');
 
   pauseBtn.innerText = "⏸️ 정지";
+  overlay.style.display = 'flex';
+  msg.innerText = "게임 종료";
+  msg.className = "overlay-text lose";
 
-  if (currentAppMode === 'multi') {
-    isSpectator = true;
-
-    broadcastToAll({
-      type: 'STATE_UPDATE',
-      peerId: myPeerId,
-      name: myAssignedName,
-      board: arena,
-      isAlive: false,
-      isPlaying: false
-    });
-
-    appendChatMessage("시스템", `💥 ${myAssignedName} 님이 탈락하여 관전 모드로 전환되었습니다.`, true);
-
-    // 탈락자 화면에만 오버레이 표시 (생존자는 조작 화면 유지)
-    overlay.style.display = 'flex';
-    msg.innerText = "탈락 (실시간 관전 중)";
-    msg.className = "overlay-text lose";
-
-    if (player.score > 0) {
-      document.getElementById('multi-lobby-list-box').style.display = 'none';
-      document.getElementById('multi-create-box').style.display = 'none';
-      document.getElementById('multi-waiting-box').style.display = 'none';
-      document.getElementById('score-submit-title').innerText = "🏆 글로벌 랭킹 등록";
-      scoreSubmitBox.style.display = 'flex';
-      document.getElementById('username-input').focus();
-    } else {
-      document.getElementById('single-setup-box').style.display = 'none';
-      document.getElementById('multi-lobby-list-box').style.display = 'none';
-      document.getElementById('multi-create-box').style.display = 'none';
-      document.getElementById('multi-waiting-box').style.display = 'none';
-    }
-
-    if (isHost) {
-      checkMultiWinner();
-      checkAllPlayersFinished();
-    } else {
-      checkMultiWinner();
-    }
+  if (player.score > 0) {
+    setupBox.style.display = 'none';
+    document.getElementById('score-submit-title').innerText = "🏆 글로벌 랭킹 등록";
+    scoreSubmitBox.style.display = 'flex';
+    document.getElementById('username-input').focus();
   } else {
-    overlay.style.display = 'flex';
-    msg.innerText = "게임 종료";
-    msg.className = "overlay-text lose";
-
-    if (player.score > 0) {
-      setupBox.style.display = 'none';
-      document.getElementById('multi-lobby-list-box').style.display = 'none';
-      document.getElementById('multi-create-box').style.display = 'none';
-      document.getElementById('multi-waiting-box').style.display = 'none';
-      document.getElementById('score-submit-title').innerText = "🏆 글로벌 랭킹 등록";
-      scoreSubmitBox.style.display = 'flex';
-      document.getElementById('username-input').focus();
-    } else {
-      setupBox.style.display = 'flex';
-      document.getElementById('overlay-btn').innerText = '다시 시작';
-      scoreSubmitBox.style.display = 'none';
-    }
+    setupBox.style.display = 'flex';
+    document.getElementById('overlay-btn').innerText = '다시 시작';
+    scoreSubmitBox.style.display = 'none';
   }
 }
 
@@ -2864,7 +1391,6 @@ function startGame() {
   applyBoardSize(selectedSize);
 
   document.getElementById('game-overlay').style.display = 'none';
-  document.getElementById('side-opponents-box').style.display = 'none';
   resetGameBoard(startLevel);
   player.isPlaying = true;
   nextPiece = getRandomPiece();
@@ -2881,7 +1407,7 @@ function resetGameBoard(lvl = 1) {
 }
 
 /* =========================================================
-   5. 파티클 이펙트
+   4. 파티클 이펙트
 ========================================================= */
 const particles = [];
 function spawnParticles(y, colors) {
@@ -2925,7 +1451,7 @@ function drawParticles(ctx) {
 }
 
 /* =========================================================
-   6. 보드 렌더링
+   5. 보드 렌더링
 ========================================================= */
 function drawBlock(ctx, x, y, paletteIdx, isGhost = false) {
   const px = x * BLOCK_W;
@@ -3008,7 +1534,7 @@ function draw() {
 }
 
 /* =========================================================
-   7. DAS / ARR 입력 엔진
+   6. DAS / ARR 입력 엔진
 ========================================================= */
 const keys = {
   ArrowLeft: { pressed: false, timer: 0, lastStep: 0 },
@@ -3184,7 +1710,7 @@ setupTouchButton('v-up', 'rot');
 setupTouchButton('v-drop', 'hard');
 
 /* =========================================================
-   8. 메인 루프 및 초기화
+   7. 메인 루프 및 초기화
 ========================================================= */
 let dropCounter = 0;
 let dropInterval = 800;
