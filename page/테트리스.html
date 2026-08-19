@@ -174,7 +174,7 @@
       flex-direction: row;
       align-items: flex-start;
       justify-content: center;
-      gap: 6px;
+      gap: 8px;
       width: 100%;
       height: 100%;
       max-height: 100%;
@@ -184,9 +184,9 @@
       display: flex;
       flex-direction: column;
       gap: 4px;
-      width: 84px;
-      min-width: 84px;
-      max-width: 84px;
+      width: 98px;
+      min-width: 98px;
+      max-width: 98px;
       background: var(--panel-bg);
       border: 1px solid var(--panel-border);
       border-radius: 10px;
@@ -201,32 +201,37 @@
     .side-bar::-webkit-scrollbar { width: 3px; }
     .side-bar::-webkit-scrollbar-thumb { background: var(--panel-border); border-radius: 3px; }
 
-    .side-theme-box {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+    /* 상단 1줄 4버튼 그리드 */
+    .top-action-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
       gap: 2px;
-      background: rgba(0, 0, 0, 0.4);
-      padding: 3px 2px;
-      border-radius: 5px;
-      border: 1px solid var(--card-border);
-      font-size: 7.5px;
-      font-weight: 800;
-      color: var(--text-sub);
       width: 100%;
     }
-    .side-theme-box select {
-      width: 100%;
+
+    .btn-icon-tile {
+      padding: 4px 0;
+      font-size: 11px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
       background: var(--btn-bg);
-      color: var(--text-accent);
       border: 1px solid var(--panel-border);
-      padding: 2px;
-      border-radius: 3px;
-      font-size: 8px;
-      font-weight: 700;
-      outline: none;
+      border-radius: 4px;
+      color: var(--text-accent);
       cursor: pointer;
-      text-align: center;
+      transition: all 0.15s ease;
+    }
+    .btn-icon-tile:hover {
+      background: var(--text-accent);
+      color: #080511;
+      box-shadow: 0 0 6px var(--text-accent);
+    }
+    .btn-icon-tile.on {
+      background: rgba(0, 245, 255, 0.25);
+      border-color: var(--text-accent);
+      color: var(--text-accent);
+      box-shadow: 0 0 5px var(--panel-shadow);
     }
 
     .game-section {
@@ -514,17 +519,6 @@
       cursor: not-allowed;
       box-shadow: none !important;
     }
-    .btn-toggle {
-      background: rgba(255, 255, 255, 0.08);
-      border-color: var(--text-sub);
-      color: var(--text-sub);
-    }
-    .btn-toggle.on {
-      background: rgba(0, 245, 255, 0.2);
-      border-color: var(--text-accent);
-      color: var(--text-accent);
-      box-shadow: 0 0 6px var(--panel-shadow);
-    }
     .btn-pause {
       background: rgba(255, 230, 0, 0.15);
       border: 1px solid #ffe600;
@@ -552,25 +546,16 @@
       border-radius: 5px;
       border: 1px solid var(--card-border);
       width: 100%;
-      height: 100%;
-      flex-grow: 1;
-      overflow-y: auto;
+      height: fit-content;
+      flex-grow: 0;
+      flex-shrink: 0;
     }
-    .side-leaderboard-box::-webkit-scrollbar { width: 3px; }
-    .side-leaderboard-box::-webkit-scrollbar-thumb { background: var(--panel-border); border-radius: 3px; }
     .side-leaderboard-box .title {
       font-size: 8px;
       font-weight: 800;
       color: var(--level-color);
       margin-bottom: 3px;
       text-shadow: 0 0 4px var(--level-color);
-      position: sticky;
-      top: 0;
-      background: rgba(10, 5, 25, 0.85);
-      width: 100%;
-      text-align: center;
-      padding: 2px 0;
-      border-radius: 3px;
     }
     .leaderboard-list {
       list-style: none;
@@ -598,7 +583,7 @@
       overflow: hidden; 
       text-overflow: ellipsis; 
       width: 100%; 
-      max-width: 70px; 
+      max-width: 82px; 
     }
     .leaderboard-item .score { 
       font-weight: 800; 
@@ -658,6 +643,29 @@
       font-weight: 600;
       font-size: 9px;
     }
+    .theme-select-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 6px;
+      width: 100%;
+      margin: 4px 0;
+    }
+    .theme-opt-btn {
+      padding: 8px 4px;
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      color: var(--text-main);
+      font-size: 11px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.15s;
+    }
+    .theme-opt-btn.active {
+      border-color: var(--text-accent);
+      background: rgba(0, 245, 255, 0.2);
+      color: var(--text-accent);
+    }
   </style>
 </head>
 <body>
@@ -665,20 +673,10 @@
   <!-- 전체 중앙 정렬 래퍼 -->
   <div class="app-wrapper" id="app-wrapper">
 
-    <!-- 1열(좌측: Top 20 랭킹) + 2열(중앙: 메인 보드) + 3열(우측: 테마/점수/블록/정지/가이드/패드/조작키) -->
+    <!-- 메인 컨테이너: 1열(좌: 메인 보드) + 2열(우: 통합 사이드바) -->
     <div class="main-app-container" id="main-container">
       
-      <!-- 1열: 좌측 사이드바 (Top 20 글로벌 랭킹) -->
-      <div class="side-bar" id="side-left-bar">
-        <div class="side-leaderboard-box" id="side-leaderboard-box">
-          <span class="title">🏆 Top 20</span>
-          <ul class="leaderboard-list" id="leaderboard-list">
-            <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
-          </ul>
-        </div>
-      </div>
-
-      <!-- 2열: 메인 보드 및 터치패드 -->
+      <!-- 1열: 메인 보드 및 터치패드 -->
       <div class="game-section" id="game-section">
 
         <!-- 게임 캔버스 컨테이너 -->
@@ -750,19 +748,15 @@
 
       </div>
 
-      <!-- 3열: 우측 사이드바 (테마 → 점수 → 다음블록 → 정지 → 가이드 → 패드 → 조작키) -->
+      <!-- 2열: 우측 통합 사이드바 -->
       <div class="side-bar" id="side-right-bar">
         
-        <!-- 1. 🎨 테마 설정 -->
-        <div class="side-theme-box">
-          <span>🎨 테마</span>
-          <select id="theme-selector" onchange="changeTheme(this.value)">
-            <option value="neon">네온</option>
-            <option value="retro">레트로</option>
-            <option value="pastel">파스텔</option>
-            <option value="mono">모노</option>
-            <option value="emerald">에메랄드</option>
-          </select>
+        <!-- 1. 최상단 1줄 4버튼: 테마 / 가이드 / 패드 / 조작키 -->
+        <div class="top-action-grid">
+          <button class="btn-icon-tile" title="테마 변경" onclick="openThemeModal()">🎨</button>
+          <button id="btn-ghost-toggle" class="btn-icon-tile on" title="가이드 토글" onclick="toggleGhost()">👁️</button>
+          <button id="btn-keypad-toggle" class="btn-icon-tile" title="가상패드 토글" onclick="toggleVirtualKeypad()">🎮</button>
+          <button class="btn-icon-tile" title="조작키 안내" onclick="openControlsModal()">⌨️</button>
         </div>
 
         <!-- 2. 점수 / 줄 / 단계 카드 -->
@@ -787,22 +781,36 @@
           <canvas id="next-canvas" width="36" height="36"></canvas>
         </div>
 
-        <!-- 4. ⏸️ 정지 버튼 -->
+        <!-- 4. 정지 버튼 -->
         <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
 
-        <!-- 5. 👁️ 가이드 토글 -->
-        <button id="btn-ghost-toggle" class="btn btn-toggle on" onclick="toggleGhost()">👁️ 가이드</button>
-        
-        <!-- 6. 🎮 패드 토글 -->
-        <button id="btn-keypad-toggle" class="btn btn-toggle" onclick="toggleVirtualKeypad()">🎮 패드</button>
-        
-        <!-- 7. ⌨️ 조작키 안내 -->
-        <button class="btn btn-toggle" onclick="openControlsModal()">⌨️ 조작키</button>
+        <!-- 5. 🏆 Top 10 글로벌 랭킹 -->
+        <div class="side-leaderboard-box" id="side-leaderboard-box">
+          <span class="title">🏆 Top 10</span>
+          <ul class="leaderboard-list" id="leaderboard-list">
+            <li class="leaderboard-item" style="justify-content:center; color:#888;">로딩 중...</li>
+          </ul>
+        </div>
 
       </div>
 
     </div>
 
+  </div>
+
+  <!-- 테마 선택 팝업 모달 -->
+  <div id="theme-modal" class="controls-modal-backdrop" onclick="closeThemeModal(event)">
+    <div class="controls-modal-card" onclick="event.stopPropagation()">
+      <h3>🎨 테마 설정</h3>
+      <div class="theme-select-list">
+        <button class="theme-opt-btn" id="theme-opt-neon" onclick="changeTheme('neon')">네온</button>
+        <button class="theme-opt-btn" id="theme-opt-retro" onclick="changeTheme('retro')">레트로</button>
+        <button class="theme-opt-btn" id="theme-opt-pastel" onclick="changeTheme('pastel')">파스텔</button>
+        <button class="theme-opt-btn" id="theme-opt-mono" onclick="changeTheme('mono')">모노</button>
+        <button class="theme-opt-btn" id="theme-opt-emerald" onclick="changeTheme('emerald')" style="grid-column: span 2;">에메랄드</button>
+      </div>
+      <button class="btn" style="padding: 6px;" onclick="closeThemeModal()">닫기</button>
+    </div>
   </div>
 
   <!-- 조작키 설명 팝업 모달 -->
@@ -822,7 +830,7 @@
 
 <script>
 /* =========================================================
-   0. CheddaBoards 글로벌 랭킹 (Top 20 조회 REST API)
+   0. CheddaBoards 글로벌 랭킹 (Top 10 조회 REST API)
 ========================================================= */
 const CHEDDA_API_KEY = 'cb_blog-tetris_4097310434';
 
@@ -854,7 +862,7 @@ function fetchLeaderboard() {
       return;
     }
 
-    list.innerHTML = entries.slice(0, 20).map((s, idx) => `
+    list.innerHTML = entries.slice(0, 10).map((s, idx) => `
       <li class="leaderboard-item">
         <span class="rank">${idx + 1}. ${s.nickname || s.player || s.playerId || '익명'}</span>
         <span class="score">${parseInt(s.score).toLocaleString()}</span>
@@ -1008,11 +1016,28 @@ function changeTheme(themeKey) {
     PALETTE = THEMES[themeKey];
     document.body.setAttribute('data-theme', themeKey);
     localStorage.setItem('tetris_theme', themeKey);
+    
+    document.querySelectorAll('.theme-opt-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.id === `theme-opt-${themeKey}`);
+    });
+    
     drawNextPiece();
   }
 }
 document.body.setAttribute('data-theme', currentThemeKey);
-document.getElementById('theme-selector').value = currentThemeKey;
+
+function openThemeModal() {
+  document.querySelectorAll('.theme-opt-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.id === `theme-opt-${currentThemeKey}`);
+  });
+  document.getElementById('theme-modal').style.display = 'flex';
+}
+
+function closeThemeModal(e) {
+  if (!e || e.target === document.getElementById('theme-modal') || e.target.tagName === 'BUTTON') {
+    document.getElementById('theme-modal').style.display = 'none';
+  }
+}
 
 /* =========================================================
    2. 게임 상태 & 반응형 레이아웃
@@ -1048,7 +1073,7 @@ function updateResponsiveLayout() {
   const boardRatio = (COLS * BLOCK_W) / (ROWS * BLOCK_H);
   let targetWidth = availableCanvasHeight * boardRatio;
 
-  const maxAllowedWidth = Math.min(vw - 184, 360);
+  const maxAllowedWidth = Math.min(vw - 120, 360);
   const minAllowedWidth = 150;
 
   targetWidth = Math.min(Math.max(targetWidth, minAllowedWidth), maxAllowedWidth);
