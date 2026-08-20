@@ -31,7 +31,7 @@
       --psp-btn-glow: rgba(0, 245, 255, 0.3);
 
       --app-scale-w: 240px;
-      --app-side-w: 95px;
+      --app-side-w: 104px;
       --app-height: 480px;
     }
 
@@ -114,7 +114,7 @@
       --text-accent: #10b981;
       --panel-bg: rgba(6, 36, 27, 0.88);
       --panel-border: rgba(16, 185, 129, 0.4);
-      --panel-shadow: rgba(16, 185, 129, 0.25);
+      --panel-shadow: rgba(168, 85, 247, 0.25);
       --card-bg: rgba(255, 255, 255, 0.04);
       --card-border: rgba(16, 185, 129, 0.15);
       --board-border-grad: linear-gradient(135deg, #34d399, #06b6d4, #84cc16);
@@ -623,7 +623,7 @@
       box-shadow: 0 0 16px var(--text-accent), inset 0 0 10px rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* 사이드바 통계 카드 */
+    /* 사이드바 통계 카드 (10px 폰트 일원화) */
     .side-stat-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -639,6 +639,7 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 0;
     }
     .side-stat-row-inline {
       display: grid;
@@ -654,21 +655,23 @@
       display: flex;
       flex-direction: column;
       align-items: center;
+      gap: 0;
     }
     .side-stat-label {
-      font-size: 7.5px;
+      font-size: 10px;
       font-weight: 800;
       color: var(--text-sub);
-      line-height: 1;
+      line-height: 1.1;
+      letter-spacing: -0.2px;
     }
     .side-stat-value {
-      font-size: 11px;
+      font-size: 10px;
       font-weight: 900;
       line-height: 1.1;
       font-variant-numeric: tabular-nums;
     }
 
-    /* 사이드바 다음 블록 카드 */
+    /* 사이드바 다음 블록 2열 가로형 카드 */
     .side-next-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -680,13 +683,17 @@
       gap: 2px;
       flex-shrink: 0;
     }
+    .side-next-card .side-stat-label {
+      font-size: 10px;
+      font-weight: 800;
+    }
     #next-canvas {
       display: block;
       background: rgba(0, 0, 0, 0.3);
-      border-radius: 4px;
-      border: 1px solid rgba(255, 255, 255, 0.05);
-      width: 36px;
-      height: 36px;
+      border-radius: 5px;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      width: 84px;
+      height: 42px;
     }
 
     .btn {
@@ -698,7 +705,7 @@
       font-weight: 800;
       cursor: pointer;
       transition: all 0.2s;
-      font-size: 9px;
+      font-size: 10px;
       white-space: nowrap;
       text-align: center;
       width: 100%;
@@ -719,9 +726,10 @@
       color: #ffe600;
       flex-shrink: 0;
       padding: 3px 0;
+      font-size: 10px;
     }
 
-    /* 사이드바 전용 슬라이더 볼륨 제어 카드 */
+    /* 사이드바 볼륨 카드 (10px 수치) */
     .side-vol-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -742,7 +750,7 @@
       width: 100%;
     }
     .btn-vol-mute {
-      width: 22px;
+      width: 20px;
       height: 18px;
       font-size: 10px;
       font-weight: 800;
@@ -813,12 +821,12 @@
       border: none;
     }
     .vol-display-txt {
-      font-size: 7.5px;
+      font-size: 10px;
       font-weight: 800;
       color: var(--text-accent);
       line-height: 1;
       text-align: center;
-      width: 22px;
+      width: 26px;
       flex-shrink: 0;
       font-variant-numeric: tabular-nums;
     }
@@ -836,7 +844,7 @@
       width: 100%;
     }
 
-    /* 사이드바 랭킹 */
+    /* 사이드바 Top 10 (2줄 배치 복원: 위 닉네임, 아래 점수) */
     .side-leaderboard-box {
       display: flex;
       flex-direction: column;
@@ -851,13 +859,14 @@
     }
 
     .side-leaderboard-box .title {
-      font-size: 8px;
-      font-weight: 800;
+      font-size: 10px;
+      font-weight: 900;
       color: var(--level-color);
       margin-bottom: 1px;
-      text-shadow: 0 0 4px var(--level-color);
+      text-shadow: 0 0 5px var(--level-color);
       flex-shrink: 0;
-      line-height: 1;
+      line-height: 1.1;
+      letter-spacing: -0.3px;
     }
     .leaderboard-list {
       list-style: none;
@@ -866,7 +875,7 @@
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: calc(100% - 10px);
+      height: calc(100% - 12px);
       gap: 1px;
     }
     
@@ -875,13 +884,14 @@
       flex-direction: column;
       align-items: flex-start;
       gap: 0;
-      font-size: 7px;
-      padding: 1.5px 2px;
+      font-size: 10px;
+      padding: 0 2px;
       background: rgba(255, 255, 255, 0.05);
-      border-radius: 3px;
+      border-radius: 2px;
       line-height: 1;
       flex: 1;
       justify-content: center;
+      margin: 0;
     }
     .leaderboard-item .rank { 
       color: var(--text-sub); 
@@ -889,14 +899,18 @@
       overflow: hidden; 
       text-overflow: ellipsis; 
       width: 100%; 
-      max-width: 80px; 
+      max-width: 90px; 
       font-weight: 600;
+      font-size: 10px;
+      line-height: 1;
     }
     .leaderboard-item .score { 
       font-weight: 800; 
       color: var(--text-main); 
       align-self: flex-end; 
-      font-size: 7px; 
+      font-size: 10px; 
+      line-height: 1;
+      font-variant-numeric: tabular-nums;
     }
 
     .controls-modal-backdrop {
@@ -1051,18 +1065,19 @@
           <div class="side-stat-row-inline">
             <div class="side-stat-subbox">
               <span class="side-stat-label">줄</span>
-              <span id="lines" class="side-stat-value" style="color: var(--lines-color); text-shadow: 0 0 6px var(--lines-color); font-size: 11px;">0</span>
+              <span id="lines" class="side-stat-value" style="color: var(--lines-color); text-shadow: 0 0 6px var(--lines-color);">0</span>
             </div>
             <div class="side-stat-subbox">
               <span class="side-stat-label">단계</span>
-              <span id="level" class="side-stat-value" style="color: var(--level-color); text-shadow: 0 0 6px var(--level-color); font-size: 11px;">1</span>
+              <span id="level" class="side-stat-value" style="color: var(--level-color); text-shadow: 0 0 6px var(--level-color);">1</span>
             </div>
           </div>
         </div>
 
+        <!-- 2열 가로형 다음 블록 카드 -->
         <div class="side-next-card" id="side-next-card">
           <span class="side-stat-label">다음 블록</span>
-          <canvas id="next-canvas" width="36" height="36"></canvas>
+          <canvas id="next-canvas" width="84" height="42"></canvas>
         </div>
 
         <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
@@ -1132,7 +1147,7 @@ class RetroSoundEngine {
   constructor() {
     this.ctx = null;
     this.masterGain = null;
-    this.currentVolume = 0.6; // 0.0 ~ 1.0 (기본 60%)
+    this.currentVolume = 0.6;
     this.previousVolume = 0.6;
     this.isMuted = false;
 
@@ -1142,7 +1157,6 @@ class RetroSoundEngine {
     this.baseBpm = 130;
     this.currentBpm = 130;
 
-    // 테트리스 대표 멜로디 (Korobeiniki)
     this.melody = [
       ['E5', 1], ['B4', 0.5], ['C5', 0.5], ['D5', 1], ['C5', 0.5], ['B4', 0.5],
       ['A4', 1], ['A4', 0.5], ['C5', 0.5], ['E5', 1], ['D5', 0.5], ['C5', 0.5],
@@ -1561,7 +1575,7 @@ function changeTheme(themeKey) {
     const select = document.getElementById('theme-select');
     if (select) select.value = themeKey;
     
-    drawNextPiece();
+    drawNextPieces();
   }
 }
 document.body.setAttribute('data-theme', currentThemeKey);
@@ -1603,7 +1617,7 @@ function updateResponsiveLayout() {
   let targetH = Math.min(availHeight, 520);
   targetH = Math.max(targetH, 300);
 
-  let sideW = Math.max(82, Math.min(105, Math.floor(availWidth * 0.28)));
+  let sideW = Math.max(98, Math.min(115, Math.floor(availWidth * 0.30)));
   let boardW = targetH * 0.5;
 
   if (boardW + sideW + 6 > availWidth) {
@@ -1686,7 +1700,7 @@ function togglePause() {
 }
 
 /* =========================================================
-   4. 테트리스 코어 게임 엔진
+   4. 테트리스 코어 게임 엔진 (2열 가로형 다음 블록 지원)
 ========================================================= */
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -1697,7 +1711,7 @@ const scoreElement = document.getElementById('score');
 const linesElement = document.getElementById('lines');
 const levelElement = document.getElementById('level');
 
-let nextPiece = null;
+let nextPieceQueue = [];
 
 function createPiece(type) {
   switch (type) {
@@ -1716,27 +1730,45 @@ function getRandomPiece() {
   return createPiece(pieces[Math.floor(pieces.length * Math.random())]);
 }
 
-function drawNextPiece() {
+function fillNextQueue() {
+  while (nextPieceQueue.length < 2) {
+    nextPieceQueue.push(getRandomPiece());
+  }
+}
+
+function drawNextPieces() {
   if (!nextContext) return;
   nextContext.clearRect(0, 0, nextCanvas.width, nextCanvas.height);
-  if (!nextPiece) return;
 
-  const size = 7.5;
-  const offsetX = (nextCanvas.width - nextPiece[0].length * size) / 2;
-  const offsetY = (nextCanvas.height - nextPiece.length * size) / 2;
+  // 중앙 수직 2열 분할선
+  nextContext.strokeStyle = 'rgba(255, 255, 255, 0.08)';
+  nextContext.lineWidth = 1;
+  nextContext.beginPath();
+  nextContext.moveTo(42, 4);
+  nextContext.lineTo(42, nextCanvas.height - 4);
+  nextContext.stroke();
 
-  nextPiece.forEach((row, y) => {
-    row.forEach((value, x) => {
-      if (value !== 0) {
-        const item = PALETTE[value];
-        if (item) {
-          nextContext.fillStyle = item.base;
-          nextContext.fillRect(offsetX + x * size + 0.5, offsetY + y * size + 0.5, size - 1, size - 1);
-          nextContext.strokeStyle = item.light;
-          nextContext.lineWidth = 1;
-          nextContext.strokeRect(offsetX + x * size + 0.5, offsetY + y * size + 0.5, size - 1, size - 1);
+  const size = 8.5;
+
+  nextPieceQueue.slice(0, 2).forEach((piece, idx) => {
+    if (!piece) return;
+    const centerX = idx === 0 ? 21 : 63;
+    const offsetX = centerX - (piece[0].length * size) / 2;
+    const offsetY = (nextCanvas.height - piece.length * size) / 2;
+
+    piece.forEach((row, y) => {
+      row.forEach((value, x) => {
+        if (value !== 0) {
+          const item = PALETTE[value];
+          if (item) {
+            nextContext.fillStyle = item.base;
+            nextContext.fillRect(offsetX + x * size + 0.5, offsetY + y * size + 0.5, size - 1, size - 1);
+            nextContext.strokeStyle = item.light;
+            nextContext.lineWidth = 1;
+            nextContext.strokeRect(offsetX + x * size + 0.5, offsetY + y * size + 0.5, size - 1, size - 1);
+          }
         }
-      }
+      });
     });
   });
 }
@@ -1930,9 +1962,10 @@ function arenaSweep() {
 }
 
 function playerReset() {
-  player.matrix = nextPiece || getRandomPiece();
-  nextPiece = getRandomPiece();
-  drawNextPiece();
+  fillNextQueue();
+  player.matrix = nextPieceQueue.shift();
+  fillNextQueue();
+  drawNextPieces();
 
   player.pos.y = 0;
   player.pos.x = Math.floor(COLS / 2) - Math.floor(player.matrix[0].length / 2);
@@ -1991,7 +2024,8 @@ function startGame() {
   document.getElementById('game-overlay').style.display = 'none';
   resetGameBoard(startLevel);
   player.isPlaying = true;
-  nextPiece = getRandomPiece();
+  nextPieceQueue = [];
+  fillNextQueue();
   playerReset();
 }
 
