@@ -623,7 +623,7 @@
       box-shadow: 0 0 16px var(--text-accent), inset 0 0 10px rgba(255, 255, 255, 0.8) !important;
     }
 
-    /* 사이드바 통계 카드 (1열 줄, 2열 단계) */
+    /* 사이드바 통계 카드 */
     .side-stat-card {
       background: var(--card-bg);
       border: 1px solid var(--card-border);
@@ -720,6 +720,109 @@
       flex-shrink: 0;
       padding: 3px 0;
     }
+
+    /* 사이드바 전용 슬라이더 볼륨 제어 카드 */
+    .side-vol-card {
+      background: var(--card-bg);
+      border: 1px solid var(--card-border);
+      border-radius: 6px;
+      padding: 3px 3px 2px 3px;
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      flex-shrink: 0;
+      align-items: center;
+      width: 100%;
+    }
+    .vol-ctrl-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 3px;
+      width: 100%;
+    }
+    .btn-vol-mute {
+      width: 22px;
+      height: 18px;
+      font-size: 10px;
+      font-weight: 800;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid var(--card-border);
+      border-radius: 4px;
+      color: var(--text-main);
+      cursor: pointer;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      transition: all 0.15s ease;
+      line-height: 1;
+      padding: 0;
+    }
+    .btn-vol-mute:hover {
+      background: var(--btn-bg);
+      border-color: var(--text-accent);
+      color: var(--text-accent);
+    }
+    .btn-vol-mute:active {
+      transform: scale(0.90);
+    }
+    .btn-vol-mute.muted {
+      background: rgba(255, 0, 85, 0.25);
+      border-color: #ff0055;
+      color: #ff0055;
+    }
+    .vol-slider-wrap {
+      flex: 1;
+      display: flex;
+      align-items: center;
+      min-width: 0;
+    }
+    .vol-range-input {
+      width: 100%;
+      height: 4px;
+      -webkit-appearance: none;
+      appearance: none;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 2px;
+      outline: none;
+      cursor: pointer;
+      margin: 0;
+    }
+    .vol-range-input::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      appearance: none;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--text-accent);
+      cursor: pointer;
+      box-shadow: 0 0 4px var(--text-accent);
+      transition: transform 0.1s ease;
+    }
+    .vol-range-input::-webkit-slider-thumb:active {
+      transform: scale(1.25);
+    }
+    .vol-range-input::-moz-range-thumb {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: var(--text-accent);
+      cursor: pointer;
+      box-shadow: 0 0 4px var(--text-accent);
+      border: none;
+    }
+    .vol-display-txt {
+      font-size: 7.5px;
+      font-weight: 800;
+      color: var(--text-accent);
+      line-height: 1;
+      text-align: center;
+      width: 22px;
+      flex-shrink: 0;
+      font-variant-numeric: tabular-nums;
+    }
+
     .btn-ready {
       background: #ffe600;
       color: #080511;
@@ -733,7 +836,7 @@
       width: 100%;
     }
 
-    /* 사이드바 스크롤 없는 완벽 핏 Top 10 */
+    /* 사이드바 랭킹 */
     .side-leaderboard-box {
       display: flex;
       flex-direction: column;
@@ -848,7 +951,6 @@
       font-size: 9px;
     }
 
-    /* 초소형 화면(iPhone SE / 가로 320~350px) 전용 미세 최적화 */
     @media (max-width: 350px) {
       .top-action-nav { gap: 2px; }
       .theme-select-inline, .btn-nav-tile { font-size: 9.5px; }
@@ -885,7 +987,7 @@
       <button class="btn-nav-tile" onclick="openControlsModal()">⌨️ 조작키</button>
     </div>
 
-    <!-- 메인 컨테이너 (보드 & 우측 사이드바 동적 반응형) -->
+    <!-- 메인 컨테이너 -->
     <div class="main-app-container" id="main-container">
       
       <!-- 게임 섹션 -->
@@ -965,6 +1067,17 @@
 
         <button id="btn-pause" class="btn btn-pause" onclick="togglePause()">⏸️ 정지</button>
 
+        <!-- 정지 버튼 아래 슬라이더형 볼륨 제어 카드 -->
+        <div class="side-vol-card">
+          <div class="vol-ctrl-row">
+            <button id="btn-vol-mute" class="btn-vol-mute" title="음소거 토글" onclick="handleVolumeMute()">🔊</button>
+            <div class="vol-slider-wrap">
+              <input type="range" id="vol-slider" class="vol-range-input" min="0" max="100" value="60" oninput="handleSliderChange(this.value)">
+            </div>
+            <span id="vol-indicator" class="vol-display-txt">60%</span>
+          </div>
+        </div>
+
         <div class="side-leaderboard-box" id="side-leaderboard-box">
           <span class="title">🏆 Top 10</span>
           <ul class="leaderboard-list" id="leaderboard-list">
@@ -995,7 +1108,7 @@
 
   </div>
 
-  <!-- 조작키 설명 팝업 모달 -->
+  <!-- 조작키 안내 모달 -->
   <div id="controls-modal" class="controls-modal-backdrop" onclick="closeControlsModal(event)">
     <div class="controls-modal-card" onclick="event.stopPropagation()">
       <h3>🎮 조작키 안내</h3>
@@ -1005,6 +1118,7 @@
         <div>• <span class="key-badge">↓</span> : 소프트 드롭</div>
         <div>• <span class="key-badge">Space</span> / <span class="key-badge">⚡</span> : 하드 드롭</div>
         <div>• <span class="key-badge">P</span> : 일시 정지 / 계속하기</div>
+        <div style="margin-top: 4px; color: var(--text-sub);">• 블록이 높게 쌓일수록 BGM 템포가 가속됩니다.</div>
       </div>
       <button class="btn" style="padding: 6px;" onclick="closeControlsModal()">닫기</button>
     </div>
@@ -1012,7 +1126,198 @@
 
 <script>
 /* =========================================================
-   0. CheddaBoards 글로벌 랭킹
+   0. Web Audio API 신디사이저 사운드 엔진
+========================================================= */
+class RetroSoundEngine {
+  constructor() {
+    this.ctx = null;
+    this.masterGain = null;
+    this.currentVolume = 0.6; // 0.0 ~ 1.0 (기본 60%)
+    this.previousVolume = 0.6;
+    this.isMuted = false;
+
+    this.isPlayingBGM = false;
+    this.bgmTimer = null;
+    this.currentStep = 0;
+    this.baseBpm = 130;
+    this.currentBpm = 130;
+
+    // 테트리스 대표 멜로디 (Korobeiniki)
+    this.melody = [
+      ['E5', 1], ['B4', 0.5], ['C5', 0.5], ['D5', 1], ['C5', 0.5], ['B4', 0.5],
+      ['A4', 1], ['A4', 0.5], ['C5', 0.5], ['E5', 1], ['D5', 0.5], ['C5', 0.5],
+      ['B4', 1.5], ['C5', 0.5], ['D5', 1], ['E5', 1],
+      ['C5', 1], ['A4', 1], ['A4', 1], [null, 1],
+
+      ['D5', 1.5], ['F5', 0.5], ['A5', 1], ['G5', 0.5], ['F5', 0.5],
+      ['E5', 1.5], ['C5', 0.5], ['E5', 1], ['D5', 0.5], ['C5', 0.5],
+      ['B4', 1], ['B4', 0.5], ['C5', 0.5], ['D5', 1], ['E5', 1],
+      ['C5', 1], ['A4', 1], ['A4', 1], [null, 1]
+    ];
+
+    this.freqMap = {
+      'A4': 440.00, 'B4': 493.88, 'C5': 523.25, 'D5': 587.33,
+      'E5': 659.25, 'F5': 698.46, 'G5': 783.99, 'A5': 880.00
+    };
+  }
+
+  init() {
+    if (!this.ctx) {
+      const AudioContext = window.AudioContext || window.webkitAudioContext;
+      this.ctx = new AudioContext();
+      this.masterGain = this.ctx.createGain();
+      this.applyGain();
+      this.masterGain.connect(this.ctx.destination);
+    }
+    if (this.ctx.state === 'suspended') {
+      this.ctx.resume();
+    }
+  }
+
+  applyGain() {
+    if (!this.masterGain || !this.ctx) return;
+    const effectiveVol = this.isMuted ? 0 : this.currentVolume * 0.35;
+    this.masterGain.gain.setValueAtTime(effectiveVol, this.ctx.currentTime);
+  }
+
+  setVolume(percent) {
+    this.init();
+    this.currentVolume = Math.max(0, Math.min(100, percent)) / 100;
+    if (this.currentVolume > 0 && this.isMuted) {
+      this.isMuted = false;
+    }
+    this.applyGain();
+    this.updateUI();
+  }
+
+  toggleMute() {
+    this.init();
+    this.isMuted = !this.isMuted;
+    if (!this.isMuted && this.currentVolume === 0) {
+      this.currentVolume = 0.3;
+    }
+    this.applyGain();
+    this.updateUI();
+  }
+
+  updateUI() {
+    const indicator = document.getElementById('vol-indicator');
+    const muteBtn = document.getElementById('btn-vol-mute');
+    const slider = document.getElementById('vol-slider');
+    if (!indicator || !muteBtn || !slider) return;
+
+    if (this.isMuted || this.currentVolume === 0) {
+      indicator.innerText = "0%";
+      indicator.style.color = "#ff0055";
+      muteBtn.innerText = "🔇";
+      muteBtn.classList.add('muted');
+      slider.value = 0;
+    } else {
+      const pct = Math.round(this.currentVolume * 100);
+      indicator.innerText = `${pct}%`;
+      indicator.style.color = "var(--text-accent)";
+      muteBtn.innerText = "🔊";
+      muteBtn.classList.remove('muted');
+      slider.value = pct;
+    }
+  }
+
+  playDropSound(isHard = false) {
+    if (!this.ctx || this.isMuted || this.currentVolume === 0) return;
+    try {
+      const now = this.ctx.currentTime;
+      const osc = this.ctx.createOscillator();
+      const gain = this.ctx.createGain();
+
+      osc.type = isHard ? 'triangle' : 'square';
+      const startFreq = isHard ? 120 : 200;
+      const endFreq = 40;
+
+      osc.frequency.setValueAtTime(startFreq, now);
+      osc.frequency.exponentialRampToValueAtTime(endFreq, now + (isHard ? 0.12 : 0.06));
+
+      gain.gain.setValueAtTime(isHard ? 0.45 : 0.2, now);
+      gain.gain.linearRampToValueAtTime(0.01, now + (isHard ? 0.12 : 0.06));
+
+      osc.connect(gain);
+      gain.connect(this.masterGain);
+
+      osc.start(now);
+      osc.stop(now + (isHard ? 0.12 : 0.06));
+    } catch (e) {}
+  }
+
+  startBGM() {
+    this.init();
+    if (this.isPlayingBGM) return;
+    this.isPlayingBGM = true;
+    this.currentStep = 0;
+    this.scheduleNextNote();
+  }
+
+  stopBGM() {
+    this.isPlayingBGM = false;
+    if (this.bgmTimer) {
+      clearTimeout(this.bgmTimer);
+      this.bgmTimer = null;
+    }
+  }
+
+  updateTempoByHeight(highestRowRatio) {
+    const targetBpm = this.baseBpm + Math.round(highestRowRatio * 90);
+    this.currentBpm = Math.min(230, Math.max(130, targetBpm));
+  }
+
+  scheduleNextNote() {
+    if (!this.isPlayingBGM || !this.ctx) return;
+
+    const noteItem = this.melody[this.currentStep];
+    const noteName = noteItem[0];
+    const durationUnits = noteItem[1];
+    
+    const beatSec = 60 / this.currentBpm;
+    const durationSec = durationUnits * beatSec;
+
+    if (noteName && !this.isMuted && this.currentVolume > 0) {
+      const freq = this.freqMap[noteName];
+      if (freq) {
+        const now = this.ctx.currentTime;
+        const osc = this.ctx.createOscillator();
+        const gain = this.ctx.createGain();
+
+        osc.type = 'square';
+        osc.frequency.setValueAtTime(freq, now);
+
+        gain.gain.setValueAtTime(0.08, now);
+        gain.gain.exponentialRampToValueAtTime(0.001, now + durationSec * 0.85);
+
+        osc.connect(gain);
+        gain.connect(this.masterGain);
+
+        osc.start(now);
+        osc.stop(now + durationSec * 0.88);
+      }
+    }
+
+    this.currentStep = (this.currentStep + 1) % this.melody.length;
+    this.bgmTimer = setTimeout(() => {
+      this.scheduleNextNote();
+    }, durationSec * 1000);
+  }
+}
+
+const soundEngine = new RetroSoundEngine();
+
+function handleVolumeMute() {
+  soundEngine.toggleMute();
+}
+
+function handleSliderChange(val) {
+  soundEngine.setVolume(Number(val));
+}
+
+/* =========================================================
+   1. CheddaBoards 글로벌 랭킹
 ========================================================= */
 const CHEDDA_API_KEY = 'cb_blog-tetris_4097310434';
 
@@ -1111,7 +1416,7 @@ function cancelSubmitScore() {
 }
 
 /* =========================================================
-   1. 보드 설정 및 10종 테마
+   2. 보드 설정 및 10종 테마
 ========================================================= */
 const RENDER_WIDTH = 260;
 const RENDER_HEIGHT = 520;
@@ -1266,7 +1571,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 /* =========================================================
-   2. 동적 반응형 뷰포트 스케일링 엔진
+   3. 동적 반응형 뷰포트 스케일링 엔진
 ========================================================= */
 let ghostEnabled = true;
 let startLevel = 1;
@@ -1288,28 +1593,24 @@ function updateResponsiveLayout() {
   const vh = window.innerHeight;
   const isPadOpen = isKeypadActive;
 
-  // 상단 바(32px) + 패드(70px/0px) + 여백(16px) 계산
   const topNavH = 34;
   const padH = isPadOpen ? 76 : 0;
   const marginH = 14;
 
   const availHeight = vh - topNavH - padH - marginH;
-  const availWidth = vw - 8; // 좌우 안전 마진 4px씩
+  const availWidth = vw - 8;
 
-  // 표준 보드 1:2 비율 기반 최적 높이 및 너비 도출
   let targetH = Math.min(availHeight, 520);
-  targetH = Math.max(targetH, 300); // 최소 높이 보장
+  targetH = Math.max(targetH, 300);
 
   let sideW = Math.max(82, Math.min(105, Math.floor(availWidth * 0.28)));
-  let boardW = targetH * 0.5; // 1:2 비율
+  let boardW = targetH * 0.5;
 
-  // 화면 가로를 초과할 경우 너비에 맞춰 높이 재역산
   if (boardW + sideW + 6 > availWidth) {
     boardW = Math.max(150, availWidth - sideW - 6);
     targetH = boardW * 2;
   }
 
-  // CSS 변수 동적 적용
   document.documentElement.style.setProperty('--app-height', `${Math.round(targetH)}px`);
   document.documentElement.style.setProperty('--app-scale-w', `${Math.round(boardW)}px`);
   document.documentElement.style.setProperty('--app-side-w', `${Math.round(sideW)}px`);
@@ -1369,6 +1670,7 @@ function togglePause() {
   const scoreSubmitBox = document.getElementById('score-submit-box');
 
   if (isPaused) {
+    soundEngine.stopBGM();
     overlay.style.display = 'flex';
     setupBox.style.display = 'none';
     scoreSubmitBox.style.display = 'none';
@@ -1377,13 +1679,14 @@ function togglePause() {
     msg.style.color = "#ffe600";
     pauseBtn.innerText = "▶️ 계속";
   } else {
+    soundEngine.startBGM();
     overlay.style.display = 'none';
     pauseBtn.innerText = "⏸️ 정지";
   }
 }
 
 /* =========================================================
-   3. 테트리스 코어 게임 엔진
+   4. 테트리스 코어 게임 엔진
 ========================================================= */
 const canvas = document.getElementById('tetris');
 const context = canvas.getContext('2d');
@@ -1532,9 +1835,24 @@ function resetLockDelay() {
   }
 }
 
+function updateStackTension() {
+  let highestOccupiedRow = ROWS;
+  for (let y = 0; y < ROWS; y++) {
+    if (arena[y].some(val => val !== 0)) {
+      highestOccupiedRow = y;
+      break;
+    }
+  }
+  const occupiedRows = ROWS - highestOccupiedRow;
+  const stackRatio = Math.max(0, Math.min(1, occupiedRows / (ROWS * 0.75)));
+  soundEngine.updateTempoByHeight(stackRatio);
+}
+
 function lockPiece() {
   merge(arena, player);
+  soundEngine.playDropSound(false);
   arenaSweep();
+  updateStackTension();
   playerReset();
   lockTimer = 0;
   lockResets = 0;
@@ -1564,7 +1882,14 @@ function playerHardDrop() {
   dropDistance--;
   player.score += dropDistance * 2;
   updateScore();
-  lockPiece();
+  
+  soundEngine.playDropSound(true);
+  merge(arena, player);
+  arenaSweep();
+  updateStackTension();
+  playerReset();
+  lockTimer = 0;
+  lockResets = 0;
 }
 
 function getGhostPosition() {
@@ -1620,6 +1945,7 @@ function playerReset() {
 function triggerGameOver() {
   player.isPlaying = false;
   isPaused = false;
+  soundEngine.stopBGM();
   
   const overlay = document.getElementById('game-overlay');
   const msg = document.getElementById('overlay-msg');
@@ -1655,6 +1981,9 @@ function startGame() {
     togglePause();
     return;
   }
+  soundEngine.startBGM();
+  soundEngine.updateTempoByHeight(0);
+
   startLevel = parseInt(document.getElementById('single-start-level').value, 10) || 1;
   const selectedSize = document.getElementById('single-board-size').value;
   applyBoardSize(selectedSize);
@@ -1676,7 +2005,7 @@ function resetGameBoard(lvl = 1) {
 }
 
 /* =========================================================
-   4. 파티클 이펙트
+   5. 파티클 이펙트
 ========================================================= */
 const particles = [];
 function spawnParticles(y, colors) {
@@ -1720,7 +2049,7 @@ function drawParticles(ctx) {
 }
 
 /* =========================================================
-   5. 보드 렌더링
+   6. 보드 렌더링
 ========================================================= */
 function drawBlock(ctx, x, y, paletteIdx, isGhost = false) {
   const px = x * BLOCK_W;
@@ -1803,7 +2132,7 @@ function draw() {
 }
 
 /* =========================================================
-   6. DAS / ARR 입력 엔진
+   7. DAS / ARR 입력 엔진
 ========================================================= */
 const keys = {
   ArrowLeft: { pressed: false, timer: 0, lastStep: 0 },
@@ -1859,6 +2188,8 @@ window.addEventListener('keydown', event => {
   }
 
   if (event.repeat || !player.isPlaying || isPaused) return;
+
+  soundEngine.init();
 
   if (event.code === 'ArrowLeft') {
     keys.ArrowLeft.pressed = true;
@@ -1921,6 +2252,7 @@ function setupTouchButton(btnId, action) {
   const startAction = (e) => {
     e.preventDefault();
     e.stopPropagation();
+    soundEngine.init();
     el.classList.add('touched');
     if (!player.isPlaying || isPaused) return;
 
@@ -1978,7 +2310,7 @@ setupTouchButton('v-up', 'rot');
 setupTouchButton('v-drop', 'hard');
 
 /* =========================================================
-   7. 메인 루프 및 초기화
+   8. 메인 루프 및 초기화
 ========================================================= */
 let dropCounter = 0;
 let dropInterval = 800;
@@ -2016,6 +2348,7 @@ applyBoardSize('standard');
 resetGameBoard(1);
 autoDetectMobileTouch();
 updateResponsiveLayout();
+soundEngine.updateUI();
 update();
 </script>
 
