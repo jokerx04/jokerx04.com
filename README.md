@@ -54,3 +54,24 @@
 - v2.6.3 : https://htmlstream.com/preview/unify-v2.6.3/
 
 <br /><br />
+
+
+my-react-app/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # [핵심] GitHub Actions CI/CD 파이프라인 정의 파일
+├── public/
+│   ├── favicon.ico             # 빌드 없이 그대로 웹 루트로 복사되는 에셋
+│   └── 404.html                # SPA 서브 경로 새로고침 시 404 방지용 리다이렉트
+├── src/
+│   ├── assets/                 # 번들링 대상 이미지, 스타일, 폰트 등
+│   ├── components/             # 재사용 가능한 UI 컴포넌트
+│   ├── pages/                  # 화면 라우팅 단위 컴포넌트
+│   ├── App.jsx                 # 루트 컴포넌트
+│   └── main.jsx                # React DOM 진입점
+├── .gitignore                  # dist, node_modules 등 빌드/의존성 폴더 제외
+├── index.html                  # HTML 템플릿 진입점 (Vite 기준)
+├── package.json                # 프로젝트 의존성 및 빌드 스크립트 정의
+├── package-lock.json           # 의존성 잠금 파일 (Actions의 npm ci 실행에 필수)
+└── vite.config.js              # 번들러 설정 및 Pages base 경로 지정
+
