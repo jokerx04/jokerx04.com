@@ -75,3 +75,35 @@ my-react-app/
 ├── package-lock.json           # 의존성 잠금 파일 (Actions의 npm ci 실행에 필수)
 └── vite.config.js              # 번들러 설정 및 Pages base 경로 지정
 ```
+
+구성 시 필수 점검 요소
+
+1. .gitignore 설정
+빌드 산출물과 로컬 의존성이 레파지토리에 올라가지 않도록 설정합니다.
+
+```
+node_modules/
+dist/
+dist-ssr/
+*.local
+.DS_Store
+```
+
+2. package-lock.json 커밋
+GitHub Actions 환경에서 일관된 버전으로 빠르게 설치하기 위해 npm ci 명령어를 사용하므로, package.json과 함께 package-lock.json을 반드시 원격 레파지토리에 포함해야 합니다.
+
+3. vite.config.js의 base 경로
+저장소 이름이 서브 경로로 붙는 GitHub Pages 특성에 맞춰 베이스 경로를 지정합니다.
+
+```js
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
+
+export default defineConfig({
+  plugins: [react()],
+  base: '/<repository-name>/', // 레파지토리 명 입력 (루트 도메인이면 '/')
+});
+```
+
+4. GitHub 저장소 권한 설정
+저장소 상단 메뉴의 Settings → Pages → Build and deployment 항목에서 Source를 GitHub Actions로 변경해야 파이프라인이 정상적으로 웹 호스팅 서버에 산출물을 배포합니다.
