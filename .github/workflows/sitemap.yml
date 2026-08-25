@@ -21,9 +21,9 @@ jobs:
           echo '<?xml version="1.0" encoding="UTF-8"?>' > sitemap.xml
           echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> sitemap.xml
           
-          # 2. 오직 v1 폴더 내의 .html 파일만 검색하여 추가
-          # -maxdepth 2 옵션으로 v1 내부까지만 탐색 (필요 시 조절)
-          find v1 -name "*.html" -type f | while read file; do
+          # 2. 오직 page 폴더 내의 .html 파일만 검색하여 추가
+          # -maxdepth 2 옵션으로 page 내부까지만 탐색 (필요 시 조절)
+          find page -name "*.html" -type f | while read file; do
             echo "  <url>" >> sitemap.xml
             echo "    <loc>https://jokerx04.com/$file</loc>" >> sitemap.xml
             echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> sitemap.xml
@@ -41,5 +41,5 @@ jobs:
           # 파일 생성 여부 확인 후 커밋
           if [ -s sitemap.xml ]; then
             git add sitemap.xml
-            git diff --quiet && git diff --staged --quiet || (git commit -m "Automated sitemap update for v1 only" && git push)
+            git diff --quiet && git diff --staged --quiet || (git commit -m "Automated sitemap update for page only" && git push)
           fi
