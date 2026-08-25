@@ -55,7 +55,7 @@
 
 <br /><br />
 
-
+```
 my-react-app/
 ├── .github/
 │   └── workflows/
@@ -74,4 +74,4 @@ my-react-app/
 ├── package.json                # 프로젝트 의존성 및 빌드 스크립트 정의
 ├── package-lock.json           # 의존성 잠금 파일 (Actions의 npm ci 실행에 필수)
 └── vite.config.js              # 번들러 설정 및 Pages base 경로 지정
-
+```
