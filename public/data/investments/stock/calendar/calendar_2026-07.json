@@ -4,8 +4,8 @@
     "from": "2026-07-01",
     "to": "2026-07-31"
   },
-  "totalEvents": 24,
-  "lastUpdatedAt": "2026-09-02 01:21:34.163",
+  "totalEvents": 20,
+  "lastUpdatedAt": "2026-09-02 01:33:56.077",
   "events": [
     {
       "id": "2026-07-01_kr-trade-balance",
@@ -51,7 +51,7 @@
       "previous": null,
       "change": null,
       "changeRate": null,
-      "unit": ""
+      "unit": "천 명"
     },
     {
       "id": "2026-07-02_kr-cpi",
@@ -111,39 +111,16 @@
       "category": "고용 및 노동시장",
       "event": "JOLTs 구인·이직 보고서",
       "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
+      "agency": "미국 노동통계국 (BLS)",
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
-    },
-    {
-      "id": "2026-07-09_us_job-openings-and-labor-turnover-survey",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-07-09",
-      "datetimeKst": "2026-07-09 23:00:00",
-      "dateEt": "2026-07-09",
-      "datetimeEt": "2026-07-09 10:00:00 (EDT)",
-      "status": "발표완료",
-      "category": "고용 및 노동시장",
-      "event": "JOLTs 구인·이직 보고서",
-      "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
+      "actual": 7271,
+      "estimate": 7182,
+      "previous": 7182,
+      "change": 89,
+      "changeRate": 1.24,
+      "unit": "천 건"
     },
     {
       "id": "2026-07-12_kr-employment",
@@ -189,7 +166,7 @@
       "previous": 332.568,
       "change": 0.245,
       "changeRate": 0.07,
-      "unit": "% (YoY)"
+      "unit": "Index"
     },
     {
       "id": "2026-07-15_eu-ecb-rate",
@@ -249,16 +226,16 @@
       "category": "경기 성장 및 소비",
       "event": "소매판매 (Retail Sales)",
       "eventOriginal": "Advance Monthly Sales for Retail and Food Services",
-      "agency": "미국 연방 통계기관",
+      "agency": "미국 인구조사국 (US Census Bureau)",
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
+      "actual": 763602,
+      "estimate": 768072,
+      "previous": 768072,
+      "change": -4470,
+      "changeRate": -0.58,
+      "unit": "백만 달러"
     },
     {
       "id": "2026-07-16_us_industrial-production-and-capacity-utilization",
@@ -282,29 +259,6 @@
       "change": 0.207,
       "changeRate": 0.2,
       "unit": "Index"
-    },
-    {
-      "id": "2026-07-16_us_job-openings-and-labor-turnover-survey",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-07-16",
-      "datetimeKst": "2026-07-16 23:00:00",
-      "dateEt": "2026-07-16",
-      "datetimeEt": "2026-07-16 10:00:00 (EDT)",
-      "status": "발표완료",
-      "category": "고용 및 노동시장",
-      "event": "JOLTs 구인·이직 보고서",
-      "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
     },
     {
       "id": "2026-07-19_jp-boj-rate",
@@ -353,29 +307,6 @@
       "unit": "%"
     },
     {
-      "id": "2026-07-23_us_job-openings-and-labor-turnover-survey",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-07-23",
-      "datetimeKst": "2026-07-23 23:00:00",
-      "dateEt": "2026-07-23",
-      "datetimeEt": "2026-07-23 10:00:00 (EDT)",
-      "status": "발표완료",
-      "category": "고용 및 노동시장",
-      "event": "JOLTs 구인·이직 보고서",
-      "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
-    },
-    {
       "id": "2026-07-24_us_existing-home-sales",
       "country": "US",
       "countryName": "미국",
@@ -387,16 +318,16 @@
       "category": "부동산 및 주택",
       "event": "기존 주택 매매 건수",
       "eventOriginal": "Existing Home Sales",
-      "agency": "미국 연방 통계기관",
+      "agency": "미국 부동산중개인협회 (NAR)",
       "impact": "보통",
       "importanceScore": 2,
       "importanceStar": "★★☆",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
+      "actual": 4060000,
+      "estimate": 4130000,
+      "previous": 4130000,
+      "change": -70000,
+      "changeRate": -1.69,
+      "unit": "백만 호"
     },
     {
       "id": "2026-07-25_kr-gdp",
@@ -456,16 +387,16 @@
       "category": "통화정책 및 중앙은행",
       "event": "통화량 지표 (M1, M2)",
       "eventOriginal": "Money Stock Measures",
-      "agency": "미국 연방 통계기관",
+      "agency": "미국 재무부 (US Treasury)",
       "impact": "보통",
       "importanceScore": 2,
       "importanceStar": "★★☆",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
+      "actual": 23218,
+      "estimate": 23115.2,
+      "previous": 23115.2,
+      "change": 102.8,
+      "changeRate": 0.44,
+      "unit": "십억 달러"
     },
     {
       "id": "2026-07-30_us_personal-income-and-outlays",
@@ -488,7 +419,7 @@
       "previous": 131.454,
       "change": 0.205,
       "changeRate": 0.16,
-      "unit": "% (YoY)"
+      "unit": "Index"
     },
     {
       "id": "2026-07-30_us_gross-domestic-product",
@@ -512,29 +443,6 @@
       "change": 620.345,
       "changeRate": 1.95,
       "unit": "십억 달러"
-    },
-    {
-      "id": "2026-07-30_us_job-openings-and-labor-turnover-survey",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-07-30",
-      "datetimeKst": "2026-07-30 23:00:00",
-      "dateEt": "2026-07-30",
-      "datetimeEt": "2026-07-30 10:00:00 (EDT)",
-      "status": "발표완료",
-      "category": "고용 및 노동시장",
-      "event": "JOLTs 구인·이직 보고서",
-      "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
     },
     {
       "id": "2026-07-31_cn-manufacturing-pmi",
