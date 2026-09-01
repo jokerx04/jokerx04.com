@@ -1,12 +1,9 @@
 {
   "month": "2026-05",
-  "range": {
-    "from": "2026-05-01",
-    "to": "2026-05-31"
-  },
+  "from": "2026-05-01",
+  "to": "2026-05-31",
   "totalEvents": 17,
-  "elapsedMs": 0,
-  "lastUpdatedAt": "2026-09-02 02:04:37.188",
+  "lastUpdatedAt": "2026-09-02 02:15:45.527",
   "events": [
     {
       "id": "2026-05-01_kr-trade-balance",
