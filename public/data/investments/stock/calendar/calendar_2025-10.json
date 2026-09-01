@@ -5,7 +5,7 @@
     "to": "2025-10-31"
   },
   "totalEvents": 12,
-  "lastUpdatedAt": "2026-09-02 01:34:08.560",
+  "lastUpdatedAt": "2026-09-02 01:45:54.925",
   "events": [
     {
       "id": "2025-10-01_kr-trade-balance",
@@ -46,11 +46,11 @@
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "actual": 132148000,
+      "estimate": 132128000,
+      "previous": 132128000,
+      "change": 20000,
+      "changeRate": 0.02,
       "unit": "천 명"
     },
     {
