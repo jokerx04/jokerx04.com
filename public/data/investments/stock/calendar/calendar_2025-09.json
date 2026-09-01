@@ -5,7 +5,7 @@
     "to": "2025-09-30"
   },
   "totalEvents": 17,
-  "lastUpdatedAt": "2026-09-02 01:00:51.560",
+  "lastUpdatedAt": "2026-09-02 01:01:57.674",
   "events": [
     {
       "id": "2025-09-01_kr-trade-balance",
@@ -121,29 +121,6 @@
       "change": 0.1,
       "changeRate": 2.33,
       "unit": "%"
-    },
-    {
-      "id": "2025-09-10_us_producer-price-indexes",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2025-09-10",
-      "datetimeKst": "2025-09-10 21:30:00",
-      "dateEt": "2025-09-10",
-      "datetimeEt": "2025-09-10 08:30:00 (EDT)",
-      "status": "발표완료",
-      "category": "물가 및 인플레이션",
-      "event": "생산자물가지수 (PPI)",
-      "eventOriginal": "Producer Price Indexes",
-      "agency": "미국 노동통계국 (BLS)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": "Index"
     },
     {
       "id": "2025-09-11_us_consumer-price-index",
@@ -397,6 +374,29 @@
       "change": null,
       "changeRate": null,
       "unit": ""
+    },
+    {
+      "id": "2025-09-26_us_personal-income-and-outlays",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2025-09-26",
+      "datetimeKst": "2025-09-26 21:30:00",
+      "dateEt": "2025-09-26",
+      "datetimeEt": "2025-09-26 08:30:00 (EDT)",
+      "status": "발표완료",
+      "category": "물가 및 인플레이션",
+      "event": "개인소득 및 개인소비지출 (PCE 물가지수)",
+      "eventOriginal": "Personal Income and Outlays",
+      "agency": "미국 경제분석국 (BEA)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": 127.625,
+      "estimate": null,
+      "previous": 127.293,
+      "change": 0.332,
+      "changeRate": 0.26,
+      "unit": "% (YoY)"
     }
   ]
 }
