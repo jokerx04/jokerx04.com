@@ -4,8 +4,8 @@
     "from": "2026-06-01",
     "to": "2026-06-30"
   },
-  "totalEvents": 18,
-  "lastUpdatedAt": "2026-09-02 00:47:15.733",
+  "totalEvents": 17,
+  "lastUpdatedAt": "2026-09-02 01:01:01.699",
   "events": [
     {
       "id": "2026-06-01_kr-trade-balance",
@@ -161,11 +161,11 @@
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": 286.279,
+      "actual": null,
       "estimate": null,
-      "previous": 290.515,
-      "change": -4.236,
-      "changeRate": -1.46,
+      "previous": null,
+      "change": null,
+      "changeRate": null,
       "unit": "Index"
     },
     {
@@ -253,11 +253,11 @@
       "impact": "보통",
       "importanceScore": 2,
       "importanceStar": "★★☆",
-      "actual": null,
+      "actual": 102.7868,
       "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "previous": 102.5099,
+      "change": 0.277,
+      "changeRate": 0.27,
       "unit": "Index"
     },
     {
@@ -351,29 +351,6 @@
       "change": null,
       "changeRate": null,
       "unit": ""
-    },
-    {
-      "id": "2026-06-25_us_personal-income-and-outlays",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-06-25",
-      "datetimeKst": "2026-06-25 21:30:00",
-      "dateEt": "2026-06-25",
-      "datetimeEt": "2026-06-25 08:30:00 (EDT)",
-      "status": "발표완료",
-      "category": "물가 및 인플레이션",
-      "event": "개인소득 및 개인소비지출 (PCE 물가지수)",
-      "eventOriginal": "Personal Income and Outlays",
-      "agency": "미국 경제분석국 (BEA)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 131.454,
-      "estimate": null,
-      "previous": 131.576,
-      "change": -0.122,
-      "changeRate": -0.09,
-      "unit": "% (YoY)"
     },
     {
       "id": "2026-06-25_us_gross-domestic-product",
