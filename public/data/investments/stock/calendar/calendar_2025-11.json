@@ -4,8 +4,8 @@
     "from": "2025-11-01",
     "to": "2025-11-30"
   },
-  "totalEvents": 12,
-  "lastUpdatedAt": "2026-09-02 01:01:59.497",
+  "totalEvents": 14,
+  "lastUpdatedAt": "2026-09-02 01:08:07.052",
   "events": [
     {
       "id": "2025-11-01_kr-trade-balance",
@@ -100,27 +100,27 @@
       "unit": "%"
     },
     {
-      "id": "2025-11-20_kr-ppi",
-      "country": "KR",
-      "countryName": "한국",
+      "id": "2025-11-20_cn-pboc-lpr",
+      "country": "CN",
+      "countryName": "중국",
       "dateKst": "2025-11-20",
-      "datetimeKst": "2025-11-20 06:00:00",
+      "datetimeKst": "2025-11-20 10:15:00",
       "dateEt": "2025-11-19",
-      "datetimeEt": "2025-11-19 16:00:00 (EST)",
+      "datetimeEt": "2025-11-19 20:15:00 (EST)",
       "status": "발표완료",
-      "category": "물가 및 인플레이션",
-      "event": "한국 생산자물가지수 (PPI)",
-      "eventOriginal": "South Korea Producer Price Index (PPI)",
-      "agency": "한국은행",
-      "impact": "보통",
-      "importanceScore": 2,
-      "importanceStar": "★★☆",
+      "category": "통화정책 및 중앙은행",
+      "event": "중국 인민은행 대출우대금리 (LPR 기준금리 결정)",
+      "eventOriginal": "People's Bank of China Loan Prime Rate (LPR)",
+      "agency": "중국인민은행 (PBOC)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
       "actual": null,
       "estimate": null,
       "previous": null,
       "change": null,
       "changeRate": null,
-      "unit": "% (YoY)"
+      "unit": "%"
     },
     {
       "id": "2025-11-20_us_employment-situation",
@@ -167,6 +167,29 @@
       "change": null,
       "changeRate": null,
       "unit": ""
+    },
+    {
+      "id": "2025-11-25_us_producer-price-indexes",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2025-11-25",
+      "datetimeKst": "2025-11-25 22:30:00",
+      "dateEt": "2025-11-25",
+      "datetimeEt": "2025-11-25 08:30:00 (EST)",
+      "status": "발표완료",
+      "category": "물가 및 인플레이션",
+      "event": "생산자물가지수 (PPI)",
+      "eventOriginal": "Producer Price Indexes",
+      "agency": "미국 노동통계국 (BLS)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": 261.914,
+      "estimate": null,
+      "previous": 260.591,
+      "change": 1.323,
+      "changeRate": 0.51,
+      "unit": "Index"
     },
     {
       "id": "2025-11-25_us_advance-monthly-sales-for-retail-and-food-services",
@@ -282,6 +305,29 @@
       "change": 0,
       "changeRate": 0,
       "unit": "%"
+    },
+    {
+      "id": "2025-11-30_cn-manufacturing-pmi",
+      "country": "CN",
+      "countryName": "중국",
+      "dateKst": "2025-11-30",
+      "datetimeKst": "2025-11-30 10:30:00",
+      "dateEt": "2025-11-29",
+      "datetimeEt": "2025-11-29 20:30:00 (EST)",
+      "status": "발표완료",
+      "category": "제조업 및 서비스업",
+      "event": "중국 공식 제조업 구매관리자지수 (PMI)",
+      "eventOriginal": "China NBS Manufacturing PMI",
+      "agency": "중국 국가통계국",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": null,
+      "estimate": null,
+      "previous": null,
+      "change": null,
+      "changeRate": null,
+      "unit": "Index"
     }
   ]
 }
