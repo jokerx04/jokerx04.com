@@ -5,7 +5,7 @@
     "to": "2025-12-31"
   },
   "totalEvents": 20,
-  "lastUpdatedAt": "2026-09-02 01:08:26.979",
+  "lastUpdatedAt": "2026-09-02 01:21:03.907",
   "events": [
     {
       "id": "2025-12-01_kr-trade-balance",
@@ -169,29 +169,6 @@
       "unit": "%"
     },
     {
-      "id": "2025-12-16_us_advance-monthly-sales-for-retail-and-food-services",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2025-12-16",
-      "datetimeKst": "2025-12-16 22:30:00",
-      "dateEt": "2025-12-16",
-      "datetimeEt": "2025-12-16 08:30:00 (EST)",
-      "status": "발표완료",
-      "category": "경기 성장 및 소비",
-      "event": "소매판매 (Retail Sales)",
-      "eventOriginal": "Advance Monthly Sales for Retail and Food Services",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
-    },
-    {
       "id": "2025-12-16_us_employment-situation",
       "country": "US",
       "countryName": "미국",
@@ -213,6 +190,29 @@
       "change": -0.1,
       "changeRate": -2.22,
       "unit": "%"
+    },
+    {
+      "id": "2025-12-16_us_advance-monthly-sales-for-retail-and-food-services",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2025-12-16",
+      "datetimeKst": "2025-12-16 22:30:00",
+      "dateEt": "2025-12-16",
+      "datetimeEt": "2025-12-16 08:30:00 (EST)",
+      "status": "발표완료",
+      "category": "경기 성장 및 소비",
+      "event": "소매판매 (Retail Sales)",
+      "eventOriginal": "Advance Monthly Sales for Retail and Food Services",
+      "agency": "미국 연방 통계기관",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": null,
+      "estimate": null,
+      "previous": null,
+      "change": null,
+      "changeRate": null,
+      "unit": ""
     },
     {
       "id": "2025-12-16_us_industrial-production-and-capacity-utilization",
