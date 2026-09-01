@@ -5,7 +5,7 @@
     "to": "2026-02-28"
   },
   "totalEvents": 20,
-  "lastUpdatedAt": "2026-09-02 01:08:09.599",
+  "lastUpdatedAt": "2026-09-02 01:08:29.018",
   "events": [
     {
       "id": "2026-02-01_kr-trade-balance",
@@ -284,29 +284,6 @@
       "unit": "%"
     },
     {
-      "id": "2026-02-20_us_personal-income-and-outlays",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-02-20",
-      "datetimeKst": "2026-02-20 22:30:00",
-      "dateEt": "2026-02-20",
-      "datetimeEt": "2026-02-20 08:30:00 (EST)",
-      "status": "발표완료",
-      "category": "물가 및 인플레이션",
-      "event": "개인소득 및 개인소비지출 (PCE 물가지수)",
-      "eventOriginal": "Personal Income and Outlays",
-      "agency": "미국 경제분석국 (BEA)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 129.539,
-      "estimate": null,
-      "previous": 129.023,
-      "change": 0.516,
-      "changeRate": 0.4,
-      "unit": "% (YoY)"
-    },
-    {
       "id": "2026-02-20_us_gross-domestic-product",
       "country": "US",
       "countryName": "미국",
@@ -328,6 +305,29 @@
       "change": 443.195,
       "changeRate": 1.41,
       "unit": "십억 달러"
+    },
+    {
+      "id": "2026-02-20_us_personal-income-and-outlays",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2026-02-20",
+      "datetimeKst": "2026-02-20 22:30:00",
+      "dateEt": "2026-02-20",
+      "datetimeEt": "2026-02-20 08:30:00 (EST)",
+      "status": "발표완료",
+      "category": "물가 및 인플레이션",
+      "event": "개인소득 및 개인소비지출 (PCE 물가지수)",
+      "eventOriginal": "Personal Income and Outlays",
+      "agency": "미국 경제분석국 (BEA)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": 129.539,
+      "estimate": null,
+      "previous": 129.023,
+      "change": 0.516,
+      "changeRate": 0.4,
+      "unit": "% (YoY)"
     },
     {
       "id": "2026-02-21_us_existing-home-sales",
