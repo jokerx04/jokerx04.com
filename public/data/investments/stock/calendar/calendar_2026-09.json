@@ -4,8 +4,8 @@
     "from": "2026-09-01",
     "to": "2026-09-30"
   },
-  "totalEvents": 21,
-  "lastUpdatedAt": "2026-09-02 01:21:36.820",
+  "totalEvents": 17,
+  "lastUpdatedAt": "2026-09-02 01:33:58.102",
   "events": [
     {
       "id": "2026-09-01_kr-trade-balance",
@@ -74,7 +74,7 @@
       "previous": null,
       "change": null,
       "changeRate": null,
-      "unit": ""
+      "unit": "천 명"
     },
     {
       "id": "2026-09-03_us_job-openings-and-labor-turnover-survey",
@@ -88,16 +88,16 @@
       "category": "고용 및 노동시장",
       "event": "JOLTs 구인·이직 보고서",
       "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
+      "agency": "미국 노동통계국 (BLS)",
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
+      "actual": 7271,
+      "estimate": 7182,
+      "previous": 7182,
+      "change": 89,
+      "changeRate": 1.24,
+      "unit": "천 건"
     },
     {
       "id": "2026-09-04_us_employment-situation",
@@ -146,29 +146,6 @@
       "unit": "Index"
     },
     {
-      "id": "2026-09-10_us_job-openings-and-labor-turnover-survey",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-09-10",
-      "datetimeKst": "2026-09-10 23:00:00",
-      "dateEt": "2026-09-10",
-      "datetimeEt": "2026-09-10 10:00:00 (EDT)",
-      "status": "발표예정",
-      "category": "고용 및 노동시장",
-      "event": "JOLTs 구인·이직 보고서",
-      "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
-    },
-    {
       "id": "2026-09-11_us_consumer-price-index",
       "country": "US",
       "countryName": "미국",
@@ -189,7 +166,7 @@
       "previous": 332.568,
       "change": 0.245,
       "changeRate": 0.07,
-      "unit": "% (YoY)"
+      "unit": "Index"
     },
     {
       "id": "2026-09-12_kr-employment",
@@ -249,16 +226,16 @@
       "category": "경기 성장 및 소비",
       "event": "소매판매 (Retail Sales)",
       "eventOriginal": "Advance Monthly Sales for Retail and Food Services",
-      "agency": "미국 연방 통계기관",
+      "agency": "미국 인구조사국 (US Census Bureau)",
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
+      "actual": 763602,
+      "estimate": 768072,
+      "previous": 768072,
+      "change": -4470,
+      "changeRate": -0.58,
+      "unit": "백만 달러"
     },
     {
       "id": "2026-09-16_us_industrial-production-and-capacity-utilization",
@@ -282,29 +259,6 @@
       "change": 0.207,
       "changeRate": 0.2,
       "unit": "Index"
-    },
-    {
-      "id": "2026-09-17_us_job-openings-and-labor-turnover-survey",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-09-17",
-      "datetimeKst": "2026-09-17 23:00:00",
-      "dateEt": "2026-09-17",
-      "datetimeEt": "2026-09-17 10:00:00 (EDT)",
-      "status": "발표예정",
-      "category": "고용 및 노동시장",
-      "event": "JOLTs 구인·이직 보고서",
-      "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
     },
     {
       "id": "2026-09-19_jp-boj-rate",
@@ -364,39 +318,16 @@
       "category": "부동산 및 주택",
       "event": "기존 주택 매매 건수",
       "eventOriginal": "Existing Home Sales",
-      "agency": "미국 연방 통계기관",
+      "agency": "미국 부동산중개인협회 (NAR)",
       "impact": "보통",
       "importanceScore": 2,
       "importanceStar": "★★☆",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
-    },
-    {
-      "id": "2026-09-24_us_job-openings-and-labor-turnover-survey",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-09-24",
-      "datetimeKst": "2026-09-24 23:00:00",
-      "dateEt": "2026-09-24",
-      "datetimeEt": "2026-09-24 10:00:00 (EDT)",
-      "status": "발표예정",
-      "category": "고용 및 노동시장",
-      "event": "JOLTs 구인·이직 보고서",
-      "eventOriginal": "Job Openings and Labor Turnover Survey",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
+      "actual": 4060000,
+      "estimate": 4130000,
+      "previous": 4130000,
+      "change": -70000,
+      "changeRate": -1.69,
+      "unit": "백만 호"
     },
     {
       "id": "2026-09-30_cn-manufacturing-pmi",
@@ -442,7 +373,7 @@
       "previous": 131.454,
       "change": 0.205,
       "changeRate": 0.16,
-      "unit": "% (YoY)"
+      "unit": "Index"
     },
     {
       "id": "2026-09-30_us_gross-domestic-product",
@@ -466,29 +397,6 @@
       "change": 620.345,
       "changeRate": 1.95,
       "unit": "십억 달러"
-    },
-    {
-      "id": "2026-09-30_us_adp-national-employment-report",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-09-30",
-      "datetimeKst": "2026-09-30 21:30:00",
-      "dateEt": "2026-09-30",
-      "datetimeEt": "2026-09-30 08:30:00 (EDT)",
-      "status": "발표예정",
-      "category": "고용 및 노동시장",
-      "event": "ADP 민간 고용보고서",
-      "eventOriginal": "ADP National Employment Report",
-      "agency": "미국 노동통계국 (BLS)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
     }
   ]
 }
