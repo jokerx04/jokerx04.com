@@ -5,7 +5,7 @@
     "to": "2026-01-31"
   },
   "totalEvents": 20,
-  "lastUpdatedAt": "2026-09-02 01:34:11.771",
+  "lastUpdatedAt": "2026-09-02 01:45:57.860",
   "events": [
     {
       "id": "2026-01-01_us_job-openings-and-labor-turnover-survey",
@@ -92,11 +92,11 @@
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "actual": 132270000,
+      "estimate": 132259000,
+      "previous": 132259000,
+      "change": 11000,
+      "changeRate": 0.01,
       "unit": "천 명"
     },
     {
