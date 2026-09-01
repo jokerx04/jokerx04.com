@@ -4,8 +4,8 @@
     "from": "2025-09-01",
     "to": "2025-09-30"
   },
-  "totalEvents": 18,
-  "lastUpdatedAt": "2026-09-02 00:47:08.049",
+  "totalEvents": 17,
+  "lastUpdatedAt": "2026-09-02 01:00:51.560",
   "events": [
     {
       "id": "2025-09-01_kr-trade-balance",
@@ -117,9 +117,9 @@
       "importanceStar": "★★★",
       "actual": 4.4,
       "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "previous": 4.3,
+      "change": 0.1,
+      "changeRate": 2.33,
       "unit": "%"
     },
     {
@@ -138,7 +138,7 @@
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": 262.054,
+      "actual": null,
       "estimate": null,
       "previous": null,
       "change": null,
@@ -163,9 +163,9 @@
       "importanceStar": "★★★",
       "actual": 324.245,
       "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "previous": 323.291,
+      "change": 0.954,
+      "changeRate": 0.3,
       "unit": "% (YoY)"
     },
     {
@@ -253,11 +253,11 @@
       "impact": "보통",
       "importanceScore": 2,
       "importanceStar": "★★☆",
-      "actual": null,
+      "actual": 101.668,
       "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "previous": 101.6247,
+      "change": 0.043,
+      "changeRate": 0.04,
       "unit": "Index"
     },
     {
@@ -370,9 +370,9 @@
       "importanceStar": "★★★",
       "actual": 31098.027,
       "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "previous": 30485.729,
+      "change": 612.298,
+      "changeRate": 2.01,
       "unit": "십억 달러"
     },
     {
@@ -397,29 +397,6 @@
       "change": null,
       "changeRate": null,
       "unit": ""
-    },
-    {
-      "id": "2025-09-26_us_personal-income-and-outlays",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2025-09-26",
-      "datetimeKst": "2025-09-26 21:30:00",
-      "dateEt": "2025-09-26",
-      "datetimeEt": "2025-09-26 08:30:00 (EDT)",
-      "status": "발표완료",
-      "category": "물가 및 인플레이션",
-      "event": "개인소득 및 개인소비지출 (PCE 물가지수)",
-      "eventOriginal": "Personal Income and Outlays",
-      "agency": "미국 경제분석국 (BEA)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 127.625,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": "% (YoY)"
     }
   ]
 }
