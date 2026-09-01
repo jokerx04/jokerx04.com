@@ -5,7 +5,7 @@
     "to": "2026-04-30"
   },
   "totalEvents": 19,
-  "lastUpdatedAt": "2026-09-02 01:33:52.724",
+  "lastUpdatedAt": "2026-09-02 01:34:15.027",
   "events": [
     {
       "id": "2026-04-01_kr-trade-balance",
@@ -54,29 +54,6 @@
       "unit": "백만 달러"
     },
     {
-      "id": "2026-04-01_us_adp-national-employment-report",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-04-01",
-      "datetimeKst": "2026-04-01 21:30:00",
-      "dateEt": "2026-04-01",
-      "datetimeEt": "2026-04-01 08:30:00 (EDT)",
-      "status": "발표완료",
-      "category": "고용 및 노동시장",
-      "event": "ADP 민간 고용보고서",
-      "eventOriginal": "ADP National Employment Report",
-      "agency": "미국 노동통계국 (BLS)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": "천 명"
-    },
-    {
       "id": "2026-04-01_us_industrial-production-and-capacity-utilization",
       "country": "US",
       "countryName": "미국",
@@ -98,6 +75,29 @@
       "change": 0.766,
       "changeRate": 0.75,
       "unit": "Index"
+    },
+    {
+      "id": "2026-04-01_us_adp-national-employment-report",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2026-04-01",
+      "datetimeKst": "2026-04-01 21:30:00",
+      "dateEt": "2026-04-01",
+      "datetimeEt": "2026-04-01 08:30:00 (EDT)",
+      "status": "발표완료",
+      "category": "고용 및 노동시장",
+      "event": "ADP 민간 고용보고서",
+      "eventOriginal": "ADP National Employment Report",
+      "agency": "미국 노동통계국 (BLS)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": null,
+      "estimate": null,
+      "previous": null,
+      "change": null,
+      "changeRate": null,
+      "unit": "천 명"
     },
     {
       "id": "2026-04-02_kr-cpi",
