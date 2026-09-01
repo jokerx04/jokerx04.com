@@ -5,7 +5,7 @@
     "to": "2025-11-30"
   },
   "totalEvents": 13,
-  "lastUpdatedAt": "2026-09-02 01:33:47.147",
+  "lastUpdatedAt": "2026-09-02 01:34:09.564",
   "events": [
     {
       "id": "2025-11-01_kr-trade-balance",
@@ -169,29 +169,6 @@
       "unit": "천 건"
     },
     {
-      "id": "2025-11-25_us_producer-price-indexes",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2025-11-25",
-      "datetimeKst": "2025-11-25 22:30:00",
-      "dateEt": "2025-11-25",
-      "datetimeEt": "2025-11-25 08:30:00 (EST)",
-      "status": "발표완료",
-      "category": "물가 및 인플레이션",
-      "event": "생산자물가지수 (PPI)",
-      "eventOriginal": "Producer Price Indexes",
-      "agency": "미국 노동통계국 (BLS)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 261.914,
-      "estimate": 260.591,
-      "previous": 260.591,
-      "change": 1.323,
-      "changeRate": 0.51,
-      "unit": "Index"
-    },
-    {
       "id": "2025-11-25_us_advance-monthly-sales-for-retail-and-food-services",
       "country": "US",
       "countryName": "미국",
@@ -213,6 +190,29 @@
       "change": 3667,
       "changeRate": 0.5,
       "unit": "백만 달러"
+    },
+    {
+      "id": "2025-11-25_us_producer-price-indexes",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2025-11-25",
+      "datetimeKst": "2025-11-25 22:30:00",
+      "dateEt": "2025-11-25",
+      "datetimeEt": "2025-11-25 08:30:00 (EST)",
+      "status": "발표완료",
+      "category": "물가 및 인플레이션",
+      "event": "생산자물가지수 (PPI)",
+      "eventOriginal": "Producer Price Indexes",
+      "agency": "미국 노동통계국 (BLS)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": 261.914,
+      "estimate": 260.591,
+      "previous": 260.591,
+      "change": 1.323,
+      "changeRate": 0.51,
+      "unit": "Index"
     },
     {
       "id": "2025-11-25_us_industrial-production-and-capacity-utilization",
