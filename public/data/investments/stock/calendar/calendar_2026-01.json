@@ -4,8 +4,8 @@
     "from": "2026-01-01",
     "to": "2026-01-31"
   },
-  "totalEvents": 22,
-  "lastUpdatedAt": "2026-09-02 00:47:11.398",
+  "totalEvents": 21,
+  "lastUpdatedAt": "2026-09-02 01:00:56.081",
   "events": [
     {
       "id": "2026-01-01_us_job-openings-and-labor-turnover-survey",
@@ -253,11 +253,11 @@
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": 263.608,
+      "actual": null,
       "estimate": null,
-      "previous": 261.333,
-      "change": 2.275,
-      "changeRate": 0.87,
+      "previous": null,
+      "change": null,
+      "changeRate": null,
       "unit": "Index"
     },
     {
@@ -276,11 +276,11 @@
       "impact": "보통",
       "importanceScore": 2,
       "importanceStar": "★★☆",
-      "actual": null,
+      "actual": 101.0388,
       "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "previous": 101.4941,
+      "change": -0.455,
+      "changeRate": -0.45,
       "unit": "Index"
     },
     {
@@ -299,11 +299,11 @@
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": null,
+      "actual": 2.5,
       "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "previous": 2.5,
+      "change": 0,
+      "changeRate": 0,
       "unit": "%"
     },
     {
@@ -350,29 +350,6 @@
       "previous": null,
       "change": null,
       "changeRate": null,
-      "unit": "% (YoY)"
-    },
-    {
-      "id": "2026-01-22_us_personal-income-and-outlays",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-01-22",
-      "datetimeKst": "2026-01-22 22:30:00",
-      "dateEt": "2026-01-22",
-      "datetimeEt": "2026-01-22 08:30:00 (EST)",
-      "status": "발표완료",
-      "category": "물가 및 인플레이션",
-      "event": "개인소득 및 개인소비지출 (PCE 물가지수)",
-      "eventOriginal": "Personal Income and Outlays",
-      "agency": "미국 경제분석국 (BEA)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 129.023,
-      "estimate": null,
-      "previous": 128.576,
-      "change": 0.447,
-      "changeRate": 0.35,
       "unit": "% (YoY)"
     },
     {
@@ -506,11 +483,11 @@
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": 263.608,
+      "actual": null,
       "estimate": null,
-      "previous": 261.333,
-      "change": 2.275,
-      "changeRate": 0.87,
+      "previous": null,
+      "change": null,
+      "changeRate": null,
       "unit": "Index"
     }
   ]
