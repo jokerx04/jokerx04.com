@@ -5,7 +5,7 @@
     "to": "2026-08-31"
   },
   "totalEvents": 17,
-  "lastUpdatedAt": "2026-09-02 01:01:04.235",
+  "lastUpdatedAt": "2026-09-02 01:02:07.187",
   "events": [
     {
       "id": "2026-08-01_kr-trade-balance",
@@ -169,29 +169,6 @@
       "unit": "% (YoY)"
     },
     {
-      "id": "2026-08-13_us_producer-price-indexes",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-08-13",
-      "datetimeKst": "2026-08-13 21:30:00",
-      "dateEt": "2026-08-13",
-      "datetimeEt": "2026-08-13 08:30:00 (EDT)",
-      "status": "발표완료",
-      "category": "물가 및 인플레이션",
-      "event": "생산자물가지수 (PPI)",
-      "eventOriginal": "Producer Price Indexes",
-      "agency": "미국 노동통계국 (BLS)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": "Index"
-    },
-    {
       "id": "2026-08-13_us_job-openings-and-labor-turnover-survey",
       "country": "US",
       "countryName": "미국",
@@ -328,6 +305,29 @@
       "change": null,
       "changeRate": null,
       "unit": ""
+    },
+    {
+      "id": "2026-08-26_us_personal-income-and-outlays",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2026-08-26",
+      "datetimeKst": "2026-08-26 21:30:00",
+      "dateEt": "2026-08-26",
+      "datetimeEt": "2026-08-26 08:30:00 (EDT)",
+      "status": "발표완료",
+      "category": "물가 및 인플레이션",
+      "event": "개인소득 및 개인소비지출 (PCE 물가지수)",
+      "eventOriginal": "Personal Income and Outlays",
+      "agency": "미국 경제분석국 (BEA)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": 131.659,
+      "estimate": null,
+      "previous": 131.454,
+      "change": 0.205,
+      "changeRate": 0.16,
+      "unit": "% (YoY)"
     },
     {
       "id": "2026-08-26_us_gross-domestic-product",
