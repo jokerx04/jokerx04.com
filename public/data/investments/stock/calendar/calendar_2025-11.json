@@ -5,7 +5,7 @@
     "to": "2025-11-30"
   },
   "totalEvents": 13,
-  "lastUpdatedAt": "2026-09-02 01:45:55.800",
+  "lastUpdatedAt": "2026-09-02 01:46:16.433",
   "events": [
     {
       "id": "2025-11-01_kr-trade-balance",
@@ -169,29 +169,6 @@
       "unit": "천 건"
     },
     {
-      "id": "2025-11-25_us_advance-monthly-sales-for-retail-and-food-services",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2025-11-25",
-      "datetimeKst": "2025-11-25 22:30:00",
-      "dateEt": "2025-11-25",
-      "datetimeEt": "2025-11-25 08:30:00 (EST)",
-      "status": "발표완료",
-      "category": "경기 성장 및 소비",
-      "event": "소매판매 (Retail Sales)",
-      "eventOriginal": "Advance Monthly Sales for Retail and Food Services",
-      "agency": "미국 인구조사국 (US Census Bureau)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 734718,
-      "estimate": 731051,
-      "previous": 731051,
-      "change": 3667,
-      "changeRate": 0.5,
-      "unit": "백만 달러"
-    },
-    {
       "id": "2025-11-25_us_producer-price-indexes",
       "country": "US",
       "countryName": "미국",
@@ -213,6 +190,29 @@
       "change": 1.323,
       "changeRate": 0.51,
       "unit": "Index"
+    },
+    {
+      "id": "2025-11-25_us_advance-monthly-sales-for-retail-and-food-services",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2025-11-25",
+      "datetimeKst": "2025-11-25 22:30:00",
+      "dateEt": "2025-11-25",
+      "datetimeEt": "2025-11-25 08:30:00 (EST)",
+      "status": "발표완료",
+      "category": "경기 성장 및 소비",
+      "event": "소매판매 (Retail Sales)",
+      "eventOriginal": "Advance Monthly Sales for Retail and Food Services",
+      "agency": "미국 인구조사국 (US Census Bureau)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": 734718,
+      "estimate": 731051,
+      "previous": 731051,
+      "change": 3667,
+      "changeRate": 0.5,
+      "unit": "백만 달러"
     },
     {
       "id": "2025-11-25_us_industrial-production-and-capacity-utilization",
