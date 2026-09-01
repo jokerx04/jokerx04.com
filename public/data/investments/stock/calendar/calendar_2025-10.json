@@ -5,7 +5,7 @@
     "to": "2025-10-31"
   },
   "totalEvents": 12,
-  "lastUpdatedAt": "2026-09-02 01:21:24.159",
+  "lastUpdatedAt": "2026-09-02 01:33:45.899",
   "events": [
     {
       "id": "2025-10-01_kr-trade-balance",
@@ -51,7 +51,7 @@
       "previous": null,
       "change": null,
       "changeRate": null,
-      "unit": ""
+      "unit": "천 명"
     },
     {
       "id": "2025-10-02_kr-cpi",
@@ -189,7 +189,7 @@
       "previous": 323.291,
       "change": 0.954,
       "changeRate": 0.3,
-      "unit": "% (YoY)"
+      "unit": "Index"
     },
     {
       "id": "2025-10-25_kr-gdp",
@@ -249,16 +249,16 @@
       "category": "통화정책 및 중앙은행",
       "event": "통화량 지표 (M1, M2)",
       "eventOriginal": "Money Stock Measures",
-      "agency": "미국 연방 통계기관",
+      "agency": "미국 재무부 (US Treasury)",
       "impact": "보통",
       "importanceScore": 2,
       "importanceStar": "★★☆",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
+      "actual": 22249.8,
+      "estimate": 22176.1,
+      "previous": 22176.1,
+      "change": 73.7,
+      "changeRate": 0.33,
+      "unit": "십억 달러"
     },
     {
       "id": "2025-10-31_cn-manufacturing-pmi",
