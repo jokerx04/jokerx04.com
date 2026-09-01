@@ -5,7 +5,7 @@
     "to": "2026-10-31"
   },
   "totalEvents": 22,
-  "lastUpdatedAt": "2026-09-02 01:08:36.732",
+  "lastUpdatedAt": "2026-09-02 01:21:16.096",
   "events": [
     {
       "id": "2026-10-01_kr-trade-balance",
@@ -169,29 +169,6 @@
       "unit": "% (YoY)"
     },
     {
-      "id": "2026-10-15_us_advance-monthly-sales-for-retail-and-food-services",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-10-15",
-      "datetimeKst": "2026-10-15 21:30:00",
-      "dateEt": "2026-10-15",
-      "datetimeEt": "2026-10-15 08:30:00 (EDT)",
-      "status": "발표예정",
-      "category": "경기 성장 및 소비",
-      "event": "소매판매 (Retail Sales)",
-      "eventOriginal": "Advance Monthly Sales for Retail and Food Services",
-      "agency": "미국 연방 통계기관",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
-    },
-    {
       "id": "2026-10-15_us_producer-price-indexes",
       "country": "US",
       "countryName": "미국",
@@ -213,6 +190,29 @@
       "change": -2.222,
       "changeRate": -0.78,
       "unit": "Index"
+    },
+    {
+      "id": "2026-10-15_us_advance-monthly-sales-for-retail-and-food-services",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2026-10-15",
+      "datetimeKst": "2026-10-15 21:30:00",
+      "dateEt": "2026-10-15",
+      "datetimeEt": "2026-10-15 08:30:00 (EDT)",
+      "status": "발표예정",
+      "category": "경기 성장 및 소비",
+      "event": "소매판매 (Retail Sales)",
+      "eventOriginal": "Advance Monthly Sales for Retail and Food Services",
+      "agency": "미국 연방 통계기관",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": null,
+      "estimate": null,
+      "previous": null,
+      "change": null,
+      "changeRate": null,
+      "unit": ""
     },
     {
       "id": "2026-10-15_us_industrial-production-and-capacity-utilization",
