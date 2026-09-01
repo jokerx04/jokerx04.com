@@ -1,14 +1,14 @@
 {
   "metadata": {
-    "lastUpdatedAt": "2026-09-02 00:47:22.835",
+    "lastUpdatedAt": "2026-09-02 01:01:09.009",
     "range": {
       "from": "2025-09-01",
       "to": "2026-12-31"
     },
     "totalMonths": 16,
-    "totalEvents": 289,
+    "totalEvents": 273,
     "stats": {
-      "apiCallsMade": 19,
+      "apiCallsMade": 26,
       "updatedFilesCount": 16,
       "deletedFilesCount": 0
     },
@@ -42,8 +42,8 @@
         "from": "2025-09-01",
         "to": "2025-09-30"
       },
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 00:47:08.049"
+      "eventCount": 17,
+      "lastUpdatedAt": "2026-09-02 01:00:51.560"
     },
     {
       "month": "2025-10",
@@ -54,7 +54,7 @@
         "to": "2025-10-31"
       },
       "eventCount": 9,
-      "lastUpdatedAt": "2026-09-02 00:47:08.996"
+      "lastUpdatedAt": "2026-09-02 01:00:52.895"
     },
     {
       "month": "2025-11",
@@ -65,7 +65,7 @@
         "to": "2025-11-30"
       },
       "eventCount": 13,
-      "lastUpdatedAt": "2026-09-02 00:47:09.838"
+      "lastUpdatedAt": "2026-09-02 01:00:54.074"
     },
     {
       "month": "2025-12",
@@ -75,8 +75,8 @@
         "from": "2025-12-01",
         "to": "2025-12-31"
       },
-      "eventCount": 17,
-      "lastUpdatedAt": "2026-09-02 00:47:10.547"
+      "eventCount": 15,
+      "lastUpdatedAt": "2026-09-02 01:00:55.240"
     },
     {
       "month": "2026-01",
@@ -86,8 +86,8 @@
         "from": "2026-01-01",
         "to": "2026-01-31"
       },
-      "eventCount": 22,
-      "lastUpdatedAt": "2026-09-02 00:47:11.398"
+      "eventCount": 21,
+      "lastUpdatedAt": "2026-09-02 01:00:56.081"
     },
     {
       "month": "2026-02",
@@ -97,8 +97,8 @@
         "from": "2026-02-01",
         "to": "2026-02-28"
       },
-      "eventCount": 19,
-      "lastUpdatedAt": "2026-09-02 00:47:12.188"
+      "eventCount": 18,
+      "lastUpdatedAt": "2026-09-02 01:00:57.081"
     },
     {
       "month": "2026-03",
@@ -108,8 +108,8 @@
         "from": "2026-03-01",
         "to": "2026-03-31"
       },
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 00:47:13.017"
+      "eventCount": 17,
+      "lastUpdatedAt": "2026-09-02 01:00:58.032"
     },
     {
       "month": "2026-04",
@@ -119,8 +119,8 @@
         "from": "2026-04-01",
         "to": "2026-04-30"
       },
-      "eventCount": 24,
-      "lastUpdatedAt": "2026-09-02 00:47:13.880"
+      "eventCount": 22,
+      "lastUpdatedAt": "2026-09-02 01:00:59.177"
     },
     {
       "month": "2026-05",
@@ -130,8 +130,8 @@
         "from": "2026-05-01",
         "to": "2026-05-31"
       },
-      "eventCount": 20,
-      "lastUpdatedAt": "2026-09-02 00:47:14.795"
+      "eventCount": 19,
+      "lastUpdatedAt": "2026-09-02 01:01:00.674"
     },
     {
       "month": "2026-06",
@@ -141,8 +141,8 @@
         "from": "2026-06-01",
         "to": "2026-06-30"
       },
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 00:47:15.733"
+      "eventCount": 17,
+      "lastUpdatedAt": "2026-09-02 01:01:01.699"
     },
     {
       "month": "2026-07",
@@ -152,8 +152,8 @@
         "from": "2026-07-01",
         "to": "2026-07-31"
       },
-      "eventCount": 21,
-      "lastUpdatedAt": "2026-09-02 00:47:16.564"
+      "eventCount": 20,
+      "lastUpdatedAt": "2026-09-02 01:01:03.165"
     },
     {
       "month": "2026-08",
@@ -163,8 +163,8 @@
         "from": "2026-08-01",
         "to": "2026-08-31"
       },
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 00:47:17.674"
+      "eventCount": 17,
+      "lastUpdatedAt": "2026-09-02 01:01:04.235"
     },
     {
       "month": "2026-09",
@@ -174,8 +174,8 @@
         "from": "2026-09-01",
         "to": "2026-09-30"
       },
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 00:47:19.136"
+      "eventCount": 17,
+      "lastUpdatedAt": "2026-09-02 01:01:05.251"
     },
     {
       "month": "2026-10",
@@ -185,8 +185,8 @@
         "from": "2026-10-01",
         "to": "2026-10-31"
       },
-      "eventCount": 19,
-      "lastUpdatedAt": "2026-09-02 00:47:20.059"
+      "eventCount": 18,
+      "lastUpdatedAt": "2026-09-02 01:01:06.161"
     },
     {
       "month": "2026-11",
@@ -196,8 +196,8 @@
         "from": "2026-11-01",
         "to": "2026-11-30"
       },
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 00:47:20.908"
+      "eventCount": 17,
+      "lastUpdatedAt": "2026-09-02 01:01:07.189"
     },
     {
       "month": "2026-12",
@@ -207,8 +207,8 @@
         "from": "2026-12-01",
         "to": "2026-12-31"
       },
-      "eventCount": 17,
-      "lastUpdatedAt": "2026-09-02 00:47:21.887"
+      "eventCount": 16,
+      "lastUpdatedAt": "2026-09-02 01:01:08.042"
     }
   ]
 }
