@@ -2,12 +2,12 @@
   "metadata": {
     "from": "2025-09-01",
     "to": "2026-12-31",
-    "lastUpdatedAt": "2026-09-02 14:30:57.069",
-    "totalElapsedMs": 23389,
+    "lastUpdatedAt": "2026-09-02 14:35:27.757",
+    "totalElapsedMs": 7361,
     "totalMonths": 16,
-    "totalEvents": 284,
+    "totalEvents": 298,
     "apiCallsMade": 27,
-    "updatedFilesCount": 4,
+    "updatedFilesCount": 5,
     "deletedFilesCount": 0,
     "countries": [
       {
@@ -49,8 +49,8 @@
       "to": "2025-09-30",
       "fileName": "calendar_2025-09.json",
       "path": "public/data/investments/stock/calendar/calendar_2025-09.json",
-      "eventCount": 19,
-      "lastUpdatedAt": "2026-09-02 13:50:25.515"
+      "eventCount": 20,
+      "lastUpdatedAt": "2026-09-02 14:35:22.707"
     },
     {
       "month": "2025-10",
@@ -157,8 +157,8 @@
       "to": "2026-09-30",
       "fileName": "calendar_2026-09.json",
       "path": "public/data/investments/stock/calendar/calendar_2026-09.json",
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 14:30:53.228"
+      "eventCount": 19,
+      "lastUpdatedAt": "2026-09-02 14:35:23.702"
     },
     {
       "month": "2026-10",
@@ -166,8 +166,8 @@
       "to": "2026-10-31",
       "fileName": "calendar_2026-10.json",
       "path": "public/data/investments/stock/calendar/calendar_2026-10.json",
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 14:30:54.172"
+      "eventCount": 19,
+      "lastUpdatedAt": "2026-09-02 14:35:24.778"
     },
     {
       "month": "2026-11",
@@ -175,8 +175,8 @@
       "to": "2026-11-30",
       "fileName": "calendar_2026-11.json",
       "path": "public/data/investments/stock/calendar/calendar_2026-11.json",
-      "eventCount": 17,
-      "lastUpdatedAt": "2026-09-02 14:30:55.206"
+      "eventCount": 18,
+      "lastUpdatedAt": "2026-09-02 14:35:25.807"
     },
     {
       "month": "2026-12",
@@ -184,8 +184,8 @@
       "to": "2026-12-31",
       "fileName": "calendar_2026-12.json",
       "path": "public/data/investments/stock/calendar/calendar_2026-12.json",
-      "eventCount": 18,
-      "lastUpdatedAt": "2026-09-02 14:30:56.171"
+      "eventCount": 19,
+      "lastUpdatedAt": "2026-09-02 14:35:26.735"
     }
   ]
 }
