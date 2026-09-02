@@ -2,8 +2,8 @@
   "month": "2026-12",
   "from": "2026-12-01",
   "to": "2026-12-31",
-  "totalEvents": 19,
-  "lastUpdatedAt": "2026-09-02 14:25:25.609",
+  "totalEvents": 18,
+  "lastUpdatedAt": "2026-09-02 14:30:56.171",
   "events": [
     {
       "id": "2026-12-01_kr-trade-balance",
@@ -383,31 +383,6 @@
       "changeRate": null,
       "changeBp": null,
       "unit": "%"
-    },
-    {
-      "id": "2026-12-23_us_personal-income-and-outlays",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-12-23",
-      "datetimeKst": "2026-12-23 22:30:00",
-      "dateEt": "2026-12-23",
-      "datetimeEt": "2026-12-23 08:30:00 (EST)",
-      "status": "발표예정",
-      "category": "물가 및 인플레이션",
-      "event": "Personal Income and Outlays",
-      "eventOriginal": "Personal Income and Outlays",
-      "agency": "미국 연방 통계기관",
-      "sourceUrl": "",
-      "sourceTitle": "",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
-      "unit": ""
     },
     {
       "id": "2026-12-23_us_gross-domestic-product",
