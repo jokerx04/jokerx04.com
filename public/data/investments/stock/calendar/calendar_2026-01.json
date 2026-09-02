@@ -3,7 +3,7 @@
   "from": "2026-01-01",
   "to": "2026-01-31",
   "totalEvents": 20,
-  "lastUpdatedAt": "2026-09-02 11:01:16.749",
+  "lastUpdatedAt": "2026-09-02 11:05:22.228",
   "events": [
     {
       "id": "2026-01-01_us_job-openings-and-labor-turnover-survey",
@@ -273,11 +273,11 @@
       "impact": "보통",
       "importanceScore": 2,
       "importanceStar": "★★☆",
-      "actual": null,
-      "estimate": null,
-      "previous": null,
-      "change": null,
-      "changeRate": null,
+      "actual": 101.0388,
+      "estimate": 101.4941,
+      "previous": 101.4941,
+      "change": -0.455,
+      "changeRate": -0.45,
       "unit": "Index"
     },
     {
