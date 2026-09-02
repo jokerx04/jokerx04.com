@@ -2,8 +2,8 @@
   "month": "2026-11",
   "from": "2026-11-01",
   "to": "2026-11-30",
-  "totalEvents": 18,
-  "lastUpdatedAt": "2026-09-02 23:56:05.757",
+  "totalEvents": 17,
+  "lastUpdatedAt": "2026-09-03 00:01:56.376",
   "events": [
     {
       "id": "2026-11-01_kr-trade-balance",
@@ -72,9 +72,9 @@
       "impact": "높음",
       "importanceScore": 3,
       "importanceStar": "★★★",
-      "actual": 44,
-      "previous": 95,
-      "change": -51,
+      "actual": null,
+      "previous": null,
+      "change": null,
       "unit": "천 명"
     },
     {
@@ -318,30 +318,6 @@
       "change": null,
       "changeBp": null,
       "unit": "%"
-    },
-    {
-      "id": "2026-11-25_us_personal-income-and-outlays",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-11-25",
-      "datetimeKst": "2026-11-25 22:30:00",
-      "dateLocal": "2026-11-25",
-      "datetimeLocal": "2026-11-25 08:30:00 (EST)",
-      "localTimezone": "EST",
-      "status": "발표예정",
-      "category": "물가 및 인플레이션",
-      "event": "근원 개인소비지출 물가지수 (Core PCE, 전년 대비)",
-      "eventOriginal": "Personal Income and Outlays",
-      "agency": "미국 경제분석국 (BEA)",
-      "sourceUrl": "https://www.bea.gov",
-      "sourceTitle": "미국 경제분석국 (BEA)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 3.34,
-      "previous": 3.34,
-      "change": 0,
-      "unit": "% (YoY)"
     },
     {
       "id": "2026-11-25_us_gross-domestic-product",
