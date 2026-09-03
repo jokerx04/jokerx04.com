@@ -3,7 +3,7 @@
   "from": "2026-09-01",
   "to": "2026-09-30",
   "totalEvents": 33,
-  "lastUpdatedAt": "2026-09-03 21:50:43.873",
+  "lastUpdatedAt": "2026-09-03 21:55:43.035",
   "events": [
     {
       "id": "2026-09-01_kr-trade-balance",
@@ -155,7 +155,7 @@
       "importanceScore": 2,
       "importanceStar": "★★☆",
       "actual": null,
-      "previous": -73.3,
+      "previous": -88.6,
       "change": null,
       "consensus": null,
       "forecast": null,
