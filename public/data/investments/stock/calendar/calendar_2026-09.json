@@ -2,8 +2,8 @@
   "month": "2026-09",
   "from": "2026-09-01",
   "to": "2026-09-30",
-  "totalEvents": 19,
-  "lastUpdatedAt": "2026-09-03 08:56:03.490",
+  "totalEvents": 18,
+  "lastUpdatedAt": "2026-09-03 09:01:43.914",
   "events": [
     {
       "id": "2026-09-01_kr-trade-balance",
@@ -173,30 +173,6 @@
       "change": null,
       "changeBp": null,
       "unit": "%"
-    },
-    {
-      "id": "2026-09-10_us_producer-price-indexes",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-09-10",
-      "datetimeKst": "2026-09-10 21:30:00",
-      "dateLocal": "2026-09-10",
-      "datetimeLocal": "2026-09-10 08:30:00 (EDT)",
-      "localTimezone": "EDT",
-      "status": "발표예정",
-      "category": "물가 및 인플레이션",
-      "event": "생산자물가지수 (PPI, 최종수요 전년 대비)",
-      "eventOriginal": "Producer Price Indexes",
-      "agency": "미국 노동통계국 (BLS)",
-      "sourceUrl": "https://www.bls.gov",
-      "sourceTitle": "미국 노동통계국 (BLS)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 4.66,
-      "previous": 5.54,
-      "change": -0.88,
-      "unit": "% (YoY)"
     },
     {
       "id": "2026-09-11_us_consumer-price-index",
@@ -418,30 +394,6 @@
       "unit": "Index"
     },
     {
-      "id": "2026-09-30_us_gross-domestic-product",
-      "country": "US",
-      "countryName": "미국",
-      "dateKst": "2026-09-30",
-      "datetimeKst": "2026-09-30 21:30:00",
-      "dateLocal": "2026-09-30",
-      "datetimeLocal": "2026-09-30 08:30:00 (EDT)",
-      "localTimezone": "EDT",
-      "status": "발표예정",
-      "category": "경기 성장 및 소비",
-      "event": "실질 국내총생산 (GDP 성장률, 전기비 연율)",
-      "eventOriginal": "Gross Domestic Product",
-      "agency": "미국 경제분석국 (BEA)",
-      "sourceUrl": "https://www.bea.gov",
-      "sourceTitle": "미국 경제분석국 (BEA)",
-      "impact": "높음",
-      "importanceScore": 3,
-      "importanceStar": "★★★",
-      "actual": 1.5,
-      "previous": 2.1,
-      "change": -0.6,
-      "unit": "% (QoQ 연율)"
-    },
-    {
       "id": "2026-09-30_us_personal-income-and-outlays",
       "country": "US",
       "countryName": "미국",
@@ -464,6 +416,30 @@
       "previous": 3.34,
       "change": 0,
       "unit": "% (YoY)"
+    },
+    {
+      "id": "2026-09-30_us_gross-domestic-product",
+      "country": "US",
+      "countryName": "미국",
+      "dateKst": "2026-09-30",
+      "datetimeKst": "2026-09-30 21:30:00",
+      "dateLocal": "2026-09-30",
+      "datetimeLocal": "2026-09-30 08:30:00 (EDT)",
+      "localTimezone": "EDT",
+      "status": "발표예정",
+      "category": "경기 성장 및 소비",
+      "event": "실질 국내총생산 (GDP 성장률, 전기비 연율)",
+      "eventOriginal": "Gross Domestic Product",
+      "agency": "미국 경제분석국 (BEA)",
+      "sourceUrl": "https://www.bea.gov",
+      "sourceTitle": "미국 경제분석국 (BEA)",
+      "impact": "높음",
+      "importanceScore": 3,
+      "importanceStar": "★★★",
+      "actual": 1.5,
+      "previous": 2.1,
+      "change": -0.6,
+      "unit": "% (QoQ 연율)"
     }
   ]
 }
