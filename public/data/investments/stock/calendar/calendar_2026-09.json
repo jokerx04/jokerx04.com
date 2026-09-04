@@ -3,7 +3,7 @@
   "from": "2026-09-01",
   "to": "2026-09-30",
   "totalEvents": 33,
-  "lastUpdatedAt": "2026-09-04 22:50:44.091",
+  "lastUpdatedAt": "2026-09-05 07:40:43.918",
   "events": [
     {
       "id": "2026-09-01_kr-trade-balance",
@@ -196,7 +196,7 @@
       "dateLocal": "2026-09-04",
       "datetimeLocal": "2026-09-04 08:30:00 (EDT)",
       "localTimezone": "EDT",
-      "status": "오늘예정",
+      "status": "발표완료",
       "category": "고용 및 노동시장",
       "event": "미국 비농업 고용변동 (Nonfarm Payrolls)",
       "eventOriginal": "Total Nonfarm Payroll Employment (Net Change)",
@@ -222,7 +222,7 @@
       "dateLocal": "2026-09-04",
       "datetimeLocal": "2026-09-04 08:30:00 (EDT)",
       "localTimezone": "EDT",
-      "status": "오늘예정",
+      "status": "발표완료",
       "category": "고용 및 노동시장",
       "event": "미국 실업률 (Unemployment Rate)",
       "eventOriginal": "Unemployment Rate",
@@ -469,8 +469,8 @@
       "actual": null,
       "previous": -0.58,
       "change": null,
-      "consensus": 0.3,
-      "forecast": 0.3,
+      "consensus": 1.1,
+      "forecast": 1.1,
       "unit": "% (MoM)"
     },
     {
@@ -730,8 +730,8 @@
       "actual": null,
       "previous": 1.5,
       "change": null,
-      "consensus": 0.4,
-      "forecast": 0.4,
+      "consensus": 1,
+      "forecast": 1,
       "unit": "% (QoQ 연율)"
     },
     {
