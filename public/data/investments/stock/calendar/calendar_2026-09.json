@@ -3,7 +3,7 @@
   "from": "2026-09-01",
   "to": "2026-09-30",
   "totalEvents": 33,
-  "lastUpdatedAt": "2026-09-04 11:45:43.155",
+  "lastUpdatedAt": "2026-09-04 19:25:43.910",
   "events": [
     {
       "id": "2026-09-01_kr-trade-balance",
@@ -730,8 +730,8 @@
       "actual": null,
       "previous": 1.5,
       "change": null,
-      "consensus": 1,
-      "forecast": 1,
+      "consensus": 0.4,
+      "forecast": 0.4,
       "unit": "% (QoQ 연율)"
     },
     {
