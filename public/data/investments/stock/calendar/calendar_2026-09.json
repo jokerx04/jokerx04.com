@@ -3,7 +3,7 @@
   "from": "2026-09-01",
   "to": "2026-09-30",
   "totalEvents": 33,
-  "lastUpdatedAt": "2026-09-05 18:30:42.632",
+  "lastUpdatedAt": "2026-09-06 00:25:41.738",
   "events": [
     {
       "id": "2026-09-01_kr-trade-balance",
@@ -51,8 +51,8 @@
       "importanceScore": 3,
       "importanceStar": "★★★",
       "actual": 7271,
-      "previous": 7182,
-      "change": 89,
+      "previous": 7300,
+      "change": -29,
       "consensus": 7300,
       "forecast": 7300,
       "unit": "천 건"
@@ -103,14 +103,14 @@
       "importanceScore": 3,
       "importanceStar": "★★★",
       "actual": 38,
-      "previous": 46,
-      "change": -8,
+      "previous": 118,
+      "change": -80,
       "consensus": 47,
       "forecast": 47,
       "unit": "천 명"
     },
     {
-      "id": "2026-09-02_us_beige-book",
+      "id": "2026-09-03_us_beige-book",
       "country": "US",
       "countryName": "미국",
       "dateKst": "2026-09-03",
@@ -155,8 +155,8 @@
       "importanceScore": 2,
       "importanceStar": "★★☆",
       "actual": -88.6,
-      "previous": -71.2,
-      "change": -17.4,
+      "previous": -84.2,
+      "change": -4.4,
       "consensus": null,
       "forecast": null,
       "unit": "십억 달러"
@@ -292,13 +292,13 @@
       "unit": "% (YoY)"
     },
     {
-      "id": "2026-09-08_us_producer-price-indexes",
+      "id": "2026-09-09_us_producer-price-indexes",
       "country": "US",
       "countryName": "미국",
-      "dateKst": "2026-09-08",
-      "datetimeKst": "2026-09-08 21:30:00",
-      "dateLocal": "2026-09-08",
-      "datetimeLocal": "2026-09-08 08:30:00 (EDT)",
+      "dateKst": "2026-09-09",
+      "datetimeKst": "2026-09-09 21:30:00",
+      "dateLocal": "2026-09-09",
+      "datetimeLocal": "2026-09-09 08:30:00 (EDT)",
       "localTimezone": "EDT",
       "status": "발표예정",
       "category": "물가 및 인플레이션",
@@ -311,7 +311,7 @@
       "importanceScore": 3,
       "importanceStar": "★★★",
       "actual": null,
-      "previous": 4.66,
+      "previous": 3.85,
       "change": null,
       "consensus": 1.2,
       "forecast": 1.2,
@@ -758,7 +758,7 @@
       "change": null,
       "consensus": null,
       "forecast": null,
-      "unit": "천 호"
+      "unit": "천 호 (연율)"
     },
     {
       "id": "2026-09-25_us_personal-income-and-outlays",
