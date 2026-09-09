@@ -3,7 +3,7 @@
   "from": "2026-09-01",
   "to": "2026-09-30",
   "totalEvents": 33,
-  "lastUpdatedAt": "2026-09-09 16:05:02.670",
+  "lastUpdatedAt": "2026-09-09 16:10:02.539",
   "events": [
     {
       "id": "2026-09-01_kr-trade-balance",
@@ -495,8 +495,8 @@
       "actual": null,
       "previous": 0.12,
       "change": null,
-      "consensus": null,
-      "forecast": null,
+      "consensus": 0.1,
+      "forecast": 0.1,
       "unit": "% (MoM)"
     },
     {
@@ -652,8 +652,8 @@
       "actual": null,
       "previous": 23245,
       "change": null,
-      "consensus": 7.7,
-      "forecast": 7.7,
+      "consensus": 7.6,
+      "forecast": 7.6,
       "unit": "십억 달러"
     },
     {
