@@ -2,7 +2,7 @@
 	"metadata": {
 		"from": "2025-09-01",
 		"to": "2026-12-31",
-		"lastUpdatedAt": "2026-09-09 23:10:07.110",
+		"lastUpdatedAt": "2026-09-09 23:15:04.689",
 		"totalMonths": 16,
 		"totalEvents": 1963,
 		"updatedFilesCount": 5,
@@ -47,7 +47,7 @@
 			"fileName": "calendar_2025-09.json",
 			"path": "public/data/investments/stock/calendar/calendar_2025-09.json",
 			"eventCount": 583,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2025-10",
@@ -56,7 +56,7 @@
 			"fileName": "calendar_2025-10.json",
 			"path": "public/data/investments/stock/calendar/calendar_2025-10.json",
 			"eventCount": 534,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2025-11",
@@ -65,7 +65,7 @@
 			"fileName": "calendar_2025-11.json",
 			"path": "public/data/investments/stock/calendar/calendar_2025-11.json",
 			"eventCount": 525,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2025-12",
@@ -74,7 +74,7 @@
 			"fileName": "calendar_2025-12.json",
 			"path": "public/data/investments/stock/calendar/calendar_2025-12.json",
 			"eventCount": 321,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-01",
@@ -83,7 +83,7 @@
 			"fileName": "calendar_2026-01.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-01.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-02",
@@ -92,7 +92,7 @@
 			"fileName": "calendar_2026-02.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-02.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-03",
@@ -101,7 +101,7 @@
 			"fileName": "calendar_2026-03.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-03.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-04",
@@ -110,7 +110,7 @@
 			"fileName": "calendar_2026-04.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-04.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-05",
@@ -119,7 +119,7 @@
 			"fileName": "calendar_2026-05.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-05.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-06",
@@ -128,7 +128,7 @@
 			"fileName": "calendar_2026-06.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-06.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-07",
@@ -137,7 +137,7 @@
 			"fileName": "calendar_2026-07.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-07.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-08",
@@ -146,7 +146,7 @@
 			"fileName": "calendar_2026-08.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-08.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-09",
@@ -155,7 +155,7 @@
 			"fileName": "calendar_2026-09.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-09.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-10",
@@ -164,7 +164,7 @@
 			"fileName": "calendar_2026-10.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-10.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-11",
@@ -173,7 +173,7 @@
 			"fileName": "calendar_2026-11.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-11.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		},
 		{
 			"month": "2026-12",
@@ -182,7 +182,7 @@
 			"fileName": "calendar_2026-12.json",
 			"path": "public/data/investments/stock/calendar/calendar_2026-12.json",
 			"eventCount": 0,
-			"lastUpdatedAt": "2026-09-09 23:10:07.110"
+			"lastUpdatedAt": "2026-09-09 23:15:04.689"
 		}
 	]
 }
