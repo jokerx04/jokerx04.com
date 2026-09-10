@@ -3,7 +3,7 @@
 	"from": "2026-09-01",
 	"to": "2026-09-30",
 	"totalEvents": 37,
-	"lastUpdatedAt": "2026-09-10 19:05:40.207",
+	"lastUpdatedAt": "2026-09-10 19:10:45.783",
 	"events": [
 		{
 			"id": "2026-09-01_kr_405511",
@@ -733,7 +733,7 @@
 			"unit": "% (MoM)"
 		},
 		{
-			"id": "2026-09-21_cn_393973",
+			"id": "2026-09-21_cn_393985",
 			"country": "CN",
 			"countryName": "중국",
 			"dateKst": "2026-09-21",
@@ -744,7 +744,7 @@
 			"status": "발표예정",
 			"category": "통화정책 및 중앙은행",
 			"event": "중국 인민은행 1년물 대출우대금리 (1Y LPR)",
-			"eventOriginal": "Loan Prime Rate 1Y",
+			"eventOriginal": "Loan Prime Rate 5Y",
 			"agency": "중국인민은행 (PBOC / CFETS)",
 			"sourceUrl": "https://www.chinamoney.com.cn",
 			"sourceTitle": "중국인민은행 (PBOC / CFETS)",
@@ -752,7 +752,7 @@
 			"importanceScore": 3,
 			"importanceStar": "★★★",
 			"actual": null,
-			"previous": 3,
+			"previous": 3.5,
 			"change": null,
 			"forecast": null,
 			"unit": "%"
