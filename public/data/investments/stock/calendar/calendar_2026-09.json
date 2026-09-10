@@ -3,7 +3,7 @@
 	"from": "2026-09-01",
 	"to": "2026-09-30",
 	"totalEvents": 37,
-	"lastUpdatedAt": "2026-09-10 21:55:40.239",
+	"lastUpdatedAt": "2026-09-10 22:00:53.478",
 	"events": [
 		{
 			"id": "2026-09-01_kr_405511",
@@ -467,7 +467,7 @@
 			"dateLocal": "2026-09-10",
 			"datetimeLocal": "2026-09-10 08:30:00 (EDT)",
 			"localTimezone": "EDT",
-			"status": "오늘예정",
+			"status": "발표완료",
 			"category": "물가 및 인플레이션",
 			"event": "미국 생산자물가지수 (PPI, 전년 대비)",
 			"eventOriginal": "PPI Ex Food, Energy and Trade YoY",
@@ -477,9 +477,9 @@
 			"impact": "높음",
 			"importanceScore": 3,
 			"importanceStar": "★★★",
-			"actual": null,
+			"actual": 4.7,
 			"previous": 4.7,
-			"change": null,
+			"change": 0,
 			"forecast": null,
 			"unit": "% (YoY)"
 		},
