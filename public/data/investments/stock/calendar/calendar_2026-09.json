@@ -3,7 +3,7 @@
 	"from": "2026-09-01",
 	"to": "2026-09-30",
 	"totalEvents": 59,
-	"lastUpdatedAt": "2026-09-11 14:35:41.775",
+	"lastUpdatedAt": "2026-09-11 14:40:41.652",
 	"events": [
 		{
 			"id": "2026-09-01_kr_405511",
@@ -53,9 +53,7 @@
 			"previous": 2.9,
 			"change": 0.4,
 			"forecast": 3.3,
-			"unit": "% (YoY)",
-			"isRevised": true,
-			"revisedFrom": 2.8
+			"unit": "% (YoY)"
 		},
 		{
 			"id": "2026-09-01_eu_402475",
@@ -80,9 +78,7 @@
 			"previous": 6.4,
 			"change": 0,
 			"forecast": 6.3,
-			"unit": "%",
-			"isRevised": true,
-			"revisedFrom": 6.2
+			"unit": "%"
 		},
 		{
 			"id": "2026-09-01_eu_403647",
@@ -107,9 +103,7 @@
 			"previous": 2.5,
 			"change": -0.1,
 			"forecast": 2.5,
-			"unit": "% (YoY)",
-			"isRevised": true,
-			"revisedFrom": 2.4
+			"unit": "% (YoY)"
 		},
 		{
 			"id": "2026-09-01_us_397904",
@@ -396,9 +390,7 @@
 			"previous": 0.6,
 			"change": 0.6,
 			"forecast": 1,
-			"unit": "%",
-			"isRevised": true,
-			"revisedFrom": 0.3
+			"unit": "%"
 		},
 		{
 			"id": "2026-09-08_kr_412771",
@@ -857,9 +849,7 @@
 			"previous": -0.6,
 			"change": null,
 			"forecast": null,
-			"unit": "% (MoM)",
-			"isRevised": true,
-			"revisedFrom": 0.2
+			"unit": "% (MoM)"
 		},
 		{
 			"id": "2026-09-16_us_399322",
@@ -1463,9 +1453,7 @@
 			"previous": 2.1,
 			"change": null,
 			"forecast": 1.5,
-			"unit": "% (QoQ 연율)",
-			"isRevised": true,
-			"revisedFrom": 4.4
+			"unit": "% (QoQ 연율)"
 		},
 		{
 			"id": "2026-09-30_us_399010",
