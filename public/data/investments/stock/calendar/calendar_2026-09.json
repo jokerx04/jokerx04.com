@@ -3,7 +3,7 @@
 	"from": "2026-09-01",
 	"to": "2026-09-30",
 	"totalEvents": 82,
-	"lastUpdatedAt": "2026-09-14 19:00:44.563",
+	"lastUpdatedAt": "2026-09-14 19:05:36.173",
 	"events": [
 		{
 			"id": "2026-09-01_kr_405511",
@@ -1028,7 +1028,7 @@
 			"actual": null,
 			"previous": -0.4,
 			"change": null,
-			"forecast": null,
+			"forecast": 0.4,
 			"unit": "% (MoM)"
 		},
 		{
@@ -1053,7 +1053,7 @@
 			"actual": null,
 			"previous": -0.3,
 			"change": null,
-			"forecast": 0.5,
+			"forecast": 0.6,
 			"unit": "% (MoM)"
 		},
 		{
