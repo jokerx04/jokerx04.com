@@ -3,7 +3,7 @@
 	"from": "2025-09-01",
 	"to": "2025-09-30",
 	"totalEvents": 92,
-	"lastUpdatedAt": "2026-09-17 01:56:05.580",
+	"lastUpdatedAt": "2026-09-17 01:56:41.676",
 	"events": [
 		{ "id": "2025-09-01_kr_383433", "country": "KR", "countryName": "한국", "dateKst": "2025-09-01", "datetimeKst": "2025-09-01 09:00:00", "dateLocal": "2025-09-01", "datetimeLocal": "2025-09-01 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "대외부문 및 국채", "event": "한국 수출입동향 및 무역수지", "eventOriginal": "Balance of Trade", "agency": "산업통상자원부 / 관세청", "sourceUrl": "https://www.motie.go.kr", "sourceTitle": "산업통상자원부", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 65.1, "previous": 66.1, "change": -1, "forecast": 54, "unit": "억 달러" },
 		{ "id": "2025-09-01_us_holiday_368319", "country": "US", "countryName": "미국", "dateKst": "2025-09-01", "datetimeKst": "2025-09-01 09:00:00", "dateLocal": "2025-09-01", "datetimeLocal": "2025-09-01 09:00:00 (EDT)", "localTimezone": "EDT", "status": "발표완료", "category": "증시 휴장 및 일정", "event": "Labor Day", "eventOriginal": "Labor Day", "agency": "미국 증권거래소", "sourceUrl": "https://www.tradingview.com/economic-calendar/", "sourceTitle": "TradingView Economic Calendar", "impact": "보통", "importanceScore": 2, "importanceStar": "★★☆", "marketStatus": "전일휴장", "actual": null, "previous": null, "change": null, "forecast": null, "unit": "" },
