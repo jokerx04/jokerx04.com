@@ -3,7 +3,7 @@
 	"from": "2026-05-01",
 	"to": "2026-05-31",
 	"totalEvents": 100,
-	"lastUpdatedAt": "2026-09-16 17:48:29.497",
+	"lastUpdatedAt": "2026-09-16 17:48:34.886",
 	"events": [
 		{ "id": "2026-05-01_jp_403327", "country": "JP", "countryName": "일본", "dateKst": "2026-05-01", "datetimeKst": "2026-05-01 08:30:00", "dateLocal": "2026-05-01", "datetimeLocal": "2026-05-01 08:30:00 (JST)", "localTimezone": "JST", "status": "발표완료", "category": "물가 및 인플레이션", "event": "일본 도쿄 근원 소비자물가지수 (신선식품·에너지 제외, 전년 대비)", "eventOriginal": "Tokyo CPI Ex Food and Energy YoY", "agency": "일본 총무성 통계국", "sourceUrl": "https://www.stat.go.jp", "sourceTitle": "일본 총무성", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 1.5, "previous": 1.7, "change": -0.2, "forecast": null, "unit": "% (YoY)", "isRevised": true, "revisedFrom": 2.3 },
 		{ "id": "2026-05-01_jp_401251", "country": "JP", "countryName": "일본", "dateKst": "2026-05-01", "datetimeKst": "2026-05-01 08:30:00", "dateLocal": "2026-05-01", "datetimeLocal": "2026-05-01 08:30:00 (JST)", "localTimezone": "JST", "status": "발표완료", "category": "물가 및 인플레이션", "event": "일본 도쿄 근원 소비자물가지수 (Tokyo Core CPI, 전년 대비)", "eventOriginal": "Tokyo Core CPI YoY", "agency": "일본 총무성 통계국", "sourceUrl": "https://www.stat.go.jp", "sourceTitle": "일본 총무성", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 1.5, "previous": 1.7, "change": -0.2, "forecast": 1.8, "unit": "% (YoY)" },
