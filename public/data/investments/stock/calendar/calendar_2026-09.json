@@ -3,7 +3,7 @@
 	"from": "2026-09-01",
 	"to": "2026-09-30",
 	"totalEvents": 101,
-	"lastUpdatedAt": "2026-09-17 14:55:30.913",
+	"lastUpdatedAt": "2026-09-17 15:00:51.731",
 	"events": [
 		{ "id": "2026-09-01_kr_405511", "country": "KR", "countryName": "한국", "dateKst": "2026-09-01", "datetimeKst": "2026-09-01 09:00:00", "dateLocal": "2026-09-01", "datetimeLocal": "2026-09-01 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "대외부문 및 국채", "event": "한국 수출입동향 및 무역수지", "eventOriginal": "Balance of Trade", "agency": "산업통상자원부 / 관세청", "sourceUrl": "https://www.motie.go.kr", "sourceTitle": "산업통상자원부", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 347.5, "previous": 303.2, "change": 44.3, "forecast": 307, "unit": "억 달러" },
 		{ "id": "2026-09-01_eu_400131", "country": "EU", "countryName": "유로존", "dateKst": "2026-09-01", "datetimeKst": "2026-09-01 18:00:00", "dateLocal": "2026-09-01", "datetimeLocal": "2026-09-01 11:00:00 (CEST)", "localTimezone": "CEST", "status": "발표완료", "category": "물가 및 인플레이션", "event": "유로존 소비자물가지수 (HICP, 전년 대비 속보치)", "eventOriginal": "Inflation Rate YoY Flash", "agency": "EUROSTAT", "sourceUrl": "https://ec.europa.eu/eurostat", "sourceTitle": "EUROSTAT", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 3.3, "previous": 2.9, "change": 0.4, "forecast": 3.3, "unit": "% (YoY)" },
