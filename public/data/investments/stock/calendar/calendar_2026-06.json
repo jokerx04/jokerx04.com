@@ -3,7 +3,7 @@
 	"from": "2026-06-01",
 	"to": "2026-06-30",
 	"totalEvents": 98,
-	"lastUpdatedAt": "2026-09-17 14:12:18.730",
+	"lastUpdatedAt": "2026-09-17 14:12:27.424",
 	"events": [
 		{ "id": "2026-06-01_kr_409080", "country": "KR", "countryName": "한국", "dateKst": "2026-06-01", "datetimeKst": "2026-06-01 09:00:00", "dateLocal": "2026-06-01", "datetimeLocal": "2026-06-01 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "대외부문 및 국채", "event": "한국 수출입동향 및 무역수지", "eventOriginal": "Balance of Trade", "agency": "산업통상자원부 / 관세청", "sourceUrl": "https://www.motie.go.kr", "sourceTitle": "산업통상자원부", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 269.5, "previous": 237.6, "change": 31.9, "forecast": 243, "unit": "억 달러", "isRevised": true, "revisedFrom": 237.7 },
 		{ "id": "2026-06-01_eu_402089", "country": "EU", "countryName": "유로존", "dateKst": "2026-06-01", "datetimeKst": "2026-06-01 18:00:00", "dateLocal": "2026-06-01", "datetimeLocal": "2026-06-01 11:00:00 (CEST)", "localTimezone": "CEST", "status": "발표완료", "category": "고용 및 노동시장", "event": "유로존 실업률", "eventOriginal": "Unemployment Rate", "agency": "EUROSTAT", "sourceUrl": "https://ec.europa.eu/eurostat", "sourceTitle": "EUROSTAT", "impact": "보통", "importanceScore": 2, "importanceStar": "★★☆", "actual": 6.3, "previous": 6.3, "change": 0, "forecast": 6.2, "unit": "%", "isRevised": true, "revisedFrom": 6.2 },
