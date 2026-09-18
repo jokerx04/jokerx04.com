@@ -3,7 +3,7 @@
 	"from": "2025-11-01",
 	"to": "2025-11-30",
 	"totalEvents": 69,
-	"lastUpdatedAt": "2026-09-18 17:15:46.862",
+	"lastUpdatedAt": "2026-09-18 17:34:17.376",
 	"events": [
 		{ "id": "2025-11-01_kr_386446", "country": "KR", "countryName": "한국", "dateKst": "2025-11-01", "datetimeKst": "2025-11-01 09:00:00", "dateLocal": "2025-11-01", "datetimeLocal": "2025-11-01 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "대외부문 및 국채", "event": "한국 수출입동향 및 무역수지", "eventOriginal": "Balance of Trade", "agency": "산업통상자원부 / 관세청", "sourceUrl": "https://www.motie.go.kr", "sourceTitle": "산업통상자원부", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 60.6, "previous": 95.3, "change": -34.7, "forecast": 29.8, "unit": "억 달러", "isRevised": true, "revisedFrom": 95.6 },
 		{ "id": "2025-11-03_jp_holiday_368574", "country": "JP", "countryName": "일본", "dateKst": "2025-11-03", "datetimeKst": "2025-11-03 09:00:00", "dateLocal": "2025-11-03", "datetimeLocal": "2025-11-03 09:00:00 (JST)", "localTimezone": "JST", "status": "발표완료", "category": "증시 휴장 및 일정", "event": "Culture Day", "eventOriginal": "Culture Day", "agency": "일본 증권거래소", "sourceUrl": "https://www.tradingview.com/economic-calendar/", "sourceTitle": "TradingView Economic Calendar", "impact": "보통", "importanceScore": 2, "importanceStar": "★★☆", "marketStatus": "전일휴장", "actual": null, "previous": null, "change": null, "forecast": null, "unit": "" },
