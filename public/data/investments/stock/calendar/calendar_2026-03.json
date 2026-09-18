@@ -3,7 +3,7 @@
 	"from": "2026-03-01",
 	"to": "2026-03-31",
 	"totalEvents": 102,
-	"lastUpdatedAt": "2026-09-18 18:09:24.721",
+	"lastUpdatedAt": "2026-09-18 23:09:46.286",
 	"events": [
 		{ "id": "2026-03-01_kr_407638", "country": "KR", "countryName": "한국", "dateKst": "2026-03-01", "datetimeKst": "2026-03-01 09:00:00", "dateLocal": "2026-03-01", "datetimeLocal": "2026-03-01 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "대외부문 및 국채", "event": "한국 수출입동향 및 무역수지", "eventOriginal": "Balance of Trade", "agency": "산업통상자원부 / 관세청", "sourceUrl": "https://www.motie.go.kr", "sourceTitle": "산업통상자원부", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 155, "previous": 87.4, "change": 67.6, "forecast": 100, "unit": "억 달러" },
 		{ "id": "2026-03-02_kr_holiday_415321", "country": "KR", "countryName": "한국", "dateKst": "2026-03-02", "datetimeKst": "2026-03-02 09:00:00", "dateLocal": "2026-03-02", "datetimeLocal": "2026-03-02 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "증시 휴장 및 일정", "event": "Independence Movement Day", "eventOriginal": "Independence Movement Day", "agency": "한국 증권거래소", "sourceUrl": "https://www.tradingview.com/economic-calendar/", "sourceTitle": "TradingView Economic Calendar", "impact": "보통", "importanceScore": 2, "importanceStar": "★★☆", "marketStatus": "전일휴장", "actual": null, "previous": null, "change": null, "forecast": null, "unit": "" },
