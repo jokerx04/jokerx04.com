@@ -3,7 +3,7 @@
 	"from": "2026-08-01",
 	"to": "2026-08-31",
 	"totalEvents": 90,
-	"lastUpdatedAt": "2026-09-20 13:50:08.488",
+	"lastUpdatedAt": "2026-09-20 16:39:53.325",
 	"events": [
 		{ "id": "2026-08-01_kr_412628", "country": "KR", "countryName": "한국", "dateKst": "2026-08-01", "datetimeKst": "2026-08-01 09:00:00", "dateLocal": "2026-08-01", "datetimeLocal": "2026-08-01 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "대외부문 및 국채", "event": "한국 수출입동향 및 무역수지", "eventOriginal": "Balance of Trade", "agency": "산업통상자원부 / 관세청", "sourceUrl": "https://www.motie.go.kr", "sourceTitle": "산업통상자원부", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 303.2, "previous": 360.9, "change": -57.7, "forecast": 295.9, "unit": "억 달러", "isRevised": true, "revisedFrom": 361.5 },
 		{ "id": "2026-08-03_jp_402242", "country": "JP", "countryName": "일본", "dateKst": "2026-08-03", "datetimeKst": "2026-08-03 09:30:00", "dateLocal": "2026-08-03", "datetimeLocal": "2026-08-03 09:30:00 (JST)", "localTimezone": "JST", "status": "발표지연", "category": "제조업 및 서비스업", "event": "일본 제조업 PMI", "eventOriginal": "S&P Global Manufacturing PMI Final", "agency": "Jibun Bank / S&P Global", "sourceUrl": "https://www.spglobal.com", "sourceTitle": "Jibun Bank", "impact": "보통", "importanceScore": 2, "importanceStar": "★★☆", "actual": null, "previous": null, "change": null, "forecast": 54.7, "unit": "Index" },
