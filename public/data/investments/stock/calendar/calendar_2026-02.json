@@ -3,7 +3,7 @@
 	"from": "2026-02-01",
 	"to": "2026-02-28",
 	"totalEvents": 417,
-	"lastUpdatedAt": "2026-09-23 15:14:15.754",
+	"lastUpdatedAt": "2026-09-24 01:00:35.957",
 	"events": [
 		{ "id": "2026-02-01_kr_404386", "country": "KR", "countryName": "한국", "dateKst": "2026-02-01", "datetimeKst": "2026-02-01 09:00:00", "dateLocal": "2026-02-01", "datetimeLocal": "2026-02-01 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "대외부문 및 국채", "event": "한국 수출입동향 및 무역수지", "eventOriginal": "Balance of Trade", "agency": "산업통상자원부 / 관세청", "sourceUrl": "https://www.motie.go.kr", "sourceTitle": "산업통상자원부", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 8.74, "previous": 12.17, "change": -3.43, "forecast": 4.6, "unit": "십억 달러", "isRevised": true, "revisedFrom": 12.18 },
 		{ "id": "2026-02-01_kr_403819", "country": "KR", "countryName": "한국", "dateKst": "2026-02-01", "datetimeKst": "2026-02-01 09:00:00", "dateLocal": "2026-02-01", "datetimeLocal": "2026-02-01 09:00:00 (KST)", "localTimezone": "KST", "status": "발표완료", "category": "대외부문 및 국채", "event": "한국 수입 (Imports, 전년 대비)", "eventOriginal": "Imports YoY", "agency": "산업통상자원부 / 관세청", "sourceUrl": "https://www.motie.go.kr", "sourceTitle": "산업통상자원부", "impact": "높음", "importanceScore": 3, "importanceStar": "★★★", "actual": 11.7, "previous": 4.6, "change": 7.1, "forecast": 14.6, "unit": "% (YoY)" },

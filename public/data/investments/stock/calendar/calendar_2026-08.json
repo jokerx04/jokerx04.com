@@ -3,7 +3,7 @@
 	"from": "2026-08-01",
 	"to": "2026-08-31",
 	"totalEvents": 418,
-	"lastUpdatedAt": "2026-09-23 15:14:15.754",
+	"lastUpdatedAt": "2026-09-24 01:00:35.957",
 	"events": [
 		{ "id": "2026-08-01_us_396405", "country": "US", "countryName": "미국", "dateKst": "2026-08-01", "datetimeKst": "2026-08-01 02:00:00", "dateLocal": "2026-07-31", "datetimeLocal": "2026-07-31 13:00:00 (EDT)", "localTimezone": "EDT", "status": "발표완료", "category": "기타 경제지표", "event": "미국 Baker Hughes Oil Rig Count", "eventOriginal": "Baker Hughes Oil Rig Count", "agency": "Baker Hughes Company", "sourceUrl": "https://www.bakerhughes.com/", "sourceTitle": "Baker Hughes Company", "impact": "낮음", "importanceScore": 1, "importanceStar": "★☆☆", "actual": 451, "previous": 450, "change": 1, "forecast": null, "unit": "" },
 		{ "id": "2026-08-01_us_396404", "country": "US", "countryName": "미국", "dateKst": "2026-08-01", "datetimeKst": "2026-08-01 02:00:00", "dateLocal": "2026-07-31", "datetimeLocal": "2026-07-31 13:00:00 (EDT)", "localTimezone": "EDT", "status": "발표완료", "category": "기타 경제지표", "event": "미국 Baker Hughes Total Rigs Count", "eventOriginal": "Baker Hughes Total Rigs Count", "agency": "Baker Hughes Company", "sourceUrl": "https://www.bakerhughes.com/", "sourceTitle": "Baker Hughes Company", "impact": "낮음", "importanceScore": 1, "importanceStar": "★☆☆", "actual": 588, "previous": 587, "change": 1, "forecast": null, "unit": "" },
