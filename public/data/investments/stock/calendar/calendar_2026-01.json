@@ -3,7 +3,7 @@
 	"from": "2026-01-01",
 	"to": "2026-01-31",
 	"totalEvents": 459,
-	"lastUpdatedAt": "2026-09-24 01:00:35.957",
+	"lastUpdatedAt": "2026-09-25 01:00:35.752",
 	"events": [
 		{ "id": "2026-01-01_us_371570", "country": "US", "countryName": "미국", "dateKst": "2026-01-01", "datetimeKst": "2026-01-01 00:30:00", "dateLocal": "2025-12-31", "datetimeLocal": "2025-12-31 10:30:00 (EST)", "localTimezone": "EST", "status": "발표완료", "category": "기타 경제지표", "event": "미국 EIA Cushing Crude Oil Stocks Change", "eventOriginal": "EIA Cushing Crude Oil Stocks Change", "agency": "U.S. Energy Information Administration", "sourceUrl": "https://www.eia.gov", "sourceTitle": "U.S. Energy Information Administration", "impact": "낮음", "importanceScore": 1, "importanceStar": "★☆☆", "actual": 0.543, "previous": 0.707, "change": -0.164, "forecast": null, "unit": "M" },
 		{ "id": "2026-01-01_us_371563", "country": "US", "countryName": "미국", "dateKst": "2026-01-01", "datetimeKst": "2026-01-01 00:30:00", "dateLocal": "2025-12-31", "datetimeLocal": "2025-12-31 10:30:00 (EST)", "localTimezone": "EST", "status": "발표완료", "category": "기타 경제지표", "event": "미국 EIA Gasoline Stocks Change", "eventOriginal": "EIA Gasoline Stocks Change", "agency": "U.S. Energy Information Administration", "sourceUrl": "http://www.eia.gov", "sourceTitle": "U.S. Energy Information Administration", "impact": "보통", "importanceScore": 2, "importanceStar": "★★☆", "actual": 5.845, "previous": 2.862, "change": 2.983, "forecast": 1.9, "unit": "M" },
