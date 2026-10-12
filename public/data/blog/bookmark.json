@@ -28,6 +28,14 @@
 				"target": "_blank"
 			},
 			{
+				"title": "Claude",
+				"url": "https://claude.ai",
+				"description": "OpenAI의 강력한 대화형 AI 모델",
+				"thumbnail": "",
+				"tags": ["AI챗봇", "OpenAI"],
+				"target": "_blank"
+			},
+			{
 				"title": "Grok",
 				"url": "https://grok.com",
 				"description": "xAI에서 개발한 실시간 정보 기반 AI 챗봇",
@@ -36,7 +44,7 @@
 				"target": "_blank"
 			},
 			{
-				"title": "NotebookLM",
+				"title": "Gemini Notebook",
 				"url": "https://notebooklm.google.com",
 				"description": "문서를 업로드하여 분석하고 질의응답하는 Google의 AI 노트",
 				"thumbnail": "",
