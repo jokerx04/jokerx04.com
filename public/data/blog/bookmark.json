@@ -1,0 +1,1176 @@
+[
+	{
+		"collectionId": "ai",
+		"collectionName": "AI",
+		"bookmarks": [
+			{
+				"title": "Google Gemini",
+				"url": "https://gemini.google.com",
+				"description": "Google의 최신 멀티모달 AI 챗봇",
+				"thumbnail": "",
+				"tags": ["AI챗봇", "Google"],
+				"target": "_blank"
+			},
+			{
+				"title": "Perplexity",
+				"url": "https://www.perplexity.ai",
+				"description": "출처를 함께 제공하는 대화형 AI 검색 엔진",
+				"thumbnail": "",
+				"tags": ["AI검색", "Perplexity"],
+				"target": "_blank"
+			},
+			{
+				"title": "OpenAI ChatGPT",
+				"url": "https://chatgpt.com",
+				"description": "OpenAI의 강력한 대화형 AI 모델",
+				"thumbnail": "",
+				"tags": ["AI챗봇", "OpenAI"],
+				"target": "_blank"
+			},
+			{
+				"title": "Grok",
+				"url": "https://grok.com",
+				"description": "xAI에서 개발한 실시간 정보 기반 AI 챗봇",
+				"thumbnail": "",
+				"tags": ["AI챗봇", "xAI"],
+				"target": "_blank"
+			},
+			{
+				"title": "NotebookLM",
+				"url": "https://notebooklm.google.com",
+				"description": "문서를 업로드하여 분석하고 질의응답하는 Google의 AI 노트",
+				"thumbnail": "",
+				"tags": ["AI노트", "Google"],
+				"target": "_blank"
+			},
+			{
+				"title": "클로바노트",
+				"url": "https://clovanote.naver.com",
+				"description": "음성 녹음을 텍스트로 변환해주는 AI 회의록 서비스",
+				"thumbnail": "",
+				"tags": ["음성인식", "Naver"],
+				"target": "_blank"
+			},
+			{
+				"title": "Napkin AI",
+				"url": "https://www.napkin.ai",
+				"description": "텍스트를 입력하면 시각적 다이어그램으로 변환해주는 AI 툴",
+				"thumbnail": "",
+				"tags": ["다이어그램", "AI툴"],
+				"target": "_blank"
+			},
+			{
+				"title": "Make",
+				"url": "https://us2.make.com",
+				"description": "다양한 앱과 API를 연결하여 작업을 자동화하는 플랫폼",
+				"thumbnail": "",
+				"tags": ["자동화", "노코드"],
+				"target": "_blank"
+			},
+			{
+				"title": "LMArena",
+				"url": "https://lmarena.ai",
+				"description": "다양한 LLM(대형 언어 모델)의 성능을 블라인드 테스트로 비교하는 플랫폼",
+				"thumbnail": "",
+				"tags": ["LLM", "벤치마크"],
+				"target": "_blank"
+			},
+			{
+				"title": "OpenRouter",
+				"url": "https://openrouter.ai",
+				"description": "다양한 AI 모델을 통합 API로 사용할 수 있게 해주는 라우터 서비스",
+				"thumbnail": "",
+				"tags": ["API", "AI모델"],
+				"target": "_blank"
+			},
+			{
+				"title": "OpenAI Whisper",
+				"url": "https://openai.com/index/whisper",
+				"description": "오픈소스 기반의 강력한 다국어 음성 인식 모델",
+				"thumbnail": "",
+				"tags": ["음성인식", "OpenAI"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "presentation",
+		"collectionName": "프레젠테이션",
+		"bookmarks": [
+			{
+				"title": "한국어 맞춤법/문법 검사기",
+				"url": "https://nara-speller.co.kr/speller",
+				"description": "부산대 인공지능연구실과 나라인포테크가 공동 개발한 한국어 맞춤법 검사기",
+				"thumbnail": "",
+				"tags": ["맞춤법", "검사기"],
+				"target": "_blank"
+			},
+			{
+				"title": "Presentation Magazine",
+				"url": "https://www.presentationmagazine.com",
+				"description": "파워포인트 템플릿과 프레젠테이션 팁 제공",
+				"thumbnail": "",
+				"tags": ["PPT템플릿", "자료"],
+				"target": "_blank"
+			},
+			{
+				"title": "PIXLR",
+				"url": "https://pixlr.com/kr/editor",
+				"description": "설치가 필요 없는 웹 브라우저 기반의 무료 사진 편집기",
+				"thumbnail": "",
+				"tags": ["이미지편집", "온라인툴"],
+				"target": "_blank"
+			},
+			{
+				"title": "Behance",
+				"url": "https://www.behance.net",
+				"description": "어도비에서 운영하는 크리에이티브 전문가들의 포트폴리오 플랫폼",
+				"thumbnail": "",
+				"tags": ["포트폴리오", "디자인"],
+				"target": "_blank"
+			},
+			{
+				"title": "FLATICON",
+				"url": "https://www.flaticon.com",
+				"description": "웹, 디자인, 프레젠테이션을 위한 수백만 개의 무료 벡터 아이콘 제공",
+				"thumbnail": "",
+				"tags": ["아이콘", "디자인소스"],
+				"target": "_blank"
+			},
+			{
+				"title": "ICONFINDER",
+				"url": "https://www.iconfinder.com",
+				"description": "다양한 스타일의 고품질 아이콘 검색 및 다운로드",
+				"thumbnail": "",
+				"tags": ["아이콘", "디자인소스"],
+				"target": "_blank"
+			},
+			{
+				"title": "IconArchive",
+				"url": "http://www.iconarchive.com",
+				"description": "운영체제 및 웹 디자인용 무료 아이콘 아카이브",
+				"thumbnail": "",
+				"tags": ["아이콘", "아카이브"],
+				"target": "_blank"
+			},
+			{
+				"title": "Icons for everything",
+				"url": "https://thenounproject.com",
+				"description": "단순하고 직관적인 픽토그램 스타일의 아이콘 모음 (The Noun Project)",
+				"thumbnail": "",
+				"tags": ["픽토그램", "아이콘"],
+				"target": "_blank"
+			},
+			{
+				"title": "iconmonstr",
+				"url": "https://iconmonstr.com",
+				"description": "심플한 흑백 스타일의 무료 아이콘 다운로드",
+				"thumbnail": "",
+				"tags": ["아이콘", "SVG"],
+				"target": "_blank"
+			},
+			{
+				"title": "Unsplash",
+				"url": "https://unsplash.com",
+				"description": "저작권 걱정 없이 상업적으로도 사용 가능한 고해상도 무료 이미지 사이트",
+				"thumbnail": "",
+				"tags": ["무료이미지", "사진"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "education",
+		"collectionName": "교육",
+		"bookmarks": [
+			{
+				"title": "EBS",
+				"url": "https://www.ebs.co.kr",
+				"description": "한국교육방송공사, 다양한 연령대를 위한 교육 콘텐츠",
+				"thumbnail": "",
+				"tags": ["EBS", "방송"],
+				"target": "_blank"
+			},
+			{
+				"title": "K-MOOC",
+				"url": "http://www.kmooc.kr",
+				"description": "한국형 온라인 공개강좌 플랫폼",
+				"thumbnail": "",
+				"tags": ["MOOC", "대학강의"],
+				"target": "_blank"
+			},
+			{
+				"title": "KOCW",
+				"url": "http://www.kocw.net",
+				"description": "국내외 대학 및 기관의 강의 동영상을 무료로 제공",
+				"thumbnail": "",
+				"tags": ["대학강의", "무료"],
+				"target": "_blank"
+			},
+			{
+				"title": "인프런",
+				"url": "https://www.inflearn.com",
+				"description": "IT, 프로그래밍, 디자인 등 실무 중심의 온라인 강의 플랫폼",
+				"thumbnail": "",
+				"tags": ["IT강의", "실무"],
+				"target": "_blank"
+			},
+			{
+				"title": "T아카데미",
+				"url": "https://tacademy.skplanet.com",
+				"description": "SK플래닛에서 제공하는 IT 개발자 및 기획자 대상 무료 교육",
+				"thumbnail": "",
+				"tags": ["IT교육", "무료"],
+				"target": "_blank"
+			},
+			{
+				"title": "패스트 캠퍼스",
+				"url": "https://fastcampus.co.kr",
+				"description": "실무 교육 중심의 성인 대상 온라인/오프라인 교육 서비스",
+				"thumbnail": "",
+				"tags": ["실무교육", "캠퍼스"],
+				"target": "_blank"
+			},
+			{
+				"title": "서울특별시 평생학습포털",
+				"url": "http://sll.seoul.go.kr",
+				"description": "서울시에서 제공하는 다양한 온라인 무료 평생학습 강좌",
+				"thumbnail": "",
+				"tags": ["평생학습", "서울시"],
+				"target": "_blank"
+			},
+			{
+				"title": "경기도 무료 온라인 평생학습",
+				"url": "https://www.gseek.kr",
+				"description": "경기도 지식(GSEEK), 도민을 위한 무료 온라인 교육",
+				"thumbnail": "",
+				"tags": ["평생학습", "경기도"],
+				"target": "_blank"
+			},
+			{
+				"title": "국민평생직업능력개발 STEP",
+				"url": "https://www.step.or.kr",
+				"description": "스마트 직업훈련 플랫폼 STEP",
+				"thumbnail": "",
+				"tags": ["직업훈련", "국가"],
+				"target": "_blank"
+			},
+			{
+				"title": "소상공인 지식배움터",
+				"url": "https://edu.sbiz.or.kr",
+				"description": "소상공인 및 예비 창업자를 위한 무료 온라인 교육",
+				"thumbnail": "",
+				"tags": ["소상공인", "창업"],
+				"target": "_blank"
+			},
+			{
+				"title": "한국사데이터베이스",
+				"url": "http://db.history.go.kr",
+				"description": "국사편찬위원회에서 제공하는 한국사 관련 원사료 데이터베이스",
+				"thumbnail": "",
+				"tags": ["한국사", "역사"],
+				"target": "_blank"
+			},
+			{
+				"title": "생활코딩",
+				"url": "https://opentutorials.org/course/1",
+				"description": "일반인들에게 프로그래밍을 알려주는 무료 온라인 코딩 강의",
+				"thumbnail": "",
+				"tags": ["코딩", "무료강의"],
+				"target": "_blank"
+			},
+			{
+				"title": "모던 JavaScript 튜토리얼",
+				"url": "https://ko.javascript.info",
+				"description": "기초부터 심화까지 다루는 자바스크립트 학습 튜토리얼",
+				"thumbnail": "",
+				"tags": ["JavaScript", "튜토리얼"],
+				"target": "_blank"
+			},
+			{
+				"title": "위키독스",
+				"url": "https://wikidocs.net",
+				"description": "온라인 책을 제작하고 공유하는 오픈 도서 플랫폼 (점프 투 파이썬 등)",
+				"thumbnail": "",
+				"tags": ["온라인책", "IT도서"],
+				"target": "_blank"
+			},
+			{
+				"title": "Z-Library",
+				"url": "https://z-library.sk",
+				"description": "세계 최대 규모의 무료 전자책 및 학술 논문 아카이브",
+				"thumbnail": "",
+				"tags": ["전자책", "논문"],
+				"target": "_blank"
+			},
+			{
+				"title": "늦깎이 학생의 공부방",
+				"url": "https://mom-hits-paydirt.tistory.com",
+				"description": "개인 학습 기록 및 정보 공유 블로그",
+				"thumbnail": "",
+				"tags": ["학습블로그"],
+				"target": "_blank"
+			},
+			{
+				"title": "TTA정보통신용어사전",
+				"url": "https://terms.tta.or.kr",
+				"description": "한국정보통신기술협회(TTA)에서 제공하는 IT 및 통신 용어 사전",
+				"thumbnail": "",
+				"tags": ["IT용어", "사전"],
+				"target": "_blank"
+			},
+			{
+				"title": "한국경제 용어사전",
+				"url": "https://dic.hankyung.com",
+				"description": "경제, 금융, 비즈니스 관련 전문 용어 해설",
+				"thumbnail": "",
+				"tags": ["경제용어", "사전"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "invest",
+		"collectionName": "투자",
+		"bookmarks": [
+			{
+				"title": "토스증권",
+				"url": "https://www.tossinvest.com",
+				"description": "토스 앱과 연동되는 직관적이고 쉬운 주식 투자 플랫폼",
+				"thumbnail": "",
+				"tags": ["증권", "국내주식"],
+				"target": "_blank"
+			},
+			{
+				"title": "트레이딩뷰",
+				"url": "https://kr.tradingview.com",
+				"description": "전 세계 트레이더와 투자자를 위한 고성능 차트 및 소셜 네트워크",
+				"thumbnail": "",
+				"tags": ["차트", "주식"],
+				"target": "_blank"
+			},
+			{
+				"title": "FINVIZ.com",
+				"url": "https://finviz.com",
+				"description": "미국 주식 시장의 시각화 맵과 스크리너를 제공하는 금융 분석 사이트",
+				"thumbnail": "",
+				"tags": ["미국주식", "스크리너"],
+				"target": "_blank"
+			},
+			{
+				"title": "Fear & Greed Index",
+				"url": "https://edition.cnn.com/markets/fear-and-greed",
+				"description": "CNN 비즈니스에서 제공하는 주식 시장의 공포와 탐욕 지수",
+				"thumbnail": "",
+				"tags": ["시장지표", "투자심리"],
+				"target": "_blank"
+			},
+			{
+				"title": "CPI Summary",
+				"url": "https://www.bls.gov/news.release/cpi.nr0.htm",
+				"description": "미국 노동통계국에서 발표하는 소비자물가지수(CPI) 요약 보고서",
+				"thumbnail": "",
+				"tags": ["CPI", "거시경제"],
+				"target": "_blank"
+			},
+			{
+				"title": "국제금융센터",
+				"url": "https://www.kcif.or.kr",
+				"description": "국제 금융 시장 동향 및 리스크 분석 보고서 제공",
+				"thumbnail": "",
+				"tags": ["금융동향", "리포트"],
+				"target": "_blank"
+			},
+			{
+				"title": "Investing.com",
+				"url": "https://kr.investing.com",
+				"description": "실시간 글로벌 증시, 환율, 원자재 가격 및 경제 캘린더 제공",
+				"thumbnail": "",
+				"tags": ["실시간시세", "경제캘린더"],
+				"target": "_blank"
+			},
+			{
+				"title": "82Alda",
+				"url": "https://www.82alda.co.kr",
+				"description": "미국 주식 배당락일, 실적 발표일 등 캘린더 제공 서비스",
+				"thumbnail": "",
+				"tags": ["배당", "미국주식"],
+				"target": "_blank"
+			},
+			{
+				"title": "코인니스",
+				"url": "https://coinness.com",
+				"description": "암호화폐 및 블록체인 관련 실시간 투자 속보 및 뉴스 제공",
+				"thumbnail": "",
+				"tags": ["암호화폐", "뉴스"],
+				"target": "_blank"
+			},
+			{
+				"title": "소수몽키",
+				"url": "https://www.youtube.com/@sosumonkey",
+				"description": "미국 주식 시황 및 개별 종목 분석을 제공하는 유튜브 채널",
+				"thumbnail": "",
+				"tags": ["유튜브", "미주"],
+				"target": "_blank"
+			},
+			{
+				"title": "오선의 미국 증시 라이브",
+				"url": "https://www.youtube.com/@futuresnow",
+				"description": "미국 증시 개장 및 마감 실시간 라이브 시황 분석 방송",
+				"thumbnail": "",
+				"tags": ["유튜브", "시황"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "realestate",
+		"collectionName": "부동산",
+		"bookmarks": [
+			{
+				"title": "씨:리얼",
+				"url": "http://seereal.lh.or.kr",
+				"description": "LH에서 운영하는 부동산 정보 종합 포털",
+				"thumbnail": "",
+				"tags": ["부동산정보", "LH"],
+				"target": "_blank"
+			},
+			{
+				"title": "네이버 부동산",
+				"url": "http://land.naver.com",
+				"description": "아파트, 원룸, 오피스텔 등 전국 부동산 매물 및 시세 정보",
+				"thumbnail": "",
+				"tags": ["매물", "시세"],
+				"target": "_blank"
+			},
+			{
+				"title": "부동산114",
+				"url": "http://www.r114.com",
+				"description": "부동산 시세, 실거래가, 분양 정보 및 리서치 자료 제공",
+				"thumbnail": "",
+				"tags": ["시세", "분양"],
+				"target": "_blank"
+			},
+			{
+				"title": "MK부동산",
+				"url": "http://estate.mk.co.kr",
+				"description": "매일경제에서 제공하는 부동산 뉴스 및 매물 정보",
+				"thumbnail": "",
+				"tags": ["부동산뉴스"],
+				"target": "_blank"
+			},
+			{
+				"title": "KB부동산",
+				"url": "https://kbland.kr",
+				"description": "KB국민은행이 제공하는 전국 아파트 시세 및 부동산 통계 정보",
+				"thumbnail": "",
+				"tags": ["KB시세", "통계"],
+				"target": "_blank"
+			},
+			{
+				"title": "직방",
+				"url": "https://www.zigbang.com",
+				"description": "원룸, 오피스텔, 아파트 실거래가 및 매물 검색 앱 서비스",
+				"thumbnail": "",
+				"tags": ["원룸", "아파트"],
+				"target": "_blank"
+			},
+			{
+				"title": "다방",
+				"url": "https://www.dabangapp.com",
+				"description": "부동산 맞춤 검색, 원룸 및 오피스텔 매물 정보 플랫폼",
+				"thumbnail": "",
+				"tags": ["원룸", "자취"],
+				"target": "_blank"
+			},
+			{
+				"title": "밸류맵",
+				"url": "https://www.valueupmap.com",
+				"description": "전국 토지 및 건물, 꼬마빌딩 실거래가 조회 및 상권 분석 플랫폼",
+				"thumbnail": "",
+				"tags": ["토지", "빌딩"],
+				"target": "_blank"
+			},
+			{
+				"title": "디스코",
+				"url": "https://www.disco.re",
+				"description": "상업용 부동산, 토지 실거래가 및 매물 정보 플랫폼",
+				"thumbnail": "",
+				"tags": ["상업용부동산"],
+				"target": "_blank"
+			},
+			{
+				"title": "국토교통부 부동산공시가격 알리미",
+				"url": "http://www.realtyprice.kr",
+				"description": "공동주택, 표준지, 개별공시지가 등 공시가격 열람 시스템",
+				"thumbnail": "",
+				"tags": ["공시지가", "국토부"],
+				"target": "_blank"
+			},
+			{
+				"title": "국토교통부 실거래가 공개시스템",
+				"url": "http://rt.molit.go.kr",
+				"description": "아파트, 연립, 다세대 등 부동산의 정확한 실거래가 조회 서비스",
+				"thumbnail": "",
+				"tags": ["실거래가", "국토부"],
+				"target": "_blank"
+			},
+			{
+				"title": "하우스머치",
+				"url": "https://www.howsmuch.com",
+				"description": "아파트 시세 조회 및 부동산 빅데이터 분석 서비스",
+				"thumbnail": "",
+				"tags": ["아파트시세", "빅데이터"],
+				"target": "_blank"
+			},
+			{
+				"title": "건축행정시스템 세움터",
+				"url": "https://cloud.eais.go.kr",
+				"description": "건축물대장 발급, 건축 인허가 등 국가 건축행정 시스템",
+				"thumbnail": "",
+				"tags": ["건축물대장", "행정"],
+				"target": "_blank"
+			},
+			{
+				"title": "바로바로",
+				"url": "https://www.barobaro.info",
+				"description": "신속한 부동산 매물 정보 및 거래 지원 사이트",
+				"thumbnail": "",
+				"tags": ["부동산정보"],
+				"target": "_blank"
+			},
+			{
+				"title": "건설산업지식정보 시스템",
+				"url": "https://www.kiscon.net",
+				"description": "건설업체 정보, 하도급, 공사대장 등 건설산업 관련 지식 포털",
+				"thumbnail": "",
+				"tags": ["건설업", "KISCON"],
+				"target": "_blank"
+			},
+			{
+				"title": "마이홈포털",
+				"url": "https://www.myhome.go.kr",
+				"description": "주거복지, 공공임대주택 정보, 임대주택 청약 등 맞춤형 주거지원 포털",
+				"thumbnail": "",
+				"tags": ["주거복지", "임대주택"],
+				"target": "_blank"
+			},
+			{
+				"title": "한국부동산원 청약홈",
+				"url": "https://www.applyhome.co.kr",
+				"description": "새 아파트 청약 신청, 당첨자 조회, 청약 자격 확인 포털",
+				"thumbnail": "",
+				"tags": ["청약", "아파트"],
+				"target": "_blank"
+			},
+			{
+				"title": "LH 청약센터",
+				"url": "https://apply.lh.or.kr",
+				"description": "한국토지주택공사(LH)의 임대주택 및 토지, 상가 청약 신청 센터",
+				"thumbnail": "",
+				"tags": ["LH청약", "임대"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "webmastertools",
+		"collectionName": "웹 마스터 도구",
+		"bookmarks": [
+			{
+				"title": "Google Search Console",
+				"url": "https://search.google.com/search-console",
+				"description": "구글 검색 결과에서의 웹사이트 실적 모니터링 및 색인 관리",
+				"thumbnail": "",
+				"tags": ["SEO", "Google"],
+				"target": "_blank"
+			},
+			{
+				"title": "네이버 서치어드바이저",
+				"url": "https://searchadvisor.naver.com",
+				"description": "네이버 검색 노출을 위한 웹사이트 진단 및 웹마스터 도구",
+				"thumbnail": "",
+				"tags": ["SEO", "Naver"],
+				"target": "_blank"
+			},
+			{
+				"title": "Bing 웹 마스터 도구",
+				"url": "http://www.bing.com/toolbox/webmaster",
+				"description": "마이크로소프트 Bing 검색 엔진 최적화 및 사이트 관리 도구",
+				"thumbnail": "",
+				"tags": ["SEO", "Bing"],
+				"target": "_blank"
+			},
+			{
+				"title": "Google Analytics",
+				"url": "https://analytics.google.com",
+				"description": "웹사이트 및 앱 방문자의 트래픽과 행동 패턴 분석 툴",
+				"thumbnail": "",
+				"tags": ["통계", "Analytics"],
+				"target": "_blank"
+			},
+			{
+				"title": "Google Adsense",
+				"url": "https://www.google.co.kr/adsense",
+				"description": "웹사이트에 배너 광고를 게재하여 수익을 창출하는 플랫폼",
+				"thumbnail": "",
+				"tags": ["광고수익", "Adsense"],
+				"target": "_blank"
+			},
+			{
+				"title": "Google Fonts",
+				"url": "https://fonts.google.com",
+				"description": "웹 프로젝트에 바로 적용할 수 있는 수백 개의 무료 오픈소스 폰트",
+				"thumbnail": "",
+				"tags": ["웹폰트", "디자인"],
+				"target": "_blank"
+			},
+			{
+				"title": "XML Sitemap Generator",
+				"url": "http://www.check-domains.com/sitemap/index.php",
+				"description": "SEO에 필요한 사이트맵(sitemap.xml)을 무료로 자동 생성해주는 도구",
+				"thumbnail": "",
+				"tags": ["Sitemap", "SEO도구"],
+				"target": "_blank"
+			},
+			{
+				"title": "가비아",
+				"url": "https://www.gabia.com",
+				"description": "도메인 등록, 웹호스팅, 클라우드 서비스를 제공하는 국내 기업",
+				"thumbnail": "",
+				"tags": ["도메인", "호스팅"],
+				"target": "_blank"
+			},
+			{
+				"title": "IwinV CLOUD",
+				"url": "https://www.iwinv.kr",
+				"description": "스마일서브에서 제공하는 가성비 높은 국내 클라우드 호스팅 서비스",
+				"thumbnail": "",
+				"tags": ["클라우드", "호스팅"],
+				"target": "_blank"
+			},
+			{
+				"title": "MacinCloud",
+				"url": "https://www.macincloud.com",
+				"description": "iOS 및 macOS 개발을 위한 원격 클라우드 Mac 임대 서비스",
+				"thumbnail": "",
+				"tags": ["클라우드Mac", "개발"],
+				"target": "_blank"
+			},
+			{
+				"title": "MacStadium",
+				"url": "https://www.macstadium.com",
+				"description": "기업용 Mac 클라우드 인프라 및 전용 호스팅 서비스",
+				"thumbnail": "",
+				"tags": ["클라우드Mac", "인프라"],
+				"target": "_blank"
+			},
+			{
+				"title": "WIX",
+				"url": "http://ko.wix.com",
+				"description": "코딩 없이 드래그 앤 드롭으로 웹사이트를 제작할 수 있는 빌더",
+				"thumbnail": "",
+				"tags": ["웹빌더", "노코드"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "framework",
+		"collectionName": "프레임워크",
+		"bookmarks": [
+			{
+				"title": "ASF Projects",
+				"url": "https://projects.apache.org",
+				"description": "아파치 소프트웨어 재단의 오픈소스 프로젝트 디렉토리",
+				"thumbnail": "",
+				"tags": ["Apache", "오픈소스"],
+				"target": "_blank"
+			},
+			{
+				"title": "Spring",
+				"url": "http://spring.io",
+				"description": "엔터프라이즈 자바 애플리케이션 개발을 위한 강력한 프레임워크",
+				"thumbnail": "",
+				"tags": ["Java", "백엔드"],
+				"target": "_blank"
+			},
+			{
+				"title": "표준프레임워크 포털",
+				"url": "http://www.egovframe.go.kr",
+				"description": "대한민국 공공부문 정보화 사업을 위한 전자정부 표준프레임워크",
+				"thumbnail": "",
+				"tags": ["전자정부", "Java"],
+				"target": "_blank"
+			},
+			{
+				"title": "Thymeleaf",
+				"url": "https://www.thymeleaf.org",
+				"description": "웹 및 독립 실행형 환경을 위한 모던 서버 사이드 자바 템플릿 엔진",
+				"thumbnail": "",
+				"tags": ["템플릿엔진", "Java"],
+				"target": "_blank"
+			},
+			{
+				"title": "Vue.js",
+				"url": "https://ko.vuejs.org",
+				"description": "사용자 인터페이스 구축을 위한 프로그레시브 자바스크립트 프레임워크",
+				"thumbnail": "",
+				"tags": ["JS", "프론트엔드"],
+				"target": "_blank"
+			},
+			{
+				"title": "React",
+				"url": "https://ko.reactjs.org",
+				"description": "컴포넌트 기반의 사용자 인터페이스를 만들기 위한 자바스크립트 라이브러리",
+				"thumbnail": "",
+				"tags": ["JS", "프론트엔드"],
+				"target": "_blank"
+			},
+			{
+				"title": "jQuery",
+				"url": "https://jquery.com",
+				"description": "HTML DOM 조작과 이벤트 처리를 단순화하는 빠르고 간결한 JS 라이브러리",
+				"thumbnail": "",
+				"tags": ["JS", "라이브러리"],
+				"target": "_blank"
+			},
+			{
+				"title": "Bootstrap",
+				"url": "https://getbootstrap.com",
+				"description": "반응형 웹 디자인을 쉽고 빠르게 개발할 수 있는 HTML, CSS, JS 프레임워크",
+				"thumbnail": "",
+				"tags": ["CSS", "UI"],
+				"target": "_blank"
+			},
+			{
+				"title": "Knockout",
+				"url": "https://knockoutjs.com",
+				"description": "MVVM 패턴을 활용하여 동적인 자바스크립트 UI를 간단히 구현하는 라이브러리",
+				"thumbnail": "",
+				"tags": ["JS", "MVVM"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "solution",
+		"collectionName": "솔루션",
+		"bookmarks": [
+			{
+				"title": "Apache ECharts",
+				"url": "https://echarts.apache.org",
+				"description": "직관적이고 사용자 정의가 가능한 강력한 오픈소스 데이터 시각화 라이브러리",
+				"thumbnail": "",
+				"tags": ["차트", "시각화"],
+				"target": "_blank"
+			},
+			{
+				"title": "D3.js",
+				"url": "https://d3js.org",
+				"description": "데이터를 기반으로 웹 문서를 조작하는 강력한 데이터 시각화 자바스크립트 라이브러리",
+				"thumbnail": "",
+				"tags": ["D3", "시각화"],
+				"target": "_blank"
+			},
+			{
+				"title": "dc.js",
+				"url": "https://dc-js.github.io/dc.js",
+				"description": "D3.js 및 Crossfilter를 활용한 다차원 차트 생성 라이브러리",
+				"thumbnail": "",
+				"tags": ["차트", "D3"],
+				"target": "_blank"
+			},
+			{
+				"title": "MapD Charting",
+				"url": "https://github.com/omnisci/mapd-charting",
+				"description": "GPU 기반 데이터베이스 OmniSci를 위한 고성능 차팅 라이브러리",
+				"thumbnail": "",
+				"tags": ["차트", "GitHub"],
+				"target": "_blank"
+			},
+			{
+				"title": "OpenLayers",
+				"url": "https://openlayers.org",
+				"description": "웹 페이지에 동적 지도를 추가할 수 있는 고성능 오픈소스 자바스크립트 라이브러리",
+				"thumbnail": "",
+				"tags": ["지도", "GIS"],
+				"target": "_blank"
+			},
+			{
+				"title": "Mapbox",
+				"url": "https://www.mapbox.com",
+				"description": "맞춤형 지도 생성, 위치 검색, 네비게이션을 제공하는 위치 데이터 플랫폼",
+				"thumbnail": "",
+				"tags": ["지도", "API"],
+				"target": "_blank"
+			},
+			{
+				"title": "kepler.gl",
+				"url": "https://kepler.gl",
+				"description": "대규모 위치 데이터를 아름답게 시각화하는 강력한 오픈소스 웹 애플리케이션",
+				"thumbnail": "",
+				"tags": ["지도시각화", "GIS"],
+				"target": "_blank"
+			},
+			{
+				"title": "deck.gl",
+				"url": "https://deck.gl",
+				"description": "대규모 데이터셋 시각화를 위한 WebGL 기반의 프레임워크",
+				"thumbnail": "",
+				"tags": ["시각화", "WebGL"],
+				"target": "_blank"
+			},
+			{
+				"title": "flowmap.blue",
+				"url": "https://flowmap.blue",
+				"description": "지리적 위치 간의 이동량(흐름) 데이터를 브라우저에서 쉽게 시각화하는 툴",
+				"thumbnail": "",
+				"tags": ["흐름맵", "GIS"],
+				"target": "_blank"
+			},
+			{
+				"title": "WrapBootstrap",
+				"url": "https://wrapbootstrap.com",
+				"description": "프리미엄 Bootstrap 템플릿과 테마를 판매하는 마켓플레이스",
+				"thumbnail": "",
+				"tags": ["템플릿", "마켓"],
+				"target": "_blank"
+			},
+			{
+				"title": "Unify - Responsive Website Template",
+				"url": "https://htmlstream.com/unify",
+				"description": "다양한 컴포넌트를 제공하는 다목적 반응형 웹사이트 템플릿",
+				"thumbnail": "",
+				"tags": ["템플릿", "UI"],
+				"target": "_blank"
+			},
+			{
+				"title": "INSPINIA - Admin Dashboard Template",
+				"url": "https://webapplayers.com/inspinia",
+				"description": "백오피스 및 관리자 페이지를 위한 인기 있는 Bootstrap 어드민 테마",
+				"thumbnail": "",
+				"tags": ["어드민", "템플릿"],
+				"target": "_blank"
+			},
+			{
+				"title": "XLWorks 엑셀웍스",
+				"url": "https://xlworks.net",
+				"description": "엑셀 실무 강좌, 함수 활용법, 매크로 등 엑셀 관련 정보 및 솔루션 공유",
+				"thumbnail": "",
+				"tags": ["엑셀", "실무팁"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "data",
+		"collectionName": "데이터",
+		"bookmarks": [
+			{
+				"title": "정보공개포털",
+				"url": "https://www.open.go.kr",
+				"description": "공공기관이 보유한 원문 정보 및 행정 정보를 국민에게 투명하게 공개하는 포털",
+				"thumbnail": "",
+				"tags": ["공공정보", "정부"],
+				"target": "_blank"
+			},
+			{
+				"title": "공공데이터포털",
+				"url": "https://www.data.go.kr",
+				"description": "국가에서 개방하는 데이터를 누구나 쉽게 조회하고 활용할 수 있도록 제공하는 포털",
+				"thumbnail": "",
+				"tags": ["공공데이터", "API"],
+				"target": "_blank"
+			},
+			{
+				"title": "KOSIS 국가통계포털",
+				"url": "http://kosis.kr",
+				"description": "통계청이 제공하는 국내, 국제 및 북한 주요 통계 지표 종합 검색 서비스",
+				"thumbnail": "",
+				"tags": ["통계", "데이터"],
+				"target": "_blank"
+			},
+			{
+				"title": "AI 허브",
+				"url": "https://aihub.or.kr",
+				"description": "인공지능 개발에 필수적인 양질의 학습용 데이터셋을 개방하고 공유하는 플랫폼",
+				"thumbnail": "",
+				"tags": ["AI학습데이터", "데이터셋"],
+				"target": "_blank"
+			},
+			{
+				"title": "금융감독원 금융상품통합비교공시",
+				"url": "https://finlife.fss.or.kr",
+				"description": "예금, 적금, 대출 등 금융회사의 상품 정보를 한눈에 비교할 수 있는 사이트",
+				"thumbnail": "",
+				"tags": ["금융데이터", "상품비교"],
+				"target": "_blank"
+			},
+			{
+				"title": "NAVER Developers",
+				"url": "https://developers.naver.com",
+				"description": "네이버 로그인, 검색, 지도 등 다양한 네이버 오픈 API 제공 및 개발자 가이드",
+				"thumbnail": "",
+				"tags": ["API", "Naver"],
+				"target": "_blank"
+			},
+			{
+				"title": "Kakao Developers",
+				"url": "https://developers.kakao.com",
+				"description": "카카오 로그인, 메시지, 지도 등 카카오 서비스 연동을 위한 오픈 API 플랫폼",
+				"thumbnail": "",
+				"tags": ["API", "Kakao"],
+				"target": "_blank"
+			},
+			{
+				"title": "행정표준코드관리시스템",
+				"url": "https://www.code.go.kr",
+				"description": "전자정부 및 행정기관 간 정보 유통을 위한 표준 코드 조회 및 관리 시스템",
+				"thumbnail": "",
+				"tags": ["행정코드", "표준화"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "onlinetools",
+		"collectionName": "온라인 툴",
+		"bookmarks": [
+			{
+				"title": "Google 관리 콘솔 도구 상자",
+				"url": "https://toolbox.googleapps.com/apps/main",
+				"description": "도메인, 네트워크, 브라우저 문제를 진단할 수 있는 관리자용 웹 도구 모음",
+				"thumbnail": "",
+				"tags": ["네트워크", "진단"],
+				"target": "_blank"
+			},
+			{
+				"title": "PDF24 Tools",
+				"url": "https://tools.pdf24.org/ko",
+				"description": "PDF 병합, 분할, 변환, 압축 등 PDF 관련 모든 작업을 웹에서 무료로 제공",
+				"thumbnail": "",
+				"tags": ["PDF", "무료툴"],
+				"target": "_blank"
+			},
+			{
+				"title": "iLoveIMG",
+				"url": "https://www.iloveimg.com/ko",
+				"description": "이미지 압축, 크기 조절, 자르기, 포맷 변환 등을 할 수 있는 온라인 이미지 편집기",
+				"thumbnail": "",
+				"tags": ["이미지편집", "온라인툴"],
+				"target": "_blank"
+			},
+			{
+				"title": "VIA",
+				"url": "https://www.caniusevia.com",
+				"description": "커스텀 기계식 키보드의 키맵을 실시간으로 프로그래밍하고 테스트할 수 있는 웹 툴",
+				"thumbnail": "",
+				"tags": ["키보드", "맵핑"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "shopping",
+		"collectionName": "쇼핑",
+		"bookmarks": [
+			{
+				"title": "랜스타",
+				"url": "http://www.lanmart.co.kr",
+				"description": "다양한 컴퓨터 케이블, 젠더, 네트워크 장비를 판매하는 전문 쇼핑몰",
+				"thumbnail": "",
+				"tags": ["컴퓨터부품", "케이블"],
+				"target": "_blank"
+			},
+			{
+				"title": "강원전자",
+				"url": "http://www.kwshop.co.kr",
+				"description": "네트워크 장비, KVM 스위치, 각종 컨버터 등 전산 소모품 전문 몰",
+				"thumbnail": "",
+				"tags": ["전산소모품", "강원전자"],
+				"target": "_blank"
+			},
+			{
+				"title": "(주)이온크루",
+				"url": "http://deckkeyboards.co.kr",
+				"description": "덱(Deck) 기계식 키보드 공식 수입원 및 판매처",
+				"thumbnail": "",
+				"tags": ["키보드", "기계식"],
+				"target": "_blank"
+			},
+			{
+				"title": "파크랜드",
+				"url": "http://eshop.parkland.co.kr",
+				"description": "합리적인 가격의 남성복 및 정장 전문 브랜드 파크랜드 공식 온라인몰",
+				"thumbnail": "",
+				"tags": ["의류", "남성복"],
+				"target": "_blank"
+			},
+			{
+				"title": "네파 통합 쇼핑몰",
+				"url": "http://www.nepamall.com",
+				"description": "아웃도어 브랜드 네파(NEPA)의 공식 온라인 스토어",
+				"thumbnail": "",
+				"tags": ["아웃도어", "의류"],
+				"target": "_blank"
+			},
+			{
+				"title": "칼이쓰마",
+				"url": "http://www.kalesma.com",
+				"description": "주방용 식도, 회칼, 숫돌 등 다양한 주방용 칼 전문 쇼핑몰",
+				"thumbnail": "",
+				"tags": ["주방용품", "칼"],
+				"target": "_blank"
+			},
+			{
+				"title": "가나주류백화점 광진점",
+				"url": "http://www.kajawine.kr",
+				"description": "와인, 위스키, 코냑 등 다양한 수입 주류 전문 할인점",
+				"thumbnail": "",
+				"tags": ["주류", "와인"],
+				"target": "_blank"
+			},
+			{
+				"title": "디자인아지트",
+				"url": "https://designagit.com",
+				"description": "명함, 스티커, 리플렛 등 인쇄물 제작 및 커스텀 디자인 굿즈 쇼핑몰",
+				"thumbnail": "",
+				"tags": ["인쇄물", "디자인"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "video",
+		"collectionName": "영상",
+		"bookmarks": [
+			{
+				"title": "YouTube",
+				"url": "https://www.youtube.com",
+				"description": "전 세계 최대의 동영상 공유 및 스트리밍 플랫폼",
+				"thumbnail": "",
+				"tags": ["동영상", "스트리밍"],
+				"target": "_blank"
+			},
+			{
+				"title": "넷플릭스",
+				"url": "https://www.netflix.com/kr/",
+				"description": "영화, 드라마, 다큐멘터리 등 다양한 콘텐츠를 제공하는 글로벌 OTT 서비스",
+				"thumbnail": "",
+				"tags": ["OTT", "영화"],
+				"target": "_blank"
+			},
+			{
+				"title": "쿠팡플레이",
+				"url": "https://www.coupangplay.com/home",
+				"description": "쿠팡 와우 멤버십 혜택으로 제공되는 영화, 드라마, 스포츠 중계 OTT",
+				"thumbnail": "",
+				"tags": ["OTT", "쿠팡"],
+				"target": "_blank"
+			},
+			{
+				"title": "Linkkf 애니 TV",
+				"url": "https://mobikf.ncctvgroup.com",
+				"description": "애니메이션 관련 영상 콘텐츠 플랫폼",
+				"thumbnail": "",
+				"tags": ["애니메이션"],
+				"target": "_blank"
+			},
+			{
+				"title": "링크천국",
+				"url": "https://www.hotword.site",
+				"description": "다양한 영상 및 유용한 사이트 링크 모음 서비스",
+				"thumbnail": "",
+				"tags": ["링크모음"],
+				"target": "_blank"
+			}
+		]
+	},
+	{
+		"collectionId": "game",
+		"collectionName": "게임",
+		"bookmarks": [
+			{
+				"title": "두기의 고전게임",
+				"url": "https://nemo838.tistory.com",
+				"description": "추억의 도스(DOS) 및 고전 게임 자료와 구동기를 공유하는 블로그",
+				"thumbnail": "",
+				"tags": ["고전게임", "DOS"],
+				"target": "_blank"
+			},
+			{
+				"title": "두기의 무설치",
+				"url": "https://doogie838.tistory.com",
+				"description": "설치가 필요 없는 포터블 게임 파일 공유 블로그",
+				"thumbnail": "",
+				"tags": ["무설치", "게임"],
+				"target": "_blank"
+			},
+			{
+				"title": "DsNo의 작은세상",
+				"url": "https://dsno.tistory.com",
+				"description": "각종 고전 및 최신 게임 리뷰, 한글 패치 등 정보 공유",
+				"thumbnail": "",
+				"tags": ["게임리뷰", "한글패치"],
+				"target": "_blank"
+			},
+			{
+				"title": "툴리의 고전게임",
+				"url": "https://www.tooli.co.kr",
+				"description": "오래된 고전 게임 다운로드 및 에뮬레이터 정보 제공 사이트",
+				"thumbnail": "",
+				"tags": ["고전게임", "에뮬"],
+				"target": "_blank"
+			},
+			{
+				"title": "배고픈마리오",
+				"url": "https://malio.tistory.com",
+				"description": "콘솔 게임 롬파일 및 에뮬레이터 세팅 관련 정보 공유 블로그",
+				"thumbnail": "",
+				"tags": ["콘솔게임", "롬파일"],
+				"target": "_blank"
+			},
+			{
+				"title": "TAODUNG.COM",
+				"url": "https://taodung.com",
+				"description": "인디 게임 및 각종 게임 리소스 자료실",
+				"thumbnail": "",
+				"tags": ["인디게임"],
+				"target": "_blank"
+			},
+			{
+				"title": "Ziperto",
+				"url": "https://www.ziperto.com",
+				"description": "다양한 플랫폼의 콘솔 게임 롬파일(ROM) 다운로드 사이트 (해외)",
+				"thumbnail": "",
+				"tags": ["롬파일", "해외"],
+				"target": "_blank"
+			},
+			{
+				"title": "Romslab.com",
+				"url": "https://romslab.com",
+				"description": "닌텐도, 플레이스테이션 등 에뮬레이터용 롬파일 아카이브 (해외)",
+				"thumbnail": "",
+				"tags": ["롬파일", "에뮬"],
+				"target": "_blank"
+			},
+			{
+				"title": "My Abandonware",
+				"url": "https://www.myabandonware.com",
+				"description": "저작권이 만료되거나 버려진 오래된 클래식 PC 게임 다운로드",
+				"thumbnail": "",
+				"tags": ["어밴던웨어", "클래식게임"],
+				"target": "_blank"
+			},
+			{
+				"title": "AdrenoTools drivers",
+				"url": "https://github.com/K11MCH1/AdrenoToolsDrivers",
+				"description": "안드로이드 에뮬레이터 최적화를 위한 커스텀 Adreno GPU 드라이버 모음",
+				"thumbnail": "",
+				"tags": ["GPU드라이버", "GitHub"],
+				"target": "_blank"
+			}
+		]
+	}
+]
