@@ -6,97 +6,97 @@
 			{
 				"title": "Google Gemini",
 				"url": "https://gemini.google.com",
-				"description": "Google의 최신 멀티모달 AI 챗봇",
-				"thumbnail": "",
-				"tags": ["AI챗봇", "Google"],
+				"description": "Google의 최신 멀티모달 AI 모델로, 텍스트, 이미지, 음성, 영상 등 다양한 입력을 처리하며 Google 서비스와 긴밀하게 연동되는 대화형 인공지능 서비스입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/8a/Google_Gemini_logo.svg/1024px-Google_Gemini_logo.svg.png",
+				"tags": ["AI챗봇", "생성형AI", "Google", "멀티모달", "LLM", "Gemini"],
 				"target": "_blank"
 			},
 			{
 				"title": "Perplexity",
 				"url": "https://www.perplexity.ai",
-				"description": "출처를 함께 제공하는 대화형 AI 검색 엔진",
-				"thumbnail": "",
-				"tags": ["AI검색", "Perplexity"],
+				"description": "실시간 웹 검색과 최신 인용 출처(Citation)를 함께 제공하여 신뢰도 높은 답변을 생성하는 대화형 AI 검색 엔진입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/Perplexity_AI_logo.svg/1024px-Perplexity_AI_logo.svg.png",
+				"tags": ["AI검색", "대화형검색", "Perplexity", "생성형AI", "리서치", "LLM"],
 				"target": "_blank"
 			},
 			{
 				"title": "OpenAI ChatGPT",
 				"url": "https://chatgpt.com",
-				"description": "OpenAI의 강력한 대화형 AI 모델",
-				"thumbnail": "",
-				"tags": ["AI챗봇", "OpenAI"],
+				"description": "OpenAI에서 개발한 대표적인 생성형 AI 대화 서비스로, 자연어 대화, 문서 작성, 코딩, 데이터 분석 및 멀티모달 작업을 지원합니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png",
+				"tags": ["AI챗봇", "OpenAI", "ChatGPT", "생성형AI", "LLM", "GPT-4"],
 				"target": "_blank"
 			},
 			{
 				"title": "Claude",
 				"url": "https://claude.ai",
-				"description": "OpenAI의 강력한 대화형 AI 모델",
-				"thumbnail": "",
-				"tags": ["AI챗봇", "OpenAI"],
+				"description": "Anthropic에서 개발한 차세대 대화형 AI 서비스로, 긴 문맥 처리(Long Context), 안전성, 정교한 글쓰기 및 코딩 추론에 특화되어 있습니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Claude_AI_logo.svg/1024px-Claude_AI_logo.svg.png",
+				"tags": ["AI챗봇", "Anthropic", "Claude", "클로드", "LLM", "생성형AI"],
 				"target": "_blank"
 			},
 			{
 				"title": "Grok",
 				"url": "https://grok.com",
-				"description": "xAI에서 개발한 실시간 정보 기반 AI 챗봇",
-				"thumbnail": "",
-				"tags": ["AI챗봇", "xAI"],
+				"description": "xAI에서 개발한 대화형 AI 모델로, X(구 트위터) 플랫폼의 실시간 데이터와 연동되어 최신 정보 분석과 위트 있는 답변을 제공합니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/57/X_logo_2023_%28white%29.png/1024px-X_logo_2023_%28white%29.png",
+				"tags": ["AI챗봇", "xAI", "Grok", "실시간정보", "일론머스크", "LLM"],
 				"target": "_blank"
 			},
 			{
 				"title": "Gemini Notebook",
 				"url": "https://notebooklm.google.com",
-				"description": "문서를 업로드하여 분석하고 질의응답하는 Google의 AI 노트",
-				"thumbnail": "",
-				"tags": ["AI노트", "Google"],
+				"description": "사용자가 업로드한 문서와 자료를 기반으로 요약, 질의응답, 오디오 브리핑을 생성해주는 Google의 AI 기반 리서치 어시스턴트(NotebookLM)입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=notebooklm.google.com&sz=128",
+				"tags": ["AI노트", "NotebookLM", "Google", "문서분석", "연구도구", "요약"],
 				"target": "_blank"
 			},
 			{
 				"title": "클로바노트",
 				"url": "https://clovanote.naver.com",
-				"description": "음성 녹음을 텍스트로 변환해주는 AI 회의록 서비스",
-				"thumbnail": "",
-				"tags": ["음성인식", "Naver"],
+				"description": "네이버의 음성인식 기술(Clova Speech)을 바탕으로 음성 녹음을 화자 분리 텍스트로 변환하고 주요 내용을 요약해주는 AI 음성 기록 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=clovanote.naver.com&sz=128",
+				"tags": ["음성인식", "네이버", "Clova", "회의록", "STT", "AI기록"],
 				"target": "_blank"
 			},
 			{
 				"title": "Napkin AI",
 				"url": "https://www.napkin.ai",
-				"description": "텍스트를 입력하면 시각적 다이어그램으로 변환해주는 AI 툴",
-				"thumbnail": "",
-				"tags": ["다이어그램", "AI툴"],
+				"description": "입력된 텍스트와 아이디어를 분석하여 문서, 프레젠테이션용 인포그래픽 및 다이어그램으로 자동 시각화해주는 AI 도구입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=napkin.ai&sz=128",
+				"tags": ["다이어그램", "인포그래픽", "AI시각화", "NapkinAI", "생산성도구", "AI툴"],
 				"target": "_blank"
 			},
 			{
 				"title": "Make",
 				"url": "https://us2.make.com",
-				"description": "다양한 앱과 API를 연결하여 작업을 자동화하는 플랫폼",
-				"thumbnail": "",
-				"tags": ["자동화", "노코드"],
+				"description": "시각적 인터페이스를 통해 수많은 앱과 서비스를 연결하고 복잡한 워크플로우를 코딩 없이 구축할 수 있는 노코드 업무 자동화(iPaaS) 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=make.com&sz=128",
+				"tags": ["업무자동화", "노코드", "Make", "워크플로우", "API연동", "iPaaS"],
 				"target": "_blank"
 			},
 			{
 				"title": "LMArena",
 				"url": "https://lmarena.ai",
-				"description": "다양한 LLM(대형 언어 모델)의 성능을 블라인드 테스트로 비교하는 플랫폼",
-				"thumbnail": "",
-				"tags": ["LLM", "벤치마크"],
+				"description": "LMSYS에서 운영하는 크라우드소싱 기반 AI 벤치마크 플랫폼으로, 다양한 대형 언어 모델의 응답 품질을 블라인드 평가하고 Elo 레이팅을 산출합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=lmarena.ai&sz=128",
+				"tags": ["LLM", "벤치마크", "LMSYS", "ChatbotArena", "AI비교", "Elo레이팅"],
 				"target": "_blank"
 			},
 			{
 				"title": "OpenRouter",
 				"url": "https://openrouter.ai",
-				"description": "다양한 AI 모델을 통합 API로 사용할 수 있게 해주는 라우터 서비스",
-				"thumbnail": "",
-				"tags": ["API", "AI모델"],
+				"description": "OpenAI, Anthropic, Meta, Mistral 등 다양한 제공업체의 수많은 LLM을 단일 API 엔드포인트와 통일된 인터페이스로 호출할 수 있는 통합 AI 게이트웨이입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=openrouter.ai&sz=128",
+				"tags": ["AI_API", "LLM라우터", "OpenRouter", "통합API", "인공지능모델", "개발자도구"],
 				"target": "_blank"
 			},
 			{
 				"title": "OpenAI Whisper",
 				"url": "https://openai.com/index/whisper",
-				"description": "오픈소스 기반의 강력한 다국어 음성 인식 모델",
-				"thumbnail": "",
-				"tags": ["음성인식", "OpenAI"],
+				"description": "OpenAI에서 공개한 다국어 오픈소스 음성 인식(STT) 모델로, 방대한 웹 데이터로 학습되어 소음 환경에서도 높은 전사 정확도를 제공합니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/04/ChatGPT_logo.svg/1024px-ChatGPT_logo.svg.png",
+				"tags": ["음성인식", "Whisper", "OpenAI", "STT", "오픈소스", "다국어전사"],
 				"target": "_blank"
 			}
 		]
@@ -108,81 +108,81 @@
 			{
 				"title": "한국어 맞춤법/문법 검사기",
 				"url": "https://nara-speller.co.kr/speller",
-				"description": "부산대 인공지능연구실과 나라인포테크가 공동 개발한 한국어 맞춤법 검사기",
-				"thumbnail": "",
-				"tags": ["맞춤법", "검사기"],
+				"description": "부산대학교 인공지능연구실과 나라인포테크가 공동 개발한 한국어 맞춤법 및 문법 검사기로, 오류 분석과 교정 대안을 정밀하게 제시합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=nara-speller.co.kr&sz=128",
+				"tags": ["맞춤법", "문법검사", "한국어교정", "나라인포테크", "문서작성", "부산대"],
 				"target": "_blank"
 			},
 			{
 				"title": "Presentation Magazine",
 				"url": "https://www.presentationmagazine.com",
-				"description": "파워포인트 템플릿과 프레젠테이션 팁 제공",
-				"thumbnail": "",
-				"tags": ["PPT템플릿", "자료"],
+				"description": "수만 종의 무료 파워포인트(PPT) 템플릿, 배경 그래픽 및 프레젠테이션 스피치 기법과 노하우를 제공하는 글로벌 리소스 사이트입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.presentationmagazine.com&sz=128",
+				"tags": ["PPT템플릿", "파워포인트", "발표자료", "무료템플릿", "프레젠테이션", "디자인리소스"],
 				"target": "_blank"
 			},
 			{
 				"title": "PIXLR",
 				"url": "https://pixlr.com/kr/editor",
-				"description": "설치가 필요 없는 웹 브라우저 기반의 무료 사진 편집기",
-				"thumbnail": "",
-				"tags": ["이미지편집", "온라인툴"],
+				"description": "프로그램 설치 없이 웹 브라우저에서 레이어, 필터, AI 생성 도구를 지원하는 고기능 온라인 사진 편집 및 그래픽 디자인 툴입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=pixlr.com&sz=128",
+				"tags": ["이미지편집", "온라인포토샵", "Pixlr", "사진보정", "그래픽디자인", "웹툴"],
 				"target": "_blank"
 			},
 			{
 				"title": "Behance",
 				"url": "https://www.behance.net",
-				"description": "어도비에서 운영하는 크리에이티브 전문가들의 포트폴리오 플랫폼",
-				"thumbnail": "",
-				"tags": ["포트폴리오", "디자인"],
+				"description": "어도비(Adobe)가 운영하는 글로벌 크리에이티브 네트워크로, 전 세계 그래픽 디자이너, 일러스트레이터, 아티스트들의 포트폴리오를 탐색하고 공유합니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b6/Behance_logo.svg/1024px-Behance_logo.svg.png",
+				"tags": ["포트폴리오", "디자인", "Adobe", "크리에이티브", "일러스트", "비핸스"],
 				"target": "_blank"
 			},
 			{
 				"title": "FLATICON",
 				"url": "https://www.flaticon.com",
-				"description": "웹, 디자인, 프레젠테이션을 위한 수백만 개의 무료 벡터 아이콘 제공",
-				"thumbnail": "",
-				"tags": ["아이콘", "디자인소스"],
+				"description": "SVG, PNG, EPS 등 다양한 포맷으로 수백만 개의 무료 벡터 아이콘과 스티커 리소스를 검색하고 다운로드할 수 있는 디자인 소스 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.flaticon.com&sz=128",
+				"tags": ["아이콘", "벡터그래픽", "Flaticon", "디자인소스", "SVG", "PPT디자인"],
 				"target": "_blank"
 			},
 			{
 				"title": "ICONFINDER",
 				"url": "https://www.iconfinder.com",
-				"description": "다양한 스타일의 고품질 아이콘 검색 및 다운로드",
-				"thumbnail": "",
-				"tags": ["아이콘", "디자인소스"],
+				"description": "전문 디자이너들이 제작한 수백만 개의 고품질 벡터 아이콘과 3D 일러스트, 그래픽 에셋을 제공하는 마켓플레이스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.iconfinder.com&sz=128",
+				"tags": ["아이콘", "디자인에셋", "Iconfinder", "3D일러스트", "벡터", "UI디자인"],
 				"target": "_blank"
 			},
 			{
 				"title": "IconArchive",
 				"url": "http://www.iconarchive.com",
-				"description": "운영체제 및 웹 디자인용 무료 아이콘 아카이브",
-				"thumbnail": "",
-				"tags": ["아이콘", "아카이브"],
+				"description": "카테고리별로 체계적으로 분류된 70만 개 이상의 무료 데스크톱 및 웹 디자인용 아이콘을 검색하고 다운로드할 수 있는 아카이브입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.iconarchive.com&sz=128",
+				"tags": ["아이콘", "IconArchive", "무료아이콘", "데스크톱아이콘", "그래픽소스", "아카이브"],
 				"target": "_blank"
 			},
 			{
 				"title": "Icons for everything",
 				"url": "https://thenounproject.com",
-				"description": "단순하고 직관적인 픽토그램 스타일의 아이콘 모음 (The Noun Project)",
-				"thumbnail": "",
-				"tags": ["픽토그램", "아이콘"],
+				"description": "글로벌 디자이너들이 제작한 500만 개 이상의 미니멀하고 직관적인 픽토그램과 사진을 제공하는 아이콘 라이브러리(The Noun Project)입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=thenounproject.com&sz=128",
+				"tags": ["픽토그램", "아이콘", "TheNounProject", "심볼", "인포그래픽", "디자인"],
 				"target": "_blank"
 			},
 			{
 				"title": "iconmonstr",
 				"url": "https://iconmonstr.com",
-				"description": "심플한 흑백 스타일의 무료 아이콘 다운로드",
-				"thumbnail": "",
-				"tags": ["아이콘", "SVG"],
+				"description": "심플하고 정갈한 단색 벡터 아이콘을 SVG, EPS, PSD, PNG 형식으로 무료 배포하는 디자이너 친화적 아이콘 라이브러리입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=iconmonstr.com&sz=128",
+				"tags": ["아이콘", "SVG", "iconmonstr", "단색아이콘", "미니멀디자인", "웹아이콘"],
 				"target": "_blank"
 			},
 			{
 				"title": "Unsplash",
 				"url": "https://unsplash.com",
-				"description": "저작권 걱정 없이 상업적으로도 사용 가능한 고해상도 무료 이미지 사이트",
-				"thumbnail": "",
-				"tags": ["무료이미지", "사진"],
+				"description": "전 세계 사진작가들이 기여한 초고해상도 사진을 상업적 용도로도 저작권 걱정 없이 무료로 다운로드하여 사용할 수 있는 이미지 플랫폼입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/4/4a/Unsplash_wordmark_logo.svg/1024px-Unsplash_wordmark_logo.svg.png",
+				"tags": ["무료이미지", "고화질사진", "Unsplash", "스톡포토", "상업적이용가능", "디자인소스"],
 				"target": "_blank"
 			}
 		]
@@ -194,145 +194,145 @@
 			{
 				"title": "EBS",
 				"url": "https://www.ebs.co.kr",
-				"description": "한국교육방송공사, 다양한 연령대를 위한 교육 콘텐츠",
-				"thumbnail": "",
-				"tags": ["EBS", "방송"],
+				"description": "한국교육방송공사의 공식 포털로, 수능 및 초·중·고 교과 과정 강의, 다큐멘터리, 어학 교육 등 전 세대를 아우르는 공영 교육 콘텐츠를 제공합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.ebs.co.kr&sz=128",
+				"tags": ["EBS", "교육방송", "수능인강", "학교교육", "평생교육", "공영방송"],
 				"target": "_blank"
 			},
 			{
 				"title": "K-MOOC",
 				"url": "http://www.kmooc.kr",
-				"description": "한국형 온라인 공개강좌 플랫폼",
-				"thumbnail": "",
-				"tags": ["MOOC", "대학강의"],
+				"description": "교육부와 국가평생교육진흥원이 주관하는 한국형 온라인 공개강좌 플랫폼으로, 국내외 유수 대학의 정규 강의를 무료로 수강할 수 있습니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.kmooc.kr&sz=128",
+				"tags": ["KMOOC", "대학강의", "온라인강좌", "무료교육", "평생학습", "교양강의"],
 				"target": "_blank"
 			},
 			{
 				"title": "KOCW",
 				"url": "http://www.kocw.net",
-				"description": "국내외 대학 및 기관의 강의 동영상을 무료로 제공",
-				"thumbnail": "",
-				"tags": ["대학강의", "무료"],
+				"description": "한국교육학술정보원(KERIS)에서 운영하는 고등교육 교수학습자료 공동활용 서비스로, 국내외 대학의 강의 동영상과 강의자료를 무료로 공개합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.kocw.net&sz=128",
+				"tags": ["KOCW", "대학강의", "무료인강", "KERIS", "학술자료", "공개강의"],
 				"target": "_blank"
 			},
 			{
 				"title": "인프런",
 				"url": "https://www.inflearn.com",
-				"description": "IT, 프로그래밍, 디자인 등 실무 중심의 온라인 강의 플랫폼",
-				"thumbnail": "",
-				"tags": ["IT강의", "실무"],
+				"description": "소프트웨어 개발, 데이터 사이언스, 인공지능, 디자인 등 IT 실무 지식과 커리어 성장을 위한 국내 대표 라이프스타일 테크 교육 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.inflearn.com&sz=128",
+				"tags": ["인프런", "IT강의", "프로그래밍", "개발자교육", "코딩인강", "실무강좌"],
 				"target": "_blank"
 			},
 			{
 				"title": "T아카데미",
 				"url": "https://tacademy.skplanet.com",
-				"description": "SK플래닛에서 제공하는 IT 개발자 및 기획자 대상 무료 교육",
-				"thumbnail": "",
-				"tags": ["IT교육", "무료"],
+				"description": "SK플래닛에서 ICT 인재 육성을 위해 운영하는 전문 교육 플랫폼으로, AI, 클라우드, 프론트엔드/백엔드 실무 중심 온·오프라인 무료 교육을 제공합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=tacademy.skplanet.com&sz=128",
+				"tags": ["T아카데미", "SK플래닛", "IT무료교육", "개발자취업", "ICT강의", "실무교육"],
 				"target": "_blank"
 			},
 			{
 				"title": "패스트 캠퍼스",
 				"url": "https://fastcampus.co.kr",
-				"description": "실무 교육 중심의 성인 대상 온라인/오프라인 교육 서비스",
-				"thumbnail": "",
-				"tags": ["실무교육", "캠퍼스"],
+				"description": "프로그래밍, 데이터, 마케팅, 디자인, 금융 등 직장인과 취업준비생의 커리어 전환 및 직무 역량 강화를 위한 실무 교육 전문 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=fastcampus.co.kr&sz=128",
+				"tags": ["패스트캠퍼스", "실무교육", "직무역량", "부트캠프", "커리어성장", "온라인인강"],
 				"target": "_blank"
 			},
 			{
 				"title": "서울특별시 평생학습포털",
 				"url": "http://sll.seoul.go.kr",
-				"description": "서울시에서 제공하는 다양한 온라인 무료 평생학습 강좌",
-				"thumbnail": "",
-				"tags": ["평생학습", "서울시"],
+				"description": "서울시민 누구나 인문학, 외국어, 자격증, IT, 문화예술 등 다채로운 교육 과정을 무료로 수강할 수 있는 공공 온라인 평생학습 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=sll.seoul.go.kr&sz=128",
+				"tags": ["평생학습", "서울시", "무료인강", "자격증", "교양강좌", "공공교육"],
 				"target": "_blank"
 			},
 			{
 				"title": "경기도 무료 온라인 평생학습",
 				"url": "https://www.gseek.kr",
-				"description": "경기도 지식(GSEEK), 도민을 위한 무료 온라인 교육",
-				"thumbnail": "",
-				"tags": ["평생학습", "경기도"],
+				"description": "경기도와 31개 시·군이 함께 운영하는 도민 무료 평생학습 플랫폼(GSEEK 지식)으로, 자격취득, 생활취미, IT, 청소년 교육 과정을 지원합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.gseek.kr&sz=128",
+				"tags": ["GSEEK", "지식", "경기도", "평생학습", "무료교육", "온라인강좌"],
 				"target": "_blank"
 			},
 			{
 				"title": "국민평생직업능력개발 STEP",
 				"url": "https://www.step.or.kr",
-				"description": "스마트 직업훈련 플랫폼 STEP",
-				"thumbnail": "",
-				"tags": ["직업훈련", "국가"],
+				"description": "고용노동부와 한국기술교육대학교가 운영하는 스마트 직업훈련 플랫폼(STEP)으로, 4차 산업혁명 분야 기술 및 공학 실무 중심 e-러닝을 제공합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.step.or.kr&sz=128",
+				"tags": ["STEP", "스마트직업훈련", "고용노동부", "국비지원", "직업훈련", "기술공학"],
 				"target": "_blank"
 			},
 			{
 				"title": "소상공인 지식배움터",
 				"url": "https://edu.sbiz.or.kr",
-				"description": "소상공인 및 예비 창업자를 위한 무료 온라인 교육",
-				"thumbnail": "",
-				"tags": ["소상공인", "창업"],
+				"description": "소상공인시장진흥공단에서 운영하는 전문 교육 포털로, 창업 준비, 경영 개선, 업종별 노하우 및 마케팅 전략 온라인 교육을 무료로 제공합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=edu.sbiz.or.kr&sz=128",
+				"tags": ["소상공인", "지식배움터", "창업교육", "경영개선", "온라인교육", "정부지원"],
 				"target": "_blank"
 			},
 			{
 				"title": "한국사데이터베이스",
 				"url": "http://db.history.go.kr",
-				"description": "국사편찬위원회에서 제공하는 한국사 관련 원사료 데이터베이스",
-				"thumbnail": "",
-				"tags": ["한국사", "역사"],
+				"description": "국사편찬위원회에서 삼국시대부터 근현대사까지 방대한 역사 원사료, 편찬서, 연구서 등을 디지털화하여 통합 검색을 지원하는 데이터베이스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=db.history.go.kr&sz=128",
+				"tags": ["한국사", "국사편찬위원회", "역사사료", "조선왕조실록", "데이터베이스", "연구자료"],
 				"target": "_blank"
 			},
 			{
 				"title": "생활코딩",
 				"url": "https://opentutorials.org/course/1",
-				"description": "일반인들에게 프로그래밍을 알려주는 무료 온라인 코딩 강의",
-				"thumbnail": "",
-				"tags": ["코딩", "무료강의"],
+				"description": "비전공자와 일반인에게 프로그래밍의 원리와 즐거움을 알기 쉽게 전달하는 비영리 오픈튜토리얼스 기반의 무료 코딩 교육 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=opentutorials.org&sz=128",
+				"tags": ["생활코딩", "오픈튜토리얼스", "코딩입문", "프로그래밍기초", "웹개발", "무료강좌"],
 				"target": "_blank"
 			},
 			{
 				"title": "모던 JavaScript 튜토리얼",
 				"url": "https://ko.javascript.info",
-				"description": "기초부터 심화까지 다루는 자바스크립트 학습 튜토리얼",
-				"thumbnail": "",
-				"tags": ["JavaScript", "튜토리얼"],
+				"description": "자바스크립트의 문법 기초부터 비동기 처리, 객체 지향, 브라우저 DOM 조작 및 고급 스펙까지 심도 있게 다루는 오픈소스 완벽 가이드북입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=ko.javascript.info&sz=128",
+				"tags": ["자바스크립트", "JavaScript", "웹개발", "튜토리얼", "프론트엔드", "JS문법"],
 				"target": "_blank"
 			},
 			{
 				"title": "위키독스",
 				"url": "https://wikidocs.net",
-				"description": "온라인 책을 제작하고 공유하는 오픈 도서 플랫폼 (점프 투 파이썬 등)",
-				"thumbnail": "",
-				"tags": ["온라인책", "IT도서"],
+				"description": "'점프 투 파이썬'을 비롯해 개발자 및 전문가들이 직접 작성한 양질의 프로그래밍 도서와 기술 문서를 무료로 열람하고 공유할 수 있는 오픈 전자책 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=wikidocs.net&sz=128",
+				"tags": ["위키독스", "IT도서", "점프투파이썬", "프로그래밍책", "오픈북", "기술문서"],
 				"target": "_blank"
 			},
 			{
 				"title": "Z-Library",
 				"url": "https://z-library.sk",
-				"description": "세계 최대 규모의 무료 전자책 및 학술 논문 아카이브",
-				"thumbnail": "",
-				"tags": ["전자책", "논문"],
+				"description": "수천만 권의 서적과 수억 편의 학술 논문, 전자책(eBook)을 검색하고 열람할 수 있는 전 세계 최대 규모의 디지털 도서 아카이브입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=z-library.sk&sz=128",
+				"tags": ["전자책", "학술논문", "ZLibrary", "eBook", "도서검색", "아카이브"],
 				"target": "_blank"
 			},
 			{
 				"title": "늦깎이 학생의 공부방",
 				"url": "https://mom-hits-paydirt.tistory.com",
-				"description": "개인 학습 기록 및 정보 공유 블로그",
-				"thumbnail": "",
-				"tags": ["학습블로그"],
+				"description": "다양한 컴퓨터 과학, 수학, 프로그래밍 및 알고리즘 학습 노트를 꼼꼼하게 정리하여 공유하는 개인 기술 학습 티스토리 블로그입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=mom-hits-paydirt.tistory.com&sz=128",
+				"tags": ["학습블로그", "컴퓨터공학", "알고리즘", "수학", "프로그래밍", "티스토리"],
 				"target": "_blank"
 			},
 			{
 				"title": "TTA정보통신용어사전",
 				"url": "https://terms.tta.or.kr",
-				"description": "한국정보통신기술협회(TTA)에서 제공하는 IT 및 통신 용어 사전",
-				"thumbnail": "",
-				"tags": ["IT용어", "사전"],
+				"description": "한국정보통신기술협회(TTA)에서 제정한 표준 ICT 전문 용어, 기술 개념 및 표준화 규격을 공식 해설하는 대한민국 대표 IT 용어 사전입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=terms.tta.or.kr&sz=128",
+				"tags": ["TTA", "정보통신용어", "IT사전", "기술표준", "ICT용어", "표준화"],
 				"target": "_blank"
 			},
 			{
 				"title": "한국경제 용어사전",
 				"url": "https://dic.hankyung.com",
-				"description": "경제, 금융, 비즈니스 관련 전문 용어 해설",
-				"thumbnail": "",
-				"tags": ["경제용어", "사전"],
+				"description": "한국경제신문에서 제공하는 경제, 경영, 금융, 증권, 부동산 관련 전문 용어 및 최신 시사 경제 트렌드 해설 사전입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=dic.hankyung.com&sz=128",
+				"tags": ["한국경제", "경제용어", "금융사전", "시사용어", "비즈니스", "한경사전"],
 				"target": "_blank"
 			}
 		]
@@ -344,89 +344,89 @@
 			{
 				"title": "토스증권",
 				"url": "https://www.tossinvest.com",
-				"description": "토스 앱과 연동되는 직관적이고 쉬운 주식 투자 플랫폼",
-				"thumbnail": "",
-				"tags": ["증권", "국내주식"],
+				"description": "초보자도 직관적인 UI로 손쉽게 국내외 주식 거래, 실시간 차트 확인, 커뮤니티 토론 및 배당 정보를 이용할 수 있는 모바일 특화 트레이딩 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.tossinvest.com&sz=128",
+				"tags": ["토스증권", "주식투자", "미국주식", "국내주식", "MTS", "투자플랫폼"],
 				"target": "_blank"
 			},
 			{
 				"title": "트레이딩뷰",
 				"url": "https://kr.tradingview.com",
-				"description": "전 세계 트레이더와 투자자를 위한 고성능 차트 및 소셜 네트워크",
-				"thumbnail": "",
-				"tags": ["차트", "주식"],
+				"description": "전 세계 수천만 명의 트레이더가 사용하는 클라우드 기반 고급 금융 차트 플랫폼으로, 다양한 기술적 지표, 스크리너 및 투자 아이디어 소셜 공유를 지원합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=kr.tradingview.com&sz=128",
+				"tags": ["트레이딩뷰", "TradingView", "주식차트", "기술적분석", "차트분석", "스크리너"],
 				"target": "_blank"
 			},
 			{
 				"title": "FINVIZ.com",
 				"url": "https://finviz.com",
-				"description": "미국 주식 시장의 시각화 맵과 스크리너를 제공하는 금융 분석 사이트",
-				"thumbnail": "",
-				"tags": ["미국주식", "스크리너"],
+				"description": "미국 주식 시장의 시가총액별 섹터 맵(Stock Heatmap), 재무제표 스크리너, 내부자 거래 및 기술적 패턴 분석을 시각적으로 제공하는 대표 금융 사이트입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=finviz.com&sz=128",
+				"tags": ["미국주식", "FINVIZ", "히트맵", "스크리너", "주식분석", "섹터분석"],
 				"target": "_blank"
 			},
 			{
 				"title": "Fear & Greed Index",
 				"url": "https://edition.cnn.com/markets/fear-and-greed",
-				"description": "CNN 비즈니스에서 제공하는 주식 시장의 공포와 탐욕 지수",
-				"thumbnail": "",
-				"tags": ["시장지표", "투자심리"],
+				"description": "CNN 비즈니스에서 시장 변동성, 모멘텀, 안전자산 수요 등 7개 시장 지표를 종합하여 미국 주식 시장의 과열과 공포 심리를 0~100 수치로 측정한 지수입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=edition.cnn.com&sz=128",
+				"tags": ["공포탐욕지수", "FearAndGreed", "시장심리지표", "CNN비즈니스", "미국증시", "투자지표"],
 				"target": "_blank"
 			},
 			{
 				"title": "CPI Summary",
 				"url": "https://www.bls.gov/news.release/cpi.nr0.htm",
-				"description": "미국 노동통계국에서 발표하는 소비자물가지수(CPI) 요약 보고서",
-				"thumbnail": "",
-				"tags": ["CPI", "거시경제"],
+				"description": "미국 노동통계국(BLS)에서 매월 발표하는 소비자물가지수(CPI) 공식 요약 보고서로, 미국 인플레이션 추이 및 통화정책 전망의 핵심 기초 자료입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.bls.gov&sz=128",
+				"tags": ["CPI", "소비자물가지수", "미국노동통계국", "인플레이션", "거시경제", "금리전망"],
 				"target": "_blank"
 			},
 			{
 				"title": "국제금융센터",
 				"url": "https://www.kcif.or.kr",
-				"description": "국제 금융 시장 동향 및 리스크 분석 보고서 제공",
-				"thumbnail": "",
-				"tags": ["금융동향", "리포트"],
+				"description": "국제 금융시장 동향, 주요국 통화정책, 외환 및 자본시장 리스크를 전문적으로 모니터링하고 심층 분석 리포트를 발간하는 공공 싱크탱크입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.kcif.or.kr&sz=128",
+				"tags": ["국제금융센터", "KCIF", "금융동향", "외환시장", "거시경제분석", "글로벌마켓"],
 				"target": "_blank"
 			},
 			{
 				"title": "Investing.com",
 				"url": "https://kr.investing.com",
-				"description": "실시간 글로벌 증시, 환율, 원자재 가격 및 경제 캘린더 제공",
-				"thumbnail": "",
-				"tags": ["실시간시세", "경제캘린더"],
+				"description": "글로벌 주식, 원자재, 채권, 암호화폐, 환율 시세와 실시간 경제 지표 발표 일정을 확인할 수 있는 경제 캘린더를 제공하는 글로벌 금융 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=kr.investing.com&sz=128",
+				"tags": ["인베스팅닷컴", "Investing", "실시간시세", "경제캘린더", "글로벌증시", "환율"],
 				"target": "_blank"
 			},
 			{
 				"title": "82Alda",
 				"url": "https://www.82alda.co.kr",
-				"description": "미국 주식 배당락일, 실적 발표일 등 캘린더 제공 서비스",
-				"thumbnail": "",
-				"tags": ["배당", "미국주식"],
+				"description": "미국 주식 투자자를 위한 실적 발표 일정, 배당락일 및 배당 지급일 캘린더, 기업 공시 정보를 한눈에 제공하는 투자 일정 관리 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.82alda.co.kr&sz=128",
+				"tags": ["82알다", "배당주", "배당락일", "미국주식실적", "어닝캘린더", "주식일정"],
 				"target": "_blank"
 			},
 			{
 				"title": "코인니스",
 				"url": "https://coinness.com",
-				"description": "암호화폐 및 블록체인 관련 실시간 투자 속보 및 뉴스 제공",
-				"thumbnail": "",
-				"tags": ["암호화폐", "뉴스"],
+				"description": "비트코인, 이더리움 등 가상자산 및 블록체인 업계의 24시간 실시간 투자 속보, 시세 변동 알림, 온체인 데이터 및 전문가 인사이트를 제공하는 미디어입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=coinness.com&sz=128",
+				"tags": ["코인니스", "암호화폐속보", "비트코인", "블록체인", "가상자산", "온체인데이터"],
 				"target": "_blank"
 			},
 			{
 				"title": "소수몽키",
 				"url": "https://www.youtube.com/@sosumonkey",
-				"description": "미국 주식 시황 및 개별 종목 분석을 제공하는 유튜브 채널",
-				"thumbnail": "",
-				"tags": ["유튜브", "미주"],
+				"description": "미국 주식 시장의 주요 시황, 유망 ETF 및 개별 우량 종목 분석, 배당주 투자 전략을 쉽고 체계적으로 전달하는 인기 주식 전문 유튜브 채널입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png",
+				"tags": ["소수몽키", "미국주식", "주식유튜브", "ETF투자", "시황분석", "재테크"],
 				"target": "_blank"
 			},
 			{
 				"title": "오선의 미국 증시 라이브",
 				"url": "https://www.youtube.com/@futuresnow",
-				"description": "미국 증시 개장 및 마감 실시간 라이브 시황 분석 방송",
-				"thumbnail": "",
-				"tags": ["유튜브", "시황"],
+				"description": "미국 증시 정규장 개장 및 마감 전후의 실시간 선물 지수, 경제 지표 발표 반응, 매크로 시황을 라이브로 중계하며 분석하는 유튜브 채널입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png",
+				"tags": ["오선의미국증시", "미증시라이브", "선물거래", "주식생방송", "매크로시황", "유튜브"],
 				"target": "_blank"
 			}
 		]
@@ -438,145 +438,145 @@
 			{
 				"title": "씨:리얼",
 				"url": "http://seereal.lh.or.kr",
-				"description": "LH에서 운영하는 부동산 정보 종합 포털",
-				"thumbnail": "",
-				"tags": ["부동산정보", "LH"],
+				"description": "한국토지주택공사(LH)가 운영하는 부동산 종합정보 포털로, 전국 토지·주택 정보, 부동산 지도 및 정책 정보를 통합 제공합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=seereal.lh.or.kr&sz=128",
+				"tags": ["씨리얼", "SEEREAL", "LH", "부동산종합정보", "토지이용계획", "부동산지도"],
 				"target": "_blank"
 			},
 			{
 				"title": "네이버 부동산",
 				"url": "http://land.naver.com",
-				"description": "아파트, 원룸, 오피스텔 등 전국 부동산 매물 및 시세 정보",
-				"thumbnail": "",
-				"tags": ["매물", "시세"],
+				"description": "전국 아파트, 오피스텔, 빌라, 원룸, 상가 매물 검색부터 실거래가, 학군, 단지 리뷰까지 총망라한 국내 대표 부동산 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=land.naver.com&sz=128",
+				"tags": ["네이버부동산", "아파트매물", "실거래가", "전월세", "학군정보", "시세조회"],
 				"target": "_blank"
 			},
 			{
 				"title": "부동산114",
 				"url": "http://www.r114.com",
-				"description": "부동산 시세, 실거래가, 분양 정보 및 리서치 자료 제공",
-				"thumbnail": "",
-				"tags": ["시세", "분양"],
+				"description": "전국 아파트 시세 통계, 분양 일정, 매물 정보 및 주택시장 동향 리서치 보고서를 발행하는 대표적인 민간 부동산 종합 정보 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.r114.com&sz=128",
+				"tags": ["부동산114", "R114", "아파트시세", "분양정보", "부동산리서치", "매물검색"],
 				"target": "_blank"
 			},
 			{
 				"title": "MK부동산",
 				"url": "http://estate.mk.co.kr",
-				"description": "매일경제에서 제공하는 부동산 뉴스 및 매물 정보",
-				"thumbnail": "",
-				"tags": ["부동산뉴스"],
+				"description": "매일경제신문에서 제공하는 부동산 전문 포털로, 최신 부동산 정책 뉴스, 시장 심층 분석, 분양 및 매물 기사를 전달합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=estate.mk.co.kr&sz=128",
+				"tags": ["MK부동산", "매일경제", "부동산뉴스", "분양뉴스", "시장분석", "부동산재테크"],
 				"target": "_blank"
 			},
 			{
 				"title": "KB부동산",
 				"url": "https://kbland.kr",
-				"description": "KB국민은행이 제공하는 전국 아파트 시세 및 부동산 통계 정보",
-				"thumbnail": "",
-				"tags": ["KB시세", "통계"],
+				"description": "KB국민은행이 공인중개사 네트워크와 금융 빅데이터를 바탕으로 산정하는 주택담보대출 기준 KB시세 및 부동산 시장 주간 통계를 제공합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=kbland.kr&sz=128",
+				"tags": ["KB부동산", "KB시세", "KBLand", "주택담보대출", "아파트통계", "국민은행"],
 				"target": "_blank"
 			},
 			{
 				"title": "직방",
 				"url": "https://www.zigbang.com",
-				"description": "원룸, 오피스텔, 아파트 실거래가 및 매물 검색 앱 서비스",
-				"thumbnail": "",
-				"tags": ["원룸", "아파트"],
+				"description": "원룸, 오피스텔, 빌라, 아파트 매물과 3D 단지투어, 실거래가, 빅데이터 기반 매물 탐색을 제공하는 종합 프롭테크 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.zigbang.com&sz=128",
+				"tags": ["직방", "프롭테크", "원룸구하기", "아파트3D투어", "부동산앱", "실거래가"],
 				"target": "_blank"
 			},
 			{
 				"title": "다방",
 				"url": "https://www.dabangapp.com",
-				"description": "부동산 맞춤 검색, 원룸 및 오피스텔 매물 정보 플랫폼",
-				"thumbnail": "",
-				"tags": ["원룸", "자취"],
+				"description": "원룸, 투룸, 오피스텔 중심의 맞춤형 매물 필터 검색과 방 찾기, 방주인 직거래 및 부동산 전월세 정보를 제공하는 앱 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.dabangapp.com&sz=128",
+				"tags": ["다방", "원룸", "투룸", "오피스텔", "전월세", "자취방구하기"],
 				"target": "_blank"
 			},
 			{
 				"title": "밸류맵",
 				"url": "https://www.valueupmap.com",
-				"description": "전국 토지 및 건물, 꼬마빌딩 실거래가 조회 및 상권 분석 플랫폼",
-				"thumbnail": "",
-				"tags": ["토지", "빌딩"],
+				"description": "전국 토지, 건물, 단독·다가구, 꼬마빌딩의 실거래가 정보와 인공지능 건축설계, 상권 분석 데이터를 지도 위에 시각화하는 프롭테크 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.valueupmap.com&sz=128",
+				"tags": ["밸류맵", "토지실거래가", "꼬마빌딩", "건물매매", "상권분석", "부동산빅데이터"],
 				"target": "_blank"
 			},
 			{
 				"title": "디스코",
 				"url": "https://www.disco.re",
-				"description": "상업용 부동산, 토지 실거래가 및 매물 정보 플랫폼",
-				"thumbnail": "",
-				"tags": ["상업용부동산"],
+				"description": "전국 토지, 상가, 빌딩, 공장 등 상업용 부동산의 실거래가, 토지대장 및 건축물대장 정보, 매물 중개 네트워크를 제공하는 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.disco.re&sz=128",
+				"tags": ["디스코", "DISCO", "상업용부동산", "토지실거래", "빌딩매매", "건축물대장"],
 				"target": "_blank"
 			},
 			{
 				"title": "국토교통부 부동산공시가격 알리미",
 				"url": "http://www.realtyprice.kr",
-				"description": "공동주택, 표준지, 개별공시지가 등 공시가격 열람 시스템",
-				"thumbnail": "",
-				"tags": ["공시지가", "국토부"],
+				"description": "국토교통부에서 매년 산정·공시하는 표준지, 표준주택, 개별공시지가, 공동주택가격의 공시가격을 조회하고 이의신청을 접수하는 공식 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.realtyprice.kr&sz=128",
+				"tags": ["공시가격알리미", "국토교통부", "공시지가", "공동주택가격", "개별공시지가", "재산세기준"],
 				"target": "_blank"
 			},
 			{
 				"title": "국토교통부 실거래가 공개시스템",
 				"url": "http://rt.molit.go.kr",
-				"description": "아파트, 연립, 다세대 등 부동산의 정확한 실거래가 조회 서비스",
-				"thumbnail": "",
-				"tags": ["실거래가", "국토부"],
+				"description": "부동산 거래신고법에 따라 신고된 아파트, 연립·다세대, 단독·다가구, 오피스텔, 토지 등의 실제 거래 계약 금액을 투명하게 공개하는 공식 정부 시스템입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=rt.molit.go.kr&sz=128",
+				"tags": ["실거래가공개시스템", "국토부실거래가", "부동산실거래", "아파트거래가", "공식통계"],
 				"target": "_blank"
 			},
 			{
 				"title": "하우스머치",
 				"url": "https://www.howsmuch.com",
-				"description": "아파트 시세 조회 및 부동산 빅데이터 분석 서비스",
-				"thumbnail": "",
-				"tags": ["아파트시세", "빅데이터"],
+				"description": "전국 아파트 실거래가 추이, 거래량, 갭투자 비율, 단지별 가격 흐름을 한눈에 비교 분석할 수 있는 아파트 전문 빅데이터 통계 사이트입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.howsmuch.com&sz=128",
+				"tags": ["하우스머치", "아파트실거래가", "부동산통계", "빅데이터분석", "갭투자", "시세트렌드"],
 				"target": "_blank"
 			},
 			{
 				"title": "건축행정시스템 세움터",
 				"url": "https://cloud.eais.go.kr",
-				"description": "건축물대장 발급, 건축 인허가 등 국가 건축행정 시스템",
-				"thumbnail": "",
-				"tags": ["건축물대장", "행정"],
+				"description": "국토교통부가 주관하는 전국 건축 인허가, 착공·준공 승인, 건축물대장 무료 열람 및 발급을 온라인으로 처리하는 대국민 건축행정 전자 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=cloud.eais.go.kr&sz=128",
+				"tags": ["세움터", "건축물대장", "건축인허가", "국토교통부", "건축행정", "건축물대장발급"],
 				"target": "_blank"
 			},
 			{
 				"title": "바로바로",
 				"url": "https://www.barobaro.info",
-				"description": "신속한 부동산 매물 정보 및 거래 지원 사이트",
-				"thumbnail": "",
-				"tags": ["부동산정보"],
+				"description": "부동산 매물 검색, 급매물 확인 및 지역별 부동산 실거래가 흐름을 간편하게 조회할 수 있도록 지원하는 부동산 정보 사이트입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.barobaro.info&sz=128",
+				"tags": ["바로바로", "부동산매물", "급매물", "실거래조회", "부동산정보", "매물검색"],
 				"target": "_blank"
 			},
 			{
 				"title": "건설산업지식정보 시스템",
 				"url": "https://www.kiscon.net",
-				"description": "건설업체 정보, 하도급, 공사대장 등 건설산업 관련 지식 포털",
-				"thumbnail": "",
-				"tags": ["건설업", "KISCON"],
+				"description": "건설교통기술평가원에서 운영하며 건설업체 등록 정보, 건설공사대장 통보 관리, 불법하도급 모니터링 등 건설산업 관련 공공 정보를 총괄 관리하는 시스템입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.kiscon.net&sz=128",
+				"tags": ["KISCON", "건설산업지식정보", "건설공사대장", "건설업체조회", "건설행정", "하도급관리"],
 				"target": "_blank"
 			},
 			{
 				"title": "마이홈포털",
 				"url": "https://www.myhome.go.kr",
-				"description": "주거복지, 공공임대주택 정보, 임대주택 청약 등 맞춤형 주거지원 포털",
-				"thumbnail": "",
-				"tags": ["주거복지", "임대주택"],
+				"description": "국토교통부와 LH가 공동 구축하여 국민임대, 행복주택, 청년주택 등 맞춤형 공공임대주택 자격 자가진단 및 주거복지 지원 정보를 종합 안내하는 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.myhome.go.kr&sz=128",
+				"tags": ["마이홈", "주거복지", "공공임대", "행복주택", "청년주택", "주거지원"],
 				"target": "_blank"
 			},
 			{
 				"title": "한국부동산원 청약홈",
 				"url": "https://www.applyhome.co.kr",
-				"description": "새 아파트 청약 신청, 당첨자 조회, 청약 자격 확인 포털",
-				"thumbnail": "",
-				"tags": ["청약", "아파트"],
+				"description": "한국부동산원이 운영하는 대한민국 공식 아파트 청약 플랫폼으로, 분양 아파트 청약 신청, 당첨자 발표, 청약가점 계산 및 청약통장 관리를 전담합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.applyhome.co.kr&sz=128",
+				"tags": ["청약홈", "ApplyHome", "아파트청약", "분양일정", "한국부동산원", "청약가점"],
 				"target": "_blank"
 			},
 			{
 				"title": "LH 청약센터",
 				"url": "https://apply.lh.or.kr",
-				"description": "한국토지주택공사(LH)의 임대주택 및 토지, 상가 청약 신청 센터",
-				"thumbnail": "",
-				"tags": ["LH청약", "임대"],
+				"description": "한국토지주택공사(LH)에서 공급하는 공공분양, 국민임대, 신혼희망타운, 토지 및 상가 공급 공고 확인과 온라인 청약 신청을 수행하는 공식 센터입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=apply.lh.or.kr&sz=128",
+				"tags": ["LH청약플러스", "LH청약센터", "공공분양", "임대주택청약", "신혼희망타운", "LH공급"],
 				"target": "_blank"
 			}
 		]
@@ -588,97 +588,97 @@
 			{
 				"title": "Google Search Console",
 				"url": "https://search.google.com/search-console",
-				"description": "구글 검색 결과에서의 웹사이트 실적 모니터링 및 색인 관리",
-				"thumbnail": "",
-				"tags": ["SEO", "Google"],
+				"description": "웹마스터가 구글 검색 엔진에서의 사이트 노출 순위, 색인 생성 현황, 크롤링 오류 및 검색 트래픽을 모니터링하고 최적화할 수 있는 필수 웹마스터 도구입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=search.google.com&sz=128",
+				"tags": ["GoogleSearchConsole", "SEO", "구글색인", "웹마스터도구", "검색최적화", "검색트래픽"],
 				"target": "_blank"
 			},
 			{
 				"title": "네이버 서치어드바이저",
 				"url": "https://searchadvisor.naver.com",
-				"description": "네이버 검색 노출을 위한 웹사이트 진단 및 웹마스터 도구",
-				"thumbnail": "",
-				"tags": ["SEO", "Naver"],
+				"description": "네이버 검색 로봇의 사이트 수집 및 색인 현황, 사이트맵 등록, 웹페이지 검색 노출 최적화 진단 리포트를 제공하는 네이버 공식 웹마스터 도구입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=searchadvisor.naver.com&sz=128",
+				"tags": ["서치어드바이저", "네이버SEO", "웹마스터도구", "사이트맵등록", "네이버검색", "색인관리"],
 				"target": "_blank"
 			},
 			{
 				"title": "Bing 웹 마스터 도구",
 				"url": "http://www.bing.com/toolbox/webmaster",
-				"description": "마이크로소프트 Bing 검색 엔진 최적화 및 사이트 관리 도구",
-				"thumbnail": "",
-				"tags": ["SEO", "Bing"],
+				"description": "마이크로소프트 Bing 검색 엔진에 웹사이트를 등록하고 백링크 분석, 키워드 리서치, 사이트맵 제출 및 SEO 오류 검사를 수행하는 웹 관리자 툴입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.bing.com&sz=128",
+				"tags": ["Bing웹마스터", "마이크로소프트", "BingSEO", "검색엔진최적화", "백링크분석", "웹마스터도구"],
 				"target": "_blank"
 			},
 			{
 				"title": "Google Analytics",
 				"url": "https://analytics.google.com",
-				"description": "웹사이트 및 앱 방문자의 트래픽과 행동 패턴 분석 툴",
-				"thumbnail": "",
-				"tags": ["통계", "Analytics"],
+				"description": "웹사이트와 모바일 앱 방문자의 유입 경로, 페이지 뷰, 전환율, 사용자 행동 통계를 정밀하게 추적하고 분석하는 구글의 웹 분석 플랫폼(GA4)입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=analytics.google.com&sz=128",
+				"tags": ["GoogleAnalytics", "GA4", "웹로그분석", "데이터분석", "방문자통계", "전환추적"],
 				"target": "_blank"
 			},
 			{
 				"title": "Google Adsense",
 				"url": "https://www.google.co.kr/adsense",
-				"description": "웹사이트에 배너 광고를 게재하여 수익을 창출하는 플랫폼",
-				"thumbnail": "",
-				"tags": ["광고수익", "Adsense"],
+				"description": "웹사이트나 블로그 운영자가 구글 맞춤 타깃 광고를 게재하여 트래픽을 기반으로 광고 수익을 창출할 수 있는 글로벌 온라인 광고 네트워크 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.google.co.kr&sz=128",
+				"tags": ["GoogleAdSense", "애드센스", "수익창출", "블로그광고", "디스플레이광고", "구글광고"],
 				"target": "_blank"
 			},
 			{
 				"title": "Google Fonts",
 				"url": "https://fonts.google.com",
-				"description": "웹 프로젝트에 바로 적용할 수 있는 수백 개의 무료 오픈소스 폰트",
-				"thumbnail": "",
-				"tags": ["웹폰트", "디자인"],
+				"description": "웹 및 디지털 프로젝트에 상업적 무료로 적용할 수 있는 수천 종의 다국어 오픈소스 폰트를 미리보기하고 웹폰트 코드로 임베드할 수 있는 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=fonts.google.com&sz=128",
+				"tags": ["GoogleFonts", "웹폰트", "무료폰트", "오픈소스폰트", "타이포그래피", "디자인"],
 				"target": "_blank"
 			},
 			{
 				"title": "XML Sitemap Generator",
 				"url": "http://www.check-domains.com/sitemap/index.php",
-				"description": "SEO에 필요한 사이트맵(sitemap.xml)을 무료로 자동 생성해주는 도구",
-				"thumbnail": "",
-				"tags": ["Sitemap", "SEO도구"],
+				"description": "웹사이트 URL을 크롤링하여 검색 엔진 최적화(SEO) 제출에 필요한 표준 sitemap.xml 파일을 손쉽게 생성해주는 온라인 무료 사이트맵 제작 도구입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.check-domains.com&sz=128",
+				"tags": ["사이트맵생성기", "XMLSitemap", "SEO도구", "검색엔진최적화", "웹마스터툴"],
 				"target": "_blank"
 			},
 			{
 				"title": "가비아",
 				"url": "https://www.gabia.com",
-				"description": "도메인 등록, 웹호스팅, 클라우드 서비스를 제공하는 국내 기업",
-				"thumbnail": "",
-				"tags": ["도메인", "호스팅"],
+				"description": "국내 대표 도메인 공인 등록 기관이자 g-클라우드, 웹호스팅, 그룹웨어(하이웍스) 등 기업 IT 인프라 솔루션을 원스톱으로 제공하는 IT 기업입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.gabia.com&sz=128",
+				"tags": ["가비아", "도메인등록", "웹호스팅", "하이웍스", "클라우드", "IT인프라"],
 				"target": "_blank"
 			},
 			{
 				"title": "IwinV CLOUD",
 				"url": "https://www.iwinv.kr",
-				"description": "스마일서브에서 제공하는 가성비 높은 국내 클라우드 호스팅 서비스",
-				"thumbnail": "",
-				"tags": ["클라우드", "호스팅"],
+				"description": "스마일서브가 운영하는 대한민국 가성비 클라우드 컴퓨팅 플랫폼으로, 고성능 클라우드 가상 서버(V-Server), 스토리지, 보안 서비스를 합리적인 비용에 제공합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.iwinv.kr&sz=128",
+				"tags": ["IwinV", "스마일서브", "클라우드서버", "가상서버", "가성비호스팅", "인프라"],
 				"target": "_blank"
 			},
 			{
 				"title": "MacinCloud",
 				"url": "https://www.macincloud.com",
-				"description": "iOS 및 macOS 개발을 위한 원격 클라우드 Mac 임대 서비스",
-				"thumbnail": "",
-				"tags": ["클라우드Mac", "개발"],
+				"description": "윈도우나 리눅스 PC 환경에서도 Xcode를 이용한 iOS 및 macOS 앱 개발과 빌드가 가능하도록 원격 클라우드 전용 Mac 서버를 시간제 또는 월정액으로 대여하는 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.macincloud.com&sz=128",
+				"tags": ["MacinCloud", "클라우드Mac", "원격Mac", "iOS개발", "Xcode", "맥빌드"],
 				"target": "_blank"
 			},
 			{
 				"title": "MacStadium",
 				"url": "https://www.macstadium.com",
-				"description": "기업용 Mac 클라우드 인프라 및 전용 호스팅 서비스",
-				"thumbnail": "",
-				"tags": ["클라우드Mac", "인프라"],
+				"description": "대규모 iOS 앱 개발 파이프라인 및 CI/CD 자동화를 위해 Mac mini, Mac Studio 기반의 전용 베어메탈 및 프라이빗 클라우드 인프라를 제공하는 엔터프라이즈 솔루션입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.macstadium.com&sz=128",
+				"tags": ["MacStadium", "엔터프라이즈Mac", "CICD", "iOS자동화", "베어메탈맥", "클라우드인프라"],
 				"target": "_blank"
 			},
 			{
 				"title": "WIX",
 				"url": "http://ko.wix.com",
-				"description": "코딩 없이 드래그 앤 드롭으로 웹사이트를 제작할 수 있는 빌더",
-				"thumbnail": "",
-				"tags": ["웹빌더", "노코드"],
+				"description": "코딩 지식이 없어도 풍부한 템플릿과 직관적인 드래그 앤 드롭 편집기로 반응형 웹사이트, 쇼핑몰, 포트폴리오를 빠르게 구축할 수 있는 글로벌 웹 빌더 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=ko.wix.com&sz=128",
+				"tags": ["WIX", "윅스", "웹빌더", "홈페이지제작", "노코드", "반응형웹"],
 				"target": "_blank"
 			}
 		]
@@ -690,73 +690,73 @@
 			{
 				"title": "ASF Projects",
 				"url": "https://projects.apache.org",
-				"description": "아파치 소프트웨어 재단의 오픈소스 프로젝트 디렉토리",
-				"thumbnail": "",
-				"tags": ["Apache", "오픈소스"],
+				"description": "아파치 소프트웨어 재단(Apache Software Foundation) 산하 수백 개 오픈소스 프로젝트(하둡, 카프카, 스파크, 톰캣 등)의 목록과 릴리스 정보를 제공하는 공식 디렉토리입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/db/Apache_Software_Foundation_Logo_%282016%29.svg/1024px-Apache_Software_Foundation_Logo_%282016%29.svg.png",
+				"tags": ["Apache", "ASF", "오픈소스", "아파치프로젝트", "소프트웨어재단", "빅데이터"],
 				"target": "_blank"
 			},
 			{
 				"title": "Spring",
 				"url": "http://spring.io",
-				"description": "엔터프라이즈 자바 애플리케이션 개발을 위한 강력한 프레임워크",
-				"thumbnail": "",
-				"tags": ["Java", "백엔드"],
+				"description": "의존성 주입(DI), AOP, Spring Boot, Spring Cloud 등을 기반으로 안정적이고 확장 가능한 현대적인 엔터프라이즈 자바 백엔드 애플리케이션 개발 프레임워크입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Spring_Boot.svg/1024px-Spring_Boot.svg.png",
+				"tags": ["Spring", "SpringBoot", "Java", "백엔드", "엔터프라이즈", "프레임워크"],
 				"target": "_blank"
 			},
 			{
 				"title": "표준프레임워크 포털",
 				"url": "http://www.egovframe.go.kr",
-				"description": "대한민국 공공부문 정보화 사업을 위한 전자정부 표준프레임워크",
-				"thumbnail": "",
-				"tags": ["전자정부", "Java"],
+				"description": "대한민국 공공부문 정보화 사업의 상호운용성과 품질 표준화를 위해 행정안전부와 한국지능정보사회진흥원(NIA)이 오픈소스로 개발·보급하는 전자정부 표준프레임워크(eGovFrame) 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.egovframe.go.kr&sz=128",
+				"tags": ["전자정부표준프레임워크", "eGovFrame", "공공SI", "Java", "스프링기반", "NIA"],
 				"target": "_blank"
 			},
 			{
 				"title": "Thymeleaf",
 				"url": "https://www.thymeleaf.org",
-				"description": "웹 및 독립 실행형 환경을 위한 모던 서버 사이드 자바 템플릿 엔진",
-				"thumbnail": "",
-				"tags": ["템플릿엔진", "Java"],
+				"description": "자바 웹 환경에서 Spring Boot와 긴밀하게 연동되며, 브라우저에서 직접 정적 프로토타입으로도 렌더링 가능한 모던 서버 사이드 XML/XHTML/HTML5 템플릿 엔진입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.thymeleaf.org&sz=128",
+				"tags": ["Thymeleaf", "타임리프", "자바템플릿", "SpringBoot", "HTML5", "서버사이드렌더링"],
 				"target": "_blank"
 			},
 			{
 				"title": "Vue.js",
 				"url": "https://ko.vuejs.org",
-				"description": "사용자 인터페이스 구축을 위한 프로그레시브 자바스크립트 프레임워크",
-				"thumbnail": "",
-				"tags": ["JS", "프론트엔드"],
+				"description": "사용자 인터페이스 구축을 위해 반응형 데이터 바인딩과 컴포넌트 기반 구조를 채택한 점진적이고 배우기 쉬운 오픈소스 자바스크립트 프론트엔드 프레임워크입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/9/95/Vue.js_Logo_2.svg/1024px-Vue.js_Logo_2.svg.png",
+				"tags": ["Vuejs", "Vue", "프론트엔드", "자바스크립트", "UI프레임워크", "SPA"],
 				"target": "_blank"
 			},
 			{
 				"title": "React",
 				"url": "https://ko.reactjs.org",
-				"description": "컴포넌트 기반의 사용자 인터페이스를 만들기 위한 자바스크립트 라이브러리",
-				"thumbnail": "",
-				"tags": ["JS", "프론트엔드"],
+				"description": "메타(구 페이스북)가 개발한 선언적이고 유연한 컴포넌트 기반 자바스크립트 라이브러리로, Virtual DOM을 활용해 고성능 대화형 웹 인터페이스를 구축합니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/1024px-React-icon.svg.png",
+				"tags": ["React", "리액트", "프론트엔드", "JavaScript", "컴포넌트", "웹라이브러리"],
 				"target": "_blank"
 			},
 			{
 				"title": "jQuery",
 				"url": "https://jquery.com",
-				"description": "HTML DOM 조작과 이벤트 처리를 단순화하는 빠르고 간결한 JS 라이브러리",
-				"thumbnail": "",
-				"tags": ["JS", "라이브러리"],
+				"description": "HTML 문서 탐색, DOM 조작, 이벤트 핸들링, 애니메이션 및 Ajax 요청을 간결한 API로 단일화하여 크로스 브라우징을 지원하는 클래식 자바스크립트 라이브러리입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d3/Logo_jQuery.svg/1024px-Logo_jQuery.svg.png",
+				"tags": ["jQuery", "제이쿼리", "자바스크립트", "DOM조작", "Ajax", "웹라이브러리"],
 				"target": "_blank"
 			},
 			{
 				"title": "Bootstrap",
 				"url": "https://getbootstrap.com",
-				"description": "반응형 웹 디자인을 쉽고 빠르게 개발할 수 있는 HTML, CSS, JS 프레임워크",
-				"thumbnail": "",
-				"tags": ["CSS", "UI"],
+				"description": "사전 제작된 풍부한 CSS 클래스, 그리드 시스템, 반응형 컴포넌트와 자바스크립트 플러그인을 제공하는 세계에서 가장 널리 쓰이는 오픈소스 프론트엔드 툴킷입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/Bootstrap_logo.svg/1024px-Bootstrap_logo.svg.png",
+				"tags": ["Bootstrap", "부트스트랩", "CSS프레임워크", "반응형웹", "UI컴포넌트", "웹디자인"],
 				"target": "_blank"
 			},
 			{
 				"title": "Knockout",
 				"url": "https://knockoutjs.com",
-				"description": "MVVM 패턴을 활용하여 동적인 자바스크립트 UI를 간단히 구현하는 라이브러리",
-				"thumbnail": "",
-				"tags": ["JS", "MVVM"],
+				"description": "양방향 데이터 바인딩과 MVVM(Model-View-ViewModel) 디자인 패턴을 활용하여 동적이고 복잡한 사용자 인터페이스를 손쉽게 구현하도록 돕는 독립형 자바스크립트 라이브러리입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=knockoutjs.com&sz=128",
+				"tags": ["Knockoutjs", "MVVM", "데이터바인딩", "자바스크립트", "UI라이브러리"],
 				"target": "_blank"
 			}
 		]
@@ -768,105 +768,105 @@
 			{
 				"title": "Apache ECharts",
 				"url": "https://echarts.apache.org",
-				"description": "직관적이고 사용자 정의가 가능한 강력한 오픈소스 데이터 시각화 라이브러리",
-				"thumbnail": "",
-				"tags": ["차트", "시각화"],
+				"description": "풍부한 차트 유형(2D/3D), 우수한 렌더링 성능, 모바일 최적화 및 유려한 상호작용 인터페이스를 제공하는 아파치 재단의 강력한 오픈소스 데이터 시각화 차트 라이브러리입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=echarts.apache.org&sz=128",
+				"tags": ["ApacheECharts", "데이터시각화", "차트라이브러리", "자바스크립트", "오픈소스차트", "대시보드"],
 				"target": "_blank"
 			},
 			{
 				"title": "D3.js",
 				"url": "https://d3js.org",
-				"description": "데이터를 기반으로 웹 문서를 조작하는 강력한 데이터 시각화 자바스크립트 라이브러리",
-				"thumbnail": "",
-				"tags": ["D3", "시각화"],
+				"description": "데이터 기반으로 웹 문서의 SVG, Canvas, HTML 요소를 동적으로 제어하여 완전히 커스터마이징된 인터랙티브 시각화 그래픽을 구현하는 독보적인 자바스크립트 라이브러리입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d7/D3.js_logo.svg/1024px-D3.js_logo.svg.png",
+				"tags": ["D3js", "데이터시각화", "SVG그래픽", "인터랙티브차트", "자바스크립트"],
 				"target": "_blank"
 			},
 			{
 				"title": "dc.js",
 				"url": "https://dc-js.github.io/dc.js",
-				"description": "D3.js 및 Crossfilter를 활용한 다차원 차트 생성 라이브러리",
-				"thumbnail": "",
-				"tags": ["차트", "D3"],
+				"description": "D3.js와 Crossfilter를 결합하여 다차원 대규모 데이터셋 간에 차트 클릭과 브러싱으로 실시간 연동 필터링을 지원하는 대시보드 차트 라이브러리입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=dc-js.github.io&sz=128",
+				"tags": ["dcjs", "Crossfilter", "D3연동", "다차원데이터", "실시간필터링", "시각화"],
 				"target": "_blank"
 			},
 			{
 				"title": "MapD Charting",
 				"url": "https://github.com/omnisci/mapd-charting",
-				"description": "GPU 기반 데이터베이스 OmniSci를 위한 고성능 차팅 라이브러리",
-				"thumbnail": "",
-				"tags": ["차트", "GitHub"],
+				"description": "OmniSci(구 MapD)의 GPU 가속 SQL 엔진과 연동되어 수십억 건의 대규모 데이터셋을 지연 없이 실시간 차트와 지도로 시각화하도록 설계된 오픈소스 라이브러리입니다.",
+				"thumbnail": "https://opengraph.githubassets.com/1/omnisci/mapd-charting",
+				"tags": ["MapD", "OmniSci", "GPU가속", "대용량데이터시각화", "GitHub", "빅데이터"],
 				"target": "_blank"
 			},
 			{
 				"title": "OpenLayers",
 				"url": "https://openlayers.org",
-				"description": "웹 페이지에 동적 지도를 추가할 수 있는 고성능 오픈소스 자바스크립트 라이브러리",
-				"thumbnail": "",
-				"tags": ["지도", "GIS"],
+				"description": "다양한 타일 레이어, 벡터 데이터 포맷(GeoJSON, KML 등), 지도 투영법을 지원하여 웹 브라우저 상에 고기능 동적 지도를 구현하는 오픈소스 자바스크립트 GIS 라이브러리입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=openlayers.org&sz=128",
+				"tags": ["OpenLayers", "웹지도", "GIS라이브러리", "GeoJSON", "지도시각화", "오픈소스GIS"],
 				"target": "_blank"
 			},
 			{
 				"title": "Mapbox",
 				"url": "https://www.mapbox.com",
-				"description": "맞춤형 지도 생성, 위치 검색, 네비게이션을 제공하는 위치 데이터 플랫폼",
-				"thumbnail": "",
-				"tags": ["지도", "API"],
+				"description": "정교한 커스텀 지도 렌더링, 위치 기반 지오코딩, 실시간 내비게이션 경로 탐색 및 위성 이미지 API를 제공하는 글로벌 선도 위치 정보 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.mapbox.com&sz=128",
+				"tags": ["Mapbox", "맵박스", "위치기반API", "커스텀지도", "내비게이션", "GIS"],
 				"target": "_blank"
 			},
 			{
 				"title": "kepler.gl",
 				"url": "https://kepler.gl",
-				"description": "대규모 위치 데이터를 아름답게 시각화하는 강력한 오픈소스 웹 애플리케이션",
-				"thumbnail": "",
-				"tags": ["지도시각화", "GIS"],
+				"description": "우버(Uber)에서 공개한 대규모 공간 데이터 시각화 웹 도구로, 코드 없이도 브라우저에서 수백만 건의 위치 데이터를 3D 히트맵, 궤적 등으로 아름답게 표현합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=kepler.gl&sz=128",
+				"tags": ["keplergl", "공간데이터", "우버오픈소스", "3D지도시각화", "위치빅데이터", "GIS"],
 				"target": "_blank"
 			},
 			{
 				"title": "deck.gl",
 				"url": "https://deck.gl",
-				"description": "대규모 데이터셋 시각화를 위한 WebGL 기반의 프레임워크",
-				"thumbnail": "",
-				"tags": ["시각화", "WebGL"],
+				"description": "WebGL 기반으로 대규모 지리공간 및 일반 데이터셋을 GPU 가속을 통해 60fps로 매끄럽게 렌더링해주는 우버의 고성능 시각화 프레임워크입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=deck.gl&sz=128",
+				"tags": ["deckgl", "WebGL", "GPU시각화", "지리데이터", "대규모시각화", "우버"],
 				"target": "_blank"
 			},
 			{
 				"title": "flowmap.blue",
 				"url": "https://flowmap.blue",
-				"description": "지리적 위치 간의 이동량(흐름) 데이터를 브라우저에서 쉽게 시각화하는 툴",
-				"thumbnail": "",
-				"tags": ["흐름맵", "GIS"],
+				"description": "구글 스프레드시트나 CSV 파일의 출발지-도착지 이동량 데이터를 브라우저에서 매끄러운 화살표 이동 흐름선(Flow Map)으로 즉시 시각화해주는 인터랙티브 도구입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=flowmap.blue&sz=128",
+				"tags": ["flowmap", "흐름도", "이동데이터시각화", "OD데이터", "GIS", "데이터분석"],
 				"target": "_blank"
 			},
 			{
 				"title": "WrapBootstrap",
 				"url": "https://wrapbootstrap.com",
-				"description": "프리미엄 Bootstrap 템플릿과 테마를 판매하는 마켓플레이스",
-				"thumbnail": "",
-				"tags": ["템플릿", "마켓"],
+				"description": "Bootstrap 프레임워크 기반으로 전문 디자이너들이 제작한 완성도 높은 프리미엄 웹사이트 템플릿, 어드민 대시보드 테마를 구매할 수 있는 마켓플레이스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=wrapbootstrap.com&sz=128",
+				"tags": ["WrapBootstrap", "부트스트랩테마", "웹템플릿", "어드민테마", "마켓플레이스"],
 				"target": "_blank"
 			},
 			{
 				"title": "Unify - Responsive Website Template",
 				"url": "https://htmlstream.com/unify",
-				"description": "다양한 컴포넌트를 제공하는 다목적 반응형 웹사이트 템플릿",
-				"thumbnail": "",
-				"tags": ["템플릿", "UI"],
+				"description": "HTMLStream에서 제작한 다목적 프리미엄 반응형 웹 템플릿으로, 수백 개의 재사용 가능한 UI 컴포넌트, 페이지 레이아웃 및 디자인 시스템을 갖추고 있습니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=htmlstream.com&sz=128",
+				"tags": ["Unify", "Htmlstream", "반응형템플릿", "웹디자인", "UI컴포넌트", "HTML템플릿"],
 				"target": "_blank"
 			},
 			{
 				"title": "INSPINIA - Admin Dashboard Template",
 				"url": "https://webapplayers.com/inspinia",
-				"description": "백오피스 및 관리자 페이지를 위한 인기 있는 Bootstrap 어드민 테마",
-				"thumbnail": "",
-				"tags": ["어드민", "템플릿"],
+				"description": "엔터프라이즈 백오피스, ERP, CRM 및 관리자 시스템 구축에 널리 사용되는 베스트셀러 프리미엄 Bootstrap 어드민 대시보드 템플릿입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=webapplayers.com&sz=128",
+				"tags": ["INSPINIA", "인스피니아", "어드민템플릿", "대시보드", "백오피스UI", "Bootstrap테마"],
 				"target": "_blank"
 			},
 			{
 				"title": "XLWorks 엑셀웍스",
 				"url": "https://xlworks.net",
-				"description": "엑셀 실무 강좌, 함수 활용법, 매크로 등 엑셀 관련 정보 및 솔루션 공유",
-				"thumbnail": "",
-				"tags": ["엑셀", "실무팁"],
+				"description": "실무에서 바로 활용 가능한 엑셀 함수 심층 가이드, 피벗 테이블, VBA 매크로 자동화 팁 및 업무 효율 향상 강좌를 체계적으로 정리해 제공하는 사이트입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=xlworks.net&sz=128",
+				"tags": ["엑셀웍스", "XLWorks", "엑셀함수", "엑셀VBA", "실무엑셀", "업무자동화"],
 				"target": "_blank"
 			}
 		]
@@ -878,65 +878,65 @@
 			{
 				"title": "정보공개포털",
 				"url": "https://www.open.go.kr",
-				"description": "공공기관이 보유한 원문 정보 및 행정 정보를 국민에게 투명하게 공개하는 포털",
-				"thumbnail": "",
-				"tags": ["공공정보", "정부"],
+				"description": "대한민국 중앙행정기관, 지자체, 공공기관이 보유·관리하는 공공정보를 국민 누구나 온라인으로 열람 청구하고 즉시 열람할 수 있는 대국민 서비스 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.open.go.kr&sz=128",
+				"tags": ["정보공개포털", "행정안전부", "공공정보청구", "열린정부", "원문공개", "국민알권리"],
 				"target": "_blank"
 			},
 			{
 				"title": "공공데이터포털",
 				"url": "https://www.data.go.kr",
-				"description": "국가에서 개방하는 데이터를 누구나 쉽게 조회하고 활용할 수 있도록 제공하는 포털",
-				"thumbnail": "",
-				"tags": ["공공데이터", "API"],
+				"description": "국가기관, 지자체 및 공공기관이 생성·취득한 파일 데이터와 오픈 API를 국민과 기업이 자유롭게 조회하고 소프트웨어 개발에 활용할 수 있도록 개방하는 창구입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.data.go.kr&sz=128",
+				"tags": ["공공데이터포털", "공공데이터", "오픈API", "data.go.kr", "빅데이터", "공공API"],
 				"target": "_blank"
 			},
 			{
 				"title": "KOSIS 국가통계포털",
 				"url": "http://kosis.kr",
-				"description": "통계청이 제공하는 국내, 국제 및 북한 주요 통계 지표 종합 검색 서비스",
-				"thumbnail": "",
-				"tags": ["통계", "데이터"],
+				"description": "통계청이 총괄 구축하여 인구, 고용, 물가, 산업 등 국내 300여 개 기관의 국가 공인 통계 자료와 주요 국제 통계를 통합 서비스하는 원스톱 통계 포털입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=kosis.kr&sz=128",
+				"tags": ["KOSIS", "국가통계포털", "통계청", "국가통계", "인구통계", "경제지표"],
 				"target": "_blank"
 			},
 			{
 				"title": "AI 허브",
 				"url": "https://aihub.or.kr",
-				"description": "인공지능 개발에 필수적인 양질의 학습용 데이터셋을 개방하고 공유하는 플랫폼",
-				"thumbnail": "",
-				"tags": ["AI학습데이터", "데이터셋"],
+				"description": "과학기술정보통신부와 한국지능정보사회진흥원(NIA)이 주관하여 한국어, 영상, 헬스케어, 자율주행 등 인공지능 연구개발에 필요한 대규모 학습용 데이터셋을 전면 개방하는 플랫폼입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=aihub.or.kr&sz=128",
+				"tags": ["AI허브", "AIHub", "AI학습용데이터", "인공지능데이터셋", "NIA", "머신러닝데이터"],
 				"target": "_blank"
 			},
 			{
 				"title": "금융감독원 금융상품통합비교공시",
 				"url": "https://finlife.fss.or.kr",
-				"description": "예금, 적금, 대출 등 금융회사의 상품 정보를 한눈에 비교할 수 있는 사이트",
-				"thumbnail": "",
-				"tags": ["금융데이터", "상품비교"],
+				"description": "금융소비자가 은행, 저축은행, 보험사, 카드사 등의 정기예금, 적금, 주택담보대출, 전세자금대출 상품의 금리와 조건을 한눈에 비교할 수 있는 금융감독원 '금융상품 한눈에' 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=finlife.fss.or.kr&sz=128",
+				"tags": ["금융상품한눈에", "금융감독원", "예적금금리비교", "대출금리비교", "금융소비자", "금감원공시"],
 				"target": "_blank"
 			},
 			{
 				"title": "NAVER Developers",
 				"url": "https://developers.naver.com",
-				"description": "네이버 로그인, 검색, 지도 등 다양한 네이버 오픈 API 제공 및 개발자 가이드",
-				"thumbnail": "",
-				"tags": ["API", "Naver"],
+				"description": "네이버 로그인(OAuth), 검색, 번역(파파고), 지도, 클로바 음성인식 등 네이버의 다양한 서비스와 플랫폼 기능을 연동할 수 있는 오픈 API 및 개발자 문서를 제공합니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=developers.naver.com&sz=128",
+				"tags": ["네이버개발자", "NaverDevelopers", "네이버로그인", "오픈API", "파파고API", "검색API"],
 				"target": "_blank"
 			},
 			{
 				"title": "Kakao Developers",
 				"url": "https://developers.kakao.com",
-				"description": "카카오 로그인, 메시지, 지도 등 카카오 서비스 연동을 위한 오픈 API 플랫폼",
-				"thumbnail": "",
-				"tags": ["API", "Kakao"],
+				"description": "카카오 로그인, 카카오톡 메시지 전송, 카카오페이 결제, 카카오내비 및 지도 API 등 카카오 생태계 연동을 지원하는 오픈 플랫폼 및 SDK 센터입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=developers.kakao.com&sz=128",
+				"tags": ["카카오디벨로퍼스", "KakaoDevelopers", "카카오로그인", "카카오톡API", "카카오페이", "지도API"],
 				"target": "_blank"
 			},
 			{
 				"title": "행정표준코드관리시스템",
 				"url": "https://www.code.go.kr",
-				"description": "전자정부 및 행정기관 간 정보 유통을 위한 표준 코드 조회 및 관리 시스템",
-				"thumbnail": "",
-				"tags": ["행정코드", "표준화"],
+				"description": "전자정부 시스템 간 데이터 연계와 정보 표준화를 위해 행정구역코드, 기관코드, 법정동코드 등 국가 표준 코드를 통합 발급하고 관리하는 시스템입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.code.go.kr&sz=128",
+				"tags": ["행정표준코드", "code.go.kr", "법정동코드", "기관코드", "전자정부표준", "공공데이터코드"],
 				"target": "_blank"
 			}
 		]
@@ -948,33 +948,33 @@
 			{
 				"title": "Google 관리 콘솔 도구 상자",
 				"url": "https://toolbox.googleapps.com/apps/main",
-				"description": "도메인, 네트워크, 브라우저 문제를 진단할 수 있는 관리자용 웹 도구 모음",
-				"thumbnail": "",
-				"tags": ["네트워크", "진단"],
+				"description": "DNS 레코드 확인(Dig), MX 레코드 검사, 하베스트(HAR) 파일 분석, 브라우저 성능 등 도메인 설정과 네트워크 문제를 진단하는 Google 공식 웹 관리 도구 모음입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=toolbox.googleapps.com&sz=128",
+				"tags": ["Google도구상자", "Dig도구", "DNS점검", "네트워크진단", "MX검사", "구글관리콘솔"],
 				"target": "_blank"
 			},
 			{
 				"title": "PDF24 Tools",
 				"url": "https://tools.pdf24.org/ko",
-				"description": "PDF 병합, 분할, 변환, 압축 등 PDF 관련 모든 작업을 웹에서 무료로 제공",
-				"thumbnail": "",
-				"tags": ["PDF", "무료툴"],
+				"description": "PDF 병합, 페이지 분할, 용량 압축, PDF-워드/엑셀 변환, 암호 해제, 전자 서명 등 모든 PDF 관련 편집 작업을 브라우저에서 무제한 무료로 제공하는 웹 서비스입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=tools.pdf24.org&sz=128",
+				"tags": ["PDF24", "PDF변환", "PDF병합", "PDF압축", "무료PDF툴", "문서편집"],
 				"target": "_blank"
 			},
 			{
 				"title": "iLoveIMG",
 				"url": "https://www.iloveimg.com/ko",
-				"description": "이미지 압축, 크기 조절, 자르기, 포맷 변환 등을 할 수 있는 온라인 이미지 편집기",
-				"thumbnail": "",
-				"tags": ["이미지편집", "온라인툴"],
+				"description": "여러 장의 이미지를 한 번에 압축, 크기 조정, 자르기, 배경 제거, 포맷 변환(JPG/PNG/GIF/SVG) 및 워터마크 추가할 수 있는 강력한 온라인 이미지 편집 도구입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.iloveimg.com&sz=128",
+				"tags": ["iLoveIMG", "이미지압축", "이미지리사이즈", "사진편집", "포맷변환", "온라인그래픽도구"],
 				"target": "_blank"
 			},
 			{
 				"title": "VIA",
 				"url": "https://www.caniusevia.com",
-				"description": "커스텀 기계식 키보드의 키맵을 실시간으로 프로그래밍하고 테스트할 수 있는 웹 툴",
-				"thumbnail": "",
-				"tags": ["키보드", "맵핑"],
+				"description": "커스텀 기계식 키보드를 연결하여 펌웨어 재플래싱 없이 웹 브라우저에서 실시간으로 키 매핑, 레이어 설정, 매크로 및 RGB 백라이트를 커스터마이징하는 웹 GUI 툴입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.caniusevia.com&sz=128",
+				"tags": ["VIA", "키보드키맵", "기계식키보드", "키매핑", "QMK", "매크로설정"],
 				"target": "_blank"
 			}
 		]
@@ -986,65 +986,65 @@
 			{
 				"title": "랜스타",
 				"url": "http://www.lanmart.co.kr",
-				"description": "다양한 컴퓨터 케이블, 젠더, 네트워크 장비를 판매하는 전문 쇼핑몰",
-				"thumbnail": "",
-				"tags": ["컴퓨터부품", "케이블"],
+				"description": "UTP/광케이블, HDMI/USB 케이블, 네트워크 툴, 젠더 및 랙 캐비닛 등 다양한 전산 및 네트워크 배선 자재를 전문 제조·유통하는 쇼핑몰입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.lanmart.co.kr&sz=128",
+				"tags": ["랜스타", "LAN마트", "네트워크케이블", "랜선", "젠더", "전산자재", "IT소모품"],
 				"target": "_blank"
 			},
 			{
 				"title": "강원전자",
 				"url": "http://www.kwshop.co.kr",
-				"description": "네트워크 장비, KVM 스위치, 각종 컨버터 등 전산 소모품 전문 몰",
-				"thumbnail": "",
-				"tags": ["전산소모품", "강원전자"],
+				"description": "넷메이트(NETmate) 브랜드를 보유한 전산 주변기기 전문 기업으로, KVM 스위치, 영상 컨버터, USB 허브, 산업용 통신 장비 공식 쇼핑몰입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.kwshop.co.kr&sz=128",
+				"tags": ["강원전자", "KWshop", "NETmate", "KVM스위치", "컨버터", "주변기기", "전산소모품"],
 				"target": "_blank"
 			},
 			{
 				"title": "(주)이온크루",
 				"url": "http://deckkeyboards.co.kr",
-				"description": "덱(Deck) 기계식 키보드 공식 수입원 및 판매처",
-				"thumbnail": "",
-				"tags": ["키보드", "기계식"],
+				"description": "내구성과 타건감으로 유명한 전통의 덱(Deck) 기계식 키보드 헤슘(Hassium), 프랑슘(Francium) 시리즈의 국내 공식 수입·판매 및 A/S 센터입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=deckkeyboards.co.kr&sz=128",
+				"tags": ["이온크루", "덱키보드", "Deck", "기계식키보드", "헤슘", "프랑슘", "키보드AS"],
 				"target": "_blank"
 			},
 			{
 				"title": "파크랜드",
 				"url": "http://eshop.parkland.co.kr",
-				"description": "합리적인 가격의 남성복 및 정장 전문 브랜드 파크랜드 공식 온라인몰",
-				"thumbnail": "",
-				"tags": ["의류", "남성복"],
+				"description": "첨단 자동화 공정을 바탕으로 고품질의 남성 정장, 비즈니스 캐주얼 및 신사복 의류를 합리적인 가격에 선보이는 파크랜드 공식 온라인 쇼핑몰입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=eshop.parkland.co.kr&sz=128",
+				"tags": ["파크랜드", "남성정장", "비즈니스캐주얼", "남성의류", "신사복", "공식온라인몰"],
 				"target": "_blank"
 			},
 			{
 				"title": "네파 통합 쇼핑몰",
 				"url": "http://www.nepamall.com",
-				"description": "아웃도어 브랜드 네파(NEPA)의 공식 온라인 스토어",
-				"thumbnail": "",
-				"tags": ["아웃도어", "의류"],
+				"description": "고기능성 등산 의류, 트레킹화, 다운 자켓 및 아웃도어 라이프스타일 웨어를 선보이는 프리미엄 아웃도어 브랜드 네파(NEPA) 공식 온라인 스토어입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.nepamall.com&sz=128",
+				"tags": ["네파", "NEPA", "네파몰", "아웃도어의류", "등산복", "패딩", "트레킹화"],
 				"target": "_blank"
 			},
 			{
 				"title": "칼이쓰마",
 				"url": "http://www.kalesma.com",
-				"description": "주방용 식도, 회칼, 숫돌 등 다양한 주방용 칼 전문 쇼핑몰",
-				"thumbnail": "",
-				"tags": ["주방용품", "칼"],
+				"description": "셰프용 전문 주방 식도, 일식 회칼, 중식도, 숫돌 및 칼갈이 도구 등 국내외 명품 조리용 칼을 전문적으로 취급하는 대한민국 대표 조리용 칼 전문몰입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.kalesma.com&sz=128",
+				"tags": ["칼이쓰마", "주방칼", "셰프나이프", "사시미칼", "조리도구", "숫돌", "주방용품"],
 				"target": "_blank"
 			},
 			{
 				"title": "가나주류백화점 광진점",
 				"url": "http://www.kajawine.kr",
-				"description": "와인, 위스키, 코냑 등 다양한 수입 주류 전문 할인점",
-				"thumbnail": "",
-				"tags": ["주류", "와인"],
+				"description": "국내외 고급 와인, 싱글몰트 위스키, 꼬냑, 사케 및 선물용 주류 세트를 할인된 가격과 폭넓은 라인업으로 제공하는 종합 주류 유통 쇼핑몰입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=www.kajawine.kr&sz=128",
+				"tags": ["가나주류", "와인쇼핑몰", "위스키", "수입주류", "주류백화점", "선물세트"],
 				"target": "_blank"
 			},
 			{
 				"title": "디자인아지트",
 				"url": "https://designagit.com",
-				"description": "명함, 스티커, 리플렛 등 인쇄물 제작 및 커스텀 디자인 굿즈 쇼핑몰",
-				"thumbnail": "",
-				"tags": ["인쇄물", "디자인"],
+				"description": "고급 명함, 스티커, 카탈로그, 배너, 판촉물 등 기업 및 소상공인을 위한 맞춤형 디자인 인쇄물 기획 및 제작 전문 인쇄 쇼핑몰입니다.",
+				"thumbnail": "https://www.google.com/s2/favicons?domain=designagit.com&sz=128",
+				"tags": ["디자인아지트", "명함제작", "인쇄물", "스티커제작", "카탈로그", "판촉물", "디자인인쇄"],
 				"target": "_blank"
 			}
 		]
@@ -1056,41 +1056,41 @@
 			{
 				"title": "YouTube",
 				"url": "https://www.youtube.com",
-				"description": "전 세계 최대의 동영상 공유 및 스트리밍 플랫폼",
-				"thumbnail": "",
-				"tags": ["동영상", "스트리밍"],
+				"description": "전 세계 수십억 명의 사용자와 크리에이터가 다양한 영상을 시청, 공유하고 실시간 라이브 방송을 진행하는 구글의 글로벌 최대 동영상 플랫폼입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/YouTube_full-color_icon_%282017%29.svg/1024px-YouTube_full-color_icon_%282017%29.svg.png",
+				"tags": ["YouTube", "유튜브", "동영상플랫폼", "스트리밍", "크리에이터", "구글"],
 				"target": "_blank"
 			},
 			{
 				"title": "넷플릭스",
 				"url": "https://www.netflix.com/kr/",
-				"description": "영화, 드라마, 다큐멘터리 등 다양한 콘텐츠를 제공하는 글로벌 OTT 서비스",
-				"thumbnail": "",
-				"tags": ["OTT", "영화"],
+				"description": "방대한 영화, 오리지널 시리즈 드라마, 다큐멘터리, 애니메이션 콘텐츠를 다양한 디바이스에서 광고 없이 무제한 감상할 수 있는 글로벌 1위 OTT 서비스입니다.",
+				"thumbnail": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/08/Netflix_2015_logo.svg/1024px-Netflix_2015_logo.svg.png",
+				"tags": ["넷플릭스", "Netflix", "OTT서비스", "스트리밍", "영화", "오리지널시리즈"],
 				"target": "_blank"
 			},
 			{
 				"title": "쿠팡플레이",
 				"url": "https://www.coupangplay.com/home",
-				"description": "쿠팡 와우 멤버십 혜택으로 제공되는 영화, 드라마, 스포츠 중계 OTT",
-				"thumbnail": "",
-				"tags": ["OTT", "쿠팡"],
+				"description": "쿠팡 와우 멤버십 회원에게 제공되는 OTT 서비스로, 최신 영화와 국내외 드라마, 오리지널 예능 및 K리그, 프리미어리그 등 독점 스포츠 생중계를 제공합니다.",
+				"thumbnail": "https://images.seeklogo.com/logo-png/41/1/coupang-play-logo-png_seeklogo-412250.png",
+				"tags": ["쿠팡플레이", "CoupangPlay", "와우멤버십", "OTT", "스포츠생중계", "오리지널"],
 				"target": "_blank"
 			},
 			{
 				"title": "Linkkf 애니 TV",
 				"url": "https://mobikf.ncctvgroup.com",
-				"description": "애니메이션 관련 영상 콘텐츠 플랫폼",
-				"thumbnail": "",
-				"tags": ["애니메이션"],
+				"description": "분기별 최신 방영작부터 인기 완결작, 극장판까지 다양한 일본 애니메이션 에피소드 및 편성 정보를 제공하는 스트리밍 링크 플랫폼입니다.",
+				"thumbnail": "https://image.winudf.com/v2/image1/bGlua2tmLmFwcHRpaV9pY29uXzE1ODgwNDQ0OTJfMDMz/icon.png",
+				"tags": ["Linkkf", "애니메이션", "일본애니", "애니스트리밍", "서브컬처", "동영상"],
 				"target": "_blank"
 			},
 			{
 				"title": "링크천국",
 				"url": "https://www.hotword.site",
-				"description": "다양한 영상 및 유용한 사이트 링크 모음 서비스",
-				"thumbnail": "",
-				"tags": ["링크모음"],
+				"description": "실시간 인기 검색어, 방송 다시보기, 영화, 커뮤니티, 생활 정보 등 웹상의 유용한 사이트 링크를 카테고리별로 모아둔 포털 링크 모음 서비스입니다.",
+				"thumbnail": "https://www.hotword.site/img/logo15.png",
+				"tags": ["링크천국", "링크모음", "유용한사이트", "포털", "웹사이트링크", "인터넷바로가기"],
 				"target": "_blank"
 			}
 		]
@@ -1102,81 +1102,81 @@
 			{
 				"title": "두기의 고전게임",
 				"url": "https://nemo838.tistory.com",
-				"description": "추억의 도스(DOS) 및 고전 게임 자료와 구동기를 공유하는 블로그",
-				"thumbnail": "",
-				"tags": ["고전게임", "DOS"],
+				"description": "도스박스(DOSBox) 기반의 추억의 고전 PC 게임들을 자동 설치 및 실행 지원하는 자체 런처(두기런처)와 함께 체계적으로 보존·배포하는 대표 블로그입니다.",
+				"thumbnail": "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F2324376%2Fattach%2F9b964ee915054bd293dae1ae4fe3ea20",
+				"tags": ["두기의고전게임", "DOS게임", "고전게임", "두기런처", "PC게임", "레트로게임"],
 				"target": "_blank"
 			},
 			{
 				"title": "두기의 무설치",
 				"url": "https://doogie838.tistory.com",
-				"description": "설치가 필요 없는 포터블 게임 파일 공유 블로그",
-				"thumbnail": "",
-				"tags": ["무설치", "게임"],
+				"description": "별도의 복잡한 설치 과정이나 외부 가상머신 없이 단일 압축 해제만으로 윈도우 환경에서 즉시 구동할 수 있도록 최적화된 포터블 PC 게임 패키지 공유 블로그입니다.",
+				"thumbnail": "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F2950461%2Fattach%2F2c14c39c33b44f84b3da3250683080ea",
+				"tags": ["두기의무설치", "포터블게임", "무설치게임", "두기", "PC게임", "레트로게임"],
 				"target": "_blank"
 			},
 			{
 				"title": "DsNo의 작은세상",
 				"url": "https://dsno.tistory.com",
-				"description": "각종 고전 및 최신 게임 리뷰, 한글 패치 등 정보 공유",
-				"thumbnail": "",
-				"tags": ["게임리뷰", "한글패치"],
+				"description": "아케이드(FB Neo, MAME) 및 콘솔 기기용 에뮬레이터 롬셋, 정밀 한글화 패치 파일 배포 및 패치 적용 가이드, 게임 리뷰 정보를 공유하는 전문 레트로 블로그입니다.",
+				"thumbnail": "https://img1.daumcdn.net/thumb/R800x0/?scode=mtistory2&fname=https%3A%2F%2Ftistory1.daumcdn.net%2Ftistory%2F22917%2Fattach%2Fe5a19945bedd4c359cf0c8c18e47d891",
+				"tags": ["DsNo의작은세상", "게임리뷰", "한글패치", "에뮬레이터", "FBNeo", "MAME", "레트로게임"],
 				"target": "_blank"
 			},
 			{
 				"title": "툴리의 고전게임",
 				"url": "https://www.tooli.co.kr",
-				"description": "오래된 고전 게임 다운로드 및 에뮬레이터 정보 제공 사이트",
-				"thumbnail": "",
-				"tags": ["고전게임", "에뮬"],
+				"description": "1990~2000년대 명작 도스/윈도우 PC 게임 및 아케이드 에뮬레이터 게임 다운로드, 실행 팁과 커뮤니티 게시판을 제공하는 전통의 고전 게임 사이트입니다.",
+				"thumbnail": "https://www.tooli.co.kr/files/attach/xeicon/default_image.png",
+				"tags": ["툴리의고전게임", "고전게임", "에뮬레이터", "도스게임", "오락실게임", "레트로게임"],
 				"target": "_blank"
 			},
 			{
 				"title": "배고픈마리오",
 				"url": "https://malio.tistory.com",
-				"description": "콘솔 게임 롬파일 및 에뮬레이터 세팅 관련 정보 공유 블로그",
-				"thumbnail": "",
-				"tags": ["콘솔게임", "롬파일"],
+				"description": "어트랙트모드(AttractMode) 프론트엔드 한방팩 세팅, 콘솔 롬파일 관리, 라즈베리파이 및 게임패드 자작 DIY 가이드 등 레트로 게임 하드웨어/소프트웨어를 심층적으로 다루는 블로그입니다.",
+				"thumbnail": "https://i1.daumcdn.net/thumb/C230x300.fwebp.q85/?fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdna%2FcAeyF6%2FbtsCP3emTmb%2FAAAAAAAAAAAAAAAAAAAAAMSoX46SOEbYpF2q_aENvS4QAMR6mi72B96GUPE1jHZy%2Fimg.png",
+				"tags": ["배고픈마리오", "콘솔게임", "롬파일", "어트랙트모드", "에뮬레이터", "라즈베리파이"],
 				"target": "_blank"
 			},
 			{
 				"title": "TAODUNG.COM",
 				"url": "https://taodung.com",
-				"description": "인디 게임 및 각종 게임 리소스 자료실",
-				"thumbnail": "",
-				"tags": ["인디게임"],
+				"description": "닌텐도 스위치 등 최신 콘솔 및 인디 게임 ROMs(NSP, XCI), 에뮬레이터 호환성 정보, 최신 업데이트/DLC 패치 자료를 제공하는 해외 게임 아카이브 사이트입니다.",
+				"thumbnail": "https://taodung.com/wp-content/uploads/2024/01/a66014db42b305a43d8e09d04d77eaf4.webp",
+				"tags": ["TAODUNG", "인디게임", "콘솔게임", "닌텐도스위치", "에뮬레이터", "ROMs"],
 				"target": "_blank"
 			},
 			{
 				"title": "Ziperto",
 				"url": "https://www.ziperto.com",
-				"description": "다양한 플랫폼의 콘솔 게임 롬파일(ROM) 다운로드 사이트 (해외)",
-				"thumbnail": "",
-				"tags": ["롬파일", "해외"],
+				"description": "Nintendo Switch(NSP/XCI), 3DS, PS Vita, Wii U 등 주요 휴대용 및 가정용 콘솔 게임 롬파일과 에뮬레이터 구동용 업데이트/DLC 파일을 제공하는 대형 해외 다운로드 사이트입니다.",
+				"thumbnail": "https://www.ziperto.com/wp-content/uploads/2017/11/Pokemon-Ultra-Sun-feature-ziperto.jpg",
+				"tags": ["Ziperto", "롬파일", "NintendoSwitch", "3DS", "에뮬레이터", "콘솔게임"],
 				"target": "_blank"
 			},
 			{
 				"title": "Romslab.com",
 				"url": "https://romslab.com",
-				"description": "닌텐도, 플레이스테이션 등 에뮬레이터용 롬파일 아카이브 (해외)",
-				"thumbnail": "",
-				"tags": ["롬파일", "에뮬"],
+				"description": "Nintendo Switch, Wii U, PS3, PS4 등 다양한 콘솔 기종의 롬파일, 키 파일(Prod Keys), 펌웨어 및 에뮬레이터 다운로드를 지원하는 해외 게임 아카이브 사이트입니다.",
+				"thumbnail": "https://romslab.com/wp-content/uploads/2021/02/FIFA-20-Legacy-Edition-Switch-NSPXCI-Update-DLCs-Free-Download-Romslab-3.jpg",
+				"tags": ["Romslab", "롬파일", "에뮬레이터", "콘솔게임", "스위치게임", "해외아카이브"],
 				"target": "_blank"
 			},
 			{
 				"title": "My Abandonware",
 				"url": "https://www.myabandonware.com",
-				"description": "저작권이 만료되거나 버려진 오래된 클래식 PC 게임 다운로드",
-				"thumbnail": "",
-				"tags": ["어밴던웨어", "클래식게임"],
+				"description": "1980년대부터 2000년대 초반까지 출시된 2만 편 이상의 도스, 윈도우, 아미가 등 클래식 어밴던웨어(절판) PC 게임을 보존하고 브라우저 플레이 및 다운로드를 제공하는 글로벌 웹사이트입니다.",
+				"thumbnail": "https://www.myabandonware.com/media/img/facebook/logo-v2.png",
+				"tags": ["MyAbandonware", "어밴던웨어", "클래식게임", "DOS게임", "레트로게임", "PC게임"],
 				"target": "_blank"
 			},
 			{
 				"title": "AdrenoTools drivers",
 				"url": "https://github.com/K11MCH1/AdrenoToolsDrivers",
-				"description": "안드로이드 에뮬레이터 최적화를 위한 커스텀 Adreno GPU 드라이버 모음",
-				"thumbnail": "",
-				"tags": ["GPU드라이버", "GitHub"],
+				"description": "안드로이드 기기에서 Yuzu, Skyline, Vita3K, Strato 등 에뮬레이터 구동 시 렌더링 성능과 그래픽 호환성을 극대화하기 위해 턴입(Turnip) 및 퀄컴 최신 GPU 드라이버를 패키징하여 제공하는 GitHub 오픈소스 저장소입니다.",
+				"thumbnail": "https://opengraph.githubassets.com/1/K11MCH1/AdrenoToolsDrivers",
+				"tags": ["AdrenoToolsDrivers", "GitHub", "GPU드라이버", "Turnip", "에뮬레이터", "Android"],
 				"target": "_blank"
 			}
 		]
