@@ -820,6 +820,13 @@
 				"description": "전자정부 시스템 간 데이터 연계와 정보 표준화를 위해 행정구역코드, 기관코드, 법정동코드 등 국가 표준 코드를 통합 발급하고 관리하는 시스템입니다.",
 				"tags": ["행정표준코드", "code.go.kr", "법정동코드", "기관코드", "전자정부표준", "공공데이터코드"],
 				"target": "_blank"
+			},
+			{
+				"title": "AX360°",
+				"url": "https://ax360.kr",
+				"description": "과학기술정보통신부와 한국인공지능·소프트웨어산업협회(KOSA)가 운영하는 AI 전환(AX) 원스톱 지원 포털로, 정부 AX 지원 사업 공고, GPU·AI모델·데이터 자원 검색 및 국내 AI 협력기업 매칭 정보를 제공합니다.",
+				"tags": ["AX360", "AI전환", "과기정통부", "KOSA", "인공지능포털", "정부지원사업", "AI기업탐색"],
+				"target": "_blank"
 			}
 		]
 	},
@@ -842,7 +849,7 @@
 				"target": "_blank"
 			},
 			{
-				"title": "CODEPEN",
+				"title": "CodePen",
 				"url": "https://codepen.io",
 				"description": "HTML, CSS, JavaScript 코드를 실시간으로 작성하여 결과를 즉시 확인하고, 전 세계 웹 디자이너 및 개발자들의 창의적인 UI 컴포넌트와 애니메이션 작업을 공유하는 소셜 코딩 플랫폼입니다.",
 				"tags": ["CodePen", "코드펜", "온라인에디터", "HTML_CSS_JS", "프론트엔드", "웹놀이터"],
@@ -990,6 +997,20 @@
 				"url": "https://malio.tistory.com",
 				"description": "어트랙트모드(AttractMode) 프론트엔드 한방팩 세팅, 콘솔 롬파일 관리, 라즈베리파이 및 게임패드 자작 DIY 가이드 등 레트로 게임 하드웨어/소프트웨어를 심층적으로 다루는 블로그입니다.",
 				"tags": ["배고픈마리오", "콘솔게임", "롬파일", "어트랙트모드", "에뮬레이터", "라즈베리파이"],
+				"target": "_blank"
+			},
+			{
+				"title": "NSWPEDIA.COM",
+				"url": "https://nswpedia.com",
+				"description": "닌텐도 스위치(Nintendo Switch) 콘솔 및 에뮬레이터용 롬 파일(NSP, XCI), 최신 게임 업데이트, DLC 패치 자료를 제공하는 닌텐도 스위치 전문 해외 아카이브 사이트입니다.",
+				"tags": ["NSWPEDIA", "닌텐도스위치", "Switch", "NSP", "XCI", "ROMs", "에뮬레이터"],
+				"target": "_blank"
+			},
+			{
+				"title": "ROMsNS",
+				"url": "https://romsns.com",
+				"description": "닌텐도 스위치(Nintendo Switch)의 eShop, NSP, XCI 포맷 롬 파일과 게임 소개, 최신 업데이트 및 DLC 다운로드 링크를 제공하는 스위치 롬 아카이브 사이트입니다.",
+				"tags": ["ROMsNS", "닌텐도스위치", "Switch", "NSP", "XCI", "ROMs", "스위치게임"],
 				"target": "_blank"
 			},
 			{
