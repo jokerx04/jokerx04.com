@@ -269,7 +269,7 @@
 			},
 			{
 				"title": "Z-Library",
-				"url": "https://z-library.sk",
+				"url": "https://z-library.bz",
 				"description": "수천만 권의 서적과 수억 편의 학술 논문, 전자책(eBook)을 검색하고 열람할 수 있는 전 세계 최대 규모의 디지털 도서 아카이브입니다.",
 				"tags": ["전자책", "학술논문", "ZLibrary", "eBook", "도서검색", "아카이브"],
 				"target": "_blank"
