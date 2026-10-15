@@ -2,7 +2,7 @@ name: sitemap.xml 생성
 
 on:
   workflow_run:
-    workflows: ["Deploy Inspinia to GitHub Pages"] # build.yml 최상단의 name과 정확히 일치해야 함
+    workflows: ["React 빌드 및 배포"] # build.yml 최상단의 name과 정확히 일치해야 함
     types:
       - completed
     branches:
