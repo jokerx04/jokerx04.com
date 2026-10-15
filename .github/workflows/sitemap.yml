@@ -1,4 +1,4 @@
-name: sitemap.xml 생성
+name: sitemap.xml 빌드 및 배포
 
 on:
   workflow_run:
