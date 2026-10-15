@@ -1,4 +1,4 @@
-name: React 빌드 및 배포
+name: jokerx04.com 빌드 및 배포
 
 on:
   workflow_dispatch: # 수동 실행
