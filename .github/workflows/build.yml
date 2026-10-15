@@ -39,15 +39,20 @@ jobs:
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
+          # 1. dist 폴더 강제 스테이징
           git add -f dist
 
+          # 2. 변경 사항 확인
           if git diff --staged --quiet; then
             echo "dist 폴더에 변경 사항이 없습니다."
           else
             git commit -m "chore: automated build update dist [skip ci]"
-            
-            # 원격 저장소의 최신 커밋을 가져와 내 커밋 뒤로 재정렬(rebase) 후 푸시
-            git pull --rebase origin main
+
+            # 3. 원격 최신 변경사항을 명시적으로 fetch 후 rebase
+            git fetch origin main
+            git rebase origin/main
+
+            # 4. 푸시 재시도
             git push origin main
           fi
 
