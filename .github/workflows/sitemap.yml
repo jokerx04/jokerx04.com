@@ -1,4 +1,4 @@
-name: Generate v1 XML Sitemap
+name: sitemap.xml 생성
 
 on:
   push:
