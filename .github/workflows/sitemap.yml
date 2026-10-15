@@ -1,9 +1,13 @@
 name: sitemap.xml 생성
 
 on:
-  push:
+  workflow_run:
+    workflows: ["Deploy Inspinia to GitHub Pages"] # build.yml 최상단의 name과 정확히 일치해야 함
+    types:
+      - completed
     branches:
       - main
+  workflow_dispatch:
 
 permissions:
   contents: write
