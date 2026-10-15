@@ -1,4 +1,4 @@
-name: json 빌드 및 배포
+name: JSON 빌드 및 배포
 
 on:
   push:
