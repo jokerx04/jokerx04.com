@@ -1,4 +1,4 @@
-name: Deploy jokerx04.com to GitHub Pages
+name: React 빌드 및 배포
 
 on:
   push:
