@@ -1,4 +1,4 @@
-name: Deploy Inspinia to GitHub Pages
+name: Deploy jokerx04.com to GitHub Pages
 
 on:
   push:
