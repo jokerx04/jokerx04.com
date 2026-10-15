@@ -1,0 +1,4 @@
+User-agent: *
+Disallow: /v0/
+Crawl-delay: 2
+Sitemap: https://jokerx04.com/sitemap.xml
