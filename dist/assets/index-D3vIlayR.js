@@ -1,0 +1,1 @@
+import{j as a}from"./index-CsHOF4Ls.js";import{P as t}from"./PageBreadcrumb-BwYXGXf7.js";import{L as e,a as o}from"./LayoutSwitcher-C-hSG3s1.js";const m=()=>a.jsxs(a.Fragment,{children:[a.jsx(t,{title:"Image Menu",subtitle:"Layouts"}),a.jsx(e,{attribute:"sidenavColor",value:"image"}),a.jsx(o,{option:"sidenavColor",value:"image"})]});export{m as default};

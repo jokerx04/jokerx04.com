@@ -1,1 +1,0 @@
-import{j as t}from"./index-DNg59LMy.js";import{P as a}from"./PageBreadcrumb-CFsYbS0t.js";import{L as e,a as o}from"./LayoutSwitcher-DwvjDacT.js";const m=()=>t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Compact Menu",subtitle:"Layouts"}),t.jsx(e,{attribute:"sidenavSize",value:"md"}),t.jsx(o,{option:"sidenavSize",value:"compact"})]});export{m as default};
