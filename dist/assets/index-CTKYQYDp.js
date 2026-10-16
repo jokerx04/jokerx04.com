@@ -1,0 +1,1 @@
+import{j as t}from"./index-D9IrZOoX.js";import{P as r}from"./PageBreadcrumb-D0Fh8v7_.js";import{L as a,a as o}from"./LayoutSwitcher-ChkZYJ9o.js";const u=()=>t.jsxs(t.Fragment,{children:[t.jsx(r,{title:"Gradient Topbar",subtitle:"Layouts"}),t.jsx(a,{attribute:"topbarColor",value:"gradient"}),t.jsx(o,{option:"topbarColor",value:"gradient"})]});export{u as default};
