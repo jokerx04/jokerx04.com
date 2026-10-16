@@ -6,19 +6,25 @@ export const useAuth = () => {
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-
-  //const [token, setToken, removeToken] = useSessionStorage<string | null>('token', null)
   
-  // 기존 'token', null 대신 기본값으로 dummyUser.token 할당
-  const [token, setToken, removeToken] = useSessionStorage<string | null>('token', dummyUser.token);
+  /*
+  const [token, setToken, removeToken] = useSessionStorage<string | null>('token', null)
 
   const dummyUser = {
-    //email: 'admin@example.com',
+    email: 'admin@example.com',
+    password: 'password',
+    token: 'auth-token',
+  }
+  */
+  
+  const dummyUser = {
     email: 'contact@jokerx04.com',
     password: 'password',
     token: 'auth-token',
   }
 
+  const [token, setToken, removeToken] = useSessionStorage<string | null>('token', dummyUser.token);  
+  
   const login = (email: string, password: string) => {
     try {
       setLoading(true)
