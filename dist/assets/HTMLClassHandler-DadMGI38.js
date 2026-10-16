@@ -1,1 +1,0 @@
-import{r}from"./index-DZUqPazt.js";const a=({classes:t})=>(r.useEffect(()=>{const e=document.getElementsByTagName("html")[0];return e.classList.add(...t),()=>{e.classList.remove(...t)}},[t]),null);export{a as H};
