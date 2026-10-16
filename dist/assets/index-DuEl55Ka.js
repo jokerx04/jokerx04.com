@@ -1,1 +1,0 @@
-import{j as t}from"./index-CEfTm4q3.js";import{P as a}from"./PageBreadcrumb-DZSJ8AYc.js";import{L as o,a as r}from"./LayoutSwitcher-KQ7MZFNB.js";const n=()=>t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Horizontal",subtitle:"Layouts"}),t.jsx(o,{attribute:"orientation",value:"horizontal"}),t.jsx(r,{option:"data-layout",value:"horizontal"})]});export{n as default};
