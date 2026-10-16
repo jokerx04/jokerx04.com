@@ -51,7 +51,11 @@ jobs:
       - name: Run Build
         run: npm run build
 
-      # 3. dist 폴더 및 생성된 public/sitemap.xml 리포지토리 커밋 & 푸시
+      # 2-1. GitHub Pages SPA 라우팅 지원용 404.html 복제 생성
+      - name: Create 404.html for GitHub Pages SPA routing
+        run: cp dist/index.html dist/404.html
+
+      # 3. dist 폴더(404.html 포함) 및 생성된 public/sitemap.xml 리포지토리 커밋 & 푸시
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
