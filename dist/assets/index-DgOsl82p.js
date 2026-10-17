@@ -1,0 +1,1 @@
+import{j as r}from"./index-BgDHJlV0.js";import{P as t}from"./PageBreadcrumb-DvnUneKv.js";import{L as a,a as o}from"./LayoutSwitcher-TNHLgzP3.js";import"./Card-D8cV5xxj.js";const m=()=>r.jsxs(r.Fragment,{children:[r.jsx(t,{title:"Dark Topbar",subtitle:"Layouts"}),r.jsx(a,{attribute:"topbarColor",value:"dark"}),r.jsx(o,{option:"topbarColor",value:"dark"})]});export{m as default};
