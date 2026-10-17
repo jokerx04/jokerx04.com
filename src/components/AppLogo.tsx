@@ -4,6 +4,8 @@ import logoBlack from '@/assets/images/logo-black.png'
 import logoSm from '@/assets/images/logo-sm.png'
 import logo from '@/assets/images/logo.png'
 
+import logoBlackSm from '@/assets/images/logo-black-sm.png'
+
 const AppLogo = () => {
   return (
     <Link to="/" className="logo">
@@ -20,7 +22,10 @@ const AppLogo = () => {
           <img src={logoBlack} alt="dark logo" />
         </span>
         <span className="logo-sm">
-          <img src={logoSm} alt="small logo" />
+          {/* <img src={logoSm} alt="small logo" /> */}
+
+	  <img src={logoBlackSm} alt="small logo" />
+	  
         </span>
       </span>
     </Link>

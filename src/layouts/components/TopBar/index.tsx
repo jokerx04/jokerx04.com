@@ -27,6 +27,8 @@ import logoBlack from '@/assets/images/logo-black.png'
 import logoSm from '@/assets/images/logo-sm.png'
 import logo from '@/assets/images/logo.png'
 
+import logoBlackSm from '@/assets/images/logo-black-sm.png'
+
 const TopBar = () => {
   const { scrollY } = useScrollEvent()
   return (
@@ -47,7 +49,9 @@ const TopBar = () => {
                 <img src={logoBlack} alt="dark logo" />
               </span>
               <span className="logo-sm">
-                <img src={logoSm} alt="small logo" />
+                {/* <img src={logoSm} alt="small logo" /> */}
+
+		<img src={logoBlackSm} alt="small logo" />
               </span>
             </Link>
           </div>
