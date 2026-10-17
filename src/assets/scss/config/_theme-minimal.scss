@@ -18,8 +18,8 @@ $theme-minimal-colors: (
 
     html[data-skin='minimal'] {
 
-        --#{$prefix}font-sans-serif: "IBM Plex Sans", sans-serif;
-        --#{$prefix}font-family-secondary: "IBM Plex Sans", sans-serif;
+        --#{$prefix}font-sans-serif: Pretendard-Regular, "IBM Plex Sans", sans-serif;
+        --#{$prefix}font-family-secondary: Pretendard-Regular, "IBM Plex Sans", sans-serif;
 
         --#{$prefix}body-font-size:               0.875rem;
         --#{$prefix}body-bg:               #ffffff;

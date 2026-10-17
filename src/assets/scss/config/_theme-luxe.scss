@@ -17,8 +17,8 @@ $theme-luxe-colors: (
     @import url('https://fonts.googleapis.com/css2?family=TikTok+Sans:opsz,wght@12..36,300..900&display=swap');
 
     html[data-skin='luxe'] {
-        --#{$prefix}font-sans-serif: "TikTok Sans", sans-serif;
-        --#{$prefix}font-family-secondary: "TikTok Sans", sans-serif;
+        --#{$prefix}font-sans-serif: Pretendard-Regular, "TikTok Sans", sans-serif;
+        --#{$prefix}font-family-secondary: Pretendard-Regular, "TikTok Sans", sans-serif;
 
         --#{$prefix}body-font-size: 13px;
         --#{$prefix}body-bg: #f0f0f5;

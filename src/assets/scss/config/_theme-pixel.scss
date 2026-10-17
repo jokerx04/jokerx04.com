@@ -17,8 +17,8 @@ $theme-pixel-colors: (
     @import url('https://fonts.googleapis.com/css2?family=Momo+Trust+Sans:wght@200..800&display=swap');
 
     html[data-skin='pixel'] {
-        --#{$prefix}font-sans-serif: "Momo Trust Sans", sans-serif;
-        --#{$prefix}font-family-secondary: "Momo Trust Sans", sans-serif;
+        --#{$prefix}font-sans-serif: Pretendard-Regular, "Momo Trust Sans", sans-serif;
+        --#{$prefix}font-family-secondary: Pretendard-Regular, "Momo Trust Sans", sans-serif;
 
         --#{$prefix}body-font-size: 13px;
         --#{$prefix}body-bg: #f5f6fa;

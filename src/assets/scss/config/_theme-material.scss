@@ -17,8 +17,8 @@ $theme-material-colors: (
     @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap');
 
     html[data-skin='material'] {
-        --#{$prefix}font-sans-serif: 'Roboto', sans-serif;
-        --#{$prefix}font-family-secondary: 'Roboto', sans-serif;
+        --#{$prefix}font-sans-serif: Pretendard-Regular, 'Roboto', sans-serif;
+        --#{$prefix}font-family-secondary: Pretendard-Regular, 'Roboto', sans-serif;
 
         --#{$prefix}body-font-size: 14px;
         --#{$prefix}body-bg: #f3f3f4;

@@ -17,8 +17,8 @@ $theme-flat-colors: (
     @import url('https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
     html[data-skin='flat'] {
-        --#{$prefix}font-sans-serif: "Nunito", sans-serif;
-        --#{$prefix}font-family-secondary: "Nunito", sans-serif;
+        --#{$prefix}font-sans-serif: Pretendard-Regular, "Nunito", sans-serif;
+        --#{$prefix}font-family-secondary: Pretendard-Regular, "Nunito", sans-serif;
 
         --#{$prefix}body-font-size: 0.875rem;
         --#{$prefix}body-bg: #ffffff;

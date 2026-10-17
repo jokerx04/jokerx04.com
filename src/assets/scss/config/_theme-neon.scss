@@ -17,8 +17,8 @@ $theme-neon-colors: (
 
     html[data-skin='neon'] {
 
-        --#{$prefix}font-sans-serif: "Hanken Grotesk", sans-serif;
-        --#{$prefix}font-family-secondary: "Hanken Grotesk", sans-serif;
+        --#{$prefix}font-sans-serif: Pretendard-Regular, "Hanken Grotesk", sans-serif;
+        --#{$prefix}font-family-secondary: Pretendard-Regular, "Hanken Grotesk", sans-serif;
 
         --#{$prefix}body-font-size: 0.875rem;
         --#{$prefix}body-bg: #f2f2f7;

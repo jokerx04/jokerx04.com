@@ -18,8 +18,8 @@ $theme-retro-colors: (
     @import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap');
 
     html[data-skin='retro'] {
-        --#{$prefix}font-sans-serif: "Roboto Mono", monospace;
-        --#{$prefix}font-family-secondary: "Roboto Mono", monospace;
+        --#{$prefix}font-sans-serif: Pretendard-Regular, "Roboto Mono", monospace;
+        --#{$prefix}font-family-secondary: Pretendard-Regular, "Roboto Mono", monospace;
 
         --#{$prefix}body-font-size: 13px;
         --#{$prefix}body-bg: #f3f3f7;

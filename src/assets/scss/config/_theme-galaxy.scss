@@ -16,8 +16,8 @@ $theme-galaxy-colors: (
     @import url('https://fonts.googleapis.com/css2?family=Play:wght@400;700&display=swap');
 
     html[data-skin='galaxy'] {
-        --#{$prefix}font-sans-serif: "Play", sans-serif;
-        --#{$prefix}font-family-secondary: "Play", sans-serif;
+        --#{$prefix}font-sans-serif: Pretendard-Regular, "Play", sans-serif;
+        --#{$prefix}font-family-secondary: Pretendard-Regular, "Play", sans-serif;
 
         --#{$prefix}body-font-size: 13px;
         --#{$prefix}body-bg: #fdfdfd;
