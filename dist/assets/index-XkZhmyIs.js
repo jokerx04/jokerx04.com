@@ -1,1 +1,0 @@
-import{j as t}from"./index-CJv7IX2C.js";import{P as a}from"./PageBreadcrumb-C8ZSMTmU.js";import{L as r,a as o}from"./LayoutSwitcher-BJjLT-pu.js";import"./Card-XbcjASbD.js";const m=()=>t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Gray Menu",subtitle:"Layouts"}),t.jsx(r,{attribute:"sidenavColor",value:"gray"}),t.jsx(o,{option:"sidenavColor",value:"gray"})]});export{m as default};
