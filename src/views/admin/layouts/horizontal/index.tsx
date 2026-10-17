@@ -8,7 +8,7 @@ const Page = () => {
     <>
       <PageBreadcrumb title="Horizontal" subtitle="Layouts" />
       <LayoutSwitcher attribute="orientation" value="horizontal" />
-      <LayoutInfo option="data-layout" value="horizontal" />
+      <LayoutInfo option="orientation" value="horizontal" />
     </>
   )
 }

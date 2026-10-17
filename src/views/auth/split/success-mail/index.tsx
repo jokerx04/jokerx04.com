@@ -1,49 +1,58 @@
-import checkMark from '@/assets/images/checkmark.png'
+import auth from '@/assets/images/auth.jpg'
+import checkmark from '@/assets/images/checkmark.png'
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
+import { Link } from 'react-router'
+import { Button, Card, CardBody, Col, Form, Row } from 'react-bootstrap'
 
 
 const Page = () => {
   return (
-    <div className="min-h-screen">
-      <div className="flex h-full w-full">
-        <div className="hidden w-full md:block">
-          <div className="relative h-full overflow-hidden bg-[url('../images/auth.jpg')] bg-cover bg-center bg-no-repeat">
-            <div className="from-zinc-800 via-zinc-800/80 to-zinc-800/50 absolute inset-0 flex items-end justify-center bg-linear-to-t p-9" />
+    <div className="auth-box p-0 w-100">
+      <Row className="w-100 g-0">
+        <Col>
+          <div className="h-100 position-relative card-side-img rounded-0 overflow-hidden" style={{ backgroundImage: `url("${auth}")` }}>
+            <div className="p-4 card-img-overlay auth-overlay d-flex align-items-end justify-content-center" />
           </div>
-        </div>
-        <div className="min-w-full md:min-w-106 md:max-w-118">
-          <div className="card relative flex min-h-screen flex-col justify-between rounded-none p-12.5">
-            <div className="mb-7.5 flex flex-col items-center justify-center text-center">
-              <AuthLogo />
-            </div>
-            <div>
-              <form>
-                <div className="mt-3 mb-9">
-                  <div className="bg-default-50 border-light mx-auto flex size-20 items-center justify-center rounded-full border border-dashed">
-                    <img src={checkMark} alt="checkmark" className="size-16" />
+        </Col>
+        <div className="col-xl-auto">
+          <Card className="auth-box-form border-0 mb-0">
+            <CardBody className="min-vh-100 d-flex flex-column justify-content-center">
+              <div className="auth-brand mb-0 text-center">
+                <AuthLogo />
+              </div>
+              <div className="mt-auto text-center">
+                <Form>
+                  <div className="mb-4">
+                    <div className="avatar-xxl mx-auto mt-2">
+                      <div className="avatar-title bg-light-subtle border border-light border-dashed rounded-circle">
+                        <img src={checkmark} alt="dark logo" height={64} />
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <h4 className="mb-9 text-center text-base font-bold">Well Done! Email verified Successfully</h4>
-                <div>
-                  <button type="submit" className="btn bg-primary w-full py-3 font-semibold text-white hover:bg-primary-hover">
-                    Back to dashboard
-                  </button>
-                </div>
-              </form>
-              <p className="text-default-400 mt-7.5 text-center">
-                Not you? Return to&nbsp;
-                <a href="/auth/split/sign-in" className="text-primary font-semibold underline underline-offset-4">
+                  <h4 className="fw-bold text-center mb-4">Well Done! Email verified Successfully</h4>
+                  <div className="d-grid">
+                    <Button variant="primary" type="submit" className="fw-semibold py-2">
+                      Bake to Dashboard
+                    </Button>
+                  </div>
+                </Form>
+              </div>
+              <p className="text-muted text-center mt-4 mb-0">
+                Return to&nbsp;
+                <Link to="/auth/split/sign-in" className="text-decoration-underline link-offset-3 fw-semibold">
                   Sign in
-                </a>
+                </Link>
               </p>
-            </div>
-            <p className="text-default-400 mt-7.5 text-center">
-              © {currentYear} {META_DATA.name} - by <span>{META_DATA.author}</span>
-            </p>
-          </div>
+              <p className="text-center text-muted mt-auto mb-0">
+                © {currentYear}&nbsp;
+                {META_DATA.name} — by&nbsp;
+                <span className="fw-bold">{META_DATA.author}</span>
+              </p>
+            </CardBody>
+          </Card>
         </div>
-      </div>
+      </Row>
     </div>
   )
 }

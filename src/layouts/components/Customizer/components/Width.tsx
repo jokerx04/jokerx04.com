@@ -1,5 +1,6 @@
 import { useLayoutContext } from '@/context/useLayoutContext'
 import { toPascalCase } from '@/utils/helpers'
+import { Col } from 'react-bootstrap'
 import type { CustomizationOptionType } from '../index'
 
 import boxedImg from '@/assets/images/layouts/width-boxed.png'
@@ -18,17 +19,19 @@ const Width = () => {
   }
 
   return (
-    <div id="width" className="p-5">
-      <h5 className="text-md mb-5 font-bold">Layout Width</h5>
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-base">
-        {widthOptions.map((item, idx) => (
-          <div className="card-radio" id={`width-${item.value}`} key={idx}>
-            <input className="hidden" type="radio" name="data-layout-width" id={`layout-width-${item.value}`} defaultValue="fluid" checked={width === item.value} onChange={() => handleWidthChange(item.value)} />
-            <label className="form-label" htmlFor={`layout-width-${item.value}`}>
-              <img src={item.image} alt="layout img" className="flex size-full rounded-md" />
-            </label>
-            <h5 className="text-md text-default-600 mt-2.5 text-center">{toPascalCase(item.value)}</h5>
-          </div>
+    <div id="width" className="p-3 border-bottom border-dashed">
+      <h5 className="mb-3 fw-bold">Layout Width</h5>
+      <div className="row g-3">
+        {widthOptions.map((option) => (
+          <Col xs={4} id={`width-${option.value}`} key={option.value}>
+            <div className="form-check sidebar-setting card-radio">
+              <input className="form-check-input" type="radio" name="data-layout-width" id={`layout-width-${option.value}`} checked={width === option.value} onChange={() => handleWidthChange(option.value)} />
+              <label className="form-check-label p-0 w-100" htmlFor={`layout-width-${option.value}`}>
+                <img src={option.image} alt="layout-img" className="img-fluid" />
+              </label>
+            </div>
+            <h5 className="mb-0 text-center text-muted mt-2">{toPascalCase(option.value)}</h5>
+          </Col>
         ))}
       </div>
     </div>

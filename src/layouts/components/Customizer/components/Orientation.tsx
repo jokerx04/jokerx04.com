@@ -18,18 +18,21 @@ const Orientation = () => {
   }
 
   return (
-    <div className="p-5">
-      <h5 className="text-md mb-base font-bold">Orientation</h5>
-      <div className="gap-base grid grid-cols-3">
-        {orientationOptions.map((item, idx) => (
-          <div className="card-radio" key={idx}>
-            <input className="hidden" type="radio" name="data-orientation" id={`layout-orientation-${item.value}`} checked={orientation === item.value} onChange={() => handleOrientationChange(item.value)} />
-            <label className="form-label" htmlFor={`layout-orientation-${item.value}`}>
-              <img src={item.image} alt="layout img" className="flex size-full rounded-md" />
-            </label>
-            <h5 className="text-md text-default-600 mt-2.5 text-center">{toTitleCase(item.value)}</h5>
-          </div>
-        ))}
+    <div id="orientation" className="p-3 border-bottom border-dashed">
+      <h5 className="mb-3 fw-bold">Orientation</h5>
+      <div className="row g-3">
+        {orientationOptions &&
+          orientationOptions.map((option) => (
+            <div className="col-4" id={`orientation-${option.value}`} key={option.value}>
+              <div className="form-check card-radio">
+                <input className="form-check-input" type="radio" name="data-orientation" id={`layout-orientation-${option.value}`} checked={orientation === option.value} onChange={() => handleOrientationChange(option.value)} />
+                <label className="form-check-label p-0 w-100" htmlFor={`layout-orientation-${option.value}`}>
+                  <img src={option.image} alt="layout-img" className="img-fluid" />
+                </label>
+              </div>
+              <h5 className="fs-sm text-center text-muted mt-2 mb-0">{toTitleCase(option.value)}</h5>
+            </div>
+          ))}
       </div>
     </div>
   )

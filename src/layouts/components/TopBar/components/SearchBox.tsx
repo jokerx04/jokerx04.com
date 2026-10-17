@@ -1,14 +1,13 @@
 import Icon from '@/components/wrappers/Icon'
+import { FormControl } from 'react-bootstrap'
 
-const SearchBox = () => {
+const Search = () => {
   return (
-    <div id="search-box" className="hidden xl:flex">
-      <div className="input-icon-group">
-        <Icon icon="search" className="input-icon text-lg text-(--topbar-item-color)/50! placeholder:opacity-50" />
-        <input type="search" id="topbar-search" className="form-input w-57.5 border-(--topbar-search-border)! bg-(--topbar-search-bg)! text-(--topbar-item-color)! placeholder:opacity-50" placeholder="Search for something..." />
-      </div>
+    <div id="search-box" className="app-search d-none d-xl-flex">
+      <FormControl type="search" className="topbar-search" name="search" placeholder="Search for something..." />
+      <Icon icon="search" className="app-search-icon text-muted" />
     </div>
   )
 }
 
-export default SearchBox
+export default Search

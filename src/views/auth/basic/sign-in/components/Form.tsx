@@ -1,8 +1,9 @@
 import { useAuth } from '@/hooks/useAuth'
 import { Link } from 'react-router'
 import { ChangeEvent, useState } from 'react'
+import { Button, Form, FormCheck, FormControl, FormLabel } from 'react-bootstrap'
 
-const Form = () => {
+const LoginForm = () => {
   const { login, loading, error } = useAuth()
 
   const [form, setForm] = useState({
@@ -22,44 +23,35 @@ const Form = () => {
 
   return (
     <form onSubmit={handleSubmit}>
-      <div className="mb-5">
-        <label htmlFor="userEmail" className="form-label">
-          Email address&nbsp;
-          <span className="text-danger">*</span>
-        </label>
-        <div className="input-group">
-          <input type="email" className="form-input" id="userEmail" placeholder="you@example.com" value={form.email} required onChange={handleChange} />
-        </div>
+      <div className="mb-3">
+        <FormLabel>
+          Email address <span className="text-danger">*</span>
+        </FormLabel>
+        <FormControl type="email" placeholder="you@example.com" value={form.email} required onChange={handleChange} />
       </div>
-
-      <div className="mb-5">
-        <label htmlFor="userPassword" className="form-label">
-          Password&nbsp;
-          <span className="text-danger">*</span>
-        </label>
-        <div className="input-group">
-          <input type="password" className="form-input" id="userPassword" placeholder="••••••••" value={form.password} required onChange={handleChange} />
-        </div>
+      <div className="mb-3">
+        <FormLabel>
+          Password <span className="text-danger">*</span>
+        </FormLabel>
+        <FormControl type="password" placeholder="••••••••" value={form.password} required onChange={handleChange} />
       </div>
-
-      <div className="mb-5 flex items-center justify-between gap-2">
-        <div className="flex items-start gap-2 lg:items-center">
-          <input className="form-checkbox form-checkbox-light mt-1 size-4.25 lg:mt-0" type="checkbox" id="rememberMe" defaultChecked />
-          <label className="form-check-label" htmlFor="rememberMe">
-            Keep me signed in
-          </label>
-        </div>
-        <Link to="/auth/reset-pass" className="text-default-400 underline underline-offset-4">
+      <div className="d-flex justify-content-between align-items-center mb-3">
+        <FormCheck>
+          <Form.Check.Input className="form-check-input-light fs-14" type="checkbox" id="rememberMe" />
+          <Form.Check.Label htmlFor="rememberMe">Keep me signed in</Form.Check.Label>
+        </FormCheck>
+        <Link to="/auth/reset-pass" className="text-decoration-underline link-offset-3 text-muted">
           Forgot Password?
         </Link>
       </div>
-      {error && <p className="text-red-500 text-center">{error}</p>}
-      <div>
-        <button type="submit" disabled={loading} className="btn bg-primary w-full py-3 font-semibold text-white hover:bg-primary-hover">
+      {error && <p className="text-danger">{error}</p>}
+      <div className="d-grid">
+        <Button variant="primary" type="submit" className="fw-semibold py-2" disabled={loading}>
           Sign In
-        </button>
+        </Button>
       </div>
     </form>
   )
 }
-export default Form
+
+export default LoginForm

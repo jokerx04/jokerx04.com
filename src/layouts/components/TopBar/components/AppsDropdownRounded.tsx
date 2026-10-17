@@ -3,62 +3,51 @@ import figmaLogo from '@/assets/images/logos/figma.svg'
 import googleLogo from '@/assets/images/logos/google.svg'
 import slackLogo from '@/assets/images/logos/slack.svg'
 import Icon from '@/components/wrappers/Icon'
-import { Link } from 'react-router'
+import { Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Row } from 'react-bootstrap'
 
-const AppsDropdownRounded = () => {
+type AppItemType = {
+  name: string
+  img?: string
+  icon?: string
+  variant?: 'light' | 'primary'
+}
+
+const appItems: AppItemType[] = [
+  { name: 'Google', img: googleLogo, variant: 'light' },
+  { name: 'Figma', img: figmaLogo, variant: 'light' },
+  { name: 'Slack', img: slackLogo, variant: 'light' },
+  { name: 'Dropbox', img: dropboxLogo, variant: 'light' },
+  { name: 'Calendar', icon: 'calendar', variant: 'primary' },
+  { name: 'Files', icon: 'folder', variant: 'primary' },
+]
+
+const AppsDropdown = () => {
   return (
-    <div id="apps-dropdown-rounded" className="topbar-item hs-dropdown relative inline-flex [--auto-close:inside] [--placement:bottom-right]">
-      <button className="topbar-link hs-dropdown-toggle relative flex items-center" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-        <Icon icon="apps" className="topbar-link-icon" />
-      </button>
+    <div id="apps-dropdown-rounded" className="topbar-item">
+      <Dropdown align="end">
+        <DropdownToggle className="topbar-link dropdown-toggle drop-arrow-none" type="button">
+          <span className="topbar-link-icon">
+            <Icon icon="apps" />
+          </span>
+        </DropdownToggle>
 
-      <div className="hs-dropdown-menu w-80 p-3" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-menu">
-        <div className="grid grid-cols-3 items-center gap-1.5">
-          <Link to="" className="dropdown-item flex-col gap-0 text-center py-3">
-            <span className="size-8 rounded-full bg-light flex items-center justify-center mx-auto mb-1.25">
-              <img src={googleLogo} alt="Google Logo" className="h-4.5" />
-            </span>
-            <span className="align-middle font-medium">Google</span>
-          </Link>
-
-          <Link to="" className="dropdown-item flex-col gap-0 text-center py-3">
-            <span className="size-8 rounded-full bg-light flex items-center justify-center mx-auto mb-1.25">
-              <img src={figmaLogo} alt="Figma Logo" className="h-4.5" />
-            </span>
-            <span className="align-middle font-medium">Figma</span>
-          </Link>
-
-          <Link to="" className="dropdown-item flex-col gap-0 text-center py-3">
-            <span className="size-8 rounded-full bg-light flex items-center justify-center mx-auto mb-1.25">
-              <img src={slackLogo} alt="Slack Logo" className="h-4.5" />
-            </span>
-            <span className="align-middle font-medium">Slack</span>
-          </Link>
-
-          <Link to="" className="dropdown-item flex-col gap-0 text-center py-3">
-            <span className="size-8 rounded-full bg-light flex items-center justify-center mx-auto mb-1.25">
-              <img src={dropboxLogo} alt="Dropbox Logo" className="h-4.5" />
-            </span>
-            <span className="align-middle font-medium">Dropbox</span>
-          </Link>
-
-          <Link to="" className="dropdown-item flex-col gap-0 text-center py-3">
-            <span className="size-8 rounded-full flex items-center justify-center bg-primary/15 text-primary mx-auto mb-1.25">
-              <Icon icon="calendar" className="text-lg" />
-            </span>
-            <span className="align-middle font-medium">Calendar</span>
-          </Link>
-
-          <Link to="" className="dropdown-item flex-col gap-0 text-center py-3">
-            <span className="size-8 rounded-full flex items-center justify-center bg-primary/15 text-primary mx-auto mb-1.25">
-              <Icon icon="message-circle" className="text-lg" />
-            </span>
-            <span className="align-middle font-medium">Chat</span>
-          </Link>
-        </div>
-      </div>
+        <DropdownMenu className="dropdown-menu-lg p-2 dropdown-menu-end">
+          <Row className="align-items-center g-1">
+            {appItems.map((item, index) => (
+              <Col xs={4} key={index}>
+                <DropdownItem href="" className="rounded text-center py-2">
+                  <span className="avatar-sm d-block mx-auto mb-1">
+                    <span className={`avatar-title rounded-circle ${item.variant === 'primary' ? 'bg-primary-subtle text-primary' : 'text-bg-light'}`}>{item.img ? <img src={item.img} alt={`${item.name} Logo`} height={18} /> : <Icon icon={item.icon!} className="fs-18" />}</span>
+                  </span>
+                  <span className="align-middle fw-medium">{item.name}</span>
+                </DropdownItem>
+              </Col>
+            ))}
+          </Row>
+        </DropdownMenu>
+      </Dropdown>
     </div>
   )
 }
 
-export default AppsDropdownRounded
+export default AppsDropdown

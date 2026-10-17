@@ -1,46 +1,45 @@
 import Icon from '@/components/wrappers/Icon'
-import clsx from 'clsx'
+import { Badge, Card, CardBody, CardHeader } from 'react-bootstrap'
 import { timelineEvents } from './data'
 
 const ProjectUpdates = () => {
   return (
-    <>
-      <div className="card">
-        <div className="card-header justify-between items-center">
-          <h5 className="card-title">Latest Project Updates</h5>
-          <span className="badge text-white bg-warning text-2xs"> 8 Notifications</span>
-        </div>
-        <div className="card-body">
+    <Card>
+      <CardHeader className="d-flex justify-content-between align-items-center">
+        <h5 className="card-title mb-0">Latest Project Updates</h5>
+        <Badge bg="warning" className="fs-xxs p-1">
+          8 Notifications
+        </Badge>
+      </CardHeader>
+      <CardBody>
+        <div className="timeline timeline-icon-bordered">
           {timelineEvents.map((event, idx) => (
-            <div className="flex gap-x-base" key={idx}>
-              <div className="after:border-default-300 relative after:absolute after:start-1/2 after:top-8 after:bottom-0 after:w-px after:border-e -ms-px after:border-dashed last:after:hidden">
-                <div className="relative z-10 flex items-center justify-center">
-                  <div className="border-default-300 flex size-7.75 items-center justify-center rounded-full border border-dashed">
-                    <Icon icon={event.icon} className={clsx('text-xl', event.iconColor)} />
-                  </div>
-                </div>
+            <div key={idx} className="timeline-item d-flex align-items-stretch">
+              <div className="timeline-dot">
+                <Icon icon={event.icon} className={`fs-xl text-${event.iconColor}`} />
               </div>
-              <div className="flex-1">
-                <div className="flex justify-between">
-                  <h5 className="mb-1.25 text-sm">
-                    {event.title} <span className={clsx('badge badge-label ms-2.5 text-[10px]', event.tagVariant)}>{event.tag}</span>
+              <div className="timeline-content ps-3">
+                <div className="d-flex justify-content-between">
+                  <h5 className="mb-1 fs-base">
+                    {event.title}
+                    <span className={`badge badge-label badge-soft-${event.tagVariant} ms-2`}>{event.tag}</span>
                   </h5>
-                  <span className="text-default-400 text-2xs">{event.time}</span>
+                  <span className="text-muted fs-xxs">{event.time}</span>
                 </div>
-                <p className="mb-1.25 text-default-400">{event.description}</p>
-                <div className="flex items-center gap-2.5">
-                  <img src={event.userImage} alt={event.userName} className="rounded-full size-4" width={16} height={16} />
-                  <a href="" className="font-medium text-default-400">
+                <p className="mb-1 text-muted">{event.description}</p>
+                <div className="d-flex align-items-center gap-2">
+                  <img src={event.userImage} alt={event.userName} className="rounded-circle avatar-xxs" />
+                  <a href={event.userLink} className="fw-medium link-reset text-muted">
                     {event.userName}
                   </a>
                 </div>
-                {event.hasDivider && <hr className="border-dashed border-t border-default-300 my-3" />}
+                {event.hasDivider && <hr className="border-dashed" />}
               </div>
             </div>
           ))}
         </div>
-      </div>
-    </>
+      </CardBody>
+    </Card>
   )
 }
 

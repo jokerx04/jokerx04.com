@@ -1,25 +1,20 @@
 import Icon from '@/components/wrappers/Icon'
 import { menuItems } from '@/layouts/components/data'
 import type { MenuItemType } from '@/types'
-import { cn } from '@/utils/helpers'
 import { scrollToElement } from '@/utils/layout'
+import clsx from 'clsx'
 import { Link } from 'react-router'
 import { useLocation } from 'react-router'
 import { Fragment, useCallback, useEffect, useState } from 'react'
+import { Collapse } from 'react-bootstrap'
 
 const MenuItemWithChildren = ({ item, openMenuKey, setOpenMenuKey, level = 0 }: { item: MenuItemType; openMenuKey: string | null; setOpenMenuKey: (key: string | null) => void; level?: number }) => {
   const pathname = useLocation().pathname
   const isTopLevel = level === 0
-
   const [localOpen, setLocalOpen] = useState(false)
   const [didAutoOpen, setDidAutoOpen] = useState(false)
 
-  const isChildActive = useCallback(
-    function checkChildren(children: MenuItemType[] = []): boolean {
-      return children.some((child) => (child.url && pathname.startsWith(child.url)) || (child.children && checkChildren(child.children)))
-    },
-    [pathname]
-  )
+  const isChildActive = useCallback((children: MenuItemType[] = []): boolean => children.some((child) => (child.url && pathname.startsWith(child.url)) || (child.children && isChildActive(child.children))), [pathname])
 
   const isActive = (item.url && pathname.startsWith(item.url)) || isChildActive(item.children)
 
@@ -47,23 +42,28 @@ const MenuItemWithChildren = ({ item, openMenuKey, setOpenMenuKey, level = 0 }: 
 
   return (
     <li
-      className={cn('menu-item hs-accordion', {
+      className={clsx('side-nav-item', {
         active: isActive,
       })}
     >
-      <Link to={item.url ?? '#'} onClick={toggleOpen} className={cn('hs-accordion-toggle menu-link', isActive && 'active')} aria-expanded={isOpen}>
+      <Link to={item.url ?? '#'} onClick={toggleOpen} className={clsx('side-nav-link', isActive && 'active')} aria-expanded={isOpen}>
         {item.icon && isTopLevel && (
           <span className="menu-icon">
             <Icon icon={item.icon} />
           </span>
         )}
+
         <span className="menu-text">{item.label}</span>
-        {item.badge ? <span className={cn('badge text-white', item.badge.className)}>{item.badge.text}</span> : <span className="menu-arrow" />}
+        {item.badge ? <span className={clsx('badge', item.badge.className)}>{item.badge.text}</span> : <span className="menu-arrow" />}
       </Link>
 
-      <ul className={cn('sub-menu hs-accordion-content hs-accordion-group', { 'hidden': !isOpen })}>
-        {(item.children || []).map((child) => (child.children ? <MenuItemWithChildren key={child.slug} item={child} openMenuKey={openMenuKey} setOpenMenuKey={setOpenMenuKey} level={level + 1} /> : <MenuItem key={child.slug} item={child} level={level + 1} />))}
-      </ul>
+      <Collapse in={isOpen}>
+        <div>
+          <ul className="sub-menu">
+            {(item.children || []).map((child) => (child.children ? <MenuItemWithChildren key={child.slug} item={child} openMenuKey={openMenuKey} setOpenMenuKey={setOpenMenuKey} level={level + 1} /> : <MenuItem key={child.slug} item={child} level={level + 1} />))}
+          </ul>
+        </div>
+      </Collapse>
     </li>
   )
 }
@@ -71,19 +71,18 @@ const MenuItemWithChildren = ({ item, openMenuKey, setOpenMenuKey, level = 0 }: 
 const MenuItem = ({ item, level = 0 }: { item: MenuItemType; level?: number }) => {
   const pathname = useLocation().pathname
   const isTopLevel = level === 0
-
   const isActive = item.url && pathname.startsWith(item.url)
-  if (!item.url) return null
+
   return (
-    <li className={cn('menu-item', isActive && 'active')}>
-      <Link to={item.url ?? '/'} className={cn('menu-link', isActive && 'active', item.isDisabled && 'disabled', item.isSpecial && 'special-menu')}>
+    <li className={clsx('side-nav-item', isActive && 'active')}>
+      <Link to={item.url ?? '/'} className={clsx('side-nav-link', isActive && 'active', item.isDisabled && 'disabled', item.isSpecial && 'special-menu')}>
         {item.icon && isTopLevel && (
           <span className="menu-icon">
             <Icon icon={item.icon} />
           </span>
         )}
         <span className="menu-text">{item.label}</span>
-        {item.badge && <span className={cn('badge text-white', item.badge.className)}>{item.badge.text}</span>}
+        {item.badge && <span className={clsx('badge', item.badge.className)}>{item.badge.text}</span>}
       </Link>
     </li>
   )
@@ -92,9 +91,9 @@ const MenuItem = ({ item, level = 0 }: { item: MenuItemType; level?: number }) =
 const AppMenu = () => {
   const [openMenuKey, setOpenMenuKey] = useState<string | null>(null)
   const scrollToActiveLink = () => {
-    const activeItem: HTMLAnchorElement | null = document.querySelector('.menu-link.active')
+    const activeItem: HTMLAnchorElement | null = document.querySelector('.side-nav-link.active')
     if (activeItem) {
-      const simpleBarContent = document.querySelector('#sidenav-menu .simplebar-content-wrapper')
+      const simpleBarContent = document.querySelector('#sidenav .simplebar-content-wrapper')
       if (simpleBarContent) {
         const offset = activeItem.offsetTop - window.innerHeight * 0.4
         scrollToElement(simpleBarContent, offset, 500)
@@ -106,15 +105,10 @@ const AppMenu = () => {
   }, [])
 
   return (
-    <ul className="side-nav hs-accordion-group px-2.5 pb-16.5">
+    <ul className="side-nav">
       {menuItems.map((item, idx) => (
         <Fragment key={idx}>
-          {item.isTitle && (
-            <li className="menu-title">
-              {' '}
-              <span>{item.label}</span>
-            </li>
-          )}
+          {item.isTitle && <li className="side-nav-title mt-2">{item.label}</li>}
           {(item.children || [item]).map((item, idx) => (
             <Fragment key={idx}>{item.children ? <MenuItemWithChildren key={item.slug} item={item} openMenuKey={openMenuKey} setOpenMenuKey={setOpenMenuKey} /> : <MenuItem key={item.slug} item={item} />}</Fragment>
           ))}

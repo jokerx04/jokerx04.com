@@ -1,5 +1,6 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb'
 import { useEffect, useState } from 'react'
+import { Card, CardBody, Col, Row } from 'react-bootstrap'
 
 const Preloader = () => {
   const [loading, setLoading] = useState(true)
@@ -15,17 +16,23 @@ const Preloader = () => {
   return (
     <>
       {loading ? (
-        <div className="fixed inset-0 z-50 flex items-center justify-center bg-white">
-          <div className="size-8 animate-spin rounded-full border-3 border-primary border-t-transparent"></div>
+        <div id="preloader" className="d-flex justify-content-center align-items-center" style={{ height: '100vh' }}>
+          <div className="spinner-border text-primary" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
         </div>
       ) : (
         <>
           <PageBreadcrumb title="Preloader" subtitle="Layouts" />
-          <div className="card">
-            <div className="card-body text-center">
-              <h4 className="text-lg">Your custom content here</h4>
-            </div>
-          </div>
+          <Row>
+            <Col xs={12}>
+              <Card>
+                <CardBody className="text-center">
+                  <h4 className="m-0">Your custom content here</h4>
+                </CardBody>
+              </Card>
+            </Col>
+          </Row>
         </>
       )}
     </>

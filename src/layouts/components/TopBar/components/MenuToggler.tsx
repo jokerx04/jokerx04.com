@@ -1,5 +1,6 @@
 import Icon from '@/components/wrappers/Icon'
 import { showBackdrop, useLayoutContext } from '@/context/useLayoutContext'
+import { Button } from 'react-bootstrap'
 
 const MenuToggler = () => {
   const { updateSettings, sidenavSize } = useLayoutContext()
@@ -9,8 +10,8 @@ const MenuToggler = () => {
 
     if (currentSize === 'offcanvas') {
       showBackdrop()
-    } else if (sidenavSize === 'default') {
-      updateSettings({ sidenavSize: currentSize === 'default' ? 'condensed' : 'default' })
+    } else if (sidenavSize === 'compact') {
+      updateSettings({ sidenavSize: currentSize === 'compact' ? 'condensed' : 'compact' })
     } else {
       updateSettings({ sidenavSize: currentSize === 'condensed' ? 'default' : 'condensed' })
     }
@@ -18,14 +19,12 @@ const MenuToggler = () => {
 
   return (
     <>
-      <button id="button-toggle-menu" className="sidenav-toggle-button btn btn-icon" onClick={toggleSideNav}>
-        <Icon icon="menu-4" className="text-xl" />
+      <Button variant="default" className="sidenav-toggle-button btn-icon" onClick={toggleSideNav}>
+        <Icon icon="menu-4" />
+      </Button>
+      <button onClick={showBackdrop} className="topnav-toggle-button px-2">
+        <Icon icon="menu-4" />
       </button>
-      <div className="topnav-toggle-button">
-        <button type="button" className="hs-collapse-toggle btn topnav-toggle-button" data-hs-collapse="#topnav-menu" id="topnav-menu-collapse" aria-expanded="false" aria-controls="topnav-menu" aria-label="Toggle navigation" onClick={toggleSideNav}>
-          <Icon icon="menu-4" className="text-xl" />
-        </button>
-      </div>
     </>
   )
 }

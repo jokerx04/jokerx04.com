@@ -14,10 +14,10 @@ export const useAuth = () => {
     password: 'password',
     token: 'auth-token',
   }
-  
+
   // 기존 'token', null 대신 기본값으로 dummyUser.token 할당
-  const [token, setToken, removeToken] = useSessionStorage<string | null>('token', dummyUser.token);  
-  
+  const [token, setToken, removeToken] = useSessionStorage<string | null>('token', dummyUser.token);
+
   const login = (email: string, password: string) => {
     try {
       setLoading(true)

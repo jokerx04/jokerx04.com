@@ -1,7 +1,3 @@
-import { useLayoutContext } from '@/context/useLayoutContext'
-import { toTitleCase } from '@/utils/helpers'
-import type { CustomizationOptionType } from '../index'
-
 import defaultImg from '@/assets/images/layouts/skin-default.png'
 
 import flatImg from '@/assets/images/layouts/skin-flat.png'
@@ -19,6 +15,10 @@ import pixelImg from '@/assets/images/layouts/skin-pixel.png'
 
 import retroImg from '@/assets/images/layouts/skin-retro.png'
 import saasImg from '@/assets/images/layouts/skin-saas.png'
+
+import { useLayoutContext } from '@/context/useLayoutContext'
+import { toTitleCase } from '@/utils/helpers'
+import type { CustomizationOptionType } from '../index'
 
 const skinOptions: CustomizationOptionType[] = [
   { value: 'default', image: defaultImg },
@@ -42,16 +42,18 @@ const Skin = () => {
   }
 
   return (
-    <div className="p-6">
-      <h5 className="text-md mb-base font-bold">Select Theme</h5>
-      <div className="grid grid-cols-2 gap-3">
+    <div id="skin" className="p-3 border-bottom border-dashed">
+      <h5 className="mb-3 fw-bold">Select Theme</h5>
+      <div className="row g-3">
         {skinOptions.map((item) => (
-          <div className="card-radio" key={item.value}>
-            <input className="hidden" type="radio" name="data-skin" id={`demo-skin-${item.value}`} checked={skin === item.value} onChange={() => handleSkinChange(item.value)} />
-            <label className="form-label" htmlFor={`demo-skin-${item.value}`}>
-              <img src={item.image} alt="layout img" className="flex size-full rounded-md" />
-            </label>
-            <h5 className="text-md text-default-600 mt-2.5 text-center">{toTitleCase(item.value)}</h5>
+          <div className="col-6" id={`skin-${item.value}`} key={item.value}>
+            <div className="form-check card-radio">
+              <input className="form-check-input" type="radio" name="data-skin" id={`demo-skin-${item.value}`} checked={skin === item.value} onChange={() => handleSkinChange(item.value)} />
+              <label className="form-check-label p-0 w-100" htmlFor={`demo-skin-${item.value}`}>
+                <img src={item.image} alt="layout-img" className="img-fluid" />
+              </label>
+            </div>
+            <h5 className="text-center text-muted mt-2 mb-0">{toTitleCase(item.value)}</h5>
           </div>
         ))}
       </div>

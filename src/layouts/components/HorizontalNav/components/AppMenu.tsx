@@ -1,14 +1,23 @@
 import Icon from '@/components/wrappers/Icon'
 import { menuItems } from '@/layouts/components/data'
 import type { MenuItemType } from '@/types'
-import { cn } from '@/utils/helpers'
+import clsx from 'clsx'
 import { Link } from 'react-router'
 import { useLocation } from 'react-router'
-import { Fragment } from 'react'
+import { Fragment, useState } from 'react'
+import { Dropdown, DropdownMenu, DropdownToggle } from 'react-bootstrap'
 
 const MenuItemWithChildren = ({ item, wrapperClass, togglerClass, level }: { item: MenuItemType; wrapperClass?: string; togglerClass?: string; level?: number }) => {
   const menuLevel = level ?? 1
   const pathname = useLocation().pathname
+  const [open, setOpen] = useState(false)
+
+  const toggleOpen = (isOpen: boolean, metadata?: any) => {
+    if (metadata?.source === 'select' || metadata?.source === 'click' || metadata?.source === 'rootClose') {
+      setOpen(isOpen)
+    }
+  }
+
   const isChildActive = (items: MenuItemType[]): boolean =>
     items.some((child) => {
       if (child.url && pathname.endsWith(child.url)) return true
@@ -17,40 +26,38 @@ const MenuItemWithChildren = ({ item, wrapperClass, togglerClass, level }: { ite
     })
 
   const isActive = isChildActive(item.children || [])
-  const Tag = menuLevel > 1 ? 'div' : 'li'
+
   return (
-    <Tag className={cn(wrapperClass, { active: isActive })}>
-      <div
-        className={cn(
-          'hs-dropdown ',
-          menuLevel > 1
-            ? '[--adaptive:none] [--is-collapse:true] [--strategy:static] lg:[--is-collapse:false] lg:[--strategy:absolute] lg:[--trigger:hover] relative'
-            : '[--trigger:hover] [--adaptive:none] [--is-collapse:true] [--strategy:static] lg:[--adaptive:adaptive] lg:[--is-collapse:false] lg:[--strategy:fixed]'
+    <Dropdown as={menuLevel > 1 ? 'div' : 'li'} drop={menuLevel > 1 ? 'end' : 'down'} show={open} onToggle={toggleOpen} autoClose="outside" navbar onMouseEnter={() => setOpen(true)} onMouseLeave={() => setOpen(false)} className={clsx(wrapperClass, { active: isActive })}>
+      <DropdownToggle onToggle={(e) => setOpen(e.newState === 'open')} as="a" className={clsx(togglerClass, 'drop-arrow-none', { active: isActive })}>
+        {item.icon && menuLevel < 2 && (
+          <span className="menu-icon">
+            <Icon icon={item.icon} />
+          </span>
         )}
-      >
-        <button className={cn(togglerClass, 'hs-dropdown-toggle', { active: isActive })}>
-          {item.icon && menuLevel < 2 && (
-            <span className="menu-icon">
-              <Icon icon={item.icon} />
-            </span>
-          )}
 
-          <span className="menu-text">{item.label}</span>
+        <span className="menu-text">{item.label}</span>
 
-          {item.badge && <span className={cn('badge', 'ms-auto', item.badge.className)}>{item.badge.text}</span>}
+        {item.badge && <span className={clsx('badge', 'ms-auto', item.badge.className)}>{item.badge.text}</span>}
 
-          <div className="menu-arrow ms-auto">
-            <Icon icon="chevron-down" />
-          </div>
-        </button>
-
-        <div className={cn('hs-dropdown-menu')}>
-          {(item.children || []).map((child, idx) => (
-            <Fragment key={idx}>{child.children ? <MenuItemWithChildren item={child} togglerClass="dropdown-item" level={menuLevel + 1} /> : <MenuItem item={child} linkClass="dropdown-item" level={menuLevel + 1} />}</Fragment>
-          ))}
+        <div className="menu-arrow drop-arrow-none">
+          <Icon icon="chevron-down" />
         </div>
-      </div>
-    </Tag>
+      </DropdownToggle>
+
+      <DropdownMenu
+        flip
+        className={clsx({
+          'dropdown-menu': item.children!.length > 15 && open,
+          'd-none': (item.children!.length > 15 && !open) || (item.children!.length > 10 && item.children!.length <= 15 && !open),
+          'dropdown-menu-md': item.children!.length > 10 && item.children!.length <= 15 && open,
+        })}
+      >
+        {(item.children || []).map((child, idx) => (
+          <Fragment key={idx}>{child.children ? <MenuItemWithChildren item={child} togglerClass="dropdown-item" level={menuLevel + 1} /> : <MenuItem item={child} linkClass="dropdown-item" level={menuLevel + 1} />}</Fragment>
+        ))}
+      </DropdownMenu>
+    </Dropdown>
   )
 }
 
@@ -60,18 +67,18 @@ const MenuItem = ({ item, linkClass, wrapperClass, level }: { item: MenuItemType
   const isActive = item.url && pathname.endsWith(item.url)
 
   const link = (
-    <Link to={item.url ?? '/'} className={cn(linkClass, { 'active': isActive })}>
+    <Link to={item.url ?? '/'} className={clsx(linkClass, { active: isActive })}>
       {item.icon && menuLevel < 2 && (
         <span className="menu-icon">
-          <Icon icon={item.icon} className="text-lg" />
+          <Icon icon={item.icon} />
         </span>
       )}
-      {item.label}
-      {item.badge && <span className={cn('badge', item.badge.className)}>{item.badge.text}</span>}
+      <span className="menu-text">{item.label}</span>
+      {item.badge && <span className={clsx('badge', 'opacity-50', item.badge.className)}>{item.badge.text}</span>}
     </Link>
   )
 
-  return menuLevel > 1 ? link : <li className={cn(wrapperClass, { 'active': isActive })}>{link}</li>
+  return menuLevel > 1 ? link : <li className={clsx(wrapperClass, { active: isActive })}>{link}</li>
 }
 
 const AppMenu = () => {

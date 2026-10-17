@@ -8,13 +8,15 @@ const ThemeMode = () => {
     updateSettings({ theme: theme === 'light' ? 'dark' : 'light' })
   }
   return (
-    <div id="theme-toggler" className="sm:inline-flex hidden">
-      <div className="topbar-item">
-        <button className="topbar-link btn btn-icon size-8 rounded-full transition-[scale,background]" id="light-dark-mode" type="button" onClick={toggleTheme}>
-          <Icon icon="moon" className="absolute scale-100 rotate-0 topbar-link-icon transition-all duration-200 dark:scale-0 dark:-rotate-90" />
-          <Icon icon="sun" className="absolute scale-0 rotate-90 topbar-link-icon transition-all duration-200 dark:scale-100 dark:rotate-0" />
-        </button>
-      </div>
+    <div id="theme-toggler" className="topbar-item d-none d-sm-flex">
+      <button className="topbar-link" id="light-dark-mode" type="button" onClick={toggleTheme}>
+        <span className="topbar-link-icon mode-light-moon">
+          <Icon icon="sun" className="" />
+        </span>
+        <span className="topbar-link-icon mode-light-sun">
+          <Icon icon="moon" className="" />
+        </span>
+      </button>
     </div>
   )
 }

@@ -1,70 +1,60 @@
+import auth from '@/assets/images/auth.jpg'
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
 import { Link } from 'react-router'
+import { Card, CardBody, Col, Row } from 'react-bootstrap'
+import Forms from './components/Forms'
 
 
 const Page = () => {
   return (
-    <div className="min-h-screen">
-      <div className="flex h-full w-full">
-        <div className="hidden w-full md:block">
-          <div className="relative h-full overflow-hidden bg-[url('../images/auth.jpg')] bg-cover bg-center bg-no-repeat">
-            <div className="from-zinc-800 via-zinc-800/80 to-zinc-800/50 absolute inset-0 flex items-end justify-center bg-linear-to-t p-9" />
+    <div className="auth-box p-0 w-100">
+      <Row className="w-100 g-0">
+        <Col>
+          <div className="h-100 position-relative card-side-img rounded-0 overflow-hidden" style={{ backgroundImage: `url("${auth}")` }}>
+            <div className="p-4 card-img-overlay auth-overlay d-flex align-items-end justify-content-center" />
           </div>
-        </div>
-        <div className="min-w-full md:min-w-106 md:max-w-118">
-          <div className="card relative flex min-h-screen flex-col justify-between rounded-none p-12.5">
-            <div className="mb-7.5 flex flex-col items-center justify-center text-center">
-              <AuthLogo />
-            </div>
-            <div>
-              <h4 className="font-bold mb-2 text-default-900 text-lg text-center">Two-Factor Verification!</h4>
-              <p className="text-default-400 mx-auto mb-4 w-full text-center lg:w-72">We've emailed you a 6-digit verification code we sent to</p>
-              <div className="text-center text-2xl font-bold">******6789</div>
-              <form className="mt-9">
-                <div className="mb-6">
-                  <label htmlFor="userEmail" className="form-label">
-                    Enter your 6-digit code&nbsp;
-                    <span className="text-danger">*</span>
-                  </label>
-                  <div className="two-factor flex w-81 gap-2">
-                    <input type="text" className="form-input text-center" required />
-                    <input type="text" className="form-input text-center" required />
-                    <input type="text" className="form-input text-center" required />
-                    <input type="text" className="form-input text-center" required />
-                    <input type="text" className="form-input text-center" required />
-                    <input type="text" className="form-input text-center" required />
-                  </div>
+        </Col>
+        <div className="col-xl-auto">
+          <Card className="auth-box-form border-0 mb-0">
+            <CardBody className="min-vh-100 d-flex flex-column justify-content-center">
+              <div className="auth-brand mb-0 text-center">
+                <AuthLogo />
+              </div>
+              <div className="mt-auto text-center">
+                <h4 className="fw-bold">Two-Factor Verification!</h4>
+                <p className="text-muted mx-auto mb-5">Let’s get you signed in. Enter your PIN to continue</p>
+                <div className="text-center mb-4">
+                  <h5 className="text-muted fs-base mb-3">We've emailed you a 6-digit verification code we sent to</h5>
+                  <div className="fw-bold fs-3">******6789</div>
                 </div>
-                <div>
-                  <button type="submit" className="btn bg-primary w-full py-3 font-semibold text-white hover:bg-primary-hover">
-                    Confirm
-                  </button>
-                </div>
-              </form>
-              <p className="text-default-400 mt-7.5 text-center">
-                Don’t have a code?&nbsp;
-                <Link to="" className="text-primary font-semibold underline underline-offset-3">
-                  Resend
-                </Link>
-                &nbsp;or&nbsp;
-                <Link to="" className="text-primary font-semibold underline underline-offset-3">
-                  Call Us
-                </Link>
-              </p>
-              <p className="text-default-400 mt-7.5 text-center">
+                <Forms />
+                <p className="mt-4 text-muted text-center mb-4">
+                  Don’t have a code?&nbsp;
+                  <Link to="#" className="text-decoration-underline link-offset-2 fw-semibold">
+                    Resend
+                  </Link>
+                  &nbsp;or&nbsp;
+                  <Link to="#" className="text-decoration-underline link-offset-2 fw-semibold">
+                    Call Us
+                  </Link>
+                </p>
+              </div>
+              <p className="text-muted text-center mt-4 mb-0">
                 Return to&nbsp;
-                <Link to="/auth/split/sign-in" className="text-primary font-semibold underline underline-offset-4">
+                <Link to="/auth/split/sign-in" className="text-decoration-underline link-offset-3 fw-semibold">
                   Sign in
                 </Link>
               </p>
-            </div>
-            <p className="text-default-400 mt-7.5 text-center">
-              © {currentYear} {META_DATA.name} - by <span>{META_DATA.author}</span>
-            </p>
-          </div>
+              <p className="text-center text-muted mt-auto mb-0">
+                © {currentYear}&nbsp;
+                {META_DATA.name} — by&nbsp;
+                <span className="fw-bold">{META_DATA.author}</span>
+              </p>
+            </CardBody>
+          </Card>
         </div>
-      </div>
+      </Row>
     </div>
   )
 }

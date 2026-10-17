@@ -1,44 +1,44 @@
 import { CountUp } from '@/components/wrappers/CountUp'
 import Icon from '@/components/wrappers/Icon'
+import { Card, CardBody, Col, Row } from 'react-bootstrap'
 import { statCards } from './data'
 
 const StatCards = () => {
   return (
-    <>
-      <div className="grid xl:grid-cols-5 md:grid-cols-3 grid-cols-1 gap-base mb-5">
-        {statCards.map((card, idx) => (
-          <div className="card" key={idx}>
-            <div className="card-body">
-              <a href="" className="text-default-400 float-end -mt-1.25 text-xl">
+    <Row className="row-cols-xxl-5 row-cols-md-3 row-cols-1 align-items-center">
+      {statCards.map((card) => (
+        <Col key={card.id} lg={card.id === 5 ? true : undefined} md={card.id === 5 ? 'auto' : undefined}>
+          <Card>
+            <CardBody>
+              <a href="" className="text-muted float-end mt-n1 fs-xl">
                 <Icon icon="external-link" />
               </a>
-              <h5 title="Number of Tasks">{card.title}</h5>
-              <div className="flex items-center gap-2.5 my-5">
-                <div className="shrink-0">
-                  <span className="size-9 text-default-600 bg-light flex justify-center items-center rounded-full">
-                    <Icon icon={card.icon} className="size-6" />
+              <h5 title={card.title}>{card.title}</h5>
+              <div className="d-flex align-items-center gap-2 my-3">
+                <div className="avatar-md flex-shrink-0">
+                  <span className="avatar-title text-bg-light rounded-circle fs-22">
+                    <Icon icon={card.icon} />
                   </span>
                 </div>
-                <h3 className="text-xl text-default-800">
+                <h3 className="mb-0">
                   <CountUp end={typeof card.value === 'number' ? card.value : 0} prefix={card.prefix} suffix={card.suffix} decimals={Number.isInteger(card.value) ? 0 : 2} enableScrollSpy scrollSpyOnce />
                 </h3>
-                <span className={`badge ${card.badgeVariant} font-medium text-xs! ms-auto`}> {card.badgeText}</span>
+                <span className={`badge ${card.badgeVariant === 'light' ? 'text-bg-light' : `badge-soft-${card.badgeVariant}`} fw-medium ms-2 fs-xs ms-auto`}>{card.badgeText}</span>
               </div>
-              <p className="flex gap-1">
+              <p className="mb-0">
                 <span className={`text-${card.pointColor}`}>
-                  {' '}
                   <Icon icon="point-filled" />
                 </span>
-                <span className="text-nowrap text-default-400 flex-1">{card.description}</span>
+                <span className="text-nowrap text-muted">{card.description}</span>
                 <span className="float-end">
                   <b>{card.total}</b>
                 </span>
               </p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </>
+            </CardBody>
+          </Card>
+        </Col>
+      ))}
+    </Row>
   )
 }
 

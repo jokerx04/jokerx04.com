@@ -1,13 +1,12 @@
+import ltr from '@/assets/images/layouts/dir-ltr.png'
+import rtl from '@/assets/images/layouts/dir-rtl.png'
 import { useLayoutContext } from '@/context/useLayoutContext'
-import type { CustomizationOptionType } from '../index'
-
-import ltrImg from '@/assets/images/layouts/dir-ltr.png'
-import rtlImg from '@/assets/images/layouts/dir-rtl.png'
-import { cn } from '@/utils/helpers'
+import { Col, Row } from 'react-bootstrap'
+import { CustomizationOptionType } from '../index'
 
 const directionOptions: CustomizationOptionType[] = [
-  { value: 'ltr', image: ltrImg },
-  { value: 'rtl', image: rtlImg },
+  { value: 'ltr', image: ltr },
+  { value: 'rtl', image: rtl },
 ]
 
 const Dir = () => {
@@ -18,22 +17,23 @@ const Dir = () => {
   }
 
   return (
-    <div id="direction" className="p-5">
-      <h5 className="text-md mb-5 font-bold">Theme Direction</h5>
+    <div id="dir" className="p-3 border-bottom border-dashed">
+      <h5 className="mb-3 fw-bold">Layout Direction</h5>
 
-      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-base">
+      <Row className="g-3">
         {directionOptions.map((option) => (
-          <div className="card-radio" key={option.value} id={`direction-${option.value}`}>
-            <input className="hidden" type="radio" name="data-layout-direction" id={`layout-direction-${option.value}`} checked={dir === option.value} onChange={() => handleDirectionChange(option.value)} />
+          <Col xs={4} key={option.value}>
+            <div className="form-check sidebar-setting card-radio">
+              <input className="form-check-input" type="radio" name="dir" id={`layout-dir-${option.value}`} checked={dir === option.value} onChange={() => handleDirectionChange(option.value)} />
+              <label className="form-check-label p-0 w-100" htmlFor={`layout-dir-${option.value}`}>
+                <img src={option.image} alt={`${option.value} layout`} className="img-fluid" />
+              </label>
+            </div>
 
-            <label className="form-label" htmlFor={`layout-direction-${option.value}`}>
-              <img src={option.image} alt="direction img" className={cn('flex size-full rounded-md', option.value === 'rtl' ? 'scale-x-[-1]' : '')} />
-            </label>
-
-            <h5 className="text-md text-default-600 mt-2.5 text-center">{option.value.toUpperCase()} Mode</h5>
-          </div>
+            <h5 className="fs-sm text-center text-muted mt-2 mb-0">{option.value.toUpperCase()}</h5>
+          </Col>
         ))}
-      </div>
+      </Row>
     </div>
   )
 }

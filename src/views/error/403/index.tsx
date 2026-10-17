@@ -1,47 +1,45 @@
+import auth from '@/assets/images/auth.jpg'
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
 import { Link } from 'react-router'
+import { Card, CardBody, Col, Row } from 'react-bootstrap'
 
 
 const Page = () => {
   return (
     <>
-      <div className="flex min-h-screen items-center">
-        <div className="container">
-          <div className="flex justify-center lg:p-0 p-12.5">
-            <div className="2xl:w-4/10 md:w-1/2 sm:w-2/3 w-full">
-              <div className="p-7.5">
-                <div className="mb-4 flex flex-col items-center justify-center text-center">
+      <div className="auth-box p-0 w-100">
+        <Row className="w-100 g-0">
+          <Col>
+            <div className="h-100 position-relative card-side-img rounded-0 overflow-hidden" style={{ backgroundImage: `url("${auth}")` }}>
+              <div className="p-4 card-img-overlay auth-overlay d-flex align-items-end justify-content-center" />
+            </div>
+          </Col>
+          <div className="col-xl-auto">
+            <Card className="auth-box-form border-0 mb-0">
+              <CardBody className="min-vh-100 d-flex flex-column justify-content-center">
+                <div className="auth-brand text-center">
                   <AuthLogo />
                 </div>
-                <div className="p-9 text-center">
+                <div className="p-2 text-center mt-auto">
                   <div className="error-glitch" data-text={403}>
                     403
                   </div>
-                  <h3 className="mb-2 text-xl font-bold uppercase">Permission Required</h3>
-                  <p className="text-default-400 mx-auto">
-                    You don’t have the required permissions to view this page.
-                    <br />
-                    Please contact your administrator or try a different account.
-                  </p>
-                  <div className="mt-9 flex items-center justify-center gap-1.5">
-                    <Link to="/" className="btn bg-primary text-white hover:bg-primary-hover">
-                      {' '}
-                      Go to Dashboard
-                    </Link>
-                    <Link to="" className="btn border-secondary text-secondary hover:bg-secondary hover:text-white">
-                      {' '}
-                      Back{' '}
-                    </Link>
-                  </div>
+                  <h3 className="fw-bold text-uppercase">Forbidden</h3>
+                  <p className="text-muted">You don't have permission to access this resource.</p>
+                  <Link to="/" className="btn btn-primary mt-3 rounded-pill">
+                    Go Home
+                  </Link>
                 </div>
-              </div>
-              <p className="text-default-400 mt-7.5 text-center">
-                © {currentYear}&nbsp;{META_DATA.name} - by&nbsp;<span>{META_DATA.author}</span>
-              </p>
-            </div>
+                <p className="text-center text-muted mt-auto mb-0">
+                  © {currentYear}
+                  {META_DATA.name} — by
+                  <span className="fw-bold">{META_DATA.author}</span>
+                </p>
+              </CardBody>
+            </Card>
           </div>
-        </div>
+        </Row>
       </div>
     </>
   )

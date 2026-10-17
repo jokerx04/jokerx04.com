@@ -1,45 +1,52 @@
-import authImg from '@/assets/images/auth.jpg'
+import auth from '@/assets/images/auth.jpg'
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
 import { Link } from 'react-router'
-import SignUpForm from './components/SignUpForm'
+import { Card, CardBody, Col, Container, Row } from 'react-bootstrap'
+import Forms from './components/Forms'
 
 
 const Page = () => {
   return (
-    <div className="flex min-h-screen items-center p-12.5">
-      <div className="container">
-        <div className="flex justify-center">
-          <div className="xl:w-5/6">
-            <div className="card rounded-2xl">
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="card-body relative p-12.5">
-                  <div className="mb-7.5 flex flex-col items-center justify-center text-center">
-                    <AuthLogo />
-                    <h4 className="text-default-900 mt-7.5 mb-2 text-base font-bold">Create New Account</h4>
-                    <p className="text-default-400 mx-auto w-full lg:w-3/4">Let’s get you started. Create your account by entering your details below.</p>
-                  </div>
-                  <SignUpForm />
-                  <p className="text-default-400 mt-7.5 text-center">
-                    Already have an account?&nbsp;
-                    <Link to="/auth/card/sign-in" className="text-primary font-semibold underline underline-offset-4">
-                      Login
-                    </Link>
-                  </p>
+    <>
+      <div className="auth-box d-flex align-items-center">
+        <Container fluid="xxl">
+          <Row className="align-items-center justify-content-center">
+            <Col xl={10}>
+              <Card className="rounded-4">
+                <Row className="justify-content-between g-0">
+                  <Col lg={6}>
+                    <CardBody>
+                      <div className="auth-brand text-center mb-4">
+                        <AuthLogo />
+                        <h4 className="fw-bold mt-4">Create New Account</h4>
+                        <p className="text-muted w-lg-75 mx-auto">Let’s get you started. Create your account by entering your details below.</p>
+                      </div>
 
-                  <p className="text-default-400 mt-7.5 text-center">
-                    © {currentYear}&nbsp;{META_DATA.name} - by&nbsp;<span>{META_DATA.author}</span>
-                  </p>
-                </div>
-                <div className="relative hidden h-full overflow-hidden rounded-e-2xl bg-cover bg-center object-cover lg:block" style={{ backgroundImage: `url("${authImg}")` }}>
-                  <div className="absolute inset-0 flex items-end justify-center rounded-e-sm p-9 [background:linear-gradient(to_top,#313a46,rgba(49,58,70,.8),rgba(49,58,70,.5))]" />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                      <Forms />
+                      <p className="text-muted text-center mt-4 mb-0">
+                        Already have an account?&nbsp;
+                        <Link to="/auth/card/sign-in" className="text-decoration-underline link-offset-3 fw-semibold">
+                          Login
+                        </Link>
+                      </p>
+                      <p className="text-center text-muted mt-4 mb-0">
+                        © {currentYear} {META_DATA.name} — by <span className="fw-bold">{META_DATA.author}</span>
+                      </p>
+                    </CardBody>
+                  </Col>
+                  <Col lg={6} className="d-none d-lg-block">
+                    <div className="h-100 position-relative card-side-img rounded-end overflow-hidden" style={{ backgroundImage: `url(${auth})` }}>
+                      <div className="p-4 card-img-overlay rounded-end auth-overlay d-flex align-items-end justify-content-center" />
+                    </div>
+                  </Col>
+                </Row>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </div>
-    </div>
+    </>
   )
 }
 

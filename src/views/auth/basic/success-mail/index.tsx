@@ -1,40 +1,46 @@
-import checkMark from '@/assets/images/checkmark.png'
+import icon from '@/assets/images/checkmark.png'
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
+import { Button, Card, Col, Container, Form, Row } from 'react-bootstrap'
 
 
 const Page = () => {
   return (
-    <div className="flex min-h-screen items-center p-12.5">
-      <div className="container">
-        <div className="flex justify-center px-2.5">
-          <div className="2xl:w-4/10 md:w-1/2 sm:w-2/3 w-full">
-            <div className="mb-3 flex flex-col items-center justify-center text-center">
-              <AuthLogo />
-              <p className="text-default-400 mx-auto mt-6 mb-4 w-full lg:w-3/4">Awesome! You’ve read the important message like a pro.</p>
-            </div>
-            <div className="card p-7.5 rounded-2xl">
-              <form>
-                <div className="mt-3 mb-9">
-                  <div className="bg-default-50 border-light mx-auto flex size-20 items-center justify-center rounded-full border border-dashed">
-                    <img src={checkMark} alt="checkmark" className="size-16" />
+    <>
+      <div className="auth-box overflow-hidden align-items-center d-flex">
+        <Container>
+          <Row className="justify-content-center">
+            <Col xxl={4} md={6} sm={8}>
+              <div className="auth-brand text-center mb-4">
+                <AuthLogo />
+                <p className="text-muted w-lg-75 mt-3 mx-auto">Awesome! You&apos;ve read the important message like a pro.</p>
+              </div>
+              <Card className="p-4">
+                <Form>
+                  <div className="mb-4">
+                    <div className="avatar-xxl mx-auto mt-2">
+                      <div className="avatar-title bg-light-subtle border border-light border-dashed rounded-circle">
+                        <img src={icon} alt="dark logo" height={64} />
+                      </div>
+                    </div>
                   </div>
-                </div>
-                <h4 className="mb-9 text-center text-lg font-bold">Well Done! Email verified Successfully</h4>
-                <div>
-                  <button type="submit" className="btn bg-primary w-full py-3 font-semibold text-white hover:bg-primary-hover">
-                    Back to dashboard
-                  </button>
-                </div>
-              </form>
-            </div>
-            <p className="text-default-400 mt-7.5 text-center">
-              © {currentYear}&nbsp;{META_DATA.name} - by&nbsp;<span>{META_DATA.author}</span>
-            </p>
-          </div>
-        </div>
+                  <h4 className="fw-bold text-center mb-4">Well Done! Email verified Successfully</h4>
+                  <div className="d-grid">
+                    <Button variant="primary" type="submit" className="fw-semibold py-2">
+                      Back to Dashboard
+                    </Button>
+                  </div>
+                </Form>
+              </Card>
+              <p className="text-center text-muted mt-4 mb-0">
+                © {currentYear} {META_DATA.name} — by
+                <span className="fw-semibold">&nbsp;{META_DATA.author}</span>
+              </p>
+            </Col>
+          </Row>
+        </Container>
       </div>
-    </div>
+    </>
   )
 }
 

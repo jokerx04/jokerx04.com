@@ -1,48 +1,55 @@
-import authImg from '@/assets/images/auth.jpg'
-import deleteImg from '@/assets/images/delete.png'
+import auth from '@/assets/images/auth.jpg'
+import deleteIcon from '@/assets/images/delete.png'
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
+import { Button, Card, CardBody, Col, Container, Row } from 'react-bootstrap'
 
 
 const Page = () => {
   return (
-    <div className="flex min-h-screen items-center p-12.5">
-      <div className="container">
-        <div className="flex justify-center">
-          <div className="xl:w-5/6">
-            <div className="card rounded-2xl">
-              <div className="grid grid-cols-1 lg:grid-cols-2">
-                <div className="card-body relative p-12.5">
-                  <div className="mb-7.5 flex flex-col items-center justify-center text-center">
-                    <AuthLogo />
-                  </div>
-                  <form>
-                    <div className="mt-3 mb-9">
-                      <div className="bg-default-50 border-light mx-auto flex size-20 items-center justify-center rounded-full border border-dashed">
-                        <img src={deleteImg} alt="delete" className="size-16 object-contain" />
+    <>
+      <div className="auth-box d-flex align-items-center">
+        <Container fluid="xxl">
+          <Row className="align-items-center justify-content-center">
+            <Col xl={10}>
+              <Card className="rounded-4">
+                <Row className="justify-content-between g-0">
+                  <Col lg={6}>
+                    <CardBody>
+                      <div className="auth-brand text-center mb-4">
+                        <AuthLogo />
                       </div>
+                      <div className="mb-4">
+                        <div className="avatar-xxl mx-auto mt-2">
+                          <div className="avatar-title bg-light-subtle border border-light border-dashed rounded-circle">
+                            <img src={deleteIcon} alt="dark logo" height={64} />
+                          </div>
+                        </div>
+                      </div>
+                      <h4 className="fw-bold text-center mb-3">Account Deactivated</h4>
+                      <p className="text-muted text-center mb-4">Your account is currently inactive. Reactivate now to regain access to all features and opportunities.</p>
+                      <div className="d-grid">
+                        <Button variant="primary" type="submit" className="fw-semibold py-2">
+                          Reactivate Now
+                        </Button>
+                      </div>
+                      <p className="text-center text-muted mt-4 mb-0">
+                        © {currentYear} {META_DATA.name} — by <span className="fw-bold">{META_DATA.author}</span>
+                      </p>
+                    </CardBody>
+                  </Col>
+                  <Col lg={6} className="d-none d-lg-block">
+                    <div className="h-100 position-relative card-side-img rounded-end overflow-hidden" style={{ backgroundImage: `url(${auth})` }}>
+                      <div className="p-4 card-img-overlay rounded-end auth-overlay d-flex align-items-end justify-content-center" />
                     </div>
-                    <h4 className="mb-6 text-center text-lg font-bold">Account Deactivated</h4>
-                    <p className="text-default-400 mb-9 text-center">Your account is currently inactive. Reactivate now to regain access to all features and opportunities.</p>
-                    <div>
-                      <button type="submit" className="btn bg-primary w-full py-3 font-semibold text-white hover:bg-primary-hover">
-                        Reactivate Now
-                      </button>
-                    </div>
-                  </form>
-                  <p className="text-default-400 mt-7.5 text-center">
-                    &copy; {currentYear} {META_DATA.name} - by <span>{META_DATA.author}</span>
-                  </p>
-                </div>
-                <div className="relative hidden h-full overflow-hidden rounded-e-2xl bg-cover bg-center object-cover lg:block" style={{ backgroundImage: `url(${authImg})` }}>
-                  <div className="absolute inset-0 flex items-end justify-center rounded-e-sm p-9 [background:linear-gradient(to_top,#313a46,rgba(49,58,70,.8),rgba(49,58,70,.5))]"></div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+                  </Col>
+                </Row>
+              </Card>
+            </Col>
+          </Row>
+        </Container>
       </div>
-    </div>
+    </>
   )
 }
 

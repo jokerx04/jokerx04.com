@@ -1,3 +1,4 @@
+import { Col, Row } from 'react-bootstrap'
 import Discussions from './components/Discussions'
 import ProjectPerformance from './components/ProjectPerformance'
 import ProjectUpdates from './components/ProjectUpdates'
@@ -9,18 +10,28 @@ import WelcomeRevenueProgress from './components/WelcomeRevenueProgress'
 const Page = () => {
   return (
     <>
-      <div className="card my-5">
-        <WelcomeRevenueProgress />
-      </div>
+      <Row className="mt-3">
+        <Col xs={12}>
+          <WelcomeRevenueProgress />
+        </Col>
+      </Row>
+
       <StatCards />
-      <div className="grid xl:grid-cols-3 grid-cols-1 gap-base">
-        <div className="flex flex-col gap-base">
+
+      <Row>
+        <Col xxl={4}>
           <QuarterlyReports />
           <ProjectPerformance />
-        </div>
-        <ProjectUpdates />
-        <Discussions />
-      </div>
+        </Col>
+
+        <Col xxl={4} xl={6}>
+          <ProjectUpdates />
+        </Col>
+
+        <Col xxl={4} xl={6}>
+          <Discussions />
+        </Col>
+      </Row>
     </>
   )
 }

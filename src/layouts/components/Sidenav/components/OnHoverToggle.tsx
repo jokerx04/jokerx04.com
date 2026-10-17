@@ -8,11 +8,9 @@ const OnHoverToggle = () => {
   }
 
   return (
-    <div className="h-topbar justify absolute end-5 top-0 flex items-center">
-      <button id="button-hover-toggle" onClick={handleToggle}>
-        <span className="btn-on-hover-icon"></span>
-      </button>
-    </div>
+    <button className="button-on-hover" onClick={handleToggle}>
+      <span className="btn-on-hover-icon" />
+    </button>
   )
 }
 

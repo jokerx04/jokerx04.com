@@ -10,7 +10,6 @@ export type MenuItemType = {
     className: string
     text: string
   }
-  parentKey?: string
   target?: string
   isDisabled?: boolean
   isSpecial?: boolean

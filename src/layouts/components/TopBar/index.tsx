@@ -1,8 +1,10 @@
-
 import useScrollEvent from '@/hooks/useScrollEvent'
 import clsx from 'clsx'
-import CustomizerToggler from './components/CustomizerToggler'
+import { Link } from 'react-router'
+import { Container } from 'react-bootstrap'
 
+import AppsDropdownRounded from './components/AppsDropdownRounded'
+import CustomizerToggler from './components/CustomizerToggler'
 import FullscreenToggler from './components/FullscreenToggler'
 import LanguageSelector from './components/LanguageSelector'
 
@@ -10,43 +12,43 @@ import MegamenuApps from './components/MegamenuApps'
 
 import MegamenuHeader from './components/MegamenuHeader'
 
+import MenuToggler from './components/MenuToggler'
 import MonochromeToggler from './components/MonochromeToggler'
 import NotificationDropdownAlert from './components/NotificationDropdownAlert'
 
 import SearchBox from './components/SearchBox'
 
 import SimpleMessagesDropdown from './components/SimpleMessagesDropdown'
+import SimpleUserDropdown from './components/SimpleUserDropdown'
 
 import ThemeToggler from './components/ThemeToggler'
 
 import logoBlack from '@/assets/images/logo-black.png'
 import logoSm from '@/assets/images/logo-sm.png'
 import logo from '@/assets/images/logo.png'
-import { Link } from 'react-router'
-
-import AppsDropdownRounded from './components/AppsDropdownRounded'
-
-import MenuToggler from './components/MenuToggler'
-import SimpleUserDropdown from './components/SimpleUserDropdown'
 
 const TopBar = () => {
   const { scrollY } = useScrollEvent()
-
   return (
-    <header className={clsx('app-header', { 'topbar-active': scrollY > 50 })}>
-      <div className="container-fluid flex items-center justify-between">
-        <div className="flex items-center gap-2.5">
+    <header className={clsx('app-topbar', { 'topbar-active': scrollY > 50 })}>
+      <Container fluid className="topbar-menu">
+        <div className="d-flex align-items-center gap-2">
           <div className="logo-topbar">
-            <Link to="/" className="logo-box">
-              <div className="logo-light">
-                <img src={logo} className="logo-lg h-6" width={94.47} height={22} alt="Light logo" />
-                <img src={logoSm} className="logo-sm h-6" height={26} width={24.48} alt="Small logo" />
-              </div>
-
-              <div className="logo-dark">
-                <img src={logoBlack} className="logo-lg h-6" height={22} width={94.47} alt="Dark logo" />
-                <img src={logoSm} className="logo-sm h-6" height={26} width={24.48} alt="Small logo" />
-              </div>
+            <Link to="/" className="logo-light">
+              <span className="logo-lg">
+                <img src={logo} alt="logo" />
+              </span>
+              <span className="logo-sm">
+                <img src={logoSm} alt="small logo" />
+              </span>
+            </Link>
+            <Link to="/" className="logo-dark">
+              <span className="logo-lg">
+                <img src={logoBlack} alt="dark logo" />
+              </span>
+              <span className="logo-sm">
+                <img src={logoSm} alt="small logo" />
+              </span>
             </Link>
           </div>
 
@@ -58,7 +60,7 @@ const TopBar = () => {
 
           <MegamenuApps />
         </div>
-        <div className="flex items-center gap-2.5">
+        <div className="d-flex align-items-center gap-2">
           <ThemeToggler />
 
           <AppsDropdownRounded />
@@ -77,7 +79,7 @@ const TopBar = () => {
 
           <SimpleUserDropdown />
         </div>
-      </div>
+      </Container>
     </header>
   )
 }
