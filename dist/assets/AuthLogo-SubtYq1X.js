@@ -1,1 +1,0 @@
-import{j as s,L as a,m as o,n as r}from"./index-BNu8Q6ct.js";const e=()=>s.jsx(s.Fragment,{children:s.jsxs(a,{to:"/",className:"auth-logo",children:[s.jsx("img",{src:o,alt:"logo",className:"flex dark:hidden"}),s.jsx("img",{src:r,alt:"dark logo",className:"hidden dark:flex"})]})});export{e as A};
