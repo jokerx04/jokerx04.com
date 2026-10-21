@@ -11,7 +11,7 @@ const AppLogo = () => {
     <Link to="/" className="logo">
       <span className="logo logo-light">
         <span className="logo-lg">
-          <img src={logo} alt="logo" />
+          <img src={logo} alt="logo" className="h-6 w-auto object-contain" />
         </span>
         <span className="logo-sm">
           <img src={logoSm} alt="small logo" />
@@ -19,7 +19,7 @@ const AppLogo = () => {
       </span>
       <span className="logo logo-dark">
         <span className="logo-lg">
-          <img src={logoBlack} alt="dark logo" />
+          <img src={logoBlack} alt="dark logo" className="h-6 w-auto object-contain" />
         </span>
         <span className="logo-sm">
           {/* <img src={logoSm} alt="small logo" /> */}
