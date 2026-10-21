@@ -158,6 +158,7 @@
 }
 
 .logo-box .logo-lg img {
+    height: var(--logo-lg-height);
     width: auto !important;
     object-fit: contain;
 }
