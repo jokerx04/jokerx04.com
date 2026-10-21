@@ -1,1 +1,0 @@
-import{j as o,L as s,K as a,O as l}from"./index-BgDHJlV0.js";const t=()=>o.jsxs(o.Fragment,{children:[o.jsx(s,{to:"/",className:"logo-dark",children:o.jsx("img",{src:a,alt:"dark logo"})}),o.jsx(s,{to:"/",className:"logo-light",children:o.jsx("img",{src:l,alt:"logo"})})]});export{t as A};
