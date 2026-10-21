@@ -1,6 +1,6 @@
 html[data-skin="flat"] {
-    --font-body: "Nunito", sans-serif;
-    --font-secondary: "Nunito", sans-serif;
+    --font-body: Pretendard-Regular, "Nunito", sans-serif;
+    --font-secondary: Pretendard-Regular, "Nunito", sans-serif;
 
     --text-body: 0.875rem;
     --color-body-bg: #ffffff;

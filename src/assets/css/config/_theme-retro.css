@@ -1,5 +1,5 @@
 html[data-skin="retro"] {
-    --font-body: "Roboto Mono", monospace;
+    --font-body: Pretendard-Regular, "Roboto Mono", monospace;
     --font-secondary: "Roboto Mono", monospace;
 
     --text-body: 13px;

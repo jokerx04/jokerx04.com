@@ -1,6 +1,6 @@
 html[data-skin="modern"] {
-    --font-body: "Poppins", sans-serif;
-    --font-secondary: "Poppins", sans-serif;
+    --font-body: Pretendard-Regular, "Poppins", sans-serif;
+    --font-secondary: Pretendard-Regular, "Poppins", sans-serif;
 
     --text-body: 13px;
     --color-body-bg: #f7f6f7;

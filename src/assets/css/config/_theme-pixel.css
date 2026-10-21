@@ -1,6 +1,6 @@
 html[data-skin="pixel"] {
-    --font-body: "Momo Trust Sans", sans-serif;
-    --font-secondary: "Momo Trust Sans", sans-serif;
+    --font-body: Pretendard-Regular, "Momo Trust Sans", sans-serif;
+    --font-secondary: Pretendard-Regular, "Momo Trust Sans", sans-serif;
 
     --text-body: 13px;
     --color-body-bg: #f5f6fa;

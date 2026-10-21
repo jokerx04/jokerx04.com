@@ -1,6 +1,6 @@
 html[data-skin="minimal"] {
-    --font-body: "IBM Plex Sans", sans-serif;
-    --font-secondary: "IBM Plex Sans", sans-serif;
+    --font-body: Pretendard-Regular, "IBM Plex Sans", sans-serif;
+    --font-secondary: Pretendard-Regular, "IBM Plex Sans", sans-serif;
 
     --text-body: 0.875rem;
     --color-body-bg: #ffffff;

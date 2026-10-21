@@ -1,6 +1,6 @@
 html[data-skin="material"] {
-    --font-body: 'Roboto', sans-serif;
-    --font-secondary: 'Roboto', sans-serif;
+    --font-body: Pretendard-Regular, 'Roboto', sans-serif;
+    --font-secondary: Pretendard-Regular, 'Roboto', sans-serif;
 
     --text-body: 14px;
     --color-body-bg: #f3f3f4;

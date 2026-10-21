@@ -1,6 +1,6 @@
 html[data-skin="neon"] {
-    --font-body: "Hanken Grotesk", sans-serif;
-    --font-secondary: "Hanken Grotesk", sans-serif;
+    --font-body: Pretendard-Regular, "Hanken Grotesk", sans-serif;
+    --font-secondary: Pretendard-Regular, "Hanken Grotesk", sans-serif;
 
     --text-body: 0.875rem;
     --color-body-bg: #f1f1f5;

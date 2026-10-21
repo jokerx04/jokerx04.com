@@ -1,6 +1,6 @@
 html[data-skin="luxe"] {
-    --font-body: "TikTok Sans", sans-serif;
-    --font-secondary: "TikTok Sans", sans-serif;
+    --font-body: Pretendard-Regular, "TikTok Sans", sans-serif;
+    --font-secondary: Pretendard-Regular, "TikTok Sans", sans-serif;
 
     --text-body: 13px;
     --color-body-bg: #f0f0f5;

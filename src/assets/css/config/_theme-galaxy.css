@@ -1,6 +1,6 @@
 html[data-skin="galaxy"] {
-    --font-body: "Play", sans-serif;
-    --font-secondary: "Play", sans-serif;
+    --font-body: Pretendard-Regular, "Play", sans-serif;
+    --font-secondary: Pretendard-Regular, "Play", sans-serif;
 
     --text-body: 13px;
     --color-body-bg: #f6f8fa;
