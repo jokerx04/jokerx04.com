@@ -1,0 +1,93 @@
+name: jokerx04.com 빌드 및 배포
+
+on:
+  workflow_dispatch: # 수동 실행
+
+permissions:
+  contents: write    # 코드 푸시 권한
+  pages: write       # Pages 배포 권한
+  id-token: write
+
+# 1. 워크플로우 단위 동시성 제어: 새 수동 실행이 들어오면 이전 빌드 작업을 즉시 취소하고 최신 것만 진행
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Install dependencies
+        run: npm install --legacy-peer-deps
+
+      # sitemap.xml 생성
+      - name: Generate Sitemap
+        run: |
+          mkdir -p public
+          echo '<?xml version="1.0" encoding="UTF-8"?>' > public/sitemap.xml
+          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> public/sitemap.xml
+          
+          if [ -d "page" ]; then
+            find page -name "*.html" -type f | while read file; do
+              echo "  <url>" >> public/sitemap.xml
+              echo "    <loc>https://jokerx04.com/$file</loc>" >> public/sitemap.xml
+              echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> public/sitemap.xml
+              echo "  </url>" >> public/sitemap.xml
+            done
+          fi
+          
+          echo '</urlset>' >> public/sitemap.xml
+
+      # React 빌드
+      - name: Run Build
+        run: npm run build
+
+      # GitHub Pages SPA 새로고침 지원용 404.html 복제
+      - name: Create 404.html for GitHub Pages SPA routing
+        run: cp dist/index.html dist/404.html
+
+      # dist 및 sitemap 커밋 & 푸시
+      - name: Commit and push changes
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+
+          git add -f dist public/sitemap.xml
+
+          if ! git diff --staged --quiet; then
+            git commit -m "chore: automated build update dist & sitemap [skip ci]"
+            git fetch origin main
+            git rebase origin/main
+            git push origin main
+          fi
+
+      # GitHub Pages 배포 아티팩트 업로드
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: 'dist'
+
+  # 2. 배포 Job 분리: Pages 배포 전용 concurrency 격리 적용
+  deploy:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    runs-on: ubuntu-latest
+    needs: build
+    concurrency:
+      group: "pages"
+      cancel-in-progress: false
+    steps:
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
