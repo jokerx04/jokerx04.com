@@ -6,9 +6,9 @@
         local('NanumGothic Regular'),
         url('https://t1.daumcdn.net/tistory_admin/static/font/nanum-gothic/nanum-gothic-regular.woff2') format('woff2'),
         url('https://t1.daumcdn.net/tistory_admin/static/font/nanum-gothic/nanum-gothic-regular.woff') format('woff');
-    }
+}
     
-    @font-face {
+@font-face {
     font-family: 'Nanum Gothic';
     font-style: normal;
     font-weight: 700;
@@ -102,9 +102,9 @@
     font-weight: normal;
     src: local(Pretendard-Bold);
     src: local("☺"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Bold.woff2) format("woff2"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Bold.woff) format("woff"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Bold.otf) format("opentype");
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Bold.woff2') format("woff2"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Bold.woff') format("woff"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Bold.otf') format("opentype");
 }
 
 @font-face {
@@ -112,9 +112,9 @@
     font-weight: normal;
     src: local(Pretendard-Light);
     src: local("☺"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Light.woff2) format("woff2"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Light.woff) format("woff"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Light.otf) format("opentype");
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Light.woff2') format("woff2"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Light.woff') format("woff"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Light.otf') format("opentype");
 }
 
 @font-face {
@@ -122,9 +122,9 @@
     font-weight: normal;
     src: local(Pretendard-Medium);
     src: local("☺"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Medium.woff2) format("woff2"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Medium.woff) format("woff"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Medium.otf) format("opentype");
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Medium.woff2') format("woff2"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Medium.woff') format("woff"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Medium.otf') format("opentype");
 }
 
 @font-face {
@@ -132,9 +132,9 @@
     font-weight: normal;
     src: local(Pretendard-Regular);
     src: local("☺"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Regular.woff2) format("woff2"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Regular.woff) format("woff"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Regular.otf) format("opentype");
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Regular.woff2') format("woff2"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Regular.woff') format("woff"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Regular.otf') format("opentype");
 }
 
 @font-face {
@@ -142,9 +142,9 @@
     font-weight: normal;
     src: local(Pretendard-SemiBold);
     src: local("☺"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-SemiBold.woff2) format("woff2"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-SemiBold.woff) format("woff"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-SemiBold.otf) format("opentype");
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-SemiBold.woff2') format("woff2"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-SemiBold.woff') format("woff"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-SemiBold.otf') format("opentype");
 }
 
 @font-face {
@@ -152,7 +152,7 @@
     font-weight: normal;
     src: local(Pretendard-Black);
     src: local("☺"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Black.woff2) format("woff2"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Black.woff) format("woff"),
-        url(//t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Black.otf) format("opentype");
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Black.woff2') format("woff2"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Black.woff') format("woff"),
+        url('https://t1.daumcdn.net/tistory_admin/frontend/assets/fonts/pretendard/Pretendard-Black.otf') format("opentype");
 }

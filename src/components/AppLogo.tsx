@@ -3,6 +3,8 @@ import logoBlack from '@/assets/images/logo-black.png'
 import logoSm from '@/assets/images/logo-sm.png'
 import logo from '@/assets/images/logo.png'
 
+import logoBlackSm from '@/assets/images/logo-black-sm.png'
+
 const AppLogo = () => {
   return (
     <>
@@ -20,7 +22,7 @@ const AppLogo = () => {
           <img src={logoBlack} width={94.47} height={22} alt="dark logo" />
         </span>
         <span className="logo-sm">
-          <img src={logoSm} height={26} width={24.48} alt="small logo" />
+          <img src={logoBlackSm} height={26} width={24.48} alt="small logo" />
         </span>
       </span>
     </>
