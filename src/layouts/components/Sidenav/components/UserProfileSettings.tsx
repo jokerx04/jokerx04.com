@@ -3,48 +3,47 @@ import user1 from '@/assets/images/users/user-1.jpg'
 import Icon from '@/components/wrappers/Icon'
 import { META_DATA } from '@/config/constants'
 import { Link } from 'react-router'
-import { Dropdown, DropdownHeader, DropdownItem, DropdownMenu, DropdownToggle } from 'react-bootstrap'
 
 const UserProfileSettings = () => {
   return (
-    <div id="user-profile-settings" className="sidenav-user" style={{ background: `url(${bgPattern})` }}>
-      <div className="d-flex justify-content-between align-items-center">
+    <div id="user-profile-settings" className={`sidenav-user p-5`} style={{ backgroundImage: `url("${bgPattern}")` }}>
+      <div className="flex items-center justify-between">
         <div>
           <Link to="" className="link-reset">
-            <img src={user1} alt="user-image" className="rounded-circle mb-2 avatar-md" />
-            <span className="sidenav-user-name fw-bold">{META_DATA.username}</span>
-            <span className="fs-12 fw-semibold" data-lang="user-role">
+            <img src={user1} alt="user-image" className="mb-3 size-9 rounded-full" />
+            <span className="sidenav-user-name block font-bold text-nowrap">{META_DATA.username}</span>
+            <span className="text-xs font-semibold" data-lang="user-role">
               Art Director
             </span>
           </Link>
         </div>
         <div>
-          <Dropdown align="end">
-            <DropdownToggle as="a" href="#" className="drop-arrow-none link-reset sidenav-user-set-icon" aria-haspopup="false" aria-expanded={false}>
-              <Icon icon="settings" className="fs-24 align-middle ms-1" />
-            </DropdownToggle>
-            <DropdownMenu>
-              <DropdownHeader className="noti-title">
-                <h6 className="text-overflow m-0">Welcome back!</h6>
-              </DropdownHeader>
-              <DropdownItem href="">
-                <Icon icon="user-circle" className="me-1 fs-lg align-middle" />
+          <div className="hs-dropdown relative inline-flex [--placement:bottom-right]">
+            <button className="cursor-pointer" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+              <Icon icon="settings" className="ms-1 size-6 align-middle" />
+            </button>
+            <div className="hs-dropdown-menu" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-with-icons">
+              <div className="py-2 px-3.5">
+                <h6 className="text-xs">Welcome back 👋!</h6>
+              </div>
+              <Link to="" className="dropdown-item">
+                <Icon icon="user-circle" className="me-1 align-middle text-lg" />
                 <span className="align-middle">Profile</span>
-              </DropdownItem>
-              <DropdownItem href="">
-                <Icon icon="settings-2" className="me-1 fs-lg align-middle" />
+              </Link>
+              <Link to="" className="dropdown-item">
+                <Icon icon="settings-2" className="me-1 align-middle text-lg" />
                 <span className="align-middle">Account Settings</span>
-              </DropdownItem>
-              <DropdownItem href="auth/lock-screen">
-                <Icon icon="lock" className="me-1 fs-lg align-middle" />
+              </Link>
+              <Link to="/auth/lock-screen" className="dropdown-item">
+                <Icon icon="lock" className="me-1 align-middle text-lg" />
                 <span className="align-middle">Lock Screen</span>
-              </DropdownItem>
-              <DropdownItem href="" className="text-danger fw-semibold">
-                <Icon icon="logout" className="me-1 fs-lg align-middle" />
+              </Link>
+              <Link to="" className="dropdown-item text-danger">
+                <Icon icon="logout" className="me-1 align-middle text-lg" />
                 <span className="align-middle">Log Out</span>
-              </DropdownItem>
-            </DropdownMenu>
-          </Dropdown>
+              </Link>
+            </div>
+          </div>
         </div>
       </div>
     </div>

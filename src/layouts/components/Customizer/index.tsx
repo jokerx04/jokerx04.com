@@ -3,7 +3,6 @@ import Icon from '@/components/wrappers/Icon'
 import { SimpleBar } from '@/components/wrappers/SimpleBar'
 import { META_DATA } from '@/config/constants'
 import { useLayoutContext } from '@/context/useLayoutContext'
-import { Button, Col, Offcanvas, Row } from 'react-bootstrap'
 import Dir from './components/Dir'
 import Orientation from './components/Orientation'
 import Position from './components/Position'
@@ -12,7 +11,7 @@ import SidenavSize from './components/SidenavSize'
 import SidenavUser from './components/SidenavUser'
 import Skin from './components/Skin'
 import Theme from './components/Theme'
-import TopbarColor from './components/TopbarColor'
+import TopBarColor from './components/TopbarColor'
 import Width from './components/Width'
 
 export type CustomizationOptionType = {
@@ -21,57 +20,60 @@ export type CustomizationOptionType = {
 }
 
 const Customizer = () => {
-  const { isCustomizerOpen, toggleCustomizer, reset } = useLayoutContext()
+  const { reset } = useLayoutContext()
 
   return (
-    <Offcanvas show={isCustomizerOpen} onHide={toggleCustomizer} placement="end" className="overflow-hidden" tabIndex={-1} id="theme-settings-offcanvas">
-      <div className="d-flex justify-content-between text-bg-primary gap-2 p-3" style={{ backgroundImage: `url("${settingsBg}")` }}>
-        <div>
-          <h5 className="mb-1 fw-bold text-white text-uppercase">Admin Customizer</h5>
-          <p className="text-white text-opacity-75 fst-italic fw-medium mb-0">Easily configure layout, styles, and preferences for your admin interface.</p>
+    <div>
+      <div
+        id="theme-customization"
+        className="hs-overlay hs-overlay-open:translate-x-0 bg-card hs-overlay-open:flex fixed inset-y-0 end-0 bottom-0 z-80 hidden w-full max-w-[400px] translate-x-full transform flex-col overflow-hidden transition-all duration-300 rtl:-translate-x-full"
+      >
+        <div className="bg-primary text-default-600 border-default-900/10 flex items-start gap-3 border-b border-dashed p-6" style={{ backgroundImage: `url("${settingsBg}")` }}>
+          <div>
+            <h5 className="mb-1.25 text-sm font-bold text-white uppercase">Admin Customizer</h5>
+            <p className="font-medium text-white/75 italic">Easily configure layout, styles, and preferences for your admin interface.</p>
+          </div>
+          <div className="grow">
+            <button  type="button" data-hs-overlay="#theme-customization" className="btn btn-sm bg-default-100/20 size-7.5 rounded-full text-white">
+              <Icon icon="x" className="text-base" />
+            </button>
+          </div>
         </div>
-        <div className="flex-grow-0">
-          <button type="button" onClick={toggleCustomizer} className="d-block btn btn-sm bg-white bg-opacity-25 text-white rounded-circle btn-icon" data-bs-dismiss="offcanvas">
-            <Icon icon="x" className="fs-lg" />
-          </button>
-        </div>
-      </div>
-      <SimpleBar className="offcanvas-body theme-customizer-bar p-0 h-100">
-        <Skin />
+        <SimpleBar className="h-full grow overflow-y-auto">
+          <div className="divide-default-300 divide-y divide-dashed">
+            <Skin />
 
-        <Theme />
+            <Dir />
 
-        <TopbarColor />
+            <SidenavSize />
 
-        <Orientation />
+            <Theme />
 
-        <SidenavColor />
+            <SidenavColor />
 
-        <SidenavSize />
+            <TopBarColor />
 
-        <Width />
+            <Width />
 
-        <Dir />
+            <Orientation />
 
-        <Position />
+            <Position />
 
-        <SidenavUser />
-      </SimpleBar>
-      <div className="offcanvas-footer border-top p-3 text-center">
-        <Row className="justify-content-end">
-          <Col xs={6}>
-            <a href={META_DATA.buyUrl} target="_blank" rel="noopener noreferrer" className="btn btn-success fw-semibold py-2 w-100">
-              <Icon icon="basket" className="me-2 fs-md" /> Buy Now
+            <SidenavUser />
+          </div>
+        </SimpleBar>
+        <div className="border-default-900/10 flex border-t p-5">
+          <div className="grid w-full grid-cols-2 gap-4">
+            <a href={META_DATA.buyUrl} rel="noopener noreferrer" className="btn py-3 w-full bg-success hover:bg-success-hover text-white">
+              <Icon icon="basket" /> Buy Now
             </a>
-          </Col>
-          <Col xs={6}>
-            <Button onClick={reset} variant="danger" type="button" className="fw-semibold py-2 w-100" id="reset-layout">
-              <Icon icon="refresh" className="me-2 fs-md" /> Reset
-            </Button>
-          </Col>
-        </Row>
+            <button type="button" className="btn py-3 w-full bg-danger text-white hover:bg-danger-hover" onClick={reset}>
+              <Icon icon="refresh" className="text-base" /> Reset
+            </button>
+          </div>
+        </div>
       </div>
-    </Offcanvas>
+    </div>
   )
 }
 

@@ -1,5 +1,4 @@
 import Icon from '@/components/wrappers/Icon'
-import { Card, CardBody, Col, Row } from 'react-bootstrap'
 
 type LayoutInfoProps = {
   option: string
@@ -9,27 +8,22 @@ type LayoutInfoProps = {
 const LayoutInfo = ({ option, value }: LayoutInfoProps) => {
   return (
     <>
-      <Row>
-        <Col xs={12}>
-          <div className="alert alert-info alert-bordered border-start border-info d-flex align-items-start gap-2">
-            <Icon icon="info-circle" className="fs-xxl" />
-            <div>
-              To enable this layout, use <code>updateSettings</code> from <code>useLayoutContext</code> context hook and pass it
-              <code>{`{${option}:'${value}'}`}</code>. eg. <code>{`updateSettings({ ${option}: '${value}' })`}</code>
-            </div>
+      <div className="container-fluid">
+        <div className="bg-info/10 text-info border-s-3 border-info rounded-md flex items-start gap-3 py-3 px-4 mb-4">
+          <div>
+            <Icon icon="info-circle" className="text-xl" />
           </div>
-        </Col>
-      </Row>
-
-      <Row>
-        <Col xs={12}>
-          <Card>
-            <CardBody className="text-center">
-              <h4 className="m-0">Your custom content here</h4>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+          <div>
+            To enable this layout, use <code>updateSettings</code> from <code>useLayoutContext</code> context hook and pass it
+            <code>{`{${option}:'${value}'}`}</code>. eg. <code>{`updateSettings({ ${option}: '${value}' })`}</code>
+          </div>
+        </div>
+        <div className="card">
+          <div className="card-body text-center">
+            <h4 className="text-lg">Your custom content here</h4>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

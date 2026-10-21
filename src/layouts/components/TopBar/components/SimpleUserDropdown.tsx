@@ -1,66 +1,66 @@
-import User1 from '@/assets/images/users/user-1.jpg'
+import user1 from '@/assets/images/users/user-1.jpg'
 import Icon from '@/components/wrappers/Icon'
 import { META_DATA } from '@/config/constants'
-import { Dropdown, DropdownDivider, DropdownHeader, DropdownItem, DropdownMenu, DropdownToggle } from 'react-bootstrap'
+import { Link } from 'react-router'
 
-const UserDropdown = () => {
+const SimpleUserDropdown = () => {
   return (
-    <div id="simple-user-dropdown" className="topbar-item nav-user">
-      <Dropdown>
-        <DropdownToggle className="topbar-link drop-arrow-none" type="button">
-          <img src={User1} width={32} className="rounded-circle me-lg-2 d-flex" alt="user-image" />
-          <div className="d-lg-flex align-items-center gap-1 d-none">
-            <h5 className="my-0">{META_DATA.username}</h5>
-            <Icon icon="chevron-down" className="align-middle" />
-          </div>
-        </DropdownToggle>
-        <DropdownMenu className="dropdown-menu-end">
-          <DropdownHeader className="noti-title">
-            <h6 className="text-overflow m-0">Welcome back!</h6>
-          </DropdownHeader>
+    <div id="simple-user-dropdown" className="topbar-item hs-dropdown before:bg-default-700/35 relative inline-flex before:h-4.5 before:w-px before:content-['']">
+      <button className="hs-dropdown-toggle topbar-link ms-2.5 cursor-pointer items-center px-3! flex" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+        <img src={user1} alt="user-image" className="size-8 rounded-full lg:me-3" />
+        <div className="hidden lg:flex items-center gap-1.5">
+          <h5 className="pro-username">{META_DATA.username}</h5>
+          <Icon icon="chevron-down" className="align-middle" />
+        </div>
+      </button>
 
-          <DropdownItem href="">
-            <Icon icon="user-circle" className="me-1 fs-lg align-middle" />
-            <span className="align-middle">Profile</span>
-          </DropdownItem>
+      <div className="hs-dropdown-menu min-w-48" role="menu" aria-orientation="vertical" aria-labelledby="hs-dropdown-with-icons">
+        <div className="py-2 px-3.5">
+          <h6 className="text-xs">Welcome back 👋!</h6>
+        </div>
 
-          <DropdownItem href="">
-            <Icon icon="bell-ringing" className="me-1 fs-lg align-middle" />
-            <span className="align-middle">Notifications</span>
-          </DropdownItem>
+        <Link to="" className="dropdown-item">
+          <Icon icon="user-circle" className="text-base align-middle" />
+          <span className="align-middle">Profile</span>
+        </Link>
 
-          <DropdownItem href="">
-            <Icon icon="credit-card" className="me-1 fs-lg align-middle" />
-            <span className="align-middle">
-              Balance: <span className="fw-semibold">$985.25</span>
-            </span>
-          </DropdownItem>
+        <Link to="" className="dropdown-item">
+          <Icon icon="bell-ringing" className="text-base align-middle" />
+          <span className="align-middle">Notifications</span>
+        </Link>
 
-          <DropdownItem href="">
-            <Icon icon="settings-2" className="me-1 fs-lg align-middle" />
-            <span className="align-middle">Account Settings</span>
-          </DropdownItem>
+        <Link to="" className="dropdown-item">
+          <Icon icon="credit-card" className="text-base align-middle" />
+          <span className="align-middle">
+            {' '}
+            Balance: <span className="font-semibold">$985.25</span>{' '}
+          </span>
+        </Link>
 
-          <DropdownItem href="">
-            <Icon icon="headset" className="me-1 fs-lg align-middle" />
-            <span className="align-middle">Support Center</span>
-          </DropdownItem>
+        <Link to="" className="dropdown-item">
+          <Icon icon="settings-2" className="text-base align-middle" />
+          <span className="align-middle">Account Settings</span>
+        </Link>
 
-          <DropdownDivider />
+        <Link to="" className="dropdown-item">
+          <Icon icon="headset" className="text-base align-middle" />
+          <span className="align-middle">Support Center</span>
+        </Link>
 
-          <DropdownItem href="/auth/lock-screen">
-            <Icon icon="lock" className="me-1 fs-lg align-middle" />
-            <span className="align-middle">Lock Screen</span>
-          </DropdownItem>
+        <div className="dropdown-divider"></div>
 
-          <DropdownItem href="" className="text-danger fw-semibold">
-            <Icon icon="logout" className="me-1 fs-lg align-middle" />
-            <span className="align-middle">Log Out</span>
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+        <Link to="/auth/lock-screen" className="dropdown-item">
+          <Icon icon="lock" className="text-base align-middle" />
+          <span className="align-middle">Lock Screen</span>
+        </Link>
+
+        <Link to="" className="dropdown-item font-semibold text-danger">
+          <Icon icon="logout" className="text-base align-middle" />
+          <span className="align-middle">Log Out</span>
+        </Link>
+      </div>
     </div>
   )
 }
 
-export default UserDropdown
+export default SimpleUserDropdown

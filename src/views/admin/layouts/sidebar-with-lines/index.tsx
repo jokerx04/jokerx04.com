@@ -1,6 +1,5 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb'
 import Icon from '@/components/wrappers/Icon'
-import { Alert, Card, CardBody, Col, Row } from 'react-bootstrap'
 import HTMLClassHandler from '../HTMLClassHandler'
 
 
@@ -10,29 +9,26 @@ const Page = () => {
       <PageBreadcrumb title="Sidebar With Lines" subtitle="Layouts" />
       <HTMLClassHandler classes={['sidebar-with-line']} />
 
-      <Row>
-        <Col xs={12}>
-          <Alert variant="info" className="alert-bordered border-start border-info d-flex align-items-start gap-2">
-            <Icon icon="info-circle" className="fs-xxl" />
-            <div>
-              If you want to display a line with each menu item, add the class
-              <code>&quot;sidebar-with-line&quot;</code>
-              to the
-              <code>&lt;html&gt;</code>
-              tag.
-            </div>
-          </Alert>
-        </Col>
-      </Row>
-      <Row>
-        <Col xs={12}>
-          <Card>
-            <CardBody className="text-center">
-              <h4 className="m-0">Your custom content here</h4>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+      <div className="container-fluid">
+        <div className="bg-info/10 text-info border-s-3 border-info rounded-md flex items-start gap-3 py-3 px-4 mb-4">
+          <div>
+            <Icon icon="info-circle" className="text-xl" />
+          </div>
+          <div>
+            If you want to display a line with each menu item, add the class
+            <code>&quot;sidebar-with-line&quot;</code>
+            to the
+            <code>&lt;html&gt;</code>
+            tag.
+          </div>
+        </div>
+
+        <div className="card">
+          <div className="card-body text-center">
+            <h4 className="text-lg">Your custom content here</h4>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

@@ -1,3 +1,6 @@
+import clsx, { ClassValue } from 'clsx'
+import { twMerge } from 'tailwind-merge'
+
 export const generateInitials = (name = ''): string => {
   return name
     .split(' ')
@@ -35,11 +38,29 @@ export const formatBytes = (bytes: number, decimals: number = 2) => {
 }
 
 export function getColor(v: string, a: number = 1): string {
-  if (typeof window === 'undefined' || typeof document === 'undefined') {
-    return ''
+  if (typeof window === 'undefined') return 'rgba(0,0,0,0.2)'
+
+  const val = getComputedStyle(document.documentElement).getPropertyValue(`--color-${v}`).trim()
+
+  if (!val) return 'rgba(0,0,0,0.2)'
+
+  if (a === 1) return val
+
+  if (val.startsWith('#')) {
+    const c = val.replace('#', '')
+    const bigint = parseInt(c, 16)
+    const r = (bigint >> 16) & 255
+    const g = (bigint >> 8) & 255
+    const b = bigint & 255
+    return `rgba(${r}, ${g}, ${b}, ${a})`
   }
-  const val = getComputedStyle(document.documentElement).getPropertyValue(`--theme-${v}`).trim()
-  return v.includes('-rgb') ? `rgba(${val}, ${a})` : val
+
+  if (val.startsWith('rgb')) {
+    const rgb = val.match(/\d+,\s*\d+,\s*\d+/)?.[0]
+    return rgb ? `rgba(${rgb}, ${a})` : val
+  }
+
+  return val
 }
 
 export const getFont = () => {
@@ -47,6 +68,14 @@ export const getFont = () => {
     return
   }
   return getComputedStyle(document.body).fontFamily.trim()
+}
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs))
+}
+
+export const splitArray = <T>(arr: T[], size: number): T[][] => {
+  return Array.from({ length: Math.ceil(arr.length / size) }, (_, i) => arr.slice(i * size, i * size + size))
 }
 
 export const generateRandomEChartData = (dataName: string[]) => {

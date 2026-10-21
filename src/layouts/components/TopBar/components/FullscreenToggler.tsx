@@ -1,36 +1,38 @@
 import Icon from '@/components/wrappers/Icon'
-import { useState } from 'react'
+import { cn } from '@/utils/helpers'
+import { useEffect, useState } from 'react'
 
-const Fullscreen = () => {
-  const [fullScreenOn, setFullScreenOn] = useState(false)
+const FullscreenToggler = () => {
+  const [isFullscreen, setIsFullscreen] = useState(false)
 
-  const toggleFullScreen = () => {
-    const doc: any = document
-    const isFS = !!(doc.fullscreenElement || doc.mozFullScreenElement || doc.webkitFullscreenElement)
-    if (isFS) {
-      ;(doc.exitFullscreen || doc.cancelFullScreen || doc.mozCancelFullScreen || doc.webkitExitFullscreen || doc.msExitFullscreen)?.call(doc)
+  const toggleFullscreen = () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen()
     } else {
-      const element = doc.documentElement
-      ;(element.requestFullscreen || element.mozRequestFullScreen || element.webkitRequestFullscreen || element.msRequestFullscreen)?.call(element)
+      document.exitFullscreen()
     }
-    setFullScreenOn(!isFS)
   }
 
+  useEffect(() => {
+    const handleChange = () => {
+      setIsFullscreen(!!document.fullscreenElement)
+    }
+
+    document.addEventListener('fullscreenchange', handleChange)
+
+    return () => {
+      document.removeEventListener('fullscreenchange', handleChange)
+    }
+  }, [])
   return (
-    <div id="fullscreen-toggler" className="topbar-item d-none d-sm-flex">
-      <button className="topbar-link" type="button" onClick={toggleFullScreen}>
-        {fullScreenOn ? (
-          <span className="topbar-link-icon">
-            <Icon icon="minimize" />
-          </span>
-        ) : (
-          <span className="topbar-link-icon">
-            <Icon icon="maximize" />
-          </span>
-        )}
-      </button>
+    <div id="fullscreen-toggler" className="md:inline-flex hidden">
+      <div className="topbar-item">
+        <button className={cn('topbar-link btn group size-8 rounded-full', { 'fullscreen-active': isFullscreen })} aria-label="Full Screen" onClick={toggleFullscreen}>
+          {!isFullscreen ? <Icon icon="maximize" className="topbar-link-icon group-[.fullscreen-active]:hidden" /> : <Icon icon="minimize" className="hidden topbar-link-icon group-[.fullscreen-active]:inline-block" />}
+        </button>
+      </div>
     </div>
   )
 }
 
-export default Fullscreen
+export default FullscreenToggler

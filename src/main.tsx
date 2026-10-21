@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router'
 import App from './App'
 import AppProvidersWrapper from './components/wrappers/AppProvidersWrapper'
 
-import '@/assets/scss/app.scss'
+import '@/assets/css/app.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>

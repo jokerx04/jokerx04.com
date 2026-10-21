@@ -10,45 +10,36 @@ import user8 from '@/assets/images/users/user-8.jpg'
 import user9 from '@/assets/images/users/user-9.jpg'
 
 export type ActivityItem = {
-  id: number
   text: string
   time: string
-  badgeVariant: 'primary' | 'info' | 'secondary' | 'light' | 'warning' | 'danger' | 'success' | 'dark'
-  badgeText?: 'dark' | 'light'
+  className: string
 }
 
 export const activityItems: ActivityItem[] = [
   {
-    id: 1,
     text: 'Reviewed project proposal',
     time: '09:30 AM',
-    badgeVariant: 'primary',
+    className: 'bg-primary text-white ',
   },
   {
-    id: 2,
     text: 'Team stand-up meeting',
     time: '11:00 AM',
-    badgeVariant: 'info',
+    className: 'bg-info text-white ',
   },
   {
-    id: 3,
     text: 'Sent client invoice',
     time: '01:15 PM',
-    badgeVariant: 'secondary',
+    className: 'bg-secondary text-white ',
   },
   {
-    id: 4,
     text: 'Responded to support tickets',
     time: '03:40 PM',
-    badgeVariant: 'light',
-    badgeText: 'dark',
+    className: 'bg-light text-black',
   },
   {
-    id: 5,
     text: 'Finalized design mockups',
     time: '05:10 PM',
-    badgeVariant: 'warning',
-    badgeText: 'light',
+    className: 'bg-warning text-white ',
   },
 ]
 
@@ -60,9 +51,9 @@ export const getRevenueChartOptions = (): EChartsOption => {
     tooltip: {
       trigger: 'axis',
       padding: [5, 0],
-      backgroundColor: getColor('secondary-bg'),
-      borderColor: getColor('border-color'),
-      textStyle: { color: getColor('light-text-emphasis') },
+      backgroundColor: getColor('card'),
+      borderColor: getColor('default-200'),
+      textStyle: { color: getColor('default-600') },
       borderWidth: 1,
       transitionDuration: 0.125,
       axisPointer: { type: 'none' },
@@ -77,7 +68,7 @@ export const getRevenueChartOptions = (): EChartsOption => {
       boundaryGap: false,
       axisLine: { show: false },
       axisTick: { show: false },
-      axisLabel: { color: getColor('secondary-color'), margin: 15 },
+      axisLabel: { color: getColor('body-color'), margin: 15 },
       splitLine: { show: false },
     },
     yAxis: {
@@ -87,10 +78,10 @@ export const getRevenueChartOptions = (): EChartsOption => {
       boundaryGap: [0, '100%'],
       axisLabel: {
         show: true,
-        color: getColor('secondary-color'),
+        color: getColor('body-color'),
         margin: 15,
         formatter: function (value) {
-          return '$' + value
+          return '' + value
         },
       },
       axisTick: { show: false },
@@ -155,9 +146,9 @@ export const getProgressChartOptions = (): EChartsOption => {
     tooltip: {
       trigger: 'item',
       padding: [8, 15],
-      backgroundColor: getColor('secondary-bg'),
-      borderColor: getColor('border-color'),
-      textStyle: { color: getColor('light-text-emphasis') },
+      backgroundColor: getColor('card'),
+      borderColor: getColor('default-200'),
+      textStyle: { color: getColor('default-600') },
       borderWidth: 1,
       transitionDuration: 0.125,
       axisPointer: { type: 'none' },
@@ -180,10 +171,10 @@ export const getProgressChartOptions = (): EChartsOption => {
           borderRadius: 8,
         },
         label: {
-          color: getColor('secondary-color'),
+          color: getColor('body-color'),
         },
         data: [
-          { value: 85, name: 'Website Redesign', itemStyle: { color: getColor('primary') } },
+          { value: 85, name: 'Website Redesign', itemStyle: { color: getColor('chart-primary') } },
           {
             value: 70,
             name: 'Mobile App',
@@ -214,7 +205,7 @@ export type StatCard = {
   suffix?: string
   prefix?: string
   badgeText: string
-  badgeVariant: 'primary' | 'secondary' | 'light'
+  badgeVariant: string
   icon: string
   iconBg?: string
   pointColor: string
@@ -228,7 +219,7 @@ export const statCards: StatCard[] = [
     title: 'My Tasks',
     value: 124,
     badgeText: '+3 New',
-    badgeVariant: 'primary',
+    badgeVariant: 'bg-primary/10 text-primary',
     icon: 'checklist',
     pointColor: 'primary',
     description: 'Total Tasks',
@@ -238,9 +229,8 @@ export const statCards: StatCard[] = [
     id: 2,
     title: 'Messages',
     value: 69.5,
-    suffix: 'k',
     badgeText: '+5 New',
-    badgeVariant: 'secondary',
+    badgeVariant: 'bg-secondary/10 text-secondary',
     icon: 'message-circle',
     pointColor: 'secondary',
     description: 'Total Messages',
@@ -251,7 +241,7 @@ export const statCards: StatCard[] = [
     title: 'Approvals',
     value: 32,
     badgeText: '+2 New',
-    badgeVariant: 'light',
+    badgeVariant: 'bg-light text-text-default-600',
     icon: 'file-check',
     pointColor: 'primary',
     description: 'Total Approvals',
@@ -262,7 +252,7 @@ export const statCards: StatCard[] = [
     title: 'Clients',
     value: 184,
     badgeText: '+4 New',
-    badgeVariant: 'secondary',
+    badgeVariant: 'bg-secondary/10 text-secondary',
     icon: 'users',
     pointColor: 'secondary',
     description: 'Total Clients',
@@ -272,10 +262,9 @@ export const statCards: StatCard[] = [
     id: 5,
     title: 'Revenue',
     value: 125.5,
-    prefix: '$',
     suffix: 'k',
-    badgeText: '+1.5%',
-    badgeVariant: 'primary',
+    badgeText: '$125.50k',
+    badgeVariant: 'bg-primary/10 text-primary',
     icon: 'credit-card',
     pointColor: 'primary',
     description: 'Total Revenue',
@@ -355,7 +344,7 @@ export type ProjectStat = {
   title: string
   count: string
   percentage: number
-  variant: 'secondary' | 'info' | 'primary' | 'success' | 'warning' | 'danger' | 'light' | 'dark'
+  variant: string
   showPercentage: boolean
 }
 
@@ -365,7 +354,7 @@ export const projectStats: ProjectStat[] = [
     title: 'Completed Projects',
     count: '+ 180',
     percentage: 54.2,
-    variant: 'secondary',
+    variant: 'bg-secondary',
     showPercentage: true,
   },
   {
@@ -373,7 +362,7 @@ export const projectStats: ProjectStat[] = [
     title: 'Ongoing Projects',
     count: '+ 120',
     percentage: 36.15,
-    variant: 'info',
+    variant: 'bg-info',
     showPercentage: true,
   },
   {
@@ -381,7 +370,7 @@ export const projectStats: ProjectStat[] = [
     title: 'Pending Approvals',
     count: '+ 32',
     percentage: 9.65,
-    variant: 'secondary',
+    variant: 'bg-secondary',
     showPercentage: true,
   },
 ]
@@ -405,12 +394,12 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: 1,
     icon: 'rocket',
-    iconColor: 'primary',
+    iconColor: 'text-primary',
     title: 'New Feature Released',
     time: 'Today at 3:45 PM',
     description: 'Launched the real-time chat feature across all user accounts.',
     tag: 'Deploy',
-    tagVariant: 'info',
+    tagVariant: 'bg-info/15 text-info',
     userName: 'Natalie Brooks',
     userImage: user6,
     userLink: '/pages/profile',
@@ -419,12 +408,12 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: 2,
     icon: 'calendar-event',
-    iconColor: 'warning',
+    iconColor: 'text-warning',
     title: 'Team Sync-Up',
     time: 'Today at 2:00 PM',
     description: 'Reviewed sprint progress and discussed remaining tasks with the dev team.',
     tag: 'Meeting',
-    tagVariant: 'secondary',
+    tagVariant: 'bg-secondary/15 text-secondary',
     userName: 'Oliver Grant',
     userImage: user4,
     userLink: '/pages/profile',
@@ -433,12 +422,12 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: 3,
     icon: 'palette',
-    iconColor: 'success',
+    iconColor: 'text-success',
     title: 'UI Design Review',
     time: 'Today at 1:15 PM',
     description: 'Updated component spacing and colors for improved accessibility.',
     tag: 'Design',
-    tagVariant: 'success',
+    tagVariant: 'bg-success/15 text-success',
     userName: 'Clara Jensen',
     userImage: user9,
     userLink: '/pages/profile',
@@ -447,12 +436,12 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: 4,
     icon: 'database',
-    iconColor: 'danger',
+    iconColor: 'text-danger',
     title: 'Database Optimization',
     time: 'Today at 12:30 PM',
     description: 'Improved DB query performance, reducing load time by 35%.',
     tag: 'Backend',
-    tagVariant: 'danger',
+    tagVariant: 'bg-danger/15 text-danger',
     userName: 'Leo Armstrong',
     userImage: user10,
     userLink: '/pages/profile',
@@ -461,12 +450,12 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: 5,
     icon: 'shield-check',
-    iconColor: 'info',
+    iconColor: 'text-info',
     title: 'Security Audit Completed',
     time: 'Today at 11:00 AM',
     description: 'Completed internal security audit with no critical issues found.',
     tag: 'Audit',
-    tagVariant: 'warning',
+    tagVariant: 'bg-warning/15 text-warning',
     userName: 'Liam Carter',
     userImage: user8,
     userLink: '/pages/profile',
@@ -475,12 +464,12 @@ export const timelineEvents: TimelineEvent[] = [
   {
     id: 6,
     icon: 'user-plus',
-    iconColor: 'success',
+    iconColor: 'text-success',
     title: 'New Team Member Joined',
     time: 'Today at 10:15 AM',
     description: 'Michael Lee has joined the development team as a Frontend Engineer.',
     tag: 'Onboarding',
-    tagVariant: 'primary',
+    tagVariant: 'bg-primary/15 text-primary',
     userName: 'Emma Davis',
     userImage: user7,
     userLink: '/pages/profile',

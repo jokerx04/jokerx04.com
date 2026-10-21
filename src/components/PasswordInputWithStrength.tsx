@@ -1,11 +1,9 @@
-import Icon from '@/components/wrappers/Icon'
-import { FormControl, FormLabel, InputGroup } from 'react-bootstrap'
+import Icon from './wrappers/Icon'
 
 type PasswordInputProps = {
   password: string
   setPassword: (value: string) => void
   showIcon?: boolean
-  inputGroup?: boolean
   id?: string
   name?: string
   placeholder?: string
@@ -23,45 +21,30 @@ const calculatePasswordStrength = (password: string): number => {
   return strength
 }
 
-const PasswordInputWithStrength = ({ password, setPassword, id, label, name, placeholder, showIcon = true, inputGroup = false, labelClassName, inputClassName }: PasswordInputProps) => {
+const PasswordInputWithStrength = ({ password, setPassword, id, label, name, placeholder, showIcon, labelClassName = 'form-label', inputClassName = 'form-input' }: PasswordInputProps) => {
   const strength = calculatePasswordStrength(password)
   const strengthBars = new Array(4).fill(0)
 
   return (
     <>
       {label && (
-        <FormLabel htmlFor={id} className={labelClassName}>
+        <label htmlFor={id} className={labelClassName}>
           {label} <span className="text-danger">*</span>
-        </FormLabel>
+        </label>
       )}
 
-      {/* INPUT GROUP STYLE */}
-      {inputGroup ? (
-        <InputGroup>
-          {showIcon && (
-            <InputGroup.Text className="bg-light">
-              <Icon icon="lock-password" className="fs-xl text-muted" />
-            </InputGroup.Text>
-          )}
+      <div className="input-icon-group">
+        {showIcon && <Icon icon="lock-password" className="input-icon" />}
+        <input type="password" name={name} id={id} placeholder={placeholder} required className={inputClassName} value={password} onChange={(e) => setPassword(e.target.value)} />
+      </div>
 
-          <FormControl type="password" name={name} id={id} placeholder={placeholder} required className={inputClassName} value={password} onChange={(e) => setPassword(e.target.value)} />
-        </InputGroup>
-      ) : (
-        /* APP SEARCH STYLE (DEFAULT) */
-        <div className={`app-search ${!showIcon ? 'no-icon' : ''}`}>
-          {showIcon && <Icon icon="lock-password" className="app-search-icon text-muted" />}
-
-          <FormControl type="password" name={name} id={id} placeholder={placeholder} required className={inputClassName} value={password} onChange={(e) => setPassword(e.target.value)} />
-        </div>
-      )}
-
-      <div className="password-bar my-2">
+      <div className="password-bar my-3">
         {strengthBars.map((_, i) => (
           <div key={i} className={'strong-bar ' + (i < strength ? `bar-active-${strength}` : '')} />
         ))}
       </div>
 
-      <p className="text-muted fs-xs mb-0">Use 8+ characters with letters, numbers & symbols.</p>
+      <p className="text-default-400 text-xs">Use 8+ characters with letters, numbers & symbols.</p>
     </>
   )
 }

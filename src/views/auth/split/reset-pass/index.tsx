@@ -1,46 +1,64 @@
-import auth from '@/assets/images/auth.jpg'
 import AuthLogo from '@/components/AuthLogo'
+import Icon from '@/components/wrappers/Icon'
 import { currentYear, META_DATA } from '@/config/constants'
 import { Link } from 'react-router'
-import { Card, CardBody, Col, Row } from 'react-bootstrap'
-import ResetForm from './components/Form'
 
 
 const Page = () => {
   return (
-    <div className="auth-box p-0 w-100">
-      <Row className="w-100 g-0">
-        <Col>
-          <div className="h-100 position-relative card-side-img rounded-0 overflow-hidden" style={{ backgroundImage: `url("${auth}")` }}>
-            <div className="p-4 card-img-overlay auth-overlay d-flex align-items-end justify-content-center" />
+    <div className="min-h-screen">
+      <div className="flex h-full w-full">
+        <div className="hidden w-full md:block">
+          <div className="relative h-full overflow-hidden bg-[url('../images/auth.jpg')] bg-cover bg-center bg-no-repeat">
+            <div className="from-zinc-800 via-zinc-800/80 to-zinc-800/50 absolute inset-0 flex items-end justify-center bg-linear-to-t p-9" />
           </div>
-        </Col>
-        <div className="col-xl-auto">
-          <Card className="auth-box-form border-0 mb-0">
-            <CardBody className="min-vh-100 d-flex flex-column justify-content-center">
-              <div className="auth-brand mb-0 text-center">
-                <AuthLogo />
-              </div>
-              <div className="mt-auto text-center">
-                <h4 className="fw-bold">Forgot Password?</h4>
-                <p className="text-muted auth-sub-text mx-auto">Enter your email address and we'll send you a link to reset your password.</p>
-                <ResetForm />
-              </div>
-              <p className="text-muted text-center mt-4 mb-0">
+        </div>
+        <div className="min-w-full md:min-w-106 md:max-w-118">
+          <div className="card relative flex min-h-screen flex-col justify-between rounded-none p-12.5">
+            <div className="mb-7.5 flex flex-col items-center justify-center text-center">
+              <AuthLogo />
+            </div>
+            <div>
+              <h4 className="font-bold mb-2 text-default-900 text-lg text-center">Forgot Password?</h4>
+              <p className="text-default-400 mx-auto w-full text-center lg:w-72">Enter your email address and we'll send you a link to reset your password.</p>
+              <form className="mt-9">
+                <div className="mb-6">
+                  <label htmlFor="userEmail" className="form-label">
+                    Email address&nbsp;
+                    <span className="text-danger">*</span>
+                  </label>
+                  <div className="input-icon-group">
+                    <Icon icon="mail" className="input-icon" />
+                    <input type="email" className="form-input" id="userEmail" placeholder="you@example.com" required />
+                  </div>
+                </div>
+                <div className="mb-6">
+                  <div className="flex items-center gap-2">
+                    <input className="form-checkbox form-checkbox-light size-4.5" type="checkbox" id="rememberMe" />
+                    <label className="form-check-label" htmlFor="rememberMe">
+                      Agree the Terms &amp; Policy
+                    </label>
+                  </div>
+                </div>
+                <div>
+                  <button type="submit" className="btn bg-primary w-full py-3 font-semibold text-white hover:bg-primary-hover">
+                    Send Request
+                  </button>
+                </div>
+              </form>
+              <p className="text-default-400 mt-7.5 text-center">
                 Return to&nbsp;
-                <Link to="/auth/split/sign-in" className="text-decoration-underline link-offset-3 fw-semibold">
+                <Link to="/auth/split/sign-in" className="text-primary font-semibold underline underline-offset-4">
                   Sign in
                 </Link>
               </p>
-              <p className="text-center text-muted mt-auto mb-0">
-                © {currentYear}&nbsp;
-                {META_DATA.name} — by&nbsp;
-                <span className="fw-bold">{META_DATA.author}</span>
-              </p>
-            </CardBody>
-          </Card>
+            </div>
+            <p className="text-default-400 mt-7.5 text-center">
+              © {currentYear} {META_DATA.name} - by <span>{META_DATA.author}</span>
+            </p>
+          </div>
         </div>
-      </Row>
+      </div>
     </div>
   )
 }

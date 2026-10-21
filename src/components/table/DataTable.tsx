@@ -1,7 +1,7 @@
 
-import { flexRender, type Table as TableType } from '@tanstack/react-table'
+import { cn } from '@/utils/helpers'
+import { flexRender, Table as TableType } from '@tanstack/react-table'
 import clsx from 'clsx'
-import { Table } from 'react-bootstrap'
 import Icon from '../wrappers/Icon'
 
 type DataTableProps<TData> = {
@@ -27,25 +27,18 @@ type DataTableProps<TData> = {
 }
 
 const DataTable = <TData,>({ table, className = '', emptyMessage = 'Nothing found.', showHeaders = true }: DataTableProps<TData>) => {
+  'use no memo'
   const columns = table.getAllColumns()
-
   return (
-    <div className={clsx('table-responsive', className)}>
-      <Table responsive hover className="table table-custom table-centered table-select w-100 mb-0">
+    <div className={clsx('table-wrapper', className)}>
+      <table className="table table-hover">
         {showHeaders && (
-          <thead className="bg-light align-middle bg-opacity-25 thead-sm">
+          <thead className="thead-sm">
             {table.getHeaderGroups().map((headerGroup) => (
-              <tr key={headerGroup.id} className="text-uppercase fs-xxs">
+              <tr key={headerGroup.id} className="bg-light/25 text-2xs uppercase">
                 {headerGroup.headers.map((header) => (
-                  <th
-                    key={header.id}
-                    onClick={header.column.getToggleSortingHandler()}
-                    style={{
-                      cursor: header.column.getCanSort() ? 'pointer' : 'default',
-                      userSelect: 'none',
-                    }}
-                  >
-                    <div className="d-flex align-items-center">
+                  <th key={header.id} onClick={header.column.getToggleSortingHandler()} className={cn('select-none', header.column.getCanSort() ? 'cursor-pointer' : 'cursor-default')}>
+                    <div className={cn('flex items-center', { 'justify-center': header.column.columnDef.header === 'Actions' })}>
                       {flexRender(header.column.columnDef.header, header.getContext())}
                       {header.column.getCanSort() &&
                         ({
@@ -73,13 +66,13 @@ const DataTable = <TData,>({ table, className = '', emptyMessage = 'Nothing foun
             ))
           ) : (
             <tr>
-              <td colSpan={columns.length} className="text-center py-3 text-muted">
+              <td colSpan={columns.length} className="text-center text-default-400 py-3">
                 {emptyMessage}
               </td>
             </tr>
           )}
         </tbody>
-      </Table>
+      </table>
     </div>
   )
 }

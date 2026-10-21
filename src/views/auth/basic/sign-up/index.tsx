@@ -1,42 +1,40 @@
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
 import { Link } from 'react-router'
-import { Card, Col, Container, Row } from 'react-bootstrap'
-import Forms from './components/Forms'
+import SignUpForm from './components/SignUpForm'
 
 
 const Page = () => {
   return (
-    <>
-      <div className="auth-box overflow-hidden align-items-center d-flex">
-        <Container>
-          <Row className="justify-content-center">
-            <Col xxl={4} md={6} sm={8}>
-              <div className="auth-brand text-center mb-4">
-                <AuthLogo />
-                <h4 className="fw-bold mt-3">Create New Account</h4>
-                <p className="text-muted w-lg-75 mx-auto">Let’s get you started. Create your account by entering your details below.</p>
-              </div>
+    <div className="flex min-h-screen items-center p-12.5">
+      <div className="container">
+        <div className="flex justify-center px-2.5">
+          <div className="2xl:w-4/10 md:w-1/2 sm:w-2/3 w-full">
+            <div className="mb-3 flex flex-col items-center justify-center text-center">
+              <AuthLogo />
+              <h4 className="font-bold text-base text-dark mt-5 mb-2">Create New Account</h4>
+              <p className="text-default-400 mx-auto w-full lg:w-3/4 mb-4">Let’s get you started. Create your account by entering your details below.</p>
+            </div>
+            <div className="card p-7.5 rounded-2xl">
+              <SignUpForm />
 
-              <Card className="p-4">
-                <Forms />
-                <p className="text-muted text-center mt-4 mb-0">
-                  Already have an account?&nbsp;
-                  <Link to="/auth/sign-in" className="text-decoration-underline link-offset-3 fw-semibold">
-                    Login
-                  </Link>
-                </p>
-              </Card>
-
-              <p className="text-center text-muted mt-4 mb-0">
-                © {currentYear} {META_DATA.name} — by
-                <span className="fw-bold"> {META_DATA.author}</span>
+              <p className="text-default-400 mt-7.5 text-center">
+                Already have an account?&nbsp;
+                <Link to="/auth/sign-in" className="text-primary font-semibold underline underline-offset-4">
+                  Login
+                </Link>
               </p>
-            </Col>
-          </Row>
-        </Container>
+            </div>
+
+            <p className="text-default-400 mt-7.5 text-center">
+              © {currentYear}&nbsp;
+              {META_DATA.name} - by&nbsp;
+              <span>{META_DATA.author}</span>
+            </p>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

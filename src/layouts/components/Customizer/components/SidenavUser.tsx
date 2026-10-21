@@ -8,16 +8,12 @@ const SidenavUser = () => {
   }
 
   return (
-    <div id="sidenav-user" className="p-3">
-      <div className="d-flex justify-content-between align-items-center">
-        <h5 className="mb-0">
-          <label className="fw-bold m-0" htmlFor="sidebaruser-check">
-            Sidebar User Info
-          </label>
-        </h5>
-        <div className="form-check form-switch fs-lg">
-          <input type="checkbox" className="form-check-input" name="sidebar-user" id="sidebaruser-check" checked={sidenavUser} onChange={(e) => handleSidenavUserChange(e.target.checked)} />
-        </div>
+    <div className="p-6" id="sidenav-user">
+      <div className="flex items-center justify-between">
+        <label className="m-0 font-bold" htmlFor="sidebaruser-check">
+          Sidebar User Info
+        </label>
+        <input type="checkbox" className="form-switch" name="sidebar-user" id="sidebaruser-check" checked={sidenavUser} onChange={(e) => handleSidenavUserChange(e.target.checked)} />
       </div>
     </div>
   )

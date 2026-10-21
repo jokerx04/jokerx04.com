@@ -1,9 +1,8 @@
 import { ReactNode } from 'react'
-import { Button, Modal, ModalBody, ModalFooter, ModalHeader, ModalTitle } from 'react-bootstrap'
+import Icon from '../wrappers/Icon'
 
 type DeleteConfirmationModalProps = {
-  show: boolean
-  onHide: () => void
+  id?: string
   onConfirm: () => void
   selectedCount: number
   itemName?: string
@@ -15,19 +14,7 @@ type DeleteConfirmationModalProps = {
   children?: ReactNode
 }
 
-const DeleteConfirmationModal = ({
-  show,
-  onHide,
-  onConfirm,
-  selectedCount,
-  itemName = 'row',
-  confirmButtonVariant = 'danger',
-  cancelButtonVariant = 'light',
-  modalTitle = 'Confirm Deletion',
-  confirmButtonText = 'Delete',
-  cancelButtonText = 'Cancel',
-  children,
-}: DeleteConfirmationModalProps) => {
+const DeleteConfirmationModal = ({ id = 'confirm-delete-modal', onConfirm, selectedCount, itemName = 'row', modalTitle = 'Confirm Deletion', confirmButtonText = 'Delete', cancelButtonText = 'Cancel', children }: DeleteConfirmationModalProps) => {
   const getConfirmationMessage = () => {
     if (children) return children
 
@@ -38,20 +25,33 @@ const DeleteConfirmationModal = ({
   }
 
   return (
-    <Modal show={show} onHide={onHide} centered>
-      <ModalHeader closeButton>
-        <ModalTitle>{modalTitle}</ModalTitle>
-      </ModalHeader>
-      <ModalBody>{getConfirmationMessage()}</ModalBody>
-      <ModalFooter>
-        <Button variant={cancelButtonVariant} onClick={onHide}>
-          {cancelButtonText}
-        </Button>
-        <Button variant={confirmButtonVariant} onClick={onConfirm}>
-          {confirmButtonText}
-        </Button>
-      </ModalFooter>
-    </Modal>
+    <>
+      <div id={id} className="hs-overlay pointer-events-none fixed start-0 top-0 z-80  size-full overflow-x-hidden overflow-y-auto" tabIndex={-1} aria-hidden="true">
+        <div className="hs-overlay-animation-target hs-overlay-open:scale-100 hs-overlay-open:opacity-100 m-3 flex min-h-[calc(100%-56px)] scale-95 items-center opacity-0 transition-all duration-200 ease-in-out sm:mx-auto sm:w-full sm:max-w-lg">
+          <div className="border-default-300 pointer-events-auto flex w-full flex-col rounded-md border bg-card">
+            <div className="border-default-300 flex items-center justify-between border-b p-5">
+              <h4 id="confirm-delete-modalLabel" className="text-base font-bold">
+                {modalTitle}
+              </h4>
+              <button type="button" aria-label="Close" data-hs-overlay={`#${id}`}>
+                <Icon icon="x" className="size-5"></Icon>
+              </button>
+            </div>
+            <div className="overflow-y-auto p-5">
+              <p>{getConfirmationMessage()}</p>
+            </div>
+            <div className="border-default-300 flex items-center justify-end gap-x-2 border-t p-4">
+              <button type="button" className="btn bg-light hover:text-primary" data-hs-overlay={`#${id}`}>
+                {cancelButtonText}
+              </button>
+              <button type="button" className="btn bg-danger text-white hover:bg-danger-hover" onClick={onConfirm}>
+                {confirmButtonText}
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </>
   )
 }
 

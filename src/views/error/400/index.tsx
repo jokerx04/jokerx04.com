@@ -1,37 +1,44 @@
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
 import { Link } from 'react-router'
-import { Col, Container, Row } from 'react-bootstrap'
 
 
 const Page = () => {
   return (
     <>
-      <div className="auth-box overflow-hidden align-items-center d-flex">
-        <Container>
-          <Row className="justify-content-center">
-            <Col xxl={4} md={6} sm={8}>
-              <div className="auth-brand text-center mb-3">
-                <AuthLogo />
-              </div>
-              <div className="p-2 text-center">
-                <div className="error-glitch" data-text="400">
-                  400
+      <div className="flex min-h-screen items-center">
+        <div className="container">
+          <div className="flex justify-center lg:p-0 p-12.5">
+            <div className="2xl:w-4/10 md:w-1/2 sm:w-2/3 w-full">
+              <div className="p-7.5">
+                <div className="mb-4 flex flex-col items-center justify-center text-center">
+                  <AuthLogo />
                 </div>
-                <h3 className="fw-bold text-uppercase">Bad Request</h3>
-                <p className="text-muted">Something's not right in the request you made.</p>
-
-                <Link to="/" className="btn btn-primary mt-3 rounded-pill">
-                  Go Home
-                </Link>
+                <div className="p-3 text-center">
+                  <div className="error-glitch" data-text={400}>
+                    400
+                  </div>
+                  <h3 className="mb-2 text-xl font-bold uppercase">Oops! Invalid Request</h3>
+                  <p className="text-default-400">The request couldn’t be processed. Please check the URL or try again.</p>
+                  <div className="flex justify-center gap-3 mt-7.5">
+                    <Link to="" className="btn border border-secondary text-secondary hover:text-white hover:bg-secondary">
+                      {' '}
+                      Go Back
+                    </Link>
+                    <Link to="/" className="btn bg-primary text-white hover:bg-primary-hover">
+                      {' '}
+                      Back to Dashboard
+                    </Link>
+                  </div>
+                </div>
               </div>
 
-              <p className="text-center text-muted mt-5 mb-0">
-                © {currentYear} {META_DATA.name} — by <span className="fw-bold">{META_DATA.author}</span>
+              <p className="text-default-400 mt-7.5 text-center">
+                © {currentYear}&nbsp;{META_DATA.name} - by&nbsp;<span>{META_DATA.author}</span>
               </p>
-            </Col>
-          </Row>
-        </Container>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   )

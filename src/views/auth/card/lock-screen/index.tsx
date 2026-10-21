@@ -1,56 +1,72 @@
-import auth from '@/assets/images/auth.jpg'
+import authImg from '@/assets/images/auth.jpg'
 import user1 from '@/assets/images/users/user-1.jpg'
 import AuthLogo from '@/components/AuthLogo'
+import Icon from '@/components/wrappers/Icon'
 import { currentYear, META_DATA } from '@/config/constants'
 import { Link } from 'react-router'
-import { Card, CardBody, Col, Container, Row } from 'react-bootstrap'
-import Forms from './components/Forms'
 
 
 const Page = () => {
   return (
-    <>
-      <div className="auth-box d-flex align-items-center">
-        <Container fluid="xxl">
-          <Row className="align-items-center justify-content-center">
-            <Col xl={10}>
-              <Card className="rounded-4">
-                <Row className="justify-content-between g-0">
-                  <Col lg={6}>
-                    <CardBody>
-                      <div className="auth-brand text-center mb-4">
-                        <AuthLogo />
-                        <h4 className="fw-bold mt-4">Lock Screen!</h4>
-                        <p className="text-muted w-lg-75 mx-auto">This screen is locked. Enter your password to continue.</p>
+    <div className="flex min-h-screen items-center p-12.5">
+      <div className="container">
+        <div className="flex justify-center">
+          <div className="xl:w-5/6">
+            <div className="card rounded-2xl">
+              <div className="grid grid-cols-1 lg:grid-cols-2">
+                <div className="card-body relative p-12.5">
+                  <div className="mb-7.5 flex flex-col items-center justify-center text-center">
+                    <AuthLogo />
+                    <h4 className="text-default-900 mt-7.5 mb-2 text-base font-bold">Lock Screen!</h4>
+                    <p className="text-default-400 mx-auto w-full lg:w-3/4">This screen is locked. Enter your password to continue.</p>
+                  </div>
+
+                  <form>
+                    <div className="mb-9 text-center">
+                      <div className="border-default-300 mx-auto mb-3 size-20 rounded-full border-4">
+                        <img src={user1} className="size-18 rounded-full" alt="thumbnail" />
                       </div>
-                      <div className="text-center mb-4">
-                        <img src={user1} className="rounded-circle img-thumbnail avatar-xxl mb-2" alt="thumbnail" />
-                        <h5 className="fs-md">{META_DATA.username}</h5>
-                      </div>
-                      <Forms />
-                      <p className="text-muted text-center mt-4 mb-0">
-                        Not you? Return to&nbsp;
-                        <Link to="/auth/card/sign-in" className="text-decoration-underline link-offset-3 fw-semibold">
-                          Sign in
-                        </Link>
-                      </p>
-                      <p className="text-center text-muted mt-4 mb-0">
-                        © {currentYear} {META_DATA.name} — by <span className="fw-bold">{META_DATA.author}</span>
-                      </p>
-                    </CardBody>
-                  </Col>
-                  <Col lg={6} className="d-none d-lg-block">
-                    <div className="h-100 position-relative card-side-img rounded-end overflow-hidden" style={{ backgroundImage: `url(${auth})` }}>
-                      <div className="p-4 card-img-overlay rounded-end auth-overlay d-flex align-items-end justify-content-center" />
+                      <h5 className="text-base font-semibold">{META_DATA.username}</h5>
                     </div>
-                  </Col>
-                </Row>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+
+                    <div className="mb-5">
+                      <label htmlFor="userPassword" className="form-label">
+                        Password&nbsp;
+                        <span className="text-danger">*</span>
+                      </label>
+                      <div className="input-icon-group">
+                        <Icon icon="lock-password" className="input-icon" />
+                        <input type="password" className="form-input" id="userPassword" placeholder="••••••••" required />
+                      </div>
+                    </div>
+
+                    <div>
+                      <button type="submit" className="btn bg-primary w-full py-3 font-semibold text-white hover:bg-primary-hover">
+                        Unlock
+                      </button>
+                    </div>
+                  </form>
+
+                  <p className="text-default-400 mt-7.5 text-center">
+                    Not you? Return to&nbsp;
+                    <Link to="/auth/card/sign-in" className="text-primary font-semibol underline underline-offset-3">
+                      Sign in
+                    </Link>
+                  </p>
+
+                  <p className="text-default-400 mt-7.5 text-center">
+                    &copy; {currentYear} {META_DATA.name} - by <span>{META_DATA.author}</span>
+                  </p>
+                </div>
+                <div className="relative hidden h-full overflow-hidden rounded-e-2xl bg-cover bg-center object-cover lg:block" style={{ backgroundImage: `url(${authImg})` }}>
+                  <div className="absolute inset-0 flex items-end justify-center rounded-e-sm p-9 [background:linear-gradient(to_top,#313a46,rgba(49,58,70,.8),rgba(49,58,70,.5))]"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

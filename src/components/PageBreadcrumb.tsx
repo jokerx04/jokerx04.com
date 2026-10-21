@@ -1,5 +1,6 @@
-import { Link } from 'react-router'
 import { META_DATA } from '@/config/constants'
+import Icon from './wrappers/Icon'
+import { Link } from 'react-router'
 import PageMetaData from './PageMetaData'
 
 type PageBreadcrumbProps = {
@@ -12,28 +13,24 @@ const PageBreadcrumb = ({ title, subtitle }: PageBreadcrumbProps) => {
     <>
       <PageMetaData title={title} />
 
-      <div className="page-title-head d-flex align-items-center">
-        <div className="flex-grow-1">
-          <h4 className="page-main-title m-0">{title}</h4>
-        </div>
-        <div className="text-end">
-          <ol className="breadcrumb m-0 py-0">
-            <li className="breadcrumb-item">
-              <Link to="">
-                {META_DATA.name}
+      <div className="page-title-head">
+        <h4 className="page-main-title">{title}</h4>
+        <div className="hidden items-center gap-1.25 text-sm font-semibold md:flex">
+          <Link to="" className="text-sm font-medium">
+            {META_DATA.name}
+          </Link>
+          <Icon icon="chevron-right" className="shrink-0 text-sm rtl:rotate-180"></Icon>
+          {subtitle && (
+            <>
+              <Link to="" className="text-sm font-medium">
+                {subtitle}
               </Link>
-            </li>
-            {subtitle && (
-              <li className="breadcrumb-item">
-                <Link to="">
-                  {subtitle}
-                </Link>
-              </li>
-            )}
-            <li className="breadcrumb-item active">
-              {title}
-            </li>
-          </ol>
+              <Icon icon="chevron-right" className="shrink-0 text-sm rtl:rotate-180"></Icon>
+            </>
+          )}
+          <Link to="" className="text-default-400 text-sm font-medium" aria-current="page">
+            {title}
+          </Link>
         </div>
       </div>
     </>

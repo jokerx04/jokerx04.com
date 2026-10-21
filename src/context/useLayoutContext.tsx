@@ -36,10 +36,10 @@ export const showBackdrop = () => {
   const htmlEl = document.documentElement
   const backdropEl = document.createElement('div')
   backdropEl.id = 'custom-backdrop'
-  backdropEl.className = 'offcanvas-backdrop fade show'
+  backdropEl.className = 'transition duration fixed inset-0 bg-default-900/50 z-40'
   document.body.appendChild(backdropEl)
   document.body.style.overflow = 'hidden'
-  htmlEl.classList.add('sidebar-enable')
+  htmlEl.classList.add('sidenav-enable')
   if (window.outerWidth > 767) {
     document.body.style.paddingRight = '15px'
   }
@@ -50,7 +50,7 @@ export const showBackdrop = () => {
 
 export const hideBackdrop = () => {
   const htmlEl = document.documentElement
-  htmlEl.classList.remove('sidebar-enable')
+  htmlEl.classList.remove('sidenav-enable')
   const backdropEl = document.getElementById('custom-backdrop')
   if (backdropEl) {
     document.body.removeChild(backdropEl)
@@ -135,12 +135,12 @@ export const LayoutProvider = ({ children }: { children: ReactNode }) => {
   useEffect(() => {
     if (!settings.sidenavSize?.includes('on-hover')) hideBackdrop()
 
-    toggleAttribute('data-layout', settings.orientation === 'horizontal' ? 'topnav' : '')
+    toggleAttribute('data-layout', settings.orientation)
     toggleAttribute('data-sidenav-user', settings.sidenavUser.toString())
     toggleAttribute('data-layout-position', settings.position)
     toggleAttribute('data-topbar-color', settings.topbarColor)
     toggleAttribute('data-menu-color', settings.sidenavColor)
-    toggleAttribute('data-bs-theme', settings.theme === 'system' ? getSystemTheme() : settings.theme)
+    toggleAttribute('data-theme', settings.theme === 'system' ? getSystemTheme() : settings.theme)
     toggleAttribute('data-skin', settings.skin)
     toggleAttribute('data-sidenav-size', settings.sidenavSize)
     toggleAttribute('data-layout-width', settings.width)

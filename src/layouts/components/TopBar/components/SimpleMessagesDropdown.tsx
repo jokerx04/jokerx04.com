@@ -1,162 +1,120 @@
-import User1 from '@/assets/images/users/user-1.jpg'
-import User2 from '@/assets/images/users/user-2.jpg'
-import User4 from '@/assets/images/users/user-4.jpg'
-import User5 from '@/assets/images/users/user-5.jpg'
-import User6 from '@/assets/images/users/user-6.jpg'
+import user1 from '@/assets/images/users/user-1.jpg'
+import user2 from '@/assets/images/users/user-2.jpg'
+import user4 from '@/assets/images/users/user-4.jpg'
+import user5 from '@/assets/images/users/user-5.jpg'
+import user6 from '@/assets/images/users/user-6.jpg'
 import Icon from '@/components/wrappers/Icon'
 import { SimpleBar } from '@/components/wrappers/SimpleBar'
-import clsx from 'clsx'
+import { cn } from '@/utils/helpers'
 import { Link } from 'react-router'
-import { useState } from 'react'
-import { Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Row } from 'react-bootstrap'
 
-type MessageType = {
-  id: string
-  name: string
-  message: string
-  project: string
-  time: string
-  avatarType: 'image' | 'icon'
-  avatar?: string
-  icon?: string
-  avatarBg?: string
-  active?: boolean
-}
-
-const messages: MessageType[] = [
-  {
-    id: 'message-1',
-    name: 'Liam Carter',
-    message: 'uploaded a new document to',
-    project: 'Project Phoenix',
-    time: '5 minutes ago',
-    avatarType: 'image',
-    avatar: User1,
-    active: true,
-  },
-  {
-    id: 'message-2',
-    name: 'Ava Mitchell',
-    message: 'commented on',
-    project: 'Marketing Campaign Q3',
-    time: '12 minutes ago',
-    avatarType: 'image',
-    avatar: User2,
-  },
-  {
-    id: 'message-3',
-    name: 'Noah Blake',
-    message: 'updated the status of',
-    project: 'Client Onboarding',
-    time: '30 minutes ago',
-    avatarType: 'icon',
-    icon: 'user-hexagon',
-    avatarBg: 'text-bg-info',
-  },
-  {
-    id: 'message-4',
-    name: 'Sophia Taylor',
-    message: 'sent an invoice for',
-    project: 'Service Renewal',
-    time: '1 hour ago',
-    avatarType: 'image',
-    avatar: User4,
-  },
-  {
-    id: 'message-5',
-    name: 'Ethan Moore',
-    message: 'completed the task',
-    project: 'UI Review',
-    time: '2 hours ago',
-    avatarType: 'image',
-    avatar: User5,
-  },
-  {
-    id: 'message-6',
-    name: 'Olivia White',
-    message: 'assigned you a task in',
-    project: 'Sales Pipeline',
-    time: 'Yesterday',
-    avatarType: 'image',
-    avatar: User6,
-  },
-]
-const MessagesDropdown = () => {
-  const [messagesList, setMessagesList] = useState(messages)
-
-  const handleDismissMessage = (messageId: string) => {
-    setMessagesList((prev) => prev.filter((msg) => msg.id !== messageId))
-  }
-
+const SimpleMessagesDropdown = () => {
   return (
-    <div id="simple-messages-dropdown" className="topbar-item">
-      <Dropdown align="end">
-        <DropdownToggle as="button" className="topbar-link drop-arrow-none" type="button">
-          <span className="topbar-link-icon">
-            <Icon icon="mail" />
-          </span>
-          <span className="badge text-bg-success badge-circle topbar-badge">{messagesList.length}</span>
-        </DropdownToggle>
-
-        <DropdownMenu className="p-0 dropdown-menu-end dropdown-menu-lg">
-          <div className="px-3 py-2 border-bottom">
-            <Row className="align-items-center">
-              <Col>
-                <h6 className="m-0 fs-md fw-semibold">Messages</h6>
-              </Col>
-              <Col className="text-end">
-                <Link to="" className="badge badge-soft-success badge-label py-1">
-                  {String(messagesList.length).padStart(2, '0')} Notifications
-                </Link>
-              </Col>
-            </Row>
+    <div id="simple-messages-dropdown" className="topbar-item hs-dropdown relative inline-flex [--auto-close:inside] [--placement:bottom-right]">
+      <button className="topbar-link hs-dropdown-toggle relative flex items-center" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+        <Icon icon="mail" className="topbar-link-icon" />
+        <span className="badge bg-success absolute -end-px -top-[13px] size-4 rounded-full leading-0 text-white">7</span>
+      </button>
+      <div className="hs-dropdown-menu min-w-80 p-0 space-y-0" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-menu">
+        <div className="border-default-300 border-b px-6 py-3">
+          <div className="flex items-center justify-between">
+            <h6 className="text-base font-semibold">Messages</h6>
+            <Link to="" className="badge badge-label bg-success/15 text-success">
+              09 Notifications
+            </Link>
           </div>
-
-          <SimpleBar style={{ maxHeight: 300 }}>
-            {messagesList.map((msg) => (
-              <DropdownItem key={msg.id} id={msg.id} className={clsx('notification-item py-2 text-wrap', msg.active ? 'active' : '')}>
-                <span className="d-flex gap-3">
-                  {msg.avatarType === 'image' && msg.avatar ? (
-                    <span className="flex-shrink-0">
-                      <img src={msg.avatar} alt={`${msg.name} Avatar`} className="avatar-md rounded-circle" width={48} height={48} />
-                    </span>
-                  ) : (
-                    <span className="avatar-md flex-shrink-0">
-                      <span className={`avatar-title ${msg.avatarBg} rounded-circle fs-22`}>
-                        <Icon icon={msg.icon ?? ''} className="fs-22" />
-                      </span>
-                    </span>
-                  )}
-
-                  <span className="flex-grow-1 text-muted">
-                    <span className="fw-medium text-body">{msg.name}</span> {msg.message}
-                    <span className="fw-medium text-body">{msg.project}</span>
-                    <br />
-                    <span className="fs-xs">{msg.time}</span>
+        </div>
+        <SimpleBar style={{ maxHeight: 300 }}>
+          {messageData.map((message, idx) => (
+            <div id={`message-${idx}`} className={cn('hs-removing:translate-x-5 hs-removing:opacity-0 transition duration-300 dropdown-item px-4.5 py-3 text-wrap', { active: idx === 0 })} key={idx}>
+              <span className="flex gap-base">
+                {message.image && (
+                  <span className="shrink-0">
+                    <img src={message.image} className="size-9 rounded-full" alt="User Avatar" />
                   </span>
+                )}
 
-                  <button
-                    className="flex-shrink-0 text-muted btn btn-link p-0"
-                    onClick={(e) => {
-                      e.preventDefault()
-                      e.stopPropagation()
-                      handleDismissMessage(msg.id)
-                    }}
-                  >
-                    <Icon icon="square-rounded-x" className="fs-xxl" />
-                  </button>
+                {message.icon && (
+                  <span className="bg-info flex size-9 shrink-0 items-center justify-center rounded-full text-white">
+                    <Icon icon={message.icon} className="text-xl" />
+                  </span>
+                )}
+                <span className="text-default-400 grow">
+                  <span className="text-body-color font-medium">{message.name}</span>
+                  {message.action}
+                  <span className="text-body-color font-medium">{message.context}</span>
+                  <br />
+                  <span className="text-xs">{message.time}</span>
                 </span>
-              </DropdownItem>
-            ))}
-          </SimpleBar>
-
-          <DropdownItem href="" className="text-center text-reset text-decoration-underline link-offset-2 fw-bold notify-item border-top border-light py-2">
-            Read All Messages
-          </DropdownItem>
-        </DropdownMenu>
-      </Dropdown>
+                <button type="button" className="text-default-400 btn btn-link shrink-0 p-0" data-hs-remove-element={`#message-${idx}`}>
+                  <Icon icon="square-rounded-x" className="text-xl" />
+                </button>
+              </span>
+            </div>
+          ))}
+        </SimpleBar>
+        <Link to="" className="dropdown-item text-reset notify-item border-light justify-center border-t py-3 text-center font-bold underline underline-offset-2">
+          Read All Messages
+        </Link>
+      </div>
     </div>
   )
 }
 
-export default MessagesDropdown
+export default SimpleMessagesDropdown
+
+type MessageItemType = {
+  name: string
+  image?: string
+  icon?: string
+  action: string
+  context: string
+  time: string
+  active?: boolean
+}
+
+const messageData: MessageItemType[] = [
+  {
+    name: 'Liam Carter',
+    image: user1,
+    action: 'uploaded a new document to',
+    context: 'Project Phoenix',
+    time: '5 minutes ago',
+    active: true,
+  },
+  {
+    name: 'Ava Mitchell',
+    image: user2,
+    action: 'commented on',
+    context: 'Marketing Campaign Q3',
+    time: '12 minutes ago',
+  },
+  {
+    name: 'Noah Blake',
+    icon: 'user-hexagon',
+    action: 'updated the status of',
+    context: 'Client Onboarding',
+    time: '30 minutes ago',
+  },
+  {
+    name: 'Sophia Taylor',
+    image: user4,
+    action: 'sent an invoice for',
+    context: 'Service Renewal',
+    time: '1 hour ago',
+  },
+  {
+    name: 'Ethan Moore',
+    image: user5,
+    action: 'completed the task',
+    context: 'UI Review',
+    time: '2 hours ago',
+  },
+  {
+    name: 'Olivia White',
+    image: user6,
+    action: 'assigned you a task in',
+    context: 'Sales Pipeline',
+    time: 'Yesterday',
+  },
+]

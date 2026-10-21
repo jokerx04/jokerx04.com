@@ -1,45 +1,41 @@
-import maintenanceImg from '@/assets/images/maintenance.svg'
+import maintenanceSvg from '@/assets/images/maintenance.svg'
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
-import { Card, CardBody, Col, Container, Row } from 'react-bootstrap'
 
 
 const Page = () => {
   return (
-    <>
-      <div className="auth-box d-flex align-items-center">
-        <Container fluid="xxl">
-          <Row className="align-items-center justify-content-center">
-            <Col xl={6}>
-              <Card className="mb-0 rounded-4">
-                <CardBody>
-                  <div className="auth-brand text-center mb-0">
-                    <AuthLogo />
-                  </div>
-                  <div className="p-2 text-center">
-                    <div className="w-md-50 mx-auto">
-                      <img src={maintenanceImg} alt="Maintenance" className="img-fluid" />
-                    </div>
-                    <h3 className="fw-bold text-uppercase">Site Under Maintenance</h3>
-                    <p className="text-muted">
-                      We’re currently performing scheduled maintenance.
-                      <br />
-                      Please check back soon.
-                    </p>
-                    <button className="btn btn-primary mt-3 rounded-pill me-1">Call Now</button>&nbsp;
-                    <button className="btn btn-info mt-3 rounded-pill">Email Us</button>
-                  </div>
-                  <p className="text-center text-muted mt-5 mb-0">
-                    © {currentYear} {META_DATA.name} — by&nbsp;
-                    <span className="fw-bold">{META_DATA.author}</span>
+    <div className="flex min-h-screen items-center">
+      <div className="container">
+        <div className="flex justify-center lg:p-0 p-12.5">
+          <div className="w-full lg:w-1/2">
+            <div className="card rounded-2xl">
+              <div className="card-body p-12.5">
+                <div className="flex flex-col items-center justify-center text-center">
+                  <AuthLogo />
+                </div>
+                <div className="p-3 text-center mt-5">
+                  <img src={maintenanceSvg} alt="Maintenance" className="mx-auto md:size-64" />
+                  <h3 className="mb-2 text-xl font-bold uppercase">Site Under Maintenance</h3>
+                  <p className="text-default-400">
+                    We’re currently performing scheduled maintenance.
+                    <br />
+                    Please check back soon.
                   </p>
-                </CardBody>
-              </Card>
-            </Col>
-          </Row>
-        </Container>
+                  <div className="mt-8 flex items-center justify-center gap-2 flex-wrap">
+                    <button className="btn bg-primary text-white hover:bg-primary-hover rounded-full">Call Support</button>
+                    <button className="btn bg-info text-white hover:bg-info-hover rounded-full">Send Email</button>
+                  </div>
+                </div>
+                <p className="text-default-400 mt-18 text-center">
+                  &copy; {currentYear} {META_DATA.name} - by <span>{META_DATA.author}</span>
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

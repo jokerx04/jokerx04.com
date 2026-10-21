@@ -1,6 +1,6 @@
 import { LayoutProvider } from '@/context/useLayoutContext'
-import { NotificationProvider } from '@/context/useNotificationContext'
 import { useAuth } from '@/hooks/useAuth'
+import { preline } from '@/utils/preline'
 import { useNavigate } from 'react-router'
 import React, { useEffect } from 'react'
 
@@ -13,11 +13,8 @@ const AppProvidersWrapper = ({ children }: { children: React.ReactNode }) => {
       navigate('/auth/sign-in', { replace: true })
     }
   }, [])
-  return (
-    <LayoutProvider>
-      <NotificationProvider>{children}</NotificationProvider>
-    </LayoutProvider>
-  )
+  preline.init()
+  return <LayoutProvider>{children}</LayoutProvider>
 }
 
 export default AppProvidersWrapper

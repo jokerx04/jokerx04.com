@@ -1,44 +1,39 @@
 import deleteImg from '@/assets/images/delete.png'
 import AuthLogo from '@/components/AuthLogo'
 import { currentYear, META_DATA } from '@/config/constants'
-import { Button, Card, Col, Container, Row } from 'react-bootstrap'
-
 
 const Page = () => {
   return (
-    <>
-      <div className="auth-box overflow-hidden align-items-center d-flex">
-        <Container>
-          <Row className="justify-content-center">
-            <Col xxl={4} md={6} sm={8}>
-              <div className="auth-brand text-center mb-4">
-                <AuthLogo />
-              </div>
-              <Card className="p-4">
-                <div className="mb-4">
-                  <div className="avatar-xxl mx-auto mt-2">
-                    <div className="avatar-title bg-light-subtle border border-light border-dashed rounded-circle">
-                      <img src={deleteImg} alt="dark logo" height={64} />
-                    </div>
+    <div className="flex min-h-screen items-center p-12.5">
+      <div className="container">
+        <div className="flex justify-center px-2.5">
+          <div className="2xl:w-4/10 md:w-1/2 sm:w-2/3 w-full">
+            <div className="mb-7 flex flex-col items-center justify-center text-center">
+              <AuthLogo />
+            </div>
+            <div className="card p-7.5 rounded-2xl">
+              <form>
+                <div className="mt-3 mb-9">
+                  <div className="bg-default-50 border-light mx-auto flex size-20 items-center justify-center rounded-full border border-dashed">
+                    <img src={deleteImg} alt="checkmark" className="size-16 object-contain" />
                   </div>
                 </div>
-                <h4 className="fw-bold text-center mb-3">Account Deactivated</h4>
-                <p className="text-muted text-center mb-4">Your account is currently inactive. Reactivate now to regain access to all features and opportunities.</p>
-                <div className="d-grid">
-                  <Button variant="primary" type="submit" className="fw-semibold py-2">
+                <h4 className="mb-6 text-center text-lg font-bold">Account Deactivated</h4>
+                <p className="text-default-400 mb-9 text-center">Your account is currently inactive. Reactivate now to regain access to all features and opportunities.</p>
+                <div>
+                  <button type="submit" className="btn bg-primary w-full py-3 font-semibold text-white hover:bg-primary-hover">
                     Reactivate Now
-                  </Button>
+                  </button>
                 </div>
-              </Card>
-              <p className="text-center text-muted mt-4 mb-0">
-                © {currentYear} {META_DATA.name} — by
-                <span className="fw-semibold">&nbsp;{META_DATA.author}</span>
-              </p>
-            </Col>
-          </Row>
-        </Container>
+              </form>
+            </div>
+            <p className="text-default-400 mt-7.5 text-center">
+              © {currentYear}&nbsp;{META_DATA.name} - by&nbsp;<span>{META_DATA.author}</span>
+            </p>
+          </div>
+        </div>
       </div>
-    </>
+    </div>
   )
 }
 

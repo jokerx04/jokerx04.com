@@ -3,16 +3,17 @@ import Footer from '@/layouts/components/Footer'
 import Sidenav from '@/layouts/components/Sidenav'
 import TopBar from '@/layouts/components/TopBar'
 import { type ReactNode } from 'react'
-import { Container } from 'react-bootstrap'
 
 const VerticalLayout = ({ children }: { children: ReactNode }) => {
   return (
     <>
       <div className="wrapper">
-        <Sidenav />
         <TopBar />
-        <div className="content-page">
-          <Container fluid>{children}</Container>
+        <Sidenav />
+        <div className="page-content">
+          <main>
+            <div className="container-fluid">{children}</div>
+          </main>
           <Footer />
         </div>
       </div>

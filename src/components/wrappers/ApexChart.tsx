@@ -1,5 +1,5 @@
 import ReactApexCharts from 'react-apexcharts'
-import { ApexOptions } from 'apexcharts'
+import { type ApexChart as ApexChartType, type ApexOptions } from 'apexcharts'
 import { useMemo } from 'react'
 
 import { useLayoutContext } from '@/context/useLayoutContext'
@@ -7,11 +7,11 @@ import { useLayoutContext } from '@/context/useLayoutContext'
 
 
 type PropsType = {
-  type?: ApexChart['type']
+  type?: ApexChartType['type']
   height?: number | string
   width?: number | string
   getOptions: () => ApexOptions
-  series: ApexOptions['series']
+  series?: ApexOptions['series']
   className?: string
 }
 
@@ -21,7 +21,7 @@ const ApexChart = ({ type, height, width = '100%', getOptions, series, className
   // eslint-disable-next-line react-hooks/exhaustive-deps
   const options = useMemo(() => getOptions(), [skin, theme, getOptions])
 
-  return <ReactApexCharts key={`${theme}-${skin}`} type={type} height={height} width={width} options={options} series={series} className={`apex-charts ${className ?? ''}`} />
+  return <ReactApexCharts type={type ?? options.chart?.type} height={height ?? options.chart?.height} width={width ?? options.chart?.width} options={options} series={series ?? options.series} className={`apex-charts ${className || ''}`} />
 }
 
 export default ApexChart

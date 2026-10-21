@@ -1,15 +1,13 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb'
 import { Icon as IconifyIcon } from '@iconify/react'
-import { Link } from 'react-router'
-import { Card, CardBody, CardHeader, CardTitle, Col, Row } from 'react-bootstrap'
 
 
-type TablerIconType = {
+export type TablerIconType = {
   iconName: string
   name: string
 }
 
-const tablerIconData: TablerIconType[] = [
+export const tablerIconData: TablerIconType[] = [
   { iconName: 'phone', name: 'Phone' },
   { iconName: 'ad-2', name: 'Ad 2' },
   { iconName: 'headphones', name: 'Headphones' },
@@ -59,92 +57,92 @@ const Page = () => {
     <>
       <PageBreadcrumb title="Tabler" subtitle="Icons" />
 
-      <Row className="justify-content-center">
-        <Col xxl={10}>
-          <Card>
-            <CardHeader className="d-block">
-              <CardTitle className="mb-1">Overview</CardTitle>
-              <p className="mb-0 text-muted">Free and open source icons designed to make your website or app attractive, visually consistent and simply beautiful.</p>
-            </CardHeader>
+      <div className="container-fluid">
+        <div className="card">
+          <div className="card-header block">
+            <h4 className="card-title mb-1.25">Overview</h4>
+            <p className="text-default-400">Free and open source icons designed to make your website or app attractive, visually consistent and simply beautiful.</p>
+          </div>
 
-            <CardBody>
-              <h4 className="mt-0 fs-base mb-1">Usage</h4>
-              <code>&lt;iconify-icon icon=&quot;tabler:xxx&quot;&gt;&lt;/iconify-icon&gt;</code>
-              <div className="d-flex align-items-center gap-2 mt-3">
-                <IconifyIcon icon="tabler:phone" className="fs-2" />
-                <IconifyIcon icon="tabler:ad-2" className="fs-2" />
-                <IconifyIcon icon="tabler:desktop" className="fs-2" />
-                <IconifyIcon icon="tabler:device-tablet" className="fs-2" />
-                <IconifyIcon icon="tabler:device-gamepad" className="fs-2" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-2" />
-              </div>
-            </CardBody>
+          <div className="card-body">
+            <h4 className="mb-2 text-sm">Usage</h4>
+            <code>&lt;IconifyIcon icon=&quot;tabler:xxxx&quot;/&gt;</code>
+            <div className="mt-3 flex items-center gap-3">
+              <IconifyIcon icon="tabler:phone" className="text-2xl" />
+              <IconifyIcon icon="tabler:ad-2" className="text-2xl" />
+              <IconifyIcon icon="tabler:device-desktop" className="text-2xl" />
+              <IconifyIcon icon="tabler:device-tablet" className="text-2xl" />
+              <IconifyIcon icon="tabler:device-gamepad" className="text-2xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-2xl" />
+            </div>
+          </div>
 
-            <CardBody className="border-top border-dashed">
-              <h4 className="mt-0 fs-base mb-1">Colors</h4>
-              <code>&lt;iconify-icon icon=&quot;tabler:xxx&quot; class=&quot;text-xxxx&quot;&gt;&lt;/iconify-icon&gt;</code>
-              <div className="d-flex align-items-center gap-2 mt-3">
-                <IconifyIcon icon="tabler:camera" className="fs-2 text-primary" />
-                <IconifyIcon icon="tabler:chart-pie-2" className="fs-2 text-secondary" />
-                <IconifyIcon icon="tabler:bell" className="fs-2 text-success" />
-                <IconifyIcon icon="tabler:credit-card" className="fs-2 text-info" />
-                <IconifyIcon icon="tabler:cloud" className="fs-2 text-warning" />
-                <IconifyIcon icon="tabler:mail" className="fs-2 text-danger" />
-                <IconifyIcon icon="tabler:lock" className="fs-2 text-dark" />
-                <IconifyIcon icon="tabler:user" className="fs-2 text-purple" />
-                <IconifyIcon icon="tabler:star" className="fs-2 text-light" />
-              </div>
-            </CardBody>
+          <div className="card-body border-default-300 border-t border-dashed">
+            <h4 className="mb-2 text-sm">Colors</h4>
+            <code>&lt;IconifyIcon icon=&quot;tabler:xxxx&quot; className=&quot;text-xxxx&quot;/&gt;</code>
+            <div className="mt-3 flex items-center gap-3">
+              <IconifyIcon icon="tabler:camera" className="text-primary text-2xl" />
+              <IconifyIcon icon="tabler:chart-pie-2" className="text-secondary text-2xl" />
+              <IconifyIcon icon="tabler:bell" className="text-success text-2xl" />
+              <IconifyIcon icon="tabler:credit-card" className="text-info text-2xl" />
+              <IconifyIcon icon="tabler:cloud" className="text-warning text-2xl" />
+              <IconifyIcon icon="tabler:mail" className="text-danger text-2xl" />
+              <IconifyIcon icon="tabler:lock" className="text-dark text-2xl" />
+              <IconifyIcon icon="tabler:user" className="text-purple text-2xl" />
+              <IconifyIcon icon="tabler:star" className="text-light text-2xl" />
+            </div>
+          </div>
+          <div className="card-body border-default-300 border-t border-dashed">
+            <h4 className="mb-2 text-sm">Sizes</h4>
+            <code>&lt;IconifyIcon icon=&quot;tabler:xxxx&quot; className=&quot;text-xxxx&quot;/&gt;</code>
+            <div className="mt-3 flex items-center gap-3">
+              <IconifyIcon icon="tabler:phone" className="text-xs" />
+              <IconifyIcon icon="tabler:ad-2" className="text-sm" />
+              <IconifyIcon icon="tabler:device-desktop" className="text-base" />
+              <IconifyIcon icon="tabler:device-tablet" className="text-lg" />
+              <IconifyIcon icon="tabler:device-watch" className="text-xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-2xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-3xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-4xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-5xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-6xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-7xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-8xl" />
+              <IconifyIcon icon="tabler:device-watch" className="text-9xl" />
+            </div>
+            <div className="mt-3 flex items-center gap-3">
+              <IconifyIcon icon="tabler:device-watch" />
+              <IconifyIcon icon="tabler:device-watch" className="size-3.25" />
+              <IconifyIcon icon="tabler:device-watch" className="size-3.75" />
+              <IconifyIcon icon="tabler:device-watch" className="text-base" />
+              <IconifyIcon icon="tabler:device-watch" className="text-lg" />
+              <IconifyIcon icon="tabler:device-watch" className="size-6" />
+              <IconifyIcon icon="tabler:device-watch" className="size-8" />
+              <IconifyIcon icon="tabler:device-watch" className="size-9" />
+              <IconifyIcon icon="tabler:device-watch" className="size-10.5" />
+              <IconifyIcon icon="tabler:device-watch" className="size-15" />
+            </div>
+          </div>
 
-            <CardBody className="border-top border-dashed">
-              <h4 className="mt-0 fs-base mb-1">Sizes</h4>
-              <code>&lt;iconify-icon icon=&quot;tabler:xxx&quot; class=&quot;fs-xx&quot;&gt;&lt;/iconify-icon&gt;</code>
-              <div className="d-flex align-items-center gap-2 mt-3">
-                <IconifyIcon icon="tabler:phone" className="fs-1" />
-                <IconifyIcon icon="tabler:ad-2" className="fs-2" />
-                <IconifyIcon icon="tabler:desktop" className="fs-3" />
-                <IconifyIcon icon="tabler:device-tablet" className="fs-4" />
-                <IconifyIcon icon="tabler:device-gamepad" className="fs-5" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-6" />
-              </div>
+          <div className="card-body border-default-300 border-t border-dashed">
+            <h4 className="mt-0 mb-3">Icons</h4>
+            <div className="align-items-center flex flex-wrap gap-3 text-center">
+              {tablerIconData.map((item, idx) => (
+                <div className="border-default-300 flex size-20 flex-col items-center justify-center gap-3 truncate rounded border border-dashed" key={idx}>
+                  <IconifyIcon icon={`tabler:${item.iconName}`} className="text-2xl" />
+                  <span className="block w-full truncate text-center font-semibold">{item.name}</span>
+                </div>
+              ))}
+            </div>
 
-              <div className="d-flex align-items-center gap-2 mt-3">
-                <IconifyIcon icon="tabler:device-watch" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-sm" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-lg" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-xl" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-xxl" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-24" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-32" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-36" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-42" />
-                <IconifyIcon icon="tabler:device-watch" className="fs-60" />
-              </div>
-            </CardBody>
-
-            <CardBody className="border-top border-dashed">
-              <h4 className="mt-0 mb-3">Icons</h4>
-
-              <div className="d-flex flex-wrap align-items-center text-center gap-2">
-                {tablerIconData.map((item, idx) => (
-                  <div className="avatar-xxl" key={idx}>
-                    <span className="avatar-title flex-column gap-1 border border-dashed rounded-3 overflow-hidden text-truncate text-center p-1">
-                      <IconifyIcon icon={`tabler:${item.iconName}`} className="fs-24" />
-                      <span className="fw-semibold d-block w-100 text-truncate">{item.name}</span>
-                    </span>
-                  </div>
-                ))}
-              </div>
-
-              <div className="text-center mt-3">
-                <Link to="https://tabler.io/icons" target="_blank" className="btn btn-danger">
-                  View All Icons
-                </Link>
-              </div>
-            </CardBody>
-          </Card>
-        </Col>
-      </Row>
+            <div className="mt-3 text-center">
+              <a href="https://tabler.io/icons" target="_blank" className="btn bg-danger text-white hover:bg-danger-hover">
+                View All Icons
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   )
 }

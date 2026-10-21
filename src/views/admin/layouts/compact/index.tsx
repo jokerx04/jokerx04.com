@@ -1,5 +1,4 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb'
-import { Container } from 'react-bootstrap'
 import LayoutInfo from '../LayoutInfo'
 import LayoutSwitcher from '../LayoutSwitcher'
 
@@ -9,9 +8,9 @@ const Page = () => {
     <>
       <PageBreadcrumb title="Compact" subtitle="Layouts" />
       <LayoutSwitcher attribute="width" value="compact" />
-      <Container fluid="xl">
+      <div className="container">
         <LayoutInfo option="width" value="compact" />
-      </Container>
+      </div>
     </>
   )
 }

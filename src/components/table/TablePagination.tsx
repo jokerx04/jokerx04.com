@@ -1,5 +1,4 @@
-import clsx from 'clsx'
-import { Col, Row } from 'react-bootstrap'
+import { cn } from '@/utils/helpers'
 import Icon from '../wrappers/Icon'
 
 export type TablePaginationProps = {
@@ -20,17 +19,15 @@ export type TablePaginationProps = {
 
 const TablePagination = ({ totalItems, start, end, itemsName = 'items', showInfo, previousPage, canPreviousPage, pageCount, pageIndex, setPageIndex, nextPage, canNextPage }: TablePaginationProps) => {
   return (
-    <Row className={clsx('align-items-center text-center text-sm-start', showInfo ? 'justify-content-between' : 'justify-content-end')}>
+    <div className={cn('items-center w-full flex text-center text-sm-start', showInfo ? 'justify-between' : 'justify-end')}>
       {showInfo && (
-        <Col sm>
-          <div className="text-muted">
-            Showing <span className="fw-semibold">{start}</span> to <span className="fw-semibold">{end}</span> of <span className="fw-semibold">{totalItems}</span> {itemsName}
-          </div>
-        </Col>
+        <div className="text-default-400">
+          Showing <span className="fw-semibold">{start}</span> to <span className="fw-semibold">{end}</span> of <span className="fw-semibold">{totalItems}</span> {itemsName}
+        </div>
       )}
-      <Col sm="auto" className="mt-3 mt-sm-0">
+      <div className="mt-sm-0">
         <div>
-          <ul className="pagination pagination-sm pagination-boxed mb-0 justify-content-center">
+          <ul className="pagination pagination-boxed pagination-sm flex mb-0 justify-center">
             <li className="page-item">
               <button className="page-link" onClick={() => previousPage()} disabled={!canPreviousPage}>
                 <span>
@@ -54,8 +51,8 @@ const TablePagination = ({ totalItems, start, end, itemsName = 'items', showInfo
             </li>
           </ul>
         </div>
-      </Col>
-    </Row>
+      </div>
+    </div>
   )
 }
 

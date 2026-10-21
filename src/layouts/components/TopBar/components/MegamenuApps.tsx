@@ -1,171 +1,142 @@
-import small8 from '@/assets/images/stock/small-8.jpg'
+import stockSmall from '@/assets/images/stock/small-8.jpg'
 import Icon from '@/components/wrappers/Icon'
 import { SimpleBar } from '@/components/wrappers/SimpleBar'
-import { Button, Col, Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Row } from 'react-bootstrap'
+import { cn, splitArray } from '@/utils/helpers'
+import { Link } from 'react-router'
 
 const Megamenu = () => {
   return (
-    <div id="megamenu-apps" className="topbar-item d-none d-md-flex">
-      <Dropdown>
-        <DropdownToggle className="topbar-link btn fw-medium btn-link drop-arrow-none" type="button">
-          Apps <Icon icon="chevron-down" className="ms-1" />
-        </DropdownToggle>
-        <DropdownMenu className="dropdown-menu-xxl p-0">
-          <SimpleBar className="h-100" style={{ maxHeight: 380 }}>
-            <Row className="g-0">
-              <Col sm={8}>
-                <Row className="g-0">
-                  <Col sm={6}>
-                    <div className="p-2">
-                      <DropdownItem href="">
-                        <span className="d-flex align-items-center">
-                          <span className="avatar-md me-2">
-                            <span className="avatar-title text-primary border border-light bg-light bg-opacity-50 rounded">
-                              <Icon icon="basket" className="fs-22" />
-                            </span>
-                          </span>
-                          <span>
-                            <h5 className="fs-base mb-0 lh-base">eCommerce</h5>
-                            <span className="text-muted fs-12">Products, orders & etc.</span>
-                          </span>
+    <div id="megamenu-apps" className="md:inline-flex hidden">
+      <div className="topbar-item hs-dropdown relative inline-flex">
+        <button className="topbar-link hs-dropdown-toggle btn px-2.5! font-medium" type="button" aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
+          Apps <Icon icon="chevron-down" />
+        </button>
+        <div className="hs-dropdown-menu p-0 md:min-w-3xl" role="menu" aria-orientation="vertical" aria-labelledby="dropdown-menu">
+          <SimpleBar style={{ maxHeight: 380 }}>
+            <div className="grid md:grid-cols-3">
+              {chunkedApps.map((chunk, idx) => (
+                <div className="p-3 space-y-2" key={idx}>
+                  {chunk.map((app, idx) => (
+                    <Link to={app.href} className="dropdown-item" key={idx}>
+                      <span className="flex items-center gap-3">
+                        <span className={cn('size-9 flex items-center justify-center text-primary border border-light bg-light/50 rounded', app.iconClassName)}>
+                          <Icon icon={app.icon} className="size-5.5" />
                         </span>
-                      </DropdownItem>
-                      <DropdownItem href="" className="my-2">
-                        <span className="d-flex align-items-center">
-                          <span className="avatar-md me-2">
-                            <span className="avatar-title text-success border border-light bg-light bg-opacity-50 rounded">
-                              <Icon icon="message" className="fs-22" />
-                            </span>
-                          </span>
-                          <span>
-                            <h5 className="fs-base mb-0 lh-base">Chat</h5>
-                            <span className="text-muted fs-12">Team conversations</span>
-                          </span>
+                        <span>
+                          <h5 className="text-xs">{app.title}</h5>
+                          <span className="text-default-400 text-xs">{app.subtitle}</span>
                         </span>
-                      </DropdownItem>
-                      <DropdownItem href="" className="my-2">
-                        <span className="d-flex align-items-center">
-                          <span className="avatar-md me-2">
-                            <span className="avatar-title text-danger border border-light bg-light bg-opacity-50 rounded">
-                              <Icon icon="list-check" className="fs-22" />
-                            </span>
-                          </span>
-                          <span>
-                            <h5 className="fs-base mb-0 lh-base">Task</h5>
-                            <span className="text-muted fs-12">Plan and track work</span>
-                          </span>
-                        </span>
-                      </DropdownItem>
-                      <DropdownItem href="" className="mt-2">
-                        <span className="d-flex align-items-center">
-                          <span className="avatar-md me-2">
-                            <span className="avatar-title text-info border border-light bg-light bg-opacity-50 rounded">
-                              <Icon icon="mailbox" className="fs-22" />
-                            </span>
-                          </span>
-                          <span>
-                            <h5 className="fs-base mb-0 lh-base">Email</h5>
-                            <span className="text-muted fs-12">Messages and inbox</span>
-                          </span>
-                        </span>
-                      </DropdownItem>
-                    </div>
-                  </Col>
-                  <Col sm={6}>
-                    <div className="p-2">
-                      <DropdownItem href="">
-                        <span className="d-flex align-items-center">
-                          <span className="avatar-md me-2">
-                            <span className="avatar-title text-secondary border border-light bg-light bg-opacity-50 rounded">
-                              <Icon icon="building" className="fs-22" />
-                            </span>
-                          </span>
-                          <span>
-                            <h5 className="fs-base mb-0 lh-base">Companies</h5>
-                            <span className="text-muted fs-12">Business profiles</span>
-                          </span>
-                        </span>
-                      </DropdownItem>
-                      <DropdownItem href="" className="my-2">
-                        <span className="d-flex align-items-center">
-                          <span className="avatar-md me-2">
-                            <span className="avatar-title text-dark border border-light bg-light bg-opacity-50 rounded">
-                              <Icon icon="id" className="fs-22" />
-                            </span>
-                          </span>
-                          <span>
-                            <h5 className="fs-base mb-0 lh-base">Contacts Diary</h5>
-                            <span className="text-muted fs-12">People and connections</span>
-                          </span>
-                        </span>
-                      </DropdownItem>
-                      <DropdownItem href="" className="my-2">
-                        <span className="d-flex align-items-center">
-                          <span className="avatar-md me-2">
-                            <span className="avatar-title text-warning border border-light bg-light bg-opacity-50 rounded">
-                              <Icon icon="calendar" className="fs-22" />
-                            </span>
-                          </span>
-                          <span>
-                            <h5 className="fs-base mb-0 lh-base">Calendar</h5>
-                            <span className="text-muted fs-12">Events and reminders</span>
-                          </span>
-                        </span>
-                      </DropdownItem>
-                      <DropdownItem href="" className="mt-2">
-                        <span className="d-flex align-items-center">
-                          <span className="avatar-md me-2">
-                            <span className="avatar-title text-success border border-light bg-light bg-opacity-50 rounded">
-                              <Icon icon="lifebuoy" className="fs-22" />
-                            </span>
-                          </span>
-                          <span>
-                            <h5 className="fs-base mb-0 lh-base">Support</h5>
-                            <span className="text-muted fs-12">Help and assistance</span>
-                          </span>
-                        </span>
-                      </DropdownItem>
-                    </div>
-                  </Col>
-                </Row>
-                <Row className="g-0 border-top border-light border-dashed text-center">
-                  <Col>
-                    <div className="p-3">
-                      <p className="fw-medium text-muted mb-2 fs-11 text-uppercase lh-1">-: &nbsp; Support &nbsp;:-</p>
-                      <h5 className="fs-15 mb-0"> help@mydomain.com</h5>
-                    </div>
-                  </Col>
-                  <Col>
-                    <div className="p-3">
-                      <p className="fw-medium text-muted mb-2 fs-11 text-uppercase lh-1">-: &nbsp; Help: &nbsp;:-</p>
-                      <h5 className="fs-15 mb-0"> +(12) 3456 7890</h5>
-                    </div>
-                  </Col>
-                </Row>
-              </Col>
-              <Col sm={4}>
-                <div className="h-100 position-relative rounded-end rounded-0 overflow-hidden" style={{ background: `url("${small8}")`, backgroundSize: 'cover' }}>
-                  <div className="p-3 card-img-overlay bg-gradient bg-secondary bg-opacity-90 d-flex align-items-center justify-content-center">
-                    <div className="text-center  text-white">
-                      <Icon icon="atom" className="fs-36" />
-                      <p className="text-white text-opacity-75 mb-3 text-uppercase">Limited Offer</p>
-                      <h3 className="fw-semibold text-white mb-2 fs-20">Unlock Exclusive Savings</h3>
-                      <h4 className="fw-medium fs-16 mb-1">
-                        <del className="text-white text-opacity-75">$49.00</del> / <span className="fw-bold text-white">$25 USD</span>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              ))}
+
+              <div className="row-span-2 bg-light/50">
+                <div className="h-full relative rounded-e overflow-hidden bg-cover" style={{ backgroundImage: `url("${stockSmall}")` }}>
+                  <div className="p-6 absolute inset-0 bg-gradient bg-secondary/90 flex items-center justify-center">
+                    <div className="text-center text-white">
+                      <Icon icon="atom" className="text-4xl mx-auto" />
+                      <p className="text-white/75 mb-5 uppercase">Limited Offer</p>
+                      <h3 className="font-semibold text-white mb-3 text-xl">Unlock Exclusive Savings</h3>
+                      <h4 className="font-medium text-base mb-1">
+                        <del className="text-opacity-75 text-white">$49.00</del>/<span className="font-bold text-white">$15 USD</span>
                       </h4>
-                      <Button variant="danger" type="button" className="btn btn-sm mt-3">
-                        <Icon icon="shopping-cart" className="me-1" /> Grab Deal
-                      </Button>
+                      <button type="button" className="mt-5 btn btn-sm bg-danger text-white hover:bg-danger-hover">
+                        <Icon icon="shopping-cart" className="me-1.5" />
+                        Buy Now
+                      </button>
                     </div>
                   </div>
                 </div>
-              </Col>
-            </Row>
+              </div>
+              <div className="col-span-2">
+                <div className="grid grid-cols-2 border-t border-light border-dashed text-center">
+                  <div className="p-6">
+                    <p className="font-medium text-default-400 mb-1 text-2xs uppercase">-: &nbsp; Support &nbsp;:-</p>
+                    <h5 className="text-md">help@mydomain.com</h5>
+                  </div>
+                  <div className="p-6">
+                    <p className="font-medium text-default-400 mb-1 text-2xs uppercase">-: &nbsp; Help: &nbsp;:-</p>
+                    <h5 className="text-md">+(12) 3456 7890</h5>
+                  </div>
+                </div>
+              </div>
+            </div>
           </SimpleBar>
-        </DropdownMenu>
-      </Dropdown>
+        </div>
+      </div>
     </div>
   )
 }
 
 export default Megamenu
+
+type AppMenuItemType = {
+  icon: string
+  iconClassName: string
+  title: string
+  subtitle: string
+  href: string
+}
+
+const appsMenuData: AppMenuItemType[] = [
+  {
+    icon: 'basket',
+    iconClassName: 'text-primary',
+    title: 'eCommerce',
+    subtitle: 'Products, orders & etc.',
+    href: '',
+  },
+  {
+    icon: 'message',
+    iconClassName: 'text-success',
+    title: 'Chat',
+    subtitle: 'Team conversations',
+    href: '',
+  },
+  {
+    icon: 'list-check',
+    iconClassName: 'text-danger',
+    title: 'Task',
+    subtitle: 'Plan and track work',
+    href: '',
+  },
+  {
+    icon: 'mailbox',
+    iconClassName: 'text-info',
+    title: 'Email',
+    subtitle: 'Messages and inbox',
+    href: '',
+  },
+  {
+    icon: 'building',
+    iconClassName: 'text-secondary',
+    title: 'Companies',
+    subtitle: 'Business profiles',
+    href: '',
+  },
+  {
+    icon: 'id',
+    iconClassName: 'text-dark',
+    title: 'Contacts Diary',
+    subtitle: 'People and connections',
+    href: '',
+  },
+  {
+    icon: 'calendar',
+    iconClassName: 'text-warning',
+    title: 'Calendar',
+    subtitle: 'Events and reminders',
+    href: '',
+  },
+  {
+    icon: 'lifebuoy',
+    iconClassName: 'text-success',
+    title: 'Support',
+    subtitle: 'Help and assistance',
+    href: '',
+  },
+]
+
+const chunkedApps = splitArray(appsMenuData, 4)

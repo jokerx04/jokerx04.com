@@ -1,9 +1,10 @@
-import darkImg from '@/assets/images/layouts/theme-dark.png'
-import lightImg from '@/assets/images/layouts/theme-light.png'
-import systemImg from '@/assets/images/layouts/theme-system.png'
 import { useLayoutContext } from '@/context/useLayoutContext'
 import { toTitleCase } from '@/utils/helpers'
 import type { CustomizationOptionType } from '../index'
+
+import darkImg from '@/assets/images/layouts/theme-dark.png'
+import lightImg from '@/assets/images/layouts/theme-light.png'
+import systemImg from '@/assets/images/layouts/theme-system.png'
 
 const themeOptions: CustomizationOptionType[] = [
   { value: 'light', image: lightImg },
@@ -19,18 +20,16 @@ const Theme = () => {
   }
 
   return (
-    <div id="theme" className="p-3 border-bottom border-dashed">
-      <h5 className="mb-3 fw-bold">Color Scheme</h5>
-      <div className="row">
-        {themeOptions.map((item) => (
-          <div className="col-4" id={`theme-${item.value}`} key={item.value}>
-            <div className="form-check card-radio">
-              <input className="form-check-input" type="radio" name="data-bs-theme" id={`layout-color-${item.value}`} checked={theme === item.value} onChange={() => handleThemeChange(item.value)} />
-              <label className="form-check-label p-0 w-100" htmlFor={`layout-color-${item.value}`}>
-                <img src={item.image} alt="layout-img" className="img-fluid" />
-              </label>
-            </div>
-            <h5 className="text-center text-muted mt-2 mb-0">{toTitleCase(item.value)}</h5>
+    <div className="p-5">
+      <h5 className="text-md mb-5 font-bold">Theme Mode</h5>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 gap-base">
+        {themeOptions.map((item, idx) => (
+          <div className="card-radio" key={idx}>
+            <input className="hidden" type="radio" name="data-theme" id={`layout-color-${item.value}`} checked={theme === item.value} onChange={() => handleThemeChange(item.value)} />
+            <label className="form-label" htmlFor={`layout-color-${item.value}`}>
+              <img src={item.image} alt="layout img" className="flex size-full rounded-md" />
+            </label>
+            <h5 className="text-md text-default-600 mt-2.5 text-center">{toTitleCase(item.value)}</h5>
           </div>
         ))}
       </div>

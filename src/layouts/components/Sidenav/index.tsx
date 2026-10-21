@@ -1,28 +1,30 @@
 import AppLogo from '@/components/AppLogo'
 import { SimpleBar } from '@/components/wrappers/SimpleBar'
+import { Link } from 'react-router'
 import AppMenu from './components/AppMenu'
-import OffcanvasToggle from './components/OffcanvasToggle'
 import OnHoverToggle from './components/OnHoverToggle'
 
 import UserProfileSettings from './components/UserProfileSettings'
 
 const Sidenav = () => {
   return (
-    <div className="sidenav-menu" id="sidenav">
-      <AppLogo />
+    <aside id="app-menu" className="app-menu">
+      <Link to="/" className="logo-box">
+        <AppLogo />
+      </Link>
 
       <OnHoverToggle />
 
-      <OffcanvasToggle />
+      <div className="relative min-h-0 grow" id="sidenav-menu">
+        <SimpleBar className="size-full">
+          <UserProfileSettings />
 
-      <SimpleBar className="scrollbar">
-        <UserProfileSettings />
-
-        <div id="sidenav-menu">
-          <AppMenu />
-        </div>
-      </SimpleBar>
-    </div>
+          <div>
+            <AppMenu />
+          </div>
+        </SimpleBar>
+      </div>
+    </aside>
   )
 }
 

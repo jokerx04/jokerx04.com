@@ -1,80 +1,80 @@
-import { useState } from 'react'
-import { Card, CardBody, CardHeader, CardTitle, Collapse } from 'react-bootstrap'
-
 import Icon from '@/components/wrappers/Icon'
-import type { ChildrenType } from '@/types'
 import clsx from 'clsx'
+import { useState } from 'react'
 
 type ComponentCardProps = {
   title: string
+  badge?: React.ReactNode
   isCollapsible?: boolean
   isRefreshable?: boolean
   isCloseable?: boolean
   className?: string
   bodyClassName?: string
-} & ChildrenType
+  titleClassName?: string
+  actionClassName?: string
+  children: React.ReactNode
+}
 
-const ComponentCard = ({ title, isCloseable, isCollapsible, isRefreshable, className, bodyClassName, children }: ComponentCardProps) => {
+const ComponentCard = ({ title, badge, isCollapsible, isRefreshable, isCloseable, className, bodyClassName, titleClassName, actionClassName, children }: ComponentCardProps) => {
   const [isVisible, setIsVisible] = useState(true)
-  const [isCollapsed, setIsCollapsed] = useState(false)
   const [isRefreshing, setIsRefreshing] = useState(false)
+  const [isCollapsed, setIsCollapsed] = useState(false)
 
   const handleClose = () => {
     setIsVisible(false)
   }
 
-  const handleToggle = () => {
-    setIsCollapsed(!isCollapsed)
-  }
-
-  // Simulate a refresh action
-  // In a real-world scenario, you would fetch new data here
   const handleRefresh = () => {
     setIsRefreshing(true)
+
     setTimeout(() => {
       setIsRefreshing(false)
     }, 1500)
   }
 
+  const toggleCollapse = () => {
+    setIsCollapsed((prev) => !prev)
+  }
+
   if (!isVisible) return null
 
   return (
-    <Card className={clsx(isCollapsed && 'card-collapse', className)}>
+    <div className={`card group relative ${className} ${isCollapsed ? 'card-collapsed' : ''}`}>
       {isRefreshing && (
-        <div className="card-overlay d-flex align-items-center justify-content-center">
-          <div className="spinner-border text-primary" />
+        <div className="card-overlay absolute inset-0 z-20 flex items-center justify-center">
+          <div className="size-8 animate-spin rounded-full border-3 border-primary border-t-transparent"></div>
         </div>
       )}
 
-      <CardHeader className="justify-content-between align-items-center">
-        <CardTitle>{title}</CardTitle>
-        <div className="card-action">
+      <div className="card-header flex justify-between items-center">
+        <h4 className={`card-title ${titleClassName}`}>
+          {title}
+          {badge}
+        </h4>
+
+        <div className={clsx('flex gap-1', actionClassName)}>
           {isCollapsible && (
-            <span className="card-action-item" onClick={handleToggle}>
-              <Icon icon="chevron-up" style={{ rotate: isCollapsed ? '180deg' : '0deg' }} />
-            </span>
+            <button onClick={toggleCollapse} data-action="card-toggle" className="size-6 flex justify-center items-center rounded-full bg-light hover:bg-primary/15 hover:text-primary">
+              <Icon icon="chevron-up" className={`text-base transition-transform ${isCollapsed ? 'rotate-180' : ''}`} />
+            </button>
           )}
+
           {isRefreshable && (
-            <span className="card-action-item" onClick={handleRefresh}>
-              <Icon icon="refresh" />
-            </span>
+            <button onClick={handleRefresh} className="size-6 flex justify-center items-center rounded-full bg-light hover:bg-primary/15 hover:text-primary">
+              <Icon icon="refresh" className="text-base" />
+            </button>
           )}
+
           {isCloseable && (
-            <span className="card-action-item" onClick={handleClose}>
-              <Icon icon="x" />
-            </span>
+            <button onClick={handleClose} className="size-6 flex justify-center items-center rounded-full bg-light hover:bg-primary/15 hover:text-primary">
+              <Icon icon="x" className="text-base" />
+            </button>
           )}
         </div>
-      </CardHeader>
+      </div>
 
-      {isCollapsible ? (
-        <Collapse in={!isCollapsed}>
-          <CardBody className={bodyClassName}>{children}</CardBody>
-        </Collapse>
-      ) : (
-        <CardBody className={bodyClassName}>{children}</CardBody>
-      )}
-    </Card>
+      <div className={`transition-all duration-300 ease-in-out overflow-hidden ${isCollapsed ? 'max-h-0 opacity-0' : 'max-h-[500px] opacity-100'}`}>{!isCollapsed && <div className={`card-body overflow-hidden ${bodyClassName}`}>{children}</div>}</div>
+    </div>
   )
 }
 

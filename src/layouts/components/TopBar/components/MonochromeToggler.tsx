@@ -1,19 +1,19 @@
 import Icon from '@/components/wrappers/Icon'
 
-const MonochromeMode = () => {
+const MonochromeToggler = () => {
   const toggleMonochromeMode = () => {
     const htmlEl = document.getElementsByTagName('html')[0]
     htmlEl.classList.toggle('monochrome')
   }
   return (
-    <div id="monochrome-toggler" className="topbar-item d-none d-sm-flex">
-      <button className="topbar-link" type="button" onClick={toggleMonochromeMode}>
-        <span className="topbar-link-icon">
-          <Icon icon="palette" />
-        </span>
-      </button>
+    <div className="xl:inline-flex hidden">
+      <div id="monochrome-toggler" className="topbar-item">
+        <button className="topbar-link btn btn-sm size-8 rounded-full" id="monochrome-mode" type="button" aria-label="Monochrome Mode" onClick={toggleMonochromeMode}>
+          <Icon icon="palette" className="topbar-link-icon" />
+        </button>
+      </div>
     </div>
   )
 }
 
-export default MonochromeMode
+export default MonochromeToggler

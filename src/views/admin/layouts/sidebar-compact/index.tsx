@@ -7,7 +7,7 @@ const Page = () => {
   return (
     <>
       <PageBreadcrumb title="Compact Menu" subtitle="Layouts" />
-      <LayoutSwitcher attribute="sidenavSize" value="compact" />
+      <LayoutSwitcher attribute="sidenavSize" value="md" />
       <LayoutInfo option="sidenavSize" value="compact" />
     </>
   )
