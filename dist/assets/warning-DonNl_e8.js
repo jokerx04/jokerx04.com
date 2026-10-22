@@ -1,0 +1,1 @@
+import{A as i}from"./index-CLwrv4kV.js";var r,n;function t(){if(n)return r;n=1;var a=function(){};return r=a,r}var e=t();const g=i(e);export{g as w};
