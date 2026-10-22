@@ -66,7 +66,7 @@ const MenuItem = ({ item, linkClass, wrapperClass, level }: { item: MenuItemType
           <Icon icon={item.icon} className="text-lg" />
         </span>
       )}
-      {item.label}
+      {item.label}22222
       {item.badge && <span className={cn('badge', item.badge.className)}>{item.badge.text}</span>}
     </Link>
   )

@@ -3,21 +3,6 @@ import { type MenuItemType } from '@/types';
 export const menuItems: MenuItemType[] = [
 	{
 		'icon': 'dashboard',
-		'slug': 'familysite',
-		'label': '패밀리 사이트',
-		'isTitle': true,
-		'children': [
-			{
-				'url': 'https://blog.jokerx04.com',
-				'icon': 'rocket',
-				'slug': 'pages:familysite-blog',
-				'label': '야근의 요정 - 블로그',
-				'target': '_blank'
-			}
-		]
-	},
-	{
-		'icon': 'dashboard',
 		'slug': 'investments',
 		'label': '투자',
 		'isTitle': true,
@@ -30,9 +15,24 @@ export const menuItems: MenuItemType[] = [
 					{
 						'url': '/investments/stock/calendar',
 						'slug': 'pages:investments-stock-calendar',
-						'label': '경제 캘린더',
+						'label': '경제 캘린더'
 					}
 				]
+			}
+		]
+	},
+	{
+		'icon': 'dashboard',
+		'slug': 'familysite',
+		'label': '패밀리 사이트',
+		'isTitle': true,
+		'children': [
+			{
+				'url': 'https://blog.jokerx04.com',
+				'icon': 'rocket',
+				'slug': 'pages:familysite-blog',
+				'label': '야근의 요정 - 블로그',
+				'target': '_blank'
 			}
 		]
 	},

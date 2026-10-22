@@ -57,7 +57,7 @@ const MenuItemWithChildren = ({ item, openMenuKey, setOpenMenuKey, level = 0 }: 
             <Icon icon={item.icon} />
           </span>
         )}
-        <span className="menu-text">{item.label}</span>
+        <span className="menu-text">{item.label}11111</span>
         {item.badge ? <span className={cn('badge text-white', item.badge.className)}>{item.badge.text}</span> : <span className="menu-arrow" />}
       </Link>
 
