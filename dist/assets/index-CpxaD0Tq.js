@@ -1,0 +1,1 @@
+import{j as e}from"./index-dxdDUCuX.js";import{P as t}from"./PageBreadcrumb-pEqj4bGX.js";import{L as a,a as o}from"./LayoutSwitcher-BkFmq275.js";const n=()=>e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"On Hover Active",subtitle:"Layouts"}),e.jsx(a,{attribute:"sidenavSize",value:"on-hover-active"}),e.jsx(o,{option:"sidenavSize",value:"on-hover-active"})]});export{n as default};
