@@ -1,35 +1,35 @@
 
-import useScrollEvent from '@/hooks/useScrollEvent'
-import clsx from 'clsx'
-import CustomizerToggler from './components/CustomizerToggler'
+import useScrollEvent from '@/hooks/useScrollEvent';
+import clsx from 'clsx';
+import CustomizerToggler from './components/CustomizerToggler';
 
-import FullscreenToggler from './components/FullscreenToggler'
-import LanguageSelector from './components/LanguageSelector'
+import FullscreenToggler from './components/FullscreenToggler';
+import LanguageSelector from './components/LanguageSelector';
 
-import MegamenuApps from './components/MegamenuApps'
+import MegamenuApps from './components/MegamenuApps';
 
-import MegamenuHeader from './components/MegamenuHeader'
+import MegamenuHeader from './components/MegamenuHeader';
 
-import MonochromeToggler from './components/MonochromeToggler'
-import NotificationDropdownAlert from './components/NotificationDropdownAlert'
+import MonochromeToggler from './components/MonochromeToggler';
+import NotificationDropdownAlert from './components/NotificationDropdownAlert';
 
-import SearchBox from './components/SearchBox'
+import SearchBox from './components/SearchBox';
 
-import SimpleMessagesDropdown from './components/SimpleMessagesDropdown'
+import SimpleMessagesDropdown from './components/SimpleMessagesDropdown';
 
-import ThemeToggler from './components/ThemeToggler'
+import ThemeToggler from './components/ThemeToggler';
 
-import logoBlack from '@/assets/images/logo-black.png'
-import logoSm from '@/assets/images/logo-sm.png'
-import logo from '@/assets/images/logo.png'
-import { Link } from 'react-router'
+import logoBlack from '@/assets/images/logo-black.png';
+import logoSm from '@/assets/images/logo-sm.png';
+import logo from '@/assets/images/logo.png';
+import { Link } from 'react-router';
 
-import AppsDropdownRounded from './components/AppsDropdownRounded'
+import AppsDropdownRounded from './components/AppsDropdownRounded';
 
-import MenuToggler from './components/MenuToggler'
-import SimpleUserDropdown from './components/SimpleUserDropdown'
+import MenuToggler from './components/MenuToggler';
+import SimpleUserDropdown from './components/SimpleUserDropdown';
 
-import logoBlackSm from '@/assets/images/logo-black-sm.png'
+import logoBlackSm from '@/assets/images/logo-black-sm.png';
 
 const TopBar = () => {
 	const { scrollY } = useScrollEvent();
@@ -76,6 +76,6 @@ const TopBar = () => {
 			</div>
 		</header>
 	);
-}
+};
 
-export default TopBar
+export default TopBar;

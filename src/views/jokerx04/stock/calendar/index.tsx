@@ -1,14 +1,13 @@
-import PageBreadcrumb from '@/components/PageBreadcrumb'
-import ApiKeyTable from './components/ApiKeyTable'
-
+import PageBreadcrumb from '@/components/PageBreadcrumb';
+import ApiKeyTable from './components/ApiKeyTable';
 
 const Page = () => {
-  return (
-    <>
-      <PageBreadcrumb title="API Keys" subtitle="Apps" />
-      <ApiKeyTable />
-    </>
-  )
-}
+	return (
+		<>
+			<PageBreadcrumb title="경제 캘린더" subtitle="주식" />
+			<ApiKeyTable />
+		</>
+	);
+};
 
-export default Page
+export default Page;

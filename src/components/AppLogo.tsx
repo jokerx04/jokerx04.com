@@ -1,9 +1,9 @@
 
-import logoBlack from '@/assets/images/logo-black.png'
-import logoSm from '@/assets/images/logo-sm.png'
-import logo from '@/assets/images/logo.png'
+import logoBlack from '@/assets/images/logo-black.png';
+import logoSm from '@/assets/images/logo-sm.png';
+import logo from '@/assets/images/logo.png';
 
-import logoBlackSm from '@/assets/images/logo-black-sm.png'
+import logoBlackSm from '@/assets/images/logo-black-sm.png';
 
 const AppLogo = () => {
 	return (
@@ -34,6 +34,6 @@ const AppLogo = () => {
 			</span>
 		</>
 	);
-}
+};
 
-export default AppLogo
+export default AppLogo;

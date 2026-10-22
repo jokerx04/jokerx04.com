@@ -1,6 +1,6 @@
-import { lazy } from 'react'
-import { Navigate, type RouteObject } from 'react-router'
-import MainLayout from '@/layouts/MainLayout'
+import { lazy } from 'react';
+import { Navigate, type RouteObject } from 'react-router';
+import MainLayout from '@/layouts/MainLayout';
 
 export const routes: RouteObject[] = [
 	{
