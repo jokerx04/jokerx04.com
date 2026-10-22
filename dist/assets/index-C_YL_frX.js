@@ -1,1 +1,0 @@
-import{j as t}from"./index-DckYYIzc.js";import{P as e}from"./PageBreadcrumb-Dc4bwk_l.js";import{L as o,a}from"./LayoutSwitcher-C8YwSGmI.js";const u=()=>t.jsxs(t.Fragment,{children:[t.jsx(e,{title:"Boxed",subtitle:"Layouts"}),t.jsx(o,{attribute:"width",value:"boxed"}),t.jsx(a,{option:"width",value:"boxed"})]});export{u as default};

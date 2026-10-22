@@ -1,1 +1,0 @@
-import{j as r}from"./index-DckYYIzc.js";import{P as t}from"./PageBreadcrumb-Dc4bwk_l.js";import{L as a,a as o}from"./LayoutSwitcher-C8YwSGmI.js";const i=()=>r.jsxs(r.Fragment,{children:[r.jsx(t,{title:"Gray Topbar",subtitle:"Layouts"}),r.jsx(a,{attribute:"topbarColor",value:"gray"}),r.jsx(o,{option:"topbarColor",value:"gray"})]});export{i as default};
