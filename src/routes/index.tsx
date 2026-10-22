@@ -7,9 +7,9 @@ export const routes: RouteObject[] = [
 		element: <MainLayout />,
 		children: [
 			{
-				path: '/stock/calendar',
-				Component: lazy(() => import('@/views/jokerx04/stock/calendar'))
-			},
+				path: '/investments/stock/calendar',
+				Component: lazy(() => import('@/views/jokerx04/investments/stock/calendar'))
+			}
 		]
 	},
 	{ path: '', element: <Navigate to="/dashboard/projects" /> },
