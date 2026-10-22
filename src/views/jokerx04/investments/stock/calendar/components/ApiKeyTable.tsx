@@ -162,7 +162,7 @@ const ApiKeyTable = () => {
         <div className="flex gap-2.5">
           <div className="input-icon-group">
             <Icon icon="search" className="input-icon" />
-            <input type="text" placeholder="Search API clients..." className="form-input" value={globalFilter ?? ''} onChange={(e) => setGlobalFilter(e.target.value)} />
+            <input type="text" placeholder="Search API clien1111ts..." className="form-input" value={globalFilter ?? ''} onChange={(e) => setGlobalFilter(e.target.value)} />
           </div>
           <button type="button" className="btn btn-icon bg-secondary text-white hover:bg-secondary-hover" aria-haspopup="dialog" aria-expanded="false" aria-controls="addApiKeyModal" data-hs-overlay="#addApiKeyModal">
             <Icon icon="plus" className="text-base" />

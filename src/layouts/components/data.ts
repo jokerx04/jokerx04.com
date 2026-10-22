@@ -2,13 +2,13 @@ import { type MenuItemType } from '@/types';
 
 export const menuItems: MenuItemType[] = [
 	{
-		'icon': 'dashboard',
+		'icon': '',
 		'slug': 'investments',
 		'label': '투자',
 		'isTitle': true,
 		'children': [
 			{
-				'icon': 'dashboard',
+				'icon': 'adjustments-alt',
 				'slug': 'investments-stock',
 				'label': '주식',
 				'children': [
@@ -22,14 +22,14 @@ export const menuItems: MenuItemType[] = [
 		]
 	},
 	{
-		'icon': 'dashboard',
+		'icon': '',
 		'slug': 'familysite',
 		'label': '패밀리 사이트',
 		'isTitle': true,
 		'children': [
 			{
+				'icon': 'article',
 				'url': 'https://blog.jokerx04.com',
-				'icon': 'rocket',
 				'slug': 'pages:familysite-blog',
 				'label': '야근의 요정 - 블로그',
 				'target': '_blank'
