@@ -1,0 +1,1 @@
+import{j as t}from"./index-C0ahQAKE.js";import{P as a}from"./PageBreadcrumb-C-8sC3Sx.js";import{L as e,a as r}from"./LayoutSwitcher-DMTshkRQ.js";const n=()=>t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Gradient Menu",subtitle:"Layouts"}),t.jsx(e,{attribute:"sidenavColor",value:"gradient"}),t.jsx(r,{option:"sidenavColor",value:"gradient"})]});export{n as default};

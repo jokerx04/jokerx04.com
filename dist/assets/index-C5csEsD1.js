@@ -1,0 +1,1 @@
+import{j as e}from"./index-C0ahQAKE.js";import{P as t}from"./PageBreadcrumb-C-8sC3Sx.js";import{L as o,a}from"./LayoutSwitcher-DMTshkRQ.js";const n=()=>e.jsxs(e.Fragment,{children:[e.jsx(t,{title:"On Hover Menu",subtitle:"Layouts"}),e.jsx(o,{attribute:"sidenavSize",value:"on-hover"}),e.jsx(a,{option:"sidenavSize",value:"on-hover"})]});export{n as default};
