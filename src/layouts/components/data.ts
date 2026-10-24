@@ -31,7 +31,11 @@ export const menuItems: MenuItemType[] = [
 				'icon': 'article',
 				'url': 'https://blog.jokerx04.com',
 				'slug': 'pages:familysite-blog',
-				'label': '야근의 요정 - 블로그',
+				'badge': {
+					'text': '새창',
+					'className': 'bg-light text-black'
+				},
+				'label': '블로그',
 				'target': '_blank'
 			}
 		]
