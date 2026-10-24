@@ -1,0 +1,1 @@
+import{j as a}from"./index-BDxE4Xl-.js";import{P as t}from"./PageBreadcrumb-eZkeWhE7.js";import{L as e,a as s}from"./LayoutSwitcher-BmriwQIm.js";const n=()=>a.jsxs(a.Fragment,{children:[a.jsx(t,{title:"Offcanvas Menu",subtitle:"Layouts"}),a.jsx(e,{attribute:"sidenavSize",value:"offcanvas"}),a.jsx(s,{option:"sidenavSize",value:"offcanvas"})]});export{n as default};
