@@ -1,1 +1,0 @@
-import{j as t}from"./index-C0ahQAKE.js";import{P as a}from"./PageBreadcrumb-C-8sC3Sx.js";import{L as o,a as e}from"./LayoutSwitcher-DMTshkRQ.js";const u=()=>t.jsxs(t.Fragment,{children:[t.jsx(a,{title:"Light Menu",subtitle:"Layouts"}),t.jsx(o,{attribute:"sidenavColor",value:"light"}),t.jsx(e,{option:"sidenavColor",value:"light"})]});export{u as default};
