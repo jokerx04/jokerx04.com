@@ -3,6 +3,7 @@ import { Navigate, type RouteObject } from 'react-router';
 import MainLayout from '@/layouts/MainLayout';
 
 export const routes: RouteObject[] = [
+	{ path: '', element: <Navigate to="/investments/stock/calendar" /> },
 	{
 		element: <MainLayout />,
 		children: [
@@ -12,7 +13,6 @@ export const routes: RouteObject[] = [
 			}
 		]
 	},
-	{ path: '', element: <Navigate to="/dashboard/projects" /> },
 	{ element: <MainLayout />, children: [
 			{ path: '/apps/api-keys', Component: lazy(() => import('@/views/admin/apps/api-keys')) },
 			{ path: '/apps/blog/add', Component: lazy(() => import('@/views/admin/apps/blog/add')) },
