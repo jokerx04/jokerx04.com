@@ -1,8 +1,19 @@
 'use client'
 
+import { useState, useEffect } from 'react'
 import ReactPlayer from 'react-player'
 
 export default function ClientVideoPlayers() {
+  const [isMounted, setIsMounted] = useState(false)
+
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
+
+  if (!isMounted) {
+    return <div className="h-96 flex items-center justify-center text-muted-foreground">Loading Video Players...</div>
+  }
+
   return (
     <div className="grid xl:grid-cols-2 gap-base w-full">
       <div className="card">

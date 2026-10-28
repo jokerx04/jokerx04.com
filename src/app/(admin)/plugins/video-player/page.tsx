@@ -3,15 +3,10 @@ import { Metadata } from 'next'
 
 //import ReactPlayer from 'react-player'
 
-import dynamic from 'next/dynamic'
+import ClientVideoPlayers from './components/ClientVideoPlayers'
 
 //export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Video Player' }
-
-const ClientVideoPlayers = dynamic(() => import('./components/ClientVideoPlayers'), {
-  ssr: false,
-  loading: () => <div className="h-96 flex items-center justify-center">Loading Video Players...</div>,
-})
 
 const Page = () => {
   return (
