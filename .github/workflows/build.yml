@@ -26,56 +26,44 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: 'npm'
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci
 
-      # sitemap.xml 생성
-      - name: Generate Sitemap
-        run: |
-          mkdir -p public
-          echo '<?xml version="1.0" encoding="UTF-8"?>' > public/sitemap.xml
-          echo '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">' >> public/sitemap.xml
-          
-          if [ -d "page" ]; then
-            find page -name "*.html" -type f | while read file; do
-              echo "  <url>" >> public/sitemap.xml
-              echo "    <loc>https://jokerx04.com/$file</loc>" >> public/sitemap.xml
-              echo "    <lastmod>$(date +%Y-%m-%d)</lastmod>" >> public/sitemap.xml
-              echo "  </url>" >> public/sitemap.xml
-            done
-          fi
-          
-          echo '</urlset>' >> public/sitemap.xml
-
-      # React 빌드
-      - name: Run Build
+      # Next.js 빌드 (next.config.js에 output: 'export' 설정 필요)
+      - name: Run Next.js Build
         run: npm run build
 
-      # GitHub Pages SPA 새로고침 지원용 404.html 복제
-      - name: Create 404.html for GitHub Pages SPA routing
-        run: cp dist/index.html dist/404.html
+      # GitHub Pages 정적 배포(단일 페이지 앱 라우팅 보완용 404.html 대응)
+      - name: Create 404.html for GitHub Pages routing
+        run: |
+          if [ -f "out/404.html" ]; then
+            echo "404.html already exists from Next.js export"
+          elif [ -f "out/index.html" ]; then
+            cp out/index.html out/404.html
+          fi
 
-      # dist 및 sitemap 커밋 & 푸시
+      # out 디렉토리 및 sitemap 커밋 & 푸시
       - name: Commit and push changes
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
 
-          git add -f dist public/sitemap.xml
+          git add -f out public/sitemap.xml
 
           if ! git diff --staged --quiet; then
-            git commit -m "chore: automated build update dist & sitemap [skip ci]"
+            git commit -m "chore: automated build update out & sitemap [skip ci]"
             git fetch origin main
             git rebase origin/main
             git push origin main
           fi
 
-      # GitHub Pages 배포 아티팩트 업로드
+      # GitHub Pages 배포 아티팩트 업로드 (Next.js 정적 출력 디렉토리인 out 지정)
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: 'dist'
+          path: 'out'
 
   # 2. 배포 Job 분리: Pages 배포 전용 concurrency 격리 적용
   deploy:
