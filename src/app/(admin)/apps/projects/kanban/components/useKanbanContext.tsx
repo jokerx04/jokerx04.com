@@ -264,7 +264,7 @@ const KanbanProvider = ({ children, tasksData, sectionsData }: KanbanProviderPro
           },
           getAllTasksPerSection,
           onDragEnd,
-        }),
+        }) as KanbanType,
         [
           sections,
           activeSectionId,
