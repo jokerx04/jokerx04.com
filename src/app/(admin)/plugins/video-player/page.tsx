@@ -3,6 +3,8 @@ import { Metadata } from 'next'
 
 //import ReactPlayer from 'react-player'
 
+import dynamic from 'next/dynamic'
+
 //export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Video Player' }
 
