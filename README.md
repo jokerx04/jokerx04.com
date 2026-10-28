@@ -1,109 +1,36 @@
-# jokerx04.com
+This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## Getting Started
 
-## CDN 갱신
+First, run the development server:
 
-```html
-<!-- https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@latest/{파일경로 및 파일명} -->
-<script src="https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@latest/js/common.js"></script>
-
-<!-- https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@SHA/{파일경로 및 파일명} -->
-<script src="https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@63c6453/js/common.js"></script>
-
-<!-- https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@Tag/{파일경로 및 파일명} -->
-<script src="https://cdn.jsdelivr.net/gh/jokerx04/jokerx04.com@v1.0.0/js/common.js"></script>
-```
-<br /><br />
-
-
-## 페이지 임베드
-
-```html
-<!-- https://rawcdn.githack.com/jokerx04/{레파지토리}/main/{파일경로 및 파일명} -->
-<iframe src="https://rawcdn.githack.com/jokerx04/jokerx04.com/main/page/%ED%85%8C%ED%8A%B8%EB%A6%AC%EC%8A%A4.html"
-	style="width: 100%; height: 100vh; min-height: 800px; border: none; display: block;"
-	allow="autoplay; fullscreen">
-</iframe>
-
-<!-- https://rawcdn.githack.com/jokerx04/{레파지토리}/@SHA/{파일경로 및 파일명} -->
-<iframe src="https://rawcdn.githack.com/jokerx04/jokerx04.com/ab55e2a/page/%ED%85%8C%ED%8A%B8%EB%A6%AC%EC%8A%A4.html"
-	style="width: 100%; height: 100vh; min-height: 800px; border: none; display: block;"
-	allow="autoplay; fullscreen">
-</iframe>
-
-<!-- https://rawcdn.githack.com/jokerx04/{레파지토리}/@Tag/{파일경로 및 파일명} -->
-<iframe src="https://rawcdn.githack.com/jokerx04/jokerx04.com/v1.0.0/page/%ED%85%8C%ED%8A%B8%EB%A6%AC%EC%8A%A4.html"
-	style="width: 100%; height: 100vh; min-height: 800px; border: none; display: block;"
-	allow="autoplay; fullscreen">
-</iframe>
-```
-<br /><br />
-
-
-## INSPINIA Preview
-
-- v4 : https://webapplayers.com/inspinia/
-- v3 : http://webapplayers.com/inspinia_admin-v2.9.4/
-
-<br /><br />
-
-
-## Unify Preview
-
-- v3 : https://htmlstream.com/unify/index.html
-- v2.6.3 : https://htmlstream.com/preview/unify-v2.6.3/
-
-<br /><br />
-
-```
-my-react-app/
-├── .github/
-│   └── workflows/
-│       └── deploy.yml          # [핵심] GitHub Actions CI/CD 파이프라인 정의 파일
-├── public/
-│   ├── favicon.ico             # 빌드 없이 그대로 웹 루트로 복사되는 에셋
-│   └── 404.html                # SPA 서브 경로 새로고침 시 404 방지용 리다이렉트
-├── src/
-│   ├── assets/                 # 번들링 대상 이미지, 스타일, 폰트 등
-│   ├── components/             # 재사용 가능한 UI 컴포넌트
-│   ├── pages/                  # 화면 라우팅 단위 컴포넌트
-│   ├── App.jsx                 # 루트 컴포넌트
-│   └── main.jsx                # React DOM 진입점
-├── .gitignore                  # dist, node_modules 등 빌드/의존성 폴더 제외
-├── index.html                  # HTML 템플릿 진입점 (Vite 기준)
-├── package.json                # 프로젝트 의존성 및 빌드 스크립트 정의
-├── package-lock.json           # 의존성 잠금 파일 (Actions의 npm ci 실행에 필수)
-└── vite.config.js              # 번들러 설정 및 Pages base 경로 지정
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+# or
+bun dev
 ```
 
-구성 시 필수 점검 요소
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-1. .gitignore 설정
-빌드 산출물과 로컬 의존성이 레파지토리에 올라가지 않도록 설정합니다.
+You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-```
-node_modules/
-dist/
-dist-ssr/
-*.local
-.DS_Store
-```
+This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-2. package-lock.json 커밋
-GitHub Actions 환경에서 일관된 버전으로 빠르게 설치하기 위해 npm ci 명령어를 사용하므로, package.json과 함께 package-lock.json을 반드시 원격 레파지토리에 포함해야 합니다.
+## Learn More
 
-3. vite.config.js의 base 경로
-저장소 이름이 서브 경로로 붙는 GitHub Pages 특성에 맞춰 베이스 경로를 지정합니다.
+To learn more about Next.js, take a look at the following resources:
 
-```js
-import { defineConfig } from 'vite';
-import react from '@vitejs/plugin-react';
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-export default defineConfig({
-  plugins: [react()],
-  base: '/<repository-name>/', // 레파지토리 명 입력 (루트 도메인이면 '/')
-});
-```
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
-4. GitHub 저장소 권한 설정
-저장소 상단 메뉴의 Settings → Pages → Build and deployment 항목에서 Source를 GitHub Actions로 변경해야 파이프라인이 정상적으로 웹 호스팅 서버에 산출물을 배포합니다.
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
