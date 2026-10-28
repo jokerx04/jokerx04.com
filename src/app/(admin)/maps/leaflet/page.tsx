@@ -4,11 +4,9 @@ import { Metadata } from 'next'
 //import LeaFletMap from './components/LeaFletMap'
 
 //export const dynamic = 'force-dynamic'
-//export const metadata: Metadata = { title: 'Leaflet' }
+export const metadata: Metadata = { title: 'Leaflet' }
 
 import ClientLeafletMap from './components/ClientLeafletMap'
-
-export const metadata: Metadata = { title: 'Leaflet' }
 
 const Page = () => {
   return (

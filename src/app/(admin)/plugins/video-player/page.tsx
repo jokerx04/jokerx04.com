@@ -1,15 +1,22 @@
 import PageBreadcrumb from '@/components/PageBreadcrumb'
 import { Metadata } from 'next'
-import ReactPlayer from 'react-player'
 
-export const dynamic = 'force-dynamic'
+//import ReactPlayer from 'react-player'
+
+//export const dynamic = 'force-dynamic'
 export const metadata: Metadata = { title: 'Video Player' }
+
+const ClientVideoPlayers = dynamic(() => import('./components/ClientVideoPlayers'), {
+  ssr: false,
+  loading: () => <div className="h-96 flex items-center justify-center">Loading Video Players...</div>,
+})
 
 const Page = () => {
   return (
     <>
       <PageBreadcrumb title="Video Player" subtitle="Plugins" />
-      <div className="grid xl:grid-cols-2 gap-base">
+
+      {/* <div className="grid xl:grid-cols-2 gap-base">
         <div className="card">
           <div className="card-header">
             <h4 className="card-title">Basic MP4 Video Player</h4>
@@ -65,7 +72,9 @@ const Page = () => {
             </audio>
           </div>
         </div>
-      </div>
+      </div> */}
+
+      <ClientVideoPlayers />
     </>
   )
 }
