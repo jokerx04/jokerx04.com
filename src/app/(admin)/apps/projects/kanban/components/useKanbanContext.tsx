@@ -126,7 +126,7 @@ const KanbanProvider = ({ children, tasksData, sectionsData }: KanbanProviderPro
 
         category: {
           name: 'General',
-          variant: 'primary',
+          progressClassName: 'primary',
           className: 'bg-success/15 text-success',
         },
 
