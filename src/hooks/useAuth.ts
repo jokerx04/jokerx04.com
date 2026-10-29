@@ -2,18 +2,22 @@
 import { useRouter } from 'next/navigation'
 import { useState } from 'react'
 import { useSessionStorage } from 'usehooks-ts'
+
 export const useAuth = () => {
   const router = useRouter()
 
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [token, setToken, removeToken] = useSessionStorage<string | null>('token', null)
+  
+  //const [token, setToken, removeToken] = useSessionStorage<string | null>('token', null)
 
   const dummyUser = {
     email: 'admin@example.com',
     password: 'password',
     token: 'auth-token',
   }
+
+  const [token, setToken, removeToken] = useSessionStorage<string | null>('token', dummyUser.token)
 
   const login = (email: string, password: string) => {
     try {
