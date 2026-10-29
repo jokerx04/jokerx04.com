@@ -1,4 +1,4 @@
-name: JSON 데이터 실시간 배포
+name: JSON 데이터 배포
 
 on:
   workflow_dispatch: # 수동 실행
