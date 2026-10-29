@@ -84,6 +84,7 @@ export const getAreaChart = (): EChartsOption => ({
   ],
   textStyle: {
     //fontFamily: getComputedStyle(document.body).fontFamily,
+
     fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   color: [getColor('chart-primary')],
@@ -93,7 +94,9 @@ export const getAreaChart = (): EChartsOption => ({
 
 export const getStackedAreaChart = (): EChartsOption => ({
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   tooltip: {
     trigger: 'axis',
@@ -278,7 +281,9 @@ export const getStackedAreaChart = (): EChartsOption => ({
 
 export const getAreaWithMarkerChart = (): EChartsOption => ({
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   color: [getColor('chart-primary'), getColor('chart-gamma')],
   tooltip: {
@@ -466,7 +471,9 @@ export const getStepAreaChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   color: [getColor('chart-zeta'), getColor('chart-beta'), getColor('chart-alpha')],
   series: [
