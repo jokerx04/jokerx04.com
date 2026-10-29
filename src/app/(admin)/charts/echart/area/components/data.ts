@@ -83,7 +83,8 @@ export const getAreaChart = (): EChartsOption => ({
     },
   ],
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   color: [getColor('chart-primary')],
 })
