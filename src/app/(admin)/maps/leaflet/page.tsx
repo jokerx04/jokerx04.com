@@ -15,7 +15,7 @@ const Page = () => {
       <div className="grid xl:grid-cols-2 gap-base">
         {/* <LeaFletMap /> */}
 
-	<ClientLeafletMap />
+        <ClientLeafletMap />
       </div>
     </>
   )

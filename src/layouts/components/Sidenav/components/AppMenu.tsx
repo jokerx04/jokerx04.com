@@ -61,7 +61,7 @@ const MenuItemWithChildren = ({ item, openMenuKey, setOpenMenuKey, level = 0 }: 
         {item.badge ? <span className={cn('badge text-white', item.badge.className)}>{item.badge.text}</span> : <span className="menu-arrow" />}
       </Link>
 
-      <ul className={cn('sub-menu hs-accordion-content hs-accordion-group', { 'hidden': !isOpen })}>
+      <ul className={cn('sub-menu hs-accordion-content hs-accordion-group', { hidden: !isOpen })}>
         {(item.children || []).map((child) => (child.children ? <MenuItemWithChildren key={child.slug} item={child} openMenuKey={openMenuKey} setOpenMenuKey={setOpenMenuKey} level={level + 1} /> : <MenuItem key={child.slug} item={child} level={level + 1} />))}
       </ul>
     </li>

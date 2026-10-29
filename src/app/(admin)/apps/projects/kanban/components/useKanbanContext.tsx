@@ -237,34 +237,35 @@ const KanbanProvider = ({ children, tasksData, sectionsData }: KanbanProviderPro
   return (
     <KanbanContext.Provider
       value={useMemo(
-        () => ({
-          sections,
-          activeSectionId,
-          taskFormData,
-          sectionFormData,
-          newTaskModal: {
-            open: dialogStates.showNewTaskModal,
-            toggle: toggleNewTaskModal,
-          },
-          sectionModal: {
-            open: dialogStates.showSectionModal,
-            toggle: toggleSectionModal,
-          },
-          taskForm: {
-            control: newTaskControl,
-            newRecord: handleNewTask,
-            editRecord: handleEditTask,
-            deleteRecord: handleDeleteTask,
-          },
-          sectionForm: {
-            control: sectionControl,
-            newRecord: handleNewSection,
-            editRecord: handleEditSection,
-            deleteRecord: handleDeleteSection,
-          },
-          getAllTasksPerSection,
-          onDragEnd,
-        }) as KanbanType,
+        () =>
+          ({
+            sections,
+            activeSectionId,
+            taskFormData,
+            sectionFormData,
+            newTaskModal: {
+              open: dialogStates.showNewTaskModal,
+              toggle: toggleNewTaskModal,
+            },
+            sectionModal: {
+              open: dialogStates.showSectionModal,
+              toggle: toggleSectionModal,
+            },
+            taskForm: {
+              control: newTaskControl,
+              newRecord: handleNewTask,
+              editRecord: handleEditTask,
+              deleteRecord: handleDeleteTask,
+            },
+            sectionForm: {
+              control: sectionControl,
+              newRecord: handleNewSection,
+              editRecord: handleEditSection,
+              deleteRecord: handleDeleteSection,
+            },
+            getAllTasksPerSection,
+            onDragEnd,
+          }) as KanbanType,
         [
           sections,
           activeSectionId,

@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import ReactPlayer from 'react-player'
 
 export default function ClientVideoPlayers() {

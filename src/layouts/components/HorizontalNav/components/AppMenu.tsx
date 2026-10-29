@@ -60,7 +60,7 @@ const MenuItem = ({ item, linkClass, wrapperClass, level }: { item: MenuItemType
   const isActive = item.url && pathname.endsWith(item.url)
 
   const link = (
-    <Link href={item.url ?? '/'} className={cn(linkClass, { 'active': isActive })}>
+    <Link href={item.url ?? '/'} className={cn(linkClass, { active: isActive })}>
       {item.icon && menuLevel < 2 && (
         <span className="menu-icon">
           <Icon icon={item.icon} className="text-lg" />
@@ -71,7 +71,7 @@ const MenuItem = ({ item, linkClass, wrapperClass, level }: { item: MenuItemType
     </Link>
   )
 
-  return menuLevel > 1 ? link : <li className={cn(wrapperClass, { 'active': isActive })}>{link}</li>
+  return menuLevel > 1 ? link : <li className={cn(wrapperClass, { active: isActive })}>{link}</li>
 }
 
 const AppMenu = () => {

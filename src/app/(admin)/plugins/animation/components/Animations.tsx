@@ -45,12 +45,12 @@ const Animations = () => {
               <div className="bg-info/15 text-info mb-4 flex items-center rounded px-4 py-3">Click any of the buttons below to see the animation effect applied to the box on the left.</div>
               <div className="hs-accordion-group divide-default-200 border-default-300 divide-y rounded border" id="animationAccordion">
                 {animationGroups.map((item, idx) => (
-                  <div className={cn('hs-accordion', { 'active': idx === 0 })} key={idx}>
+                  <div className={cn('hs-accordion', { active: idx === 0 })} key={idx}>
                     <button className="hs-accordion-toggle hs-accordion-active:bg-default-100 font-secondary flex w-full items-center justify-between px-5 py-4 font-semibold transition" type="button" data-bs-toggle="collapse" data-bs-target="#collapseAttention">
                       {item.name}
                       <Icon icon="chevron-down" className="hs-accordion-active:rotate-180 transition-transform text-base" />
                     </button>
-                    <div id="collapseAttention" className={cn('hs-accordion-content border-default-300 w-full overflow-hidden border-t transition-[height] duration-300', { 'hidden': idx !== 0 })} data-bs-parent="#animationAccordion">
+                    <div id="collapseAttention" className={cn('hs-accordion-content border-default-300 w-full overflow-hidden border-t transition-[height] duration-300', { hidden: idx !== 0 })} data-bs-parent="#animationAccordion">
                       <div className="flex flex-wrap gap-3 px-5 py-4">
                         {item.animations.map((animation, idx) => (
                           <button className="btn bg-light animation_select" onClick={() => animate(animation)} key={idx}>
