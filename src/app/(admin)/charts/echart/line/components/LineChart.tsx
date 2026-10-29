@@ -62,7 +62,9 @@ export const DynamicLine = () => {
   const getDynamicLineChart = (): EChartsOption => ({
     color: [getColor('chart-zeta')],
     textStyle: {
-      fontFamily: getComputedStyle(document.body).fontFamily,
+      //fontFamily: getComputedStyle(document.body).fontFamily,
+
+      fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
     },
     tooltip: {
       trigger: 'axis',

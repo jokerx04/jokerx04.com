@@ -45,7 +45,9 @@ export const getBasicBasicRadarChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
 
   series: [
@@ -108,7 +110,9 @@ export const getProportionOfBrowsersChart = (): EChartsOption => ({
     })(),
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   visualMap: {
     top: 'middle',
@@ -184,7 +188,9 @@ export const getCustomizedRadarChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   radar: [
     {
@@ -322,7 +328,9 @@ export const getMultipleRadarChart = (): EChartsOption => ({
     trigger: 'axis',
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   legend: {
     left: 'center',

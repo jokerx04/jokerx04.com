@@ -47,7 +47,11 @@ export const getRevenueChartOptions = (): EChartsOption => {
   const xLabels = Array.from({ length: 15 }, (_, i) => `Day ${i + 1}`)
 
   return {
-    textStyle: { fontFamily: getComputedStyle(document.body).fontFamily },
+    textStyle: {
+      //fontFamily: getComputedStyle(document.body).fontFamily
+      
+      fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
+    },
     tooltip: {
       trigger: 'axis',
       padding: [5, 0],
@@ -158,7 +162,9 @@ export const getProgressChartOptions = (): EChartsOption => {
       shadowOffsetY: 1,
     },
     textStyle: {
-      fontFamily: getComputedStyle(document.body).fontFamily,
+      //fontFamily: getComputedStyle(document.body).fontFamily,
+
+      fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
     },
     series: [
       {

@@ -146,7 +146,9 @@ export const getBasicBasicHeatmapChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   series: [
     {
@@ -274,7 +276,9 @@ export const getHeatmapChart = (): EChartsOption => ({
     containLabel: true,
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   xAxis: {
     axisTick: { show: false },
@@ -450,7 +454,9 @@ export const getHeatmapDataChart = (): EChartsOption => ({
     containLabel: true,
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   visualMap: {
     min: 0,

@@ -152,7 +152,9 @@ export const getBasicCandlestickChart = (): EChartsOption => ({
     axisLine: { show: false },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   series: [
     {
@@ -334,7 +336,9 @@ export const getMixedCandlestickChart = (): EChartsOption => ({
     top: '10%',
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   xAxis: {
     type: 'category',

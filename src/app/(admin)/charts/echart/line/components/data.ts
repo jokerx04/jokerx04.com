@@ -40,7 +40,9 @@ export const getLineChart = (): EChartsOption => ({
     },
   ],
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   color: [getColor('chart-primary')],
 })
@@ -48,7 +50,9 @@ export const getLineChart = (): EChartsOption => ({
 // Stacked Line Chart
 export const getStackedLineChart = (): EChartsOption => ({
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   tooltip: {
     trigger: 'axis',
@@ -216,7 +220,9 @@ export const getStackedLineChart = (): EChartsOption => ({
 // Line Marker Chart
 export const getLineMarkerChart = (): EChartsOption => ({
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   color: [getColor('primary'), getColor('chart-gamma')],
   tooltip: {
@@ -365,7 +371,9 @@ for (let i = 0; i < 1000; i++) {
 
 export const getDynamicLineChart = (): EChartsOption => ({
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   color: [getColor('chart-zeta')],
   tooltip: {
@@ -510,7 +518,9 @@ export const getStepLine = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   color: [getColor('chart-zeta'), getColor('chart-beta'), getColor('chart-alpha')],
   series: [
@@ -601,7 +611,9 @@ export const getLineYCategory = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   series: [
     {

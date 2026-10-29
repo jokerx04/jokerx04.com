@@ -36,7 +36,9 @@ export const getBasicBarChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   xAxis: {
     type: 'category',
@@ -134,7 +136,9 @@ export const getTwoBarChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    // fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   xAxis: {
     type: 'category',
@@ -248,7 +252,9 @@ export const getProgressBarChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   legend: {
     show: false,
@@ -392,7 +398,9 @@ export const getHorizontalBarChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   series: [
     {
@@ -445,7 +453,9 @@ export const getNegativeBarChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   grid: {
     top: 0,
@@ -559,7 +569,9 @@ export const getBarChartWithSeries = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   legend: {
     show: false,
@@ -750,7 +762,9 @@ export const getStackedBar = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   grid: {
     left: '0%',
@@ -839,7 +853,9 @@ export const getHorizontalStackedBarChar = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   grid: {
     left: '10px',
@@ -991,7 +1007,9 @@ export const getBarRaceChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   grid: { right: '10%', left: 5, bottom: 5, top: 5, containLabel: true },
   animationDuration: 0,
@@ -1094,7 +1112,11 @@ export const getGradientChart = (): EChartsOption => ({
     },
   },
   dataZoom: [{ type: 'inside' }],
-  textStyle: { fontFamily: getComputedStyle(document.body).fontFamily },
+  textStyle: {
+    //fontFamily: getComputedStyle(document.body).fontFamily
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
+  },
   grid: { right: 5, left: 5, bottom: 5, top: 10, containLabel: true },
   series: [
     {
@@ -1140,7 +1162,11 @@ export const getGradientChart = (): EChartsOption => ({
 // mixed bar chart
 
 export const getMixedBarChart = (): EChartsOption => ({
-  textStyle: { fontFamily: getComputedStyle(document.body).fontFamily },
+  textStyle: {
+    //fontFamily: getComputedStyle(document.body).fontFamily
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
+  },
   legend: {
     data: ['Evaporation', 'Precipitation', 'Temperature'],
     textStyle: { color: getColor('body-color') },
@@ -1371,7 +1397,9 @@ export const getTimelineBarChart = (): EChartsOption => ({
       },
     },
     textStyle: {
-      fontFamily: getComputedStyle(document.body).fontFamily,
+      //fontFamily: getComputedStyle(document.body).fontFamily,
+
+      fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
     },
     legend: {
       left: 'right',

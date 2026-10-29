@@ -56,7 +56,9 @@ export const getScatterChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   series: [
     {
@@ -175,7 +177,9 @@ export const getBubbleChart = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   series: [
     {
@@ -378,7 +382,9 @@ export const getQuartetScatterChart = (): EChartsOption => ({
     textStyle: { color: getColor('body-color'), fontSize: 14 },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   grid: window.innerWidth < 768 ? gridSmall : gridLarge,
   xAxis: [
@@ -502,7 +508,9 @@ export const getSingleAxisScatterChart = (): EChartsOption => ({
     axisLabel: { margin: 15, color: getColor('body-color') },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   series: [
     {

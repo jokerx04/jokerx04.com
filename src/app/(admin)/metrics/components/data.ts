@@ -559,7 +559,9 @@ export const getOrderChartOptions = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   grid: {
     left: '-6%',
@@ -640,7 +642,9 @@ export const getProductsChartOptions = (): EChartsOption => {
       },
     },
     textStyle: {
-      fontFamily: getComputedStyle(document.body).fontFamily,
+      //fontFamily: getComputedStyle(document.body).fontFamily,
+
+      fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
     },
     legend: { show: false },
     grid: { left: 0, right: 0, top: 10, bottom: 0, containLabel: false },
@@ -706,7 +710,9 @@ export const profitChartOptions = (): EChartsOption => ({
     },
   },
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+    
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   legend: { show: false },
   grid: { left: 0, right: 0, top: 10, bottom: 0, containLabel: false },

@@ -19,7 +19,11 @@ export const getGaugeChart = (): EChartsOption => ({
     shadowOffsetX: 0,
     shadowOffsetY: 1,
   },
-  textStyle: { fontFamily: getComputedStyle(document.body).fontFamily },
+  textStyle: {
+    //fontFamily: getComputedStyle(document.body).fontFamily
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
+  },
   series: [
     {
       name: 'Pressure',
@@ -93,7 +97,11 @@ export const getSpeedStageGaugeChart = (): EChartsOption => ({
       data: [{ value: 70 }],
     },
   ],
-  textStyle: { fontFamily: getComputedStyle(document.body).fontFamily },
+  textStyle: {
+    //fontFamily: getComputedStyle(document.body).fontFamily
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
+  },
 })
 
 // ring gauge chart
@@ -122,7 +130,11 @@ export const getRingGaugeChart = (): EChartsOption => ({
     transitionDuration: 0,
     axisPointer: { type: 'none' },
   },
-  textStyle: { fontFamily: getComputedStyle(document.body).fontFamily },
+  textStyle: {
+    //fontFamily: getComputedStyle(document.body).fontFamily
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
+  },
   series: [
     {
       type: 'gauge',
@@ -237,7 +249,9 @@ export const getTemperatureChart = (): EChartsOption => ({
     },
   ],
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily,
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
 })
 
@@ -326,7 +340,11 @@ export const getMultiRingGaugeChart = (): EChartsOption => ({
       animationDuration: 2000,
     },
   ],
-  textStyle: { fontFamily: getComputedStyle(document.body).fontFamily },
+  textStyle: {
+    //fontFamily: getComputedStyle(document.body).fontFamily
+
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
+  },
 })
 
 // multi gauge chart
@@ -415,7 +433,9 @@ export const getMultiGaugeChart = (): EChartsOption => ({
     } as GaugeSeriesOption,
   ],
   textStyle: {
-    fontFamily: getComputedStyle(document.body).fontFamily,
+    //fontFamily: getComputedStyle(document.body).fontFamily
+    
+    fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
 })
 export function startGaugeAnimation() {
