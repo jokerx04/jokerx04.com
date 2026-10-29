@@ -1,4 +1,4 @@
-name: JSON 빌드 및 배포
+name: JSON 데이터 실시간 배포
 
 on:
   workflow_dispatch: # 수동 실행
@@ -6,10 +6,7 @@ on:
     branches:
       - main
     paths:
-      - 'src/**'
-      - 'public/**/*.json' # JSON 파일 변경 시 자동 빌드 트리거
-      - 'next.config.*'
-      - 'package.json'
+      - 'public/**/*.json'
 
 permissions:
   contents: read
@@ -18,20 +15,16 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: true
+  cancel-in-progress: false
 
 jobs:
-  deploy:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
+  deploy-json:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # public 내부의 최신 json 파일들을 배포 대상인 dist 디렉토리로 동기화 복사
-      - name: Sync updated public files to dist
+      - name: Sync updated json files to dist
         run: |
           mkdir -p dist
           cp -r public/* dist/
@@ -39,7 +32,6 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      # dist 폴더만 웹 사이트 루트로 패키징하여 안전하게 배포
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
@@ -48,4 +40,3 @@ jobs:
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v4
-        
