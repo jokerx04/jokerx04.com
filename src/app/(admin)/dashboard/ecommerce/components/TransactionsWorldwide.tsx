@@ -1,10 +1,16 @@
 'use client'
 import ComponentCard from '@/components/cards/ComponentCard'
-import BaseVectorMap from '@/components/wrappers/BaseVectorMap'
+//import BaseVectorMap from '@/components/wrappers/BaseVectorMap'
 import Icon from '@/components/wrappers/Icon'
 import clsx from 'clsx'
 import Image from 'next/image'
+import dynamic from 'next/dynamic'
 import { getWorldMapOptions, transactions } from './data'
+
+const BaseVectorMap = dynamic(
+  () => import('@/components/wrappers/BaseVectorMap'),
+  { ssr: false }
+)
 
 const TransactionsWorldwide = () => {
   return (
