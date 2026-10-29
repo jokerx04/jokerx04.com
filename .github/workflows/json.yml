@@ -1,11 +1,15 @@
 name: JSON 빌드 및 배포
 
 on:
+  workflow_dispatch: # 수동 실행
   push:
-    paths:
-      - 'public/**/*.json' # public 하위 어디에 있든 모든 json 감지
     branches:
       - main
+    paths:
+      - 'src/**'
+      - 'public/**/*.json' # JSON 파일 변경 시 자동 빌드 트리거
+      - 'next.config.*'
+      - 'package.json'
 
 permissions:
   contents: read
