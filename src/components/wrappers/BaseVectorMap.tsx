@@ -1,7 +1,7 @@
 'use client'
-import 'jsvectormap'
-import 'jsvectormap/dist/maps/world-merc.js'
-import 'jsvectormap/dist/maps/world.js'
+//import 'jsvectormap'
+//import 'jsvectormap/dist/maps/world-merc.js'
+//import 'jsvectormap/dist/maps/world.js'
 
 import { HTMLAttributes, useEffect, useState } from 'react'
 
@@ -12,18 +12,24 @@ type BaseVectorMapProps = {
 
 const BaseVectorMap = ({ id, options, ...props }: BaseVectorMapProps) => {
   const [map, setMap] = useState<any>()
-
-  useEffect(() => {
-    if (!map) {
-      // create jsvectormap
-      const map = new (window as any)['jsVectorMap']({
-        selector: '#' + id,
-        ...options,
-      })
-
-      setMap(map)
-    }
-  }, [id, map, options])
+  
+  Promise.all([
+    import('jsvectormap'),
+    import('jsvectormap/dist/maps/world-merc.js'),
+    import('jsvectormap/dist/maps/world.js'),
+  ]).then(() => {
+    useEffect(() => {
+      if (!map) {
+        // create jsvectormap
+        const map = new (window as any)['jsVectorMap']({
+          selector: '#' + id,
+          ...options,
+        })
+  
+        setMap(map)
+      }
+    }, [id, map, options])
+  }
 
   return <div id={id} {...props} />
 }
