@@ -386,7 +386,7 @@ export const getQuartetScatterChart = (): EChartsOption => ({
 
     fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
-  grid: window.innerWidth < 768 ? gridSmall : gridLarge,
+  grid: typeof window !== 'undefined' && window.innerWidth < 768 ? gridSmall : gridLarge,
   xAxis: [
     { gridIndex: 0, min: 0, max: 20, ...xAxisStyle() },
     {

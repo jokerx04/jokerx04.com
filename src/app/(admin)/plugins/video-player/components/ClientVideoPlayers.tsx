@@ -22,7 +22,7 @@ export default function ClientVideoPlayers() {
         </div>
         <div className="card-body">
           <div className="h-[420px]">
-            <ReactPlayer light="https://media.w3.org/2010/05/sintel/poster.png" className="plyr w-full!" height={420} controls url="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+            <ReactPlayer light="https://media.w3.org/2010/05/sintel/poster.png" className="plyr w-full!" height={420} controls src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
           </div>
         </div>
       </div>
@@ -33,7 +33,7 @@ export default function ClientVideoPlayers() {
         </div>
         <div className="card-body">
           <div className="h-[420px]">
-            <ReactPlayer className="plyr w-full!" light="https://media.w3.org/2010/05/sintel/poster.png" height={420} controls loop muted playing url="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
+            <ReactPlayer className="plyr w-full!" light="https://media.w3.org/2010/05/sintel/poster.png" height={420} controls loop muted playing src="https://media.w3.org/2010/05/sintel/trailer_hd.mp4" />
           </div>
         </div>
       </div>
@@ -44,7 +44,7 @@ export default function ClientVideoPlayers() {
         </div>
         <div className="card-body">
           <div className="h-[420px]">
-            <ReactPlayer light="https://media.w3.org/2010/05/sintel/poster.png" className="plyr w-full!" height={420} controls url="https://youtu.be/2jmiNO3jwrA?si=nJtopWJfV8xW18J6" config={{ youtube: { playerVars: { color: 'white' } } }} />
+            <ReactPlayer light="https://media.w3.org/2010/05/sintel/poster.png" className="plyr w-full!" height={420} controls src="https://youtu.be/2jmiNO3jwrA?si=nJtopWJfV8xW18J6" config={{ youtube: { color: 'white' } }} />
           </div>
         </div>
       </div>
@@ -55,7 +55,7 @@ export default function ClientVideoPlayers() {
         </div>
         <div className="card-body">
           <div className="h-[420px]">
-            <ReactPlayer url="https://vimeo.com/76979871" controls className="plyr w-full! h-full!" />
+            <ReactPlayer src="https://vimeo.com/76979871" controls className="plyr w-full! h-full!" />
           </div>
         </div>
       </div>

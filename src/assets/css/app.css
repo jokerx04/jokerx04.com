@@ -9,31 +9,27 @@
 
 
 
-@layer base {
-@import "animate.css/animate.min.css";
-@import "choices.js/public/assets/styles/choices.min.css";
-@import "datatables.net-dt/css/dataTables.dataTables.css";
-@import "datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css";
-@import "datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css";
-@import "datatables.net-responsive-dt/css/responsive.dataTables.css";
-@import "datatables.net-select-dt/css/select.dataTables.css";
-@import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css";
-@import "filepond/dist/filepond.min.css";
-@import "flatpickr/dist/flatpickr.min.css";
-@import "jsvectormap/dist/css/jsvectormap.min.css";
-@import "ladda/dist/ladda.min.css";
-@import "leaflet/dist/leaflet.css";
-@import "quill/dist/quill.bubble.css";
-@import "quill/dist/quill.core.css";
-@import "quill/dist/quill.snow.css";
-@import "react-datepicker/dist/react-datepicker.css";
-@import "react-pdf/dist/Page/AnnotationLayer.css";
-@import "react-pdf/dist/Page/TextLayer.css";
-@import "react-photo-album/rows.css";
-@import "spinkit/spinkit.min.css";
-@import "sweetalert2/dist/sweetalert2.min.css";
-@import "yet-another-react-lightbox/styles.css";
-}
+@import "choices.js/public/assets/styles/choices.min.css" layer(base);
+@import "datatables.net-dt/css/dataTables.dataTables.css" layer(base);
+@import "datatables.net-fixedcolumns-dt/css/fixedColumns.dataTables.css" layer(base);
+@import "datatables.net-fixedheader-dt/css/fixedHeader.dataTables.css" layer(base);
+@import "datatables.net-responsive-dt/css/responsive.dataTables.css" layer(base);
+@import "datatables.net-select-dt/css/select.dataTables.css" layer(base);
+@import "filepond-plugin-image-preview/dist/filepond-plugin-image-preview.min.css" layer(base);
+@import "filepond/dist/filepond.min.css" layer(base);
+@import "flatpickr/dist/flatpickr.min.css" layer(base);
+@import "jsvectormap/dist/css/jsvectormap.min.css" layer(base);
+@import "ladda/dist/ladda.min.css" layer(base);
+@import "leaflet/dist/leaflet.css" layer(base);
+@import "quill/dist/quill.bubble.css" layer(base);
+@import "quill/dist/quill.core.css" layer(base);
+@import "quill/dist/quill.snow.css" layer(base);
+@import "react-pdf/dist/Page/AnnotationLayer.css" layer(base);
+@import "react-pdf/dist/Page/TextLayer.css" layer(base);
+@import "react-photo-album/rows.css" layer(base);
+@import "spinkit/spinkit.min.css" layer(base);
+@import "sweetalert2/dist/sweetalert2.min.css" layer(base);
+@import "yet-another-react-lightbox/styles.css" layer(base);
 
 
 

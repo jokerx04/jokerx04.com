@@ -49,7 +49,7 @@ export const getRevenueChartOptions = (): EChartsOption => {
   return {
     textStyle: {
       //fontFamily: getComputedStyle(document.body).fontFamily
-      
+
       fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
     },
     tooltip: {

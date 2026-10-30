@@ -711,7 +711,7 @@ export const profitChartOptions = (): EChartsOption => ({
   },
   textStyle: {
     //fontFamily: getComputedStyle(document.body).fontFamily,
-    
+
     fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
   },
   legend: { show: false },

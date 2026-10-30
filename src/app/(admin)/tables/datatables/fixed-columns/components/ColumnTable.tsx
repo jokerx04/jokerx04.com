@@ -2,12 +2,33 @@
 import DT from 'datatables.net'
 import 'datatables.net-fixedcolumns'
 import DataTable from 'datatables.net-react'
+import type { DataTableProps } from 'datatables.net-react'
 import 'datatables.net-responsive'
 import { useEffect } from 'react'
 import { columns, companies } from './data'
 
+type ColumnTableOptions = NonNullable<DataTableProps['options']> & {
+  responsive?: boolean
+  fixedColumns?: boolean | { leftColumns?: number; rightColumns?: number }
+}
+
 const ColumnTable = () => {
   DataTable.use(DT)
+
+  const options: ColumnTableOptions = {
+    scrollX: true,
+    paging: false,
+    scrollY: '300px',
+    scrollCollapse: true,
+    pageLength: 10,
+    ordering: true,
+    responsive: false,
+    fixedColumns: {
+      leftColumns: 1,
+      rightColumns: 1,
+    },
+    lengthChange: false,
+  }
 
   useEffect(() => {
     setTimeout(() => {
@@ -22,20 +43,7 @@ const ColumnTable = () => {
     <DataTable
       data={companies}
       columns={columns}
-      options={{
-        scrollX: true,
-        paging: false,
-        scrollY: '300px',
-        scrollCollapse: true,
-        pageLength: 10,
-        ordering: true,
-        responsive: false,
-        fixedColumns: {
-          leftColumns: 1,
-          rightColumns: 1,
-        },
-        lengthChange: false,
-      }}
+      options={options}
       className="table-striped dt-responsive table align-middle"
     />
   )

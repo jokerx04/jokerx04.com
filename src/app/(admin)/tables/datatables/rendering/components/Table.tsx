@@ -69,8 +69,6 @@ const columns = [
   {
     data: 'salary',
     render: function render(data: number, type: string) {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-expect-error
       const number = DataTables.render.number(',', '.', 2, '$').display(data.toString())
 
       if (type === 'display') {

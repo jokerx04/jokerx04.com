@@ -3,33 +3,38 @@
 //import 'jsvectormap/dist/maps/world-merc.js'
 //import 'jsvectormap/dist/maps/world.js'
 
-import { HTMLAttributes, useEffect, useState } from 'react'
+import { HTMLAttributes, useEffect } from 'react'
 
 type BaseVectorMapProps = {
   id: string
-  options?: any
+  options?: Record<string, unknown>
 } & HTMLAttributes<HTMLDivElement>
 
 const BaseVectorMap = ({ id, options, ...props }: BaseVectorMapProps) => {
-  const [map, setMap] = useState<any>()
-  
-  Promise.all([
-    import('jsvectormap'),
-    import('jsvectormap/dist/maps/world-merc.js'),
-    import('jsvectormap/dist/maps/world.js'),
-  ]).then(() => {
-    useEffect(() => {
-      if (!map) {
-        // create jsvectormap
-        const map = new (window as any)['jsVectorMap']({
-          selector: '#' + id,
+  useEffect(() => {
+    let isCancelled = false
+
+    const initializeMap = async () => {
+      await Promise.all([
+        import('jsvectormap'),
+        import('jsvectormap/dist/maps/world-merc.js'),
+        import('jsvectormap/dist/maps/world.js'),
+      ])
+
+      if (!isCancelled) {
+        new window.jsVectorMap({
+          selector: `#${id}`,
           ...options,
         })
-  
-        setMap(map)
       }
-    }, [id, map, options])
-  }
+    }
+
+    void initializeMap()
+
+    return () => {
+      isCancelled = true
+    }
+  }, [id, options])
 
   return <div id={id} {...props} />
 }

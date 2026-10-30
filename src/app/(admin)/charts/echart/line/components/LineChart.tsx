@@ -1,7 +1,8 @@
 'use client'
 import EChart from '@/components/wrappers/EChart'
 import { getColor } from '@/utils/helpers'
-import { EChartsOption } from 'echarts'
+import { type EChartsOption } from 'echarts'
+import type { CallbackDataParams } from 'echarts/types/dist/shared'
 import { LinesChart } from 'echarts/charts'
 import { CanvasRenderer } from 'echarts/renderers'
 import { useEffect, useState } from 'react'
@@ -69,7 +70,7 @@ export const DynamicLine = () => {
     tooltip: {
       trigger: 'axis',
       formatter: (params) => {
-        const items = Array.isArray(params) ? (params as echarts.DefaultLabelFormatterCallbackParams[]) : [params as echarts.DefaultLabelFormatterCallbackParams]
+        const items = Array.isArray(params) ? (params as CallbackDataParams[]) : [params as CallbackDataParams]
 
         const item = items[0]
         const date = new Date(item.name as string)

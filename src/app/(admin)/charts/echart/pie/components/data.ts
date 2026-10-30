@@ -15,7 +15,7 @@ export const getBasicPieChart = (): EChartsOption => ({
   series: [
     {
       type: 'pie',
-      radius: window.innerWidth < 530 ? '60%' : '75%',
+      radius: typeof window !== 'undefined' && window.innerWidth < 530 ? '60%' : '75%',
       label: {
         color: getColor('body-color'),
       },
@@ -166,7 +166,7 @@ export const getDoughnutRoundedPieChart = (): EChartsOption => ({
     {
       type: 'pie',
       radius: ['55%', '90%'],
-      center: window.innerWidth < 530 ? ['65%', '55%'] : ['50%', '55%'],
+      center: typeof window !== 'undefined' && window.innerWidth < 530 ? ['65%', '55%'] : ['50%', '55%'],
       avoidLabelOverlap: false,
       itemStyle: {
         borderRadius: 10,
@@ -309,14 +309,14 @@ export const getMultiplePieChart = (): EChartsOption => ({
   series: [
     {
       type: 'pie',
-      radius: window.innerWidth < 450 ? '55%' : '65%',
+      radius: typeof window !== 'undefined' && window.innerWidth < 450 ? '55%' : '65%',
       center: ['30%', '50%'],
       data: leftChartData,
       label: { show: false },
     },
     {
       type: 'pie',
-      radius: window.innerWidth < 450 ? '55%' : '65%',
+      radius: typeof window !== 'undefined' && window.innerWidth < 450 ? '55%' : '65%',
       center: ['70%', '50%'],
       avoidLabelOverlap: false,
       label: { show: false },
@@ -404,7 +404,7 @@ export const getPieLabelAlignChart = (): EChartsOption => ({
   series: [
     {
       type: 'pie',
-      radius: window.innerWidth < 530 ? '45%' : '60%',
+      radius: typeof window !== 'undefined' && window.innerWidth < 530 ? '45%' : '60%',
       center: ['50%', '50%'],
       data,
       label: {
@@ -559,7 +559,7 @@ export const getPieEdgeAlignChart = (): EChartsOption => ({
   series: [
     {
       type: 'pie',
-      radius: window.innerWidth < 530 ? '45%' : '60%',
+      radius: typeof window !== 'undefined' && window.innerWidth < 530 ? '45%' : '60%',
       center: ['50%', '50%'],
       data: data1,
       label: {

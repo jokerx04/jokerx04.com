@@ -33,8 +33,8 @@ const WorldMap = () => {
       },
       textStyle: {
         //fontFamily: getComputedStyle(document.body).fontFamily,
-	
-	fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
+
+        fontFamily: typeof window !== 'undefined' ? getComputedStyle(document.body).fontFamily : 'sans-serif',
       },
       geo: {
         map: 'world',
