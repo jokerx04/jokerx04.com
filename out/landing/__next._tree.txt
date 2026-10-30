@@ -15,4 +15,4 @@
 :HL["/_next/static/media/logo.1f3b-defnwljr.png","image"]
 2:[["children",{"s":"__PAGE__","h":160}]]
 1:[["children",{"s":"landing","h":96,"c":"$Q2"}]]
-0:{"b":"auP5rnx0Q10HuIWfRyT7K","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"iLqN25oR-1ipn6OoekqMl","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
