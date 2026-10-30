@@ -20,6 +20,7 @@ import SimpleMessagesDropdown from './components/SimpleMessagesDropdown'
 
 import ThemeToggler from './components/ThemeToggler'
 
+import logoBlackSm from '@/assets/images/logo-black-sm.png'
 import logoBlack from '@/assets/images/logo-black.png'
 import logoSm from '@/assets/images/logo-sm.png'
 import logo from '@/assets/images/logo.png'
@@ -41,13 +42,13 @@ const TopBar = () => {
           <div className="logo-topbar">
             <Link href="/" className="logo-box">
               <div className="logo-light">
-                <Image src={logo} className="logo-lg h-6" width={94.47} height={22} alt="Light logo" />
+                <Image src={logo} className="logo-lg h-6" height={22} alt="Light logo" />
                 <Image src={logoSm} className="logo-sm h-6" height={26} width={24.48} alt="Small logo" />
               </div>
 
               <div className="logo-dark">
-                <Image src={logoBlack} className="logo-lg h-6" height={22} width={94.47} alt="Dark logo" />
-                <Image src={logoSm} className="logo-sm h-6" height={26} width={24.48} alt="Small logo" />
+                <Image src={logoBlack} className="logo-lg h-6" height={22} alt="Dark logo" />
+                <Image src={logoBlackSm} className="logo-sm h-6" height={26} width={24.48} alt="Small logo" />
               </div>
             </Link>
           </div>
