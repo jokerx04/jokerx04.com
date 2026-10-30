@@ -15,6 +15,9 @@ const nextConfig: NextConfig = {
   
   // 정적 내보내기(GitHub Pages 배포용)
   output: 'export',
+  images: {
+    unoptimized: true,
+  },
 
   // Turbopack 루트 경로 명시
   turbopack: {
