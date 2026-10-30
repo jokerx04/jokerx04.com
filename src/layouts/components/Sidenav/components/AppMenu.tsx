@@ -76,7 +76,7 @@ const MenuItem = ({ item, level = 0 }: { item: MenuItemType; level?: number }) =
   if (!item.url) return null
   return (
     <li className={cn('menu-item', isActive && 'active')}>
-      <Link href={item.url ?? '/'} className={cn('menu-link', isActive && 'active', item.isDisabled && 'disabled', item.isSpecial && 'special-menu')}>
+      <Link href={item.url ?? '/'} target={item.target} className={cn('menu-link', isActive && 'active', item.isDisabled && 'disabled', item.isSpecial && 'special-menu')}>
         {item.icon && isTopLevel && (
           <span className="menu-icon">
             <Icon icon={item.icon} />

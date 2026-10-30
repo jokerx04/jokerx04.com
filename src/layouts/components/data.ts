@@ -2,6 +2,45 @@ import { type MenuItemType } from '@/types'
 
 export const menuItems: MenuItemType[] = [
   {
+    icon: 'adjustments-alt',
+    slug: 'investments',
+    label: '투자',
+    isTitle: true,
+    children: [
+      {
+        icon: 'adjustments-alt',
+        slug: 'investments-stock',
+        label: '주식',
+        children: [
+          {
+            url: '/investments/stock/calendar',
+            slug: 'pages:investments-stock-calendar',
+            label: '경제 캘린더',
+          },
+        ],
+      },
+    ],
+  },
+  {
+    icon: 'article',
+    slug: 'familysite',
+    label: '패밀리 사이트',
+    isTitle: true,
+    children: [
+      {
+        icon: 'article',
+        url: 'https://blog.jokerx04.com',
+        slug: 'pages:familysite-blog',
+        badge: {
+          'text': '새창',
+          'className': 'bg-light text-black'
+        },
+        label: '블로그',
+	'target': '_blank',
+      },
+    ],
+  },
+  {
     icon: 'dashboard',
     slug: 'main',
     label: 'Main',
