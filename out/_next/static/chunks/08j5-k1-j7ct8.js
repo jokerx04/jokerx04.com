@@ -1,1 +1,0 @@
-(globalThis.TURBOPACK||(globalThis.TURBOPACK=[])).push(["object"==typeof document?document.currentScript:void 0,368029,i=>{"use strict";var t=i.i(843476),e=i.i(629612);i.i(211478);var o=i.i(716104);i.s(["default",0,()=>(0,t.jsx)(e.default,{id:"world-map-marker-line",options:(0,o.P)(),style:{height:360}})])},756123,function(i){i.n(i.i(368029))}]);
