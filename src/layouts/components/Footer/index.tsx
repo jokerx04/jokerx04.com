@@ -6,8 +6,7 @@ const Footer = () => {
       <div className="container-fluid">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-base">
           <div className="text-center md:text-start">
-            © {currentYear} {META_DATA.name} By&nbsp;
-            <span className="font-semibold">{META_DATA.author}</span>
+            {currentYear} <span className="font-semibold">{META_DATA.name}</span>. All rights reserved.
           </div>
 
           <div className="md:text-end hidden md:block">

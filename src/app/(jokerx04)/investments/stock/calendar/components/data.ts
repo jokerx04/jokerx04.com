@@ -22,6 +22,56 @@ export type SubmitEventType = {
   category: string
 }
 
+export type StockCalendarEventItem = {
+  id: string
+  country: string
+  countryName: string
+  dateKst: string
+  datetimeKst: string
+  dateLocal: string
+  datetimeLocal: string
+  localTimezone: string
+  status: string
+  category: string
+  event: string
+  eventOriginal: string
+  agency: string
+  sourceUrl: string
+  sourceTitle: string
+  impact: string
+  importanceScore: number
+  importanceStar: string
+  marketStatus?: string
+  actual: number | null
+  previous: number | null
+  change: number | null
+  forecast: number | null
+  unit: string
+  changeBp?: number
+}
+
+export type StockCalendarMonthlyData = {
+  month: string
+  from: string
+  to: string
+  totalEvents: number
+  lastUpdatedAt: string
+  events: StockCalendarEventItem[]
+}
+
+export const getEventClassName = (importanceScore?: number, category?: string): string => {
+  if (category === '증시 휴장 및 일정') {
+    return 'bg-secondary/15 !text-secondary border-s! !border-[3px] border-secondary'
+  }
+  if (importanceScore === 3) {
+    return 'bg-danger/15 !text-danger border-s! !border-[3px] border-danger'
+  }
+  if (importanceScore === 2) {
+    return 'bg-warning/15 !text-warning border-s! !border-[3px] border-warning'
+  }
+  return 'bg-info/15 !text-info border-s! !border-[3px] border-info'
+}
+
 export const defaultEventData: EventInput[] = [
   {
     id: '1',

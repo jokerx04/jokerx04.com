@@ -1,29 +1,61 @@
 'use client'
 import Icon from '@/components/wrappers/Icon'
 import { SimpleBar } from '@/components/wrappers/SimpleBar'
-import { cn } from '@/utils/helpers'
-import { DateInput, EventClickArg, EventDropArg, EventInput } from '@fullcalendar/core'
+import { DateInput, DatesSetArg, EventClickArg, EventDropArg, EventInput } from '@fullcalendar/core'
+import koLocale from '@fullcalendar/core/locales/ko'
 import dayGridPlugin from '@fullcalendar/daygrid'
-import interactionPlugin, { DateClickArg, Draggable, type DropArg } from '@fullcalendar/interaction'
+import interactionPlugin, { DateClickArg, type DropArg } from '@fullcalendar/interaction'
 import listPlugin from '@fullcalendar/list'
 import FullCalendar from '@fullcalendar/react'
 import timeGridPlugin from '@fullcalendar/timegrid'
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { useWindowSize } from 'usehooks-ts'
 import AddEditModal from './AddEditModal'
-import { defaultEventData, externalEventData, type SubmitEventType } from './data'
+import { getEventClassName, type StockCalendarMonthlyData, type SubmitEventType } from './data'
 
 const CalendarPage = () => {
   const { height } = useWindowSize()
-
-  const externalEventsEle = useRef<HTMLDivElement | null>(null)
-
-  const draggableInstance = useRef<Draggable | null>(null)
+  const loadedMonthRef = useRef<string>('')
 
   const [isEditable, setIsEditable] = useState<boolean>(false)
-  const [events, setEvents] = useState<EventInput[]>([...defaultEventData])
+  const [events, setEvents] = useState<EventInput[]>([])
   const [eventData, setEventData] = useState<EventInput>()
   const [dateInfo, setDateInfo] = useState<DateClickArg>()
+
+  const onDatesSet = async (arg: DatesSetArg) => {
+    const currentDate = arg.view.currentStart
+    const year = currentDate.getFullYear()
+    const month = String(currentDate.getMonth() + 1).padStart(2, '0')
+    const yearMonth = `${year}-${month}`
+
+    if (loadedMonthRef.current === yearMonth) {
+      return
+    }
+    loadedMonthRef.current = yearMonth
+
+    try {
+      const response = await fetch(`/data/investments/stock/calendar/calendar_${yearMonth}.json`)
+      if (!response.ok) {
+        setEvents([])
+        return
+      }
+      const data: StockCalendarMonthlyData = await response.json()
+      const mappedEvents: EventInput[] = (data.events ?? []).map((item) => {
+        const startDateTime = item.datetimeKst ? item.datetimeKst.replace(' ', 'T') : item.dateKst
+        return {
+          id: item.id,
+          title: `[${item.countryName}] ${item.event}`,
+          start: startDateTime,
+          end: startDateTime,
+          className: getEventClassName(item.importanceScore, item.category),
+          extendedProps: item,
+        }
+      })
+      setEvents(mappedEvents)
+    } catch {
+      setEvents([])
+    }
+  }
 
   const onCloseModal = () => {
     setEventData(undefined)
@@ -116,56 +148,9 @@ const CalendarPage = () => {
     setIsEditable(false)
   }
 
-  const createNewEvent = () => {
-    setIsEditable(false)
-    setEventData(undefined)
-    setDateInfo(undefined)
-    window.HSOverlay?.open('#event-modal')
-  }
-
-  useEffect(() => {
-    if (externalEventsEle.current) {
-      draggableInstance.current = new Draggable(externalEventsEle.current, {
-        itemSelector: '.external-event',
-        eventData: function (eventEl) {
-          return {
-            title: eventEl.innerText,
-            classNames: eventEl.getAttribute('data-class'),
-          }
-        },
-      })
-    }
-
-    return () => {
-      if (draggableInstance.current) {
-        draggableInstance.current.destroy()
-      }
-    }
-  }, [])
-
   return (
     <>
       <div className="flex lg:h-[calc(100vh-192px)]">
-        <div className="card hidden lg:flex h-full">
-          <div className="card-body">
-            <button onClick={createNewEvent} className="btn bg-primary w-full text-white" aria-haspopup="dialog" aria-expanded="false" aria-controls="event-modal">
-              <Icon icon="plus" className="me-1 align-middle"></Icon>
-              Create New Event
-            </button>
-
-            <div id="external-events" ref={externalEventsEle}>
-              <p className="text-default-400 mt-2.5 mb-5 text-xs italic">Drag and drop your event or click in the calendar</p>
-
-              {externalEventData.map((event, idx) => (
-                <div className={cn('external-event fc-event bg-primary/10 my-1.5 rounded px-4 py-2 font-semibold', event.className)} key={idx} title={event.title} data-class={event.className}>
-                  <Icon icon="circle-filled" className="me-2" />
-                  {event.title}
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-
         <div className="card flex-1 h-full">
           <div className="card-header inline-flex lg:hidden">
             <button className="btn bg-primary w-full text-white" aria-haspopup="dialog" aria-expanded="false" aria-controls="event-modal" data-hs-overlay="#event-modal">
@@ -177,19 +162,20 @@ const CalendarPage = () => {
           <div className="card-body">
             <SimpleBar id="calendar">
               <FullCalendar
+                locale={koLocale}
                 initialView="dayGridMonth"
                 plugins={[dayGridPlugin, interactionPlugin, timeGridPlugin, listPlugin]}
                 bootstrapFontAwesome={false}
                 handleWindowResize={true}
                 slotDuration="00:30:00"
-                slotMinTime="07:00:00"
-                slotMaxTime="19:00:00"
+                slotMinTime="00:00:00"
+                slotMaxTime="24:00:00"
                 buttonText={{
-                  today: 'Today',
-                  month: 'Month',
-                  week: 'Week',
-                  day: 'Day',
-                  list: 'List',
+                  today: '오늘',
+                  month: '월',
+                  week: '주',
+                  day: '일',
+                  list: '일정',
                 }}
                 headerToolbar={{
                   left: 'prev,next,today',
@@ -201,6 +187,7 @@ const CalendarPage = () => {
                 selectable={true}
                 droppable={true}
                 events={events}
+                datesSet={onDatesSet}
                 dateClick={onDateClick}
                 eventClick={onEventClick}
                 drop={onDrop}
