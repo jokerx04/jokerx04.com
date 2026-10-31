@@ -1,5 +1,5 @@
 :HL["/_next/static/chunks/0krq011rdxjfv.css","style"]
-:HL["/_next/static/chunks/30rmg169ufeuf.css","style"]
+:HL["/_next/static/chunks/1c9wqzc8919vt.css","style"]
 :HL["/_next/static/chunks/3a2se4ej51ta4.css","style"]
 :HL["https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap","style"]
 :HL["https://fonts.googleapis.com/css2?family=IBM+Plex+Sans:ital,wght@0,100..700;1,100..700&display=swap","style"]
@@ -16,4 +16,4 @@
 3:[["children",{"s":"other-plugin","h":96,"c":"$Q4"}]]
 2:[["children",{"s":"form","h":96,"c":"$Q3"}]]
 1:[["children",{"s":"(admin)","h":96,"c":"$Q2"}]]
-0:{"b":"pm_S5TI15H6FDlBDZzOGB","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
+0:{"b":"CIQ_sc24_4lkSiYw8kLrV","t":{"t":{"s":"","h":80,"c":"$Q1"}}}
