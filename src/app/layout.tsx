@@ -3,9 +3,9 @@ import AppProvidersWrapper from '@/components/wrappers/AppProvidersWrapper'
 import { META_DATA } from '@/config/constants'
 import type { Metadata } from 'next'
 
+import '@/assets/css/app.css'
 import 'animate.css/animate.min.css'
 import 'react-datepicker/dist/react-datepicker.css'
-import '@/assets/css/app.css'
 
 export const metadata: Metadata = {
   title: {

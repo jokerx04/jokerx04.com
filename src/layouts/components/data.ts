@@ -32,11 +32,11 @@ export const menuItems: MenuItemType[] = [
         url: 'https://blog.jokerx04.com',
         slug: 'pages:familysite-blog',
         badge: {
-          'text': '새창',
-          'className': 'bg-light text-black'
+          text: '새창',
+          className: 'bg-light text-black',
         },
         label: '블로그',
-	'target': '_blank',
+        target: '_blank',
       },
     ],
   },

@@ -1,6 +1,6 @@
 html[data-skin="saas"] {
-    --font-body: "Inter", sans-serif;
-    --font-secondary: "Inter", sans-serif;
+    --font-body: Pretendard-Regular, "Inter", sans-serif;
+    --font-secondary: Pretendard-Regular, "Inter", sans-serif;
 
     --text-body: 13px;
     --color-body-bg: #f9fbfd;

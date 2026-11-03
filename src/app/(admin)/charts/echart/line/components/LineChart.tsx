@@ -2,9 +2,9 @@
 import EChart from '@/components/wrappers/EChart'
 import { getColor } from '@/utils/helpers'
 import { type EChartsOption } from 'echarts'
-import type { CallbackDataParams } from 'echarts/types/dist/shared'
 import { LinesChart } from 'echarts/charts'
 import { CanvasRenderer } from 'echarts/renderers'
+import type { CallbackDataParams } from 'echarts/types/dist/shared'
 import { useEffect, useState } from 'react'
 import { getLineChart, getLineMarkerChart, getLineYCategory, getStackedLineChart, getStepLine } from './data'
 

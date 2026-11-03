@@ -1,8 +1,8 @@
 'use client'
 import DT from 'datatables.net'
 import 'datatables.net-fixedcolumns'
-import DataTable from 'datatables.net-react'
 import type { DataTableProps } from 'datatables.net-react'
+import DataTable from 'datatables.net-react'
 import 'datatables.net-responsive'
 import { useEffect } from 'react'
 import { columns, companies } from './data'
@@ -39,14 +39,7 @@ const ColumnTable = () => {
     }, 300)
   }, [])
 
-  return (
-    <DataTable
-      data={companies}
-      columns={columns}
-      options={options}
-      className="table-striped dt-responsive table align-middle"
-    />
-  )
+  return <DataTable data={companies} columns={columns} options={options} className="table-striped dt-responsive table align-middle" />
 }
 
 export default ColumnTable

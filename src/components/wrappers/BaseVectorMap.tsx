@@ -15,11 +15,7 @@ const BaseVectorMap = ({ id, options, ...props }: BaseVectorMapProps) => {
     let isCancelled = false
 
     const initializeMap = async () => {
-      await Promise.all([
-        import('jsvectormap'),
-        import('jsvectormap/dist/maps/world-merc.js'),
-        import('jsvectormap/dist/maps/world.js'),
-      ])
+      await Promise.all([import('jsvectormap'), import('jsvectormap/dist/maps/world-merc.js'), import('jsvectormap/dist/maps/world.js')])
 
       if (!isCancelled) {
         new window.jsVectorMap({

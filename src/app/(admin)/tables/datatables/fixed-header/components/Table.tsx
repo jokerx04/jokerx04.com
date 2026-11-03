@@ -1,7 +1,7 @@
 import DT from 'datatables.net'
 import 'datatables.net-fixedheader'
-import DataTable from 'datatables.net-react'
 import type { DataTableProps } from 'datatables.net-react'
+import DataTable from 'datatables.net-react'
 import 'datatables.net-responsive'
 import { columns, paginationIcons, tableData } from '../../data'
 
@@ -27,12 +27,7 @@ const Table = () => {
   }
 
   return (
-    <DataTable
-      data={tableData.body}
-      columns={columns}
-      options={options}
-      className="table-striped dt-responsive table align-middle"
-    >
+    <DataTable data={tableData.body} columns={columns} options={options} className="table-striped dt-responsive table align-middle">
       <thead className="thead-sm text-2xs uppercase">
         <tr>
           {tableData.header.map((label, idx) => (

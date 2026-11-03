@@ -1,6 +1,6 @@
 html[data-skin="retro"] {
-    --font-body: "Roboto Mono", monospace;
-    --font-secondary: "Roboto Mono", monospace;
+    --font-body: Pretendard-Regular, "Roboto Mono", monospace;
+    --font-secondary: Pretendard-Regular, "Roboto Mono", monospace;
 
     --text-body: 13px;
     --color-body-bg: #f3f3f7;

@@ -1,8 +1,8 @@
 'use client'
 import { type ApexChart as ApexChartType, type ApexOptions } from 'apexcharts'
 import dynamic from 'next/dynamic'
-import type { Props as ReactApexChartsProps } from 'react-apexcharts'
 import { useMemo } from 'react'
+import type { Props as ReactApexChartsProps } from 'react-apexcharts'
 
 import { useLayoutContext } from '@/context/useLayoutContext'
 
