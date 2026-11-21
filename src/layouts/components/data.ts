@@ -22,43 +22,47 @@ export const menuItems: MenuItemType[] = [
     ],
   },
   {
-    icon: 'article',
-    slug: 'familysite',
-    label: '패밀리 사이트',
+    icon: 'joker',
+    slug: 'jokerx04',
+    label: '야근의 요정',
     isTitle: true,
     children: [
       {
-        icon: 'article',
-        url: 'https://blog.jokerx04.com',
-        slug: 'pages:familysite-blog',
-        badge: {
-          text: '새창',
-          className: 'bg-light text-black',
-        },
-        label: '블로그',
-        target: '_blank',
-      },
-      {
-        icon: 'history',
-        url: 'https://history.jokerx04.com',
-        slug: 'pages:familysite-history',
-        badge: {
-          text: '새창',
-          className: 'bg-light text-black',
-        },
-        label: '한국사 통합 연표',
-        target: '_blank',
-      },
-      {
-        icon: 'bookmark-search',
-        url: 'https://bookmark.jokerx04.com',
-        slug: 'pages:familysite-bookmark',
-        badge: {
-          text: '새창',
-          className: 'bg-light text-black',
-        },
-        label: '북마크',
-        target: '_blank',
+        icon: 'joker',
+        slug: 'jokerx04-familysite',
+        label: '패밀리 사이트',
+        children: [
+          {
+            url: 'https://blog.jokerx04.com',
+            slug: 'pages:jokerx04-familysite-blog',
+            badge: {
+              text: '새창',
+              className: 'bg-light text-black',
+            },
+            label: '블로그',
+            target: '_blank',
+          },
+	  {
+            url: 'https://history.jokerx04.com',
+            slug: 'pages:jokerx04-familysite-history',
+            badge: {
+              text: '새창',
+              className: 'bg-light text-black',
+            },
+            label: '한국사 통합 연표',
+            target: '_blank',
+          },
+	  {
+            url: 'https://bookmark.jokerx04.com',
+            slug: 'pages:jokerx04-familysite-bookmark',
+            badge: {
+              text: '새창',
+              className: 'bg-light text-black',
+            },
+            label: '북마크',
+            target: '_blank',
+          },
+        ],
       },
     ],
   },
