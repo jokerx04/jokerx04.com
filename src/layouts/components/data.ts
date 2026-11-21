@@ -43,10 +43,10 @@ export const menuItems: MenuItemType[] = [
         url: 'https://history.jokerx04.com',
         slug: 'pages:familysite-history',
         badge: {
-          text: '한눈에 보는 한국사·세계사 통합 연표',
+          text: '새창',
           className: 'bg-light text-black',
         },
-        label: '블로그',
+        label: '한눈에 보는 한국사·세계사 통합 연표',
         target: '_blank',
       },
       {
