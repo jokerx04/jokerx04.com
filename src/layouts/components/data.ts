@@ -2,7 +2,7 @@ import { type MenuItemType } from '@/types'
 
 export const menuItems: MenuItemType[] = [
   {
-    icon: 'adjustments-alt',
+    icon: 'adjustments',
     slug: 'investments',
     label: '투자',
     isTitle: true,
@@ -28,7 +28,7 @@ export const menuItems: MenuItemType[] = [
     isTitle: true,
     children: [
       {
-        icon: 'joker',
+        icon: 'world-www',
         slug: 'jokerx04-familysite',
         label: '패밀리 사이트',
         children: [
